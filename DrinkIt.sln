@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkIt.WebApp", "DrinkIt.WebApp\DrinkIt.WebApp.csproj", "{29757E59-1EE3-4E94-A201-B76CF362752E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29757E59-1EE3-4E94-A201-B76CF362752E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29757E59-1EE3-4E94-A201-B76CF362752E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29757E59-1EE3-4E94-A201-B76CF362752E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29757E59-1EE3-4E94-A201-B76CF362752E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
