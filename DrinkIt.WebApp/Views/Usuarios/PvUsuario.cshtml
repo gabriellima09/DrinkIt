@@ -1,0 +1,18 @@
+﻿@model DrinkIt.WebApp.Models.Usuario
+
+<ul class="nav navbar-nav">
+    <li><a>Bem vindo, <span style="color: #9d9d9d;">@ViewBag.NomeUsuario</span></a></li>
+    <li class="btn-group">
+        <button type="button" style="margin-top: 7px;"
+                class="btn btn-default dropdown-toggle navbar-left"
+                data-toggle="dropdown" aria-haspopup="true" data-placement="left" aria-expanded="false">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Meu perfil", "Index", "Usuarios")</li>
+            <li role="separator" class="divider"></li>
+            <li>@Html.ActionLink("Sair", "Logout")</li>
+        </ul>
+    </li>
+</ul>
