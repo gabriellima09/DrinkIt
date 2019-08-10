@@ -181,6 +181,7 @@
     <Content Include="Views\Bebidas\Index.cshtml" />
     <Content Include="Views\Bebidas\PvBebida.cshtml" />
     <Content Include="Views\Bebidas\Create.cshtml" />
+    <Content Include="Views\Bebidas\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

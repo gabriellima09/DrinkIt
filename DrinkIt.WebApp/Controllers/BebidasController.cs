@@ -54,7 +54,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 new Bebida
                 {
-                    Id = 1,
+                    Id = 2,
                     Nome = "Soda",
                     Descricao = "Soda Limonada",
                     Marca = "Soda",
@@ -92,7 +92,37 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Bebida bebida = new Bebida
+            {
+                Id = id,
+                Nome = "Crystal",
+                Descricao = "Água Mineral sem Gás",
+                Marca = "Crystal",
+                Valor = 1.99M,
+                Volume = "1.5L",
+                Peso = "1KG",
+                Sabor = "---",
+                Lote = "12321",
+                DataFabricacao = DateTime.Now,
+                DataValidade = DateTime.Now,
+                Fabricante = "Coca-Cola",
+                Embalagem = "Garrafa",
+                CodigoBarras = "662607004",
+                Alcoolico = false,
+                Teor = "0%",
+                Gaseificada = false,
+                ContemGluten = false,
+                Ingredientes = new List<Ingrediente>
+                    {
+                        new Ingrediente
+                        {
+                            Descricao = "H2O"
+                        }
+                    },
+                DicaConservacao = "Beba água",
+                Status = "ATIVO"
+            };
+            return View(bebida);
         }
 
         // GET: Bebidas/Create
