@@ -118,12 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
+	<Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +180,9 @@
     <Content Include="Views\Bebidas\PvBebida.cshtml" />
     <Content Include="Views\Bebidas\Create.cshtml" />
     <Content Include="Views\Bebidas\Details.cshtml" />
+	<Content Include="Views\Usuarios\Login.cshtml" />
+    <Content Include="Views\Usuarios\PvUsuario.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
