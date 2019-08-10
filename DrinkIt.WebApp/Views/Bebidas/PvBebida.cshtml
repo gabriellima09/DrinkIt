@@ -1,0 +1,135 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
+
+<p>
+    @Html.ActionLink("Nova Bebida", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sabor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataFabricacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataValidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fabricante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Embalagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoBarras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alcoolico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gaseificada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContemGluten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DicaConservacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sabor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataFabricacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataValidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabricante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Embalagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoBarras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alcoolico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gaseificada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContemGluten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DicaConservacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
