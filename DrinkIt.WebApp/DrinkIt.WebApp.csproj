@@ -193,9 +193,11 @@
     <Content Include="Views\TipoBebida\PvTipoBebida.cshtml" />
     <Content Include="Views\TipoBebida\Create.cshtml" />
     <Content Include="Views\TipoBebida\Edit.cshtml" />
+    <Content Include="Views\Bebidas\PvDashBebidas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

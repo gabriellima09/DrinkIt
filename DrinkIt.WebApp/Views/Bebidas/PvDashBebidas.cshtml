@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
+
+<div class="panel panel-default">
+    <div class="form-horizontal">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h3>O que gostaria de beber? </h3>
+                <hr />
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xs-6 col-md-3 col-lg-3" style="margin-bottom:15px">
+                            <a href="/Bebidas/Details/@item.Id" class="thumbnail alinharCentro">
+                                <label>@item.Nome</label>
+                                <hr class="marginTop5px" />
+                                <img class="tamImg" src="/Images/drink.jpg" />
+                            </a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
