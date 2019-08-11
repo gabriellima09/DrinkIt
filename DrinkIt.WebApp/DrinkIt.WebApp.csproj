@@ -182,6 +182,7 @@
     <Content Include="Views\Bebidas\PvBebida.cshtml" />
     <Content Include="Views\Bebidas\Create.cshtml" />
     <Content Include="Views\Bebidas\Details.cshtml" />
+	<Content Include="Views\Bebidas\Edit.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Usuarios\PvUsuario.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
