@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\TipoBebidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,12 +183,16 @@
     <Content Include="Views\Bebidas\PvBebida.cshtml" />
     <Content Include="Views\Bebidas\Create.cshtml" />
     <Content Include="Views\Bebidas\Details.cshtml" />
-	<Content Include="Views\Bebidas\Edit.cshtml" />
+    <Content Include="Views\Bebidas\Edit.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Usuarios\PvUsuario.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Pedidos\PvPedido.cshtml" />
     <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\TipoBebida\Index.cshtml" />
+    <Content Include="Views\TipoBebida\PvTipoBebida.cshtml" />
+    <Content Include="Views\TipoBebida\Create.cshtml" />
+    <Content Include="Views\TipoBebida\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
