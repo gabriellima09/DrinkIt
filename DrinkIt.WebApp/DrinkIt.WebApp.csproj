@@ -121,7 +121,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
-	<Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -131,6 +132,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\TipoBebida.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,9 +182,11 @@
     <Content Include="Views\Bebidas\PvBebida.cshtml" />
     <Content Include="Views\Bebidas\Create.cshtml" />
     <Content Include="Views\Bebidas\Details.cshtml" />
-	<Content Include="Views\Usuarios\Login.cshtml" />
+    <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Usuarios\PvUsuario.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Pedidos\PvPedido.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

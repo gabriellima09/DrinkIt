@@ -1,0 +1,64 @@
+﻿@model DrinkIt.WebApp.Models.Pedido
+
+@{
+    ViewBag.Title = "Pedido - Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+    </dl>
+
+    <hr />
+
+    <h4>Bebidas</h4>
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.Bebidas)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => item.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.Nome)
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar", "Index", "Clientes")
+</p>
