@@ -58,5 +58,10 @@ namespace DrinkIt.WebApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Configuracoes()
+        {
+            return View();
+        }
     }
 }

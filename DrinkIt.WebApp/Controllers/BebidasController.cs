@@ -19,7 +19,6 @@ namespace DrinkIt.WebApp.Controllers
         {
             List<Bebida> bebidas = new List<Bebida>
             {
-
                 new Bebida
                 {
                     Id = 1,
@@ -51,7 +50,6 @@ namespace DrinkIt.WebApp.Controllers
                     Status = "ATIVO"                    
 
                 },
-
                 new Bebida
                 {
                     Id = 2,
@@ -83,7 +81,6 @@ namespace DrinkIt.WebApp.Controllers
                     Status = "ATIVO"
 
                 },
-
                 new Bebida
                 {
                     Id = 3,
@@ -113,7 +110,6 @@ namespace DrinkIt.WebApp.Controllers
                     },
                     DicaConservacao = "Manter em local seco e arejado.",
                     Status = "ATIVO"
-
                 }
 
             };

@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -130,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Bebida.cs" />
+    <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Ingrediente.cs" />
@@ -147,6 +149,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\drink.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -171,8 +174,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\PvCliente.cshtml" />
@@ -194,10 +195,12 @@
     <Content Include="Views\TipoBebida\Create.cshtml" />
     <Content Include="Views\TipoBebida\Edit.cshtml" />
     <Content Include="Views\Bebidas\PvDashBebidas.cshtml" />
+    <Content Include="Views\Usuarios\Configuracoes.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Pedidos\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -3,9 +3,11 @@
 }
 
 <div class="jumbotron">
-    <h1>Drink It</h1>
+    <h2>Drink It</h2>
     <hr />
     <p class="lead">O novo E-Commerce de bebidas que você estava esperando !!!</p>
-    <hr />
-    <p>@Html.ActionLink("Ver produtos >>", "Index", "Bebidas", null, new { @class = "btn btn-lg btn-primary" })</p>
 </div>
+
+<hr />
+
+@Html.Action("PvDashBebidas", "Bebidas")

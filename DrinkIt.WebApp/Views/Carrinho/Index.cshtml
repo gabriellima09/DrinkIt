@@ -1,0 +1,72 @@
+﻿@model DrinkIt.WebApp.Models.Carrinho
+
+@{
+    ViewBag.Title = "Meu carrinho";
+}
+
+<h2>Meu carrinho</h2>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Sabor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Bebidas)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Nome, "Details", "Bebidas", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sabor)
+            </td>
+            <td align="center">
+                <button type="submit" class="btn btn-danger">Remover</button>
+            </td>
+        </tr>
+    }
+</table>
+
+<hr />
+
+<div class="form-group" align="right">
+    @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class ="btn btn-success" })
+</div>

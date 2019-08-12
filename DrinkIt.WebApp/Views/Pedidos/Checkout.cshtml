@@ -1,0 +1,113 @@
+﻿@model DrinkIt.WebApp.Models.Pedido
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<hr />
+
+<div class="panel panel-default">
+    <div class="container" style="padding-left:0;padding-right:30px">
+
+        <!-- Endereço -->
+        <div class="col-lg-4 col-md-4">
+            <div class="form-horizontal">
+                <h4>Endereço</h4>
+                <hr />
+
+                <address>
+                    <strong>Meu endereço</strong><br>
+                    Rua ABC, 1355 - Centro<br>
+                    Mogi das Cruzes, SP<br>
+                    @*<abbr title="Phone">P:</abbr> (123) 456-7890*@
+                </address>
+
+                <button class="btn btn-info">Trocar endereço</button>
+
+            </div>
+        </div>
+
+        <!-- Forma de pagamento -->
+        <div class="col-lg-4 col-md-4">
+            <div class="form-horizontal">
+                <h4>Forma de Pagamento</h4>
+                <hr />
+
+                <div class="form-group">
+                    <label class="control-label">Tipo de pagamento</label>
+                    <select class="form-control" id="FormaPagamento">
+                        <option>Crédito</option>
+                        <option>Débito</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Número do Cartão</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Nome Titular</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6" style="padding-left:0;margin-right:15px">
+                        <label for="inputEmail4">Mês</label>
+                        <input type="text" class="form-control" id="mes" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6" style="padding-right:0;">
+                        <label for="inputPassword4">Ano</label>
+                        <input type="text" class="form-control" id="ano" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Código de segurança</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Revisão do pedido -->
+        <div class="col-lg-4 col-md-4">
+            <div class="form-horizontal">
+                <h4>Revisão do pedido</h4>
+                <hr />
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Resumo do pedido</div>
+                    <div class="panel-body">
+                        <dl>
+                            @foreach (var item in Model.Bebidas)
+                            {
+                                <dt>
+                                    <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"))</label>
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => item.Descricao)
+                                </dd>
+                            }
+                        </dl>
+                    </div>
+                    <div class="panel-footer">
+                        <label class="control-label">Valor Total: </label>
+                        <label class="control-label" style="float:right">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="form-horizontal">
+        <div class="form-group" align="right" style="margin-right:15px">
+            <button type="button" class="btn btn-success">Finalizar Compra</button>
+        </div>
+    </div>
+</div>
