@@ -31,6 +31,19 @@ namespace DrinkIt.WebApp.Controllers
         [HttpPost]
         public ActionResult Login(Usuario usuario)
         {
+            if (usuario.Login.Equals("admin"))
+            {
+                Session["Usuario"] = new Usuario
+                {
+                    Id = 1,
+                    Email = "admin@admin.com.br",
+                    Login = "admin",
+                    Senha = "admin"
+                };
+
+                return View("Index");
+            }
+
             Session["Usuario"] = new Usuario
             {
                 Id = 1,

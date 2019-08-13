@@ -1,13 +1,8 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
 
-<p>
-    @Html.ActionLink("Nova Bebida", "Create")
-</p>
-
-<hr />
-
-@Html.TextBox("BuscaBebida", "", null, new { @class = "form-control", @placeholder = "Buscar Bebidas" })
-<br />
+@{ 
+    Layout = null;
+}
 
 <table class="table">
     <tr>

@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
+    <Compile Include="Controllers\CuponsController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Models\Bebida.cs" />
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
@@ -198,6 +200,11 @@
     <Content Include="Views\Usuarios\Configuracoes.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
     <Content Include="Views\Pedidos\Checkout.cshtml" />
+    <Content Include="Views\Cupons\Index.cshtml" />
+    <Content Include="Views\Cupons\Details.cshtml" />
+    <Content Include="Views\Cupons\PvCupom.cshtml" />
+    <Content Include="Views\Cupons\Create.cshtml" />
+    <Content Include="Views\Cupons\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

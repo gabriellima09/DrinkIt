@@ -1,7 +1,105 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Administração";
 }
 
-<h2>Index</h2>
+<h2>Administração</h2>
 
+<hr />
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#Dashboard">Dashboard</a></li>
+    <li><a data-toggle="tab" href="#Bebidas">Bebidas</a></li>
+    <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
+    <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
+    <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
+</ul>
+
+<div class="tab-content">
+    <!-- Dashboard -->
+    <div class="tab-pane active" id="Dashboard">
+        <div class="panel panel-default">
+            <h4>Info Gráfico</h4>
+            <hr />
+            <div class="panel panel-default">
+                <canvas id="myChart" max-width="50" max-height="50"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+            <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Salas', 'Reservas'],
+                        datasets: [{
+                            label: 'Total',
+                            data: [10, 15],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(153, 102, 255, 1)',
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <!-- Bebidas -->
+    <div class="tab-pane" id="Bebidas">
+        <div class="panel panel-default">
+            <h4>Bebidas</h4>
+            <hr />
+
+            <p>
+                @Html.ActionLink("Nova Bebida", "Create", null, new { @class = "btn btn-primary" })
+            </p>
+
+            <hr />
+
+            @Html.Action("PvBebida", "Bebidas")
+        </div>
+    </div>
+
+    <!-- Clientes -->
+    <div class="tab-pane" id="Clientes">
+        <div class="panel panel-default">
+            <h4>Clientes</h4>
+            <hr />
+            @Html.Action("PvCliente", "Clientes")
+        </div>
+    </div>
+
+    <!-- Pedidos -->
+    <div class="tab-pane" id="Pedidos">
+        <div class="panel panel-default">
+            <h4>Pedidos</h4>
+            <hr />
+            @Html.Action("PvPedido", "Pedidos")
+        </div>
+    </div>
+
+    <!-- Cupons -->
+    <div class="tab-pane" id="Cupons">
+        <div class="panel panel-default">
+            <h4>Cupons</h4>
+            <hr />
+            @Html.Action("PvCupom", "Cupons")
+        </div>
+    </div>
+</div>
