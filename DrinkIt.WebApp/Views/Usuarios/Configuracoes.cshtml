@@ -21,15 +21,29 @@
                 @using (Html.BeginForm("", "", FormMethod.Post))
                 {
                     <div class="form-group">
-                        @Html.Label("Nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
+                        @Html.Label("Senha atual", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
                             @Html.TextBox("Senha", null, new { @class = "form-control" })
                         </div>
                     </div>
 
                     <div class="form-group">
+                        @Html.Label("Nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
+                        <div class="col-lg-10 col-md-10">
+                            @Html.TextBox("NovaSenha", null, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Confirmar nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
+                        <div class="col-lg-10 col-md-10">
+                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Salvar" class="btn btn-success" />
+                            <input type="submit" value="Salvar senha" class="btn btn-success" />
                         </div>
                     </div>
                 }
