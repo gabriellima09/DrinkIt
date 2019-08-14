@@ -3,8 +3,155 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Meus Pedidos</h2>
+<h2>Olá, Usuário Teste</h2>
 
 <hr />
 
-@Html.Action("PvPedido", "Pedidos")
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#Pedidos">Meus pedidos</a></li>
+    <li><a data-toggle="tab" href="#Endereco">Meus Endereços</a></li>
+    <li><a data-toggle="tab" href="#Cartoes">Meus cartões</a></li>
+    <li><a data-toggle="tab" href="#Cupons">Meus Cupons</a></li>
+</ul>
+
+<div class="tab-content">
+    <!-- Pedidos -->
+    <div class="tab-pane active" id="Pedidos">
+        <div class="panel panel-default">
+            <h4>Pedidos</h4>
+            <hr />
+            @Html.Action("PvPedido", "Pedidos")
+        </div>
+    </div>
+
+    <!-- Endereços -->
+    <div class="tab-pane" id="Endereco">
+        <div class="panel panel-default">
+            <h4>Endereços</h4>
+            <hr />
+            <button type="button" class="btn btn-primary">Cadastrar</button>
+            <hr />
+            <table class="table tab-content table-bordered table-hover">
+                <tr>
+                    <th>
+                        Descrição
+                    </th>
+                    <th>
+                        Endereço
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        Casa
+                    </td>
+                    <td>
+                        Rua ABC, 123 - Mogi das Cruzes - SP - 08693-370
+                    </td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Opções <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><button class="btn btn-warning">Editar</button></li>
+                                <li><button class="btn btn-info">Detalhes</button></li>
+                                <li><button class="btn btn-danger">Excluir</button></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Trabalho
+                    </td>
+                    <td>
+                        Rua XYZ, 1010 - 10º Andar, Sala 4 - Mogi das Cruzes - SP - 08693-370
+                    </td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Opções <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="btn-warning">Editar</a></li>
+                                <li><a class="btn-info">Detalhes</a></li>
+                                <li><a class="btn-danger">Excluir</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cartões -->
+    <div class="tab-pane" id="Cartoes">
+        <div class="panel panel-default">
+            <h4>Cartões</h4>
+            <hr />
+            <button type="button" class="btn btn-primary">Cadastrar</button>
+            <hr />
+            <table class="table tab-content table-bordered table-hover">
+                <tr>
+                    <th>
+                        Número do Cartão
+                    </th>
+                    <th>
+                        Bandeira
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        XXXX-XXXX-XXXX-1234
+                    </td>
+                    <td>
+                        VISA
+                    </td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Opções <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><button class="btn btn-warning">Editar</button></li>
+                                <li><button class="btn btn-info">Detalhes</button></li>
+                                <li><button class="btn btn-danger">Excluir</button></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        XXXX-XXXX-XXXX-5678
+                    </td>
+                    <td>
+                        MASTERCARD
+                    </td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Opções <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="btn-warning">Editar</a></li>
+                                <li><a class="btn-info">Detalhes</a></li>
+                                <li><a class="btn-danger">Excluir</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cupons -->
+    <div class="tab-pane" id="Cupons">
+        <div class="panel panel-default">
+            <h4>Cupons</h4>
+            <hr />
+            @Html.Action("PvCupom", "Cupons")
+        </div>
+    </div>
+</div>
