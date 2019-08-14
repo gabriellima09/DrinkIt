@@ -26,5 +26,6 @@ namespace DrinkIt.WebApp.Models
         public List<Ingrediente> Ingredientes { get; set; }
         public string DicaConservacao { get; set; }
         public string Status { get; set; }
+        public string CaminhoImagem { get; set; }
     }
 }

@@ -148,7 +148,9 @@ namespace DrinkIt.WebApp.Controllers
                         }
                     },
                 DicaConservacao = "Beba água",
-                Status = "ATIVO"
+                Status = "ATIVO",
+                CaminhoImagem = "/Images/crystal.jpg"
+
             };
             return View(bebida);
         }
