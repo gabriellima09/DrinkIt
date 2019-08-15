@@ -30,11 +30,58 @@
         </div>
 
         <!-- Forma de pagamento -->
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-4 col-md-4" >
             <div class="form-horizontal">
                 <h4>Forma de Pagamento</h4>
                 <hr />
 
+
+                <div class="form-group">
+                    <label class="control-label">Tipo de pagamento</label>
+                    <select class="form-control" id="FormaPagamento">
+                        <option>Crédito</option>
+                        <option>Débito</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Cupom de Desconto</label>
+                    <input type="text" class="form-control" id="inputCupom" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Número do Cartão</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Nome Titular</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6" style="padding-left:0;margin-right:15px">
+                        <label for="inputEmail4">Mês</label>
+                        <input type="text" class="form-control" id="mes" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6" style="padding-right:0;">
+                        <label for="inputPassword4">Ano</label>
+                        <input type="text" class="form-control" id="ano" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress">Código de segurança</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="">
+                </div>
+
+                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
+
+            </div>
+            <br />
+            
+            <div class="form-horizontal" id="divCartaoAdicional">
+                <hr />
                 <div class="form-group">
                     <label class="control-label">Tipo de pagamento</label>
                     <select class="form-control" id="FormaPagamento">
