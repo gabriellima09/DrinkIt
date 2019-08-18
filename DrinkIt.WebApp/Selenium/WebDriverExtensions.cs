@@ -34,8 +34,14 @@ namespace DrinkIt.WebApp.Selenium
             Thread.Sleep(1000);
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             IWebElement webElement = webDriver.FindElement(by);
-            webElement.Submit();
+            webElement.Click();
         }
+
+        public static void Wait(this IWebDriver webDriver, double seconds)
+        {
+            Thread.Sleep(3000);
+        }
+
 
         public static void Quit(this IWebDriver webDriver)
         {
