@@ -163,6 +163,8 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selenium\Browser.cs" />
+    <Compile Include="Selenium\TelaCadastroBebida\TelaCadastroBebida.cs" />
+    <Compile Include="Selenium\TelaCadastroBebida\TesteCadastroBebida.cs" />
     <Compile Include="Selenium\TelaCadastroCliente\TelaCadastroCliente.cs" />
     <Compile Include="Selenium\TelaCadastroCliente\TesteCadastroCliente.cs" />
     <Compile Include="Selenium\WebDriveFactory.cs" />
