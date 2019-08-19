@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar Endereço";
+}
+
+<h2>Cadastrar Endereço</h2>
+
+<form method="post" id="FormCadastrarEndereco">
+
+    <dl class="dl-horizontal">
+
+        <dt>CEP:</dt>
+        <dd>
+            <input type="text" class="form-control" name="CEP" />
+        </dd>
+
+        <dt><br />Rua:</dt>
+        <dd>
+            <br />
+            <input type="text" class="form-control" name="Rua" />
+        </dd>
+
+        <dt><br />Bairro:</dt>
+        <dd>
+            <br />
+            <input type="text" class="form-control" name="Bairro" />
+        </dd>
+
+        <dt><br />Complemento:</dt>
+        <dd>
+            <br />
+            <input type="text" class="form-control" name="Complemento" />
+        </dd>
+
+        <dt><br />Cidade:</dt>
+        <dd>
+            <br />
+            <input type="text" class="form-control" name="Cidade" />
+        </dd>
+
+        <dt><br />Estado:</dt>
+        <dd>
+            <br />
+            <input type="text" class="form-control" name="Estado" />
+        </dd>
+
+        <dt></dt>
+
+        <dd>
+            <br />
+            @Html.ActionLink("Cadastrar", "Checkout", "Pedidos", null, new { @class = "btn btn-success" })
+        </dd>
+
+
+    </dl>
+
+</form>

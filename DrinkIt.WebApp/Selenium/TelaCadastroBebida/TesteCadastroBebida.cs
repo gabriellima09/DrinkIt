@@ -13,6 +13,7 @@ namespace DrinkIt.WebApp.Selenium
             {
                 Id = 1,
                 Nome = "Bebida Teste",
+                Descricao = "Descricao Teste",
                 Marca = "Marca Teste",
                 Valor = 9.99M,
                 Volume = "2 Litros",

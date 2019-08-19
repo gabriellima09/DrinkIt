@@ -144,6 +144,7 @@
     <Compile Include="Controllers\BebidasController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CuponsController.cs" />
+    <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Pedidos\Script_Checkout_Pedidos.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,6 +236,7 @@
     <Content Include="Views\Cupons\PvCupom.cshtml" />
     <Content Include="Views\Cupons\Create.cshtml" />
     <Content Include="Views\Cupons\Edit.cshtml" />
+    <Content Include="Views\Endereco\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
