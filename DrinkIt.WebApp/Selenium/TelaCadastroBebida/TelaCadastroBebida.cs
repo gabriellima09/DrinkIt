@@ -29,14 +29,13 @@ namespace DrinkIt.WebApp.Selenium
             _driver.SetText(By.Name("Nome"), bebida.Nome.ToString());
             _driver.SetText(By.Name("Descricao"), bebida.Descricao.ToString());
             _driver.SetText(By.Name("Marca"), bebida.Marca.ToString());
-            _driver.SetText(By.Name("Nome"), bebida.Nome.ToString());
             _driver.SetText(By.Name("Valor"), bebida.Valor.ToString());
-            _driver.SetText(By.Name("DataFabricacao"), bebida.DataFabricacao.ToString("dd/MM/yyyy"));
-            _driver.SetText(By.Name("DataValidade"), bebida.DataValidade.ToString("dd/MM/yyyy"));
             _driver.SetText(By.Name("Volume"), bebida.Volume.ToString());
             _driver.SetText(By.Name("Peso"), bebida.Peso.ToString());
             _driver.SetText(By.Name("Sabor"), bebida.Sabor.ToString());
             _driver.SetText(By.Name("Lote"), bebida.Lote.ToString());
+            _driver.SetText(By.Name("DataFabricacao"), bebida.DataFabricacao.ToString("dd/MM/yyyy"));
+            _driver.SetText(By.Name("DataValidade"), bebida.DataValidade.ToString("dd/MM/yyyy"));            
             _driver.SetText(By.Name("Fabricante"), bebida.Fabricante.ToString());
             _driver.SetText(By.Name("Embalagem"), bebida.Embalagem.ToString());
             _driver.SetText(By.Name("CodigoBarras"), bebida.CodigoBarras.ToString());
