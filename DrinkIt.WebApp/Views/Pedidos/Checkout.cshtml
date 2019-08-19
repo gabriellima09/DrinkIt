@@ -1,5 +1,4 @@
 ﻿@model DrinkIt.WebApp.Models.Pedido
-
 @{
     ViewBag.Title = "Checkout";
 }
@@ -16,25 +15,40 @@
             <div class="form-horizontal">
                 <h4>Endereço</h4>
                 <hr />
+                @*
+        <address>
+            <strong>Meu endereço</strong><br>
+            Rua ABC, 1355 - Centro<br>
+            Mogi das Cruzes, SP<br>
+            @*<abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>*@
 
-                <address>
-                    <strong>Meu endereço</strong><br>
-                    Rua ABC, 1355 - Centro<br>
-                    Mogi das Cruzes, SP<br>
-                    @*<abbr title="Phone">P:</abbr> (123) 456-7890*@
-                </address>
+                <select class="form-control" id="dropEndereco" name="Endereco">
+                    <option>Casa - Rua ABC 135 - Centro, Mogi das Cruzes SP</option>
+                    <option>Trabalho - Rua DEF 23 - Centro, Suzano SP</option>
+                </select>
 
-                <button class="btn btn-info">Trocar endereço</button>
+                <br />
+
+                @Html.ActionLink("Novo Endereço", "Create", "Endereco", null, new { @class = "btn btn-info" })
 
             </div>
         </div>
 
         <!-- Forma de pagamento -->
-        <div class="col-lg-4 col-md-4" >
+        <div class="col-lg-4 col-md-4">
             <div class="form-horizontal">
                 <h4>Forma de Pagamento</h4>
                 <hr />
 
+                <div class="form-group">
+                    <label class="control-label">Selecionar Cartão</label>
+                    <select class="form-control" id="SelectCartao">
+                        <option>Nenhum</option>
+                        <option>VISA terminado em 1234</option>
+                        <option>MASTERCARD terminado em 5678</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label class="control-label">Tipo de pagamento</label>
@@ -42,11 +56,6 @@
                         <option>Crédito</option>
                         <option>Débito</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Cupom de Desconto</label>
-                    <input type="text" class="form-control" id="inputCupom" placeholder="">
                 </div>
 
                 <div class="form-group">
@@ -74,14 +83,27 @@
                     <label for="inputAddress">Código de segurança</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="">
                 </div>
-
-                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
+                <div class="btn-group">
+                    <button id="btnAddCartao" type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
+                    <button id="btnRemoverCartao" style="display:none" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                    <button id="btnSalvarCartao" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Cartão</button>
+                </div>
 
             </div>
             <br />
-            
-            <div class="form-horizontal" id="divCartaoAdicional">
+
+            <div class="form-horizontal" id="divCartaoAdicional" style="display:none">
                 <hr />
+
+                <div class="form-group">
+                    <label class="control-label">Selecionar Cartão</label>
+                    <select class="form-control" id="SelectCartao">
+                        <option>Nenhum</option>
+                        <option>VISA terminado em 1234</option>
+                        <option>MASTERCARD terminado em 5678</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label class="control-label">Tipo de pagamento</label>
                     <select class="form-control" id="FormaPagamento">
@@ -115,6 +137,8 @@
                     <label for="inputAddress">Código de segurança</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="">
                 </div>
+
+                <button id="btnSalvarCartao2" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Cartão</button>
 
             </div>
         </div>
@@ -147,6 +171,16 @@
                     </div>
                 </div>
             </div>
+            <br />
+
+            <div class="form-group">
+                <label for="inputAddress">Cupom de Desconto</label>
+                <input type="text" class="form-control" id="inputCupom" placeholder="Insira um cupom válido">
+                <br />
+                <button class="btn btn-info" type="button">Validar Cupom</button>
+            </div>
+
+
         </div>
     </div>
 
@@ -158,3 +192,8 @@
         </div>
     </div>
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script src="~/Scripts/Pedidos/Script_Checkout_Pedidos.js"></script>
