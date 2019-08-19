@@ -1,6 +1,54 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
 
-@Html.TextBox("BuscaBebida", "", null, new { @class = "form-control", @placeholder = "Buscar Bebidas" })
+<div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+    <input class="form-control" placeholder="Procurar Bebidas" />
+</div>
+
+<br />
+
+<div class="input-group-btn">
+    <button class="btn btn-default" id="btnFiltros">
+        <span class="glyphicon glyphicon-filter" />
+        <strong>Filtros</strong>
+    </button>
+</div>
+
+<div class="panel panel-default" id="divFiltros" style="display:none">
+    <div class="container form-group">
+        <div class="row" style="margin-top:15px">
+
+            <div class="col-md-4">
+                <label class="control-label">Gaseificada</label>
+                <select class="form-control">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="control-label">Teor Alcoólico</label>
+                <select class="form-control">
+                    <option>Menor que 10%</option>
+                    <option>Maior que 10%</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="control-label">Valor (R$)</label>
+                <select class="form-control">
+                    <option>Até R$ 15,00</option>
+                    <option>Entre R$ 16,00 e R$ 50,00</option>
+                    <option>Acima de R$ 50,00</option>
+                </select>
+            </div>
+        </div>
+
+        <hr />
+
+        <button class="btn btn-default">Aplicar Filtros</button>
+    </div>
+</div>
 
 <br />
 
@@ -18,10 +66,12 @@
                     @foreach (var item in Model)
                     {
                         <div class="col-xs-6 col-md-3 col-lg-3" style="margin-bottom:15px">
-                            <a href="/Bebidas/Details/@item.Id" class="thumbnail alinharCentro">
-                                <label>@item.Nome</label>
-                                <hr class="marginTop5px" />
-                                <img class="tamImg" src="/Images/drink.jpg" />
+                            <a href="/Bebidas/Details/@item.Id" class="thumbnail" align="center">
+                                <h4><strong>@item.Nome</strong></h4>
+                                <hr />
+                                <img src="/Images/drink.jpg" />
+                                <hr />
+                                <span class="btn btn-primary">Ver detalhes</span>
                             </a>
                         </div>
                     }

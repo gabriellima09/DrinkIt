@@ -1,21 +1,41 @@
 ﻿@model DrinkIt.WebApp.Models.Usuario
 
-<ul class="nav navbar-nav">
+@using DrinkIt.WebApp.Models;
+
+<ul class="nav navbar-nav" style="padding-left:30%;">
+    <li class="btn-group">
+        <button id="btnCarrinho" class="btn btn-md btn-info glyphicon glyphicon-shopping-cart" style="margin-top: 15%;"></button>
+    </li>
+</ul>
+
+<ul class="nav navbar-nav" style="float:right">
     <li><a>Bem vindo, <span style="color: #9d9d9d;">@ViewBag.NomeUsuario</span></a></li>
     <li class="btn-group">
         <button type="button" style="margin-top: 7px;"
                 class="btn btn-default dropdown-toggle navbar-left"
-                data-toggle="dropdown" aria-haspopup="true" data-placement="left" aria-expanded="false">
+                data-toggle="dropdown" aria-haspopup="true">
             <span class="glyphicon glyphicon-user"></span>
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li>@Html.ActionLink("Meu perfil", "Index", "Usuarios")</li>
-            <li>@Html.ActionLink("Meu Carrinho", "Index", "Carrinho")</li>
-            <li role="separator" class="divider"></li>
-            <li>@Html.ActionLink("Configurações", "Configuracoes", "Usuarios")</li>
+            @if (!((Usuario)Session["Usuario"]).Login.Equals("admin"))
+            {
+                <li>@Html.ActionLink("Meu perfil", "Index", "Clientes")</li>
+                <li>@Html.ActionLink("Meu Carrinho", "Index", "Carrinho")</li>
+                <li role="separator" class="divider"></li>
+                <li>@Html.ActionLink("Configurações", "Configuracoes", "Usuarios")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Administração", "Index", "Usuarios")</li>
+            }
+
             <li role="separator" class="divider"></li>
             <li>@Html.ActionLink("Sair", "Logout")</li>
         </ul>
     </li>
 </ul>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+}

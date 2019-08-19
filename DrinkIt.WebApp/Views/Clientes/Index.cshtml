@@ -3,6 +3,16 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    h4 {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    button{
+        margin-left:15px;
+    }
+</style>
+
 <h2>Olá, Usuário Teste</h2>
 
 <hr />
@@ -18,7 +28,7 @@
     <!-- Pedidos -->
     <div class="tab-pane active" id="Pedidos">
         <div class="panel panel-default">
-            <h4>Pedidos</h4>
+            <h4>Meus Pedidos</h4>
             <hr />
             @Html.Action("PvPedido", "Pedidos")
         </div>
@@ -54,9 +64,9 @@
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><button class="btn btn-warning">Editar</button></li>
-                                <li><button class="btn btn-info">Detalhes</button></li>
-                                <li><button class="btn btn-danger">Excluir</button></li>
+                                <li><a class="btn btn-warning">Editar</a></li>
+                                <li><a class="btn btn-info">Detalhes</a></li>
+                                <li><a class="btn btn-danger">Excluir</a></li>
                             </ul>
                         </div>
                     </td>
@@ -74,9 +84,9 @@
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn-warning">Editar</a></li>
-                                <li><a class="btn-info">Detalhes</a></li>
-                                <li><a class="btn-danger">Excluir</a></li>
+                                <li><a class="btn btn-warning">Editar</a></li>
+                                <li><a class="btn btn-info">Detalhes</a></li>
+                                <li><a class="btn btn-danger">Excluir</a></li>
                             </ul>
                         </div>
                     </td>
@@ -115,9 +125,9 @@
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><button class="btn btn-warning">Editar</button></li>
-                                <li><button class="btn btn-info">Detalhes</button></li>
-                                <li><button class="btn btn-danger">Excluir</button></li>
+                                <li><a class="btn btn-warning">Editar</a></li>
+                                <li><a class="btn btn-info">Detalhes</a></li>
+                                <li><a class="btn btn-danger">Excluir</a></li>
                             </ul>
                         </div>
                     </td>
@@ -135,9 +145,9 @@
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn-warning">Editar</a></li>
-                                <li><a class="btn-info">Detalhes</a></li>
-                                <li><a class="btn-danger">Excluir</a></li>
+                                <li><a class="btn btn-warning">Editar</a></li>
+                                <li><a class="btn btn-info">Detalhes</a></li>
+                                <li><a class="btn btn-danger">Excluir</a></li>
                             </ul>
                         </div>
                     </td>
@@ -149,7 +159,7 @@
     <!-- Cupons -->
     <div class="tab-pane" id="Cupons">
         <div class="panel panel-default">
-            <h4>Cupons</h4>
+            <h4>Meus Cupons</h4>
             <hr />
             @Html.Action("PvCupom", "Cupons")
         </div>

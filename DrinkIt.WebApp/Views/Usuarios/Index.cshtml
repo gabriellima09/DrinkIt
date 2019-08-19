@@ -3,6 +3,17 @@
     ViewBag.Title = "Administração";
 }
 
+<style>
+    h4 {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    button {
+        margin-left: 15px;
+    }
+</style>
+
 <h2>Administração</h2>
 
 <hr />
@@ -18,99 +29,102 @@
 <div class="tab-content">
     <!-- Dashboard -->
     <div class="tab-pane active" id="Dashboard">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="display: flow-root;">
             <h4>Info Gráfico</h4>
+
             <hr />
 
-            <h5>Pedidos no ano</h5>
-            <div class="panel panel-default">
+            <div class="col-lg-6">
+                <h5><strong>Pedidos no ano</strong></h5>
+                <hr />
                 <canvas id="PedidosAno" max-width="50" max-height="50"></canvas>
             </div>
 
-            <h5>Bebidas mais compradas</h5>
-            <div class="panel panel-default">
+            <div class="col-lg-6">
+                <h5><strong>Bebidas mais compradas</strong></h5>
+                <hr />
                 <canvas id="BebidasMaisCompradas" max-width="50" max-height="50"></canvas>
             </div>
-
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-
-            <script>
-                var ctx = document.getElementById('BebidasMaisCompradas');
-                var myChart = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Água', 'Refrigerante', 'Suco'],
-                        datasets: [{
-                            label: 'Total',
-                            data: [22, 46, 12],
-                            backgroundColor: [
-                                'rgba(254, 162, 235, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(134, 162, 235, 0.2)',
-                            ],
-                            borderColor: [
-                                'rgba(254, 162, 235, 0.1)',
-                                'rgba(153, 102, 255, 0.1)',
-                                'rgba(134, 162, 235, 0.1)',
-                            ],
-                            borderWidth: 2
-                        }]
-                    },
-                });
-            </script>
-
-            <script>
-                var ctx = document.getElementById('PedidosAno').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                        datasets: [{
-                            label: 'Total',
-                            data: [10, 15, 53, 31, 12, 3, 41, 22, 46, 12, 31, 45],
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(34, 162, 235, 0.2)',
-                                'rgba(153, 162, 255, 0.2)',
-                                'rgba(44, 162, 135, 0.2)',
-                                'rgba(103, 92, 205, 0.2)',
-                                'rgba(4, 16, 215, 0.2)',
-                                'rgba(53, 10, 55, 0.2)',
-                                'rgba(250, 12, 23, 0.2)',
-                                'rgba(200, 102, 205, 0.2)',
-                                'rgba(90, 62, 185, 0.2)',
-                                'rgba(133, 112, 285, 0.2)',
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 0.1)',
-                                'rgba(153, 102, 255, 0.1)',
-                                'rgba(34, 162, 235, 0.1)',
-                                'rgba(153, 162, 255, 0.1)',
-                                'rgba(44, 162, 135, 0.1)',
-                                'rgba(103, 92, 205, 0.1)',
-                                'rgba(4, 16, 215, 0.1)',
-                                'rgba(53, 10, 55, 0.1)',
-                                'rgba(250, 12, 23, 0.1)',
-                                'rgba(200, 102, 205, 0.1)',
-                                'rgba(90, 62, 185, 0.1)',
-                                'rgba(133, 112, 285, 0.1)',
-                            ],
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-            </script>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+        <script>
+            var ctx = document.getElementById('BebidasMaisCompradas');
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Água', 'Refrigerante', 'Suco'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [22, 46, 12],
+                        backgroundColor: [
+                            'rgba(4, 16, 215, 0.2)',
+                            'rgba(250, 12, 23, 0.2)',
+                            'rgba(44, 162, 135, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(4, 16, 215, 0.2)',
+                            'rgba(250, 12, 23, 0.2)',
+                            'rgba(44, 162, 135, 0.2)',
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+            });
+        </script>
+
+        <script>
+            var ctx = document.getElementById('PedidosAno').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    datasets: [{
+                        label: 'Total',
+                        data: [10, 15, 53, 31, 12, 3, 41, 22, 46, 12, 31, 45],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(34, 162, 235, 0.2)',
+                            'rgba(153, 162, 255, 0.2)',
+                            'rgba(44, 162, 135, 0.2)',
+                            'rgba(103, 92, 205, 0.2)',
+                            'rgba(4, 16, 215, 0.2)',
+                            'rgba(53, 10, 55, 0.2)',
+                            'rgba(250, 12, 23, 0.2)',
+                            'rgba(200, 102, 205, 0.2)',
+                            'rgba(90, 62, 185, 0.2)',
+                            'rgba(133, 112, 285, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 0.1)',
+                            'rgba(153, 102, 255, 0.1)',
+                            'rgba(34, 162, 235, 0.1)',
+                            'rgba(153, 162, 255, 0.1)',
+                            'rgba(44, 162, 135, 0.1)',
+                            'rgba(103, 92, 205, 0.1)',
+                            'rgba(4, 16, 215, 0.1)',
+                            'rgba(53, 10, 55, 0.1)',
+                            'rgba(250, 12, 23, 0.1)',
+                            'rgba(200, 102, 205, 0.1)',
+                            'rgba(90, 62, 185, 0.1)',
+                            'rgba(133, 112, 285, 0.1)',
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
     </div>
 
     <!-- Bebidas -->
@@ -119,9 +133,7 @@
             <h4>Bebidas</h4>
             <hr />
 
-            <p>
-                 @Html.ActionLink("Nova Bebida", "Create", "Bebidas", null, new { @class = "btn btn-primary" })
-            </p>
+            <a style="margin-left:15px" href="/Bebidas/Create/" class="btn btn-primary">Nova Bebida</a>
 
             <hr />
 
@@ -151,6 +163,8 @@
     <div class="tab-pane" id="Cupons">
         <div class="panel panel-default">
             <h4>Cupons</h4>
+            <hr />
+            <a style="margin-left:15px" href="/Cupons/Create/" class="btn btn-primary">Novo Cupom</a>
             <hr />
             @Html.Action("PvCupom", "Cupons")
         </div>

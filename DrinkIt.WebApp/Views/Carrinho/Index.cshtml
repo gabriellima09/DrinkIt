@@ -26,11 +26,9 @@
             @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Volume)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Peso)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Sabor)
         </th>
+        <th>Quantidade</th>
         <th></th>
     </tr>
 
@@ -53,10 +51,10 @@
                 @Html.DisplayFor(modelItem => item.Volume)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Peso)
+                @Html.DisplayFor(modelItem => item.Sabor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sabor)
+                @Html.TextBox("Quantidade", null, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;" })
             </td>
             <td align="center">
                 <button type="submit" class="btn btn-danger">Remover</button>
@@ -68,5 +66,11 @@
 <hr />
 
 <div class="form-group" align="right">
-    @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class ="btn btn-success" })
+    @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class = "btn btn-success" })
 </div>
+
+@section Scripts{
+    <script>
+        $(".Quantidade").val(1);
+    </script>
+}

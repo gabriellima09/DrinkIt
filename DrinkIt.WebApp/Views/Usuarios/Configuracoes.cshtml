@@ -9,7 +9,6 @@
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#Senha">Senha</a></li>
-    <li><a data-toggle="tab" href="#Endereco">Endereço</a></li>
 </ul>
 
 <div class="tab-content">
@@ -44,30 +43,6 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Salvar senha" class="btn btn-success" />
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-
-    <!-- Endereço -->
-    <div class="tab-pane" id="Endereco">
-        <div class="panel panel-default">
-            <br />
-            <div class="form-horizontal">
-                @using (Html.BeginForm("", "", FormMethod.Post))
-                {
-                    <div class="form-group">
-                        @Html.Label("Novo Endereço", null, new { @class = "control-label col-lg-2 col-md-2" })
-                        <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("Endereco", null, new { @class = "form-control" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Salvar" class="btn btn-success" />
                         </div>
                     </div>
                 }

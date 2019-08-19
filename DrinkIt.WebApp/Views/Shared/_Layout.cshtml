@@ -25,9 +25,7 @@
                 </ul>
                 @if (Session.Count > 0)
                 {
-                    <div style="float:right">
-                        @Html.Action("PvUsuario", "Usuarios")
-                    </div>
+                    @Html.Action("PvUsuario", "Usuarios")
                 }
                 else
                 {
@@ -49,6 +47,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/all")
     @RenderSection("scripts", required: false)
 </body>
 </html>
