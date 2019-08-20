@@ -150,6 +150,10 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dao\DbContext.cs" />
+    <Compile Include="Dao\IDao.cs" />
+    <Compile Include="Facade\Fachada.cs" />
+    <Compile Include="Facade\IFachada.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Strategy\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
