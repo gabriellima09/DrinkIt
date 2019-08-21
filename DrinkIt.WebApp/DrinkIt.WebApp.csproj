@@ -162,6 +162,7 @@
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Cupom.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
