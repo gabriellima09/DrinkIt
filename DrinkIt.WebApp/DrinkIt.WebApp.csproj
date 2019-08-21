@@ -176,6 +176,7 @@
     <Compile Include="Selenium\TelaCadastroCliente\TesteCadastroCliente.cs" />
     <Compile Include="Selenium\WebDriveFactory.cs" />
     <Compile Include="Selenium\WebDriverExtensions.cs" />
+    <Compile Include="Strategy\IStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -247,7 +248,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Strategy\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

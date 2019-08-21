@@ -1,4 +1,6 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
+using DrinkIt.WebApp.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -11,6 +13,15 @@ namespace DrinkIt.WebApp.Controllers
 {
     public class BebidasController : Controller
     {
+
+        private readonly IDao<Bebida> Dao;
+        private readonly IFachada<Bebida> Fachada;
+
+        public BebidasController()
+        {
+            Fachada = new Fachada<Bebida>(Dao);
+        }
+
         // GET: Bebidas
         public ActionResult Index()
         {
@@ -116,7 +127,7 @@ namespace DrinkIt.WebApp.Controllers
 
             };
 
-            return PartialView(bebidas);
+            return PartialView(Fachada.ConsultarTodos());
         }
 
         // GET: Bebidas/Details/5
@@ -154,49 +165,49 @@ namespace DrinkIt.WebApp.Controllers
                 CaminhoImagem = "/Images/crystal.jpg"
 
             };
-            return View(bebida);
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // GET: Bebidas/Create
         public ActionResult Create()
-        {/*
-            // Create a driver instance for chromedriver
-            IWebDriver driver = new ChromeDriver();
-
-            //Navigate to google page
-            driver.Navigate().GoToUrl("http:www.google.com");
-
-            //Maximize the window
-            driver.Manage().Window.Maximize();
-
-            //Find the Search text box using xpath
-            IWebElement element = driver.FindElement(By.XPath("//*[@title='Search']"));
-
-            //Enter some text in search text box
-            element.SendKeys("learn-automation");
-
-            //Close the browser
-            driver.Close();
-
-            ////*[@id="Nome"]*/
-            
-            
+        {            
             return View();
         }
 
         // POST: Bebidas/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Bebida bebida)
         {
             try
             {
+                //Fachada.Cadastrar(bebida);
                 // TODO: Add insert logic here
+
+                Bebida b = new Bebida();
+                b.Nome = bebida.Nome;
+                b.Descricao = bebida.Descricao;
+                b.Marca = bebida.Marca;
+                b.Valor = bebida.Valor;
+                b.Volume = bebida.Volume;
+                b.Peso = bebida.Peso;
+                b.Sabor = bebida.Sabor;
+                b.Lote = bebida.Lote;
+                b.DataFabricacao = bebida.DataFabricacao;
+                b.DataValidade = bebida.DataValidade;
+                b.Fabricante = bebida.Fabricante;
+                b.CodigoBarras = bebida.CodigoBarras;
+                b.Alcoolico = bebida.Alcoolico;
+                b.Teor = bebida.Teor;
+                b.Gaseificada = bebida.Gaseificada;
+                b.ContemGluten = bebida.ContemGluten;
+                b.DicaConservacao = bebida.DicaConservacao;
+                b.Status = bebida.Status;
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("Error");
             }
         }
 
@@ -235,17 +246,17 @@ namespace DrinkIt.WebApp.Controllers
             };
 
 
-            return View(bebida);
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // POST: Bebidas/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Bebida bebida)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Fachada.Alterar(bebida);
                 return RedirectToAction("Index");
             }
             catch
@@ -254,6 +265,12 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
+
+        public ActionResult TrocarStatus(int id)
+        {
+            return new EmptyResult();
+        }
+        /*
         // GET: Bebidas/Delete/5
         public ActionResult Delete(int id)
         {
@@ -275,7 +292,7 @@ namespace DrinkIt.WebApp.Controllers
                 return View();
             }
         }
-
+        */
         public ActionResult PvDashBebidas()
         {
             List<Bebida> bebidas = new List<Bebida>
