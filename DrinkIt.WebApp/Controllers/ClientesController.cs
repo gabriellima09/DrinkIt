@@ -1,14 +1,22 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
     public class ClientesController : Controller
     {
+        private readonly IDao<Cliente> Dao;
+        private readonly IFachada<Cliente> Fachada;
+
+        public ClientesController()
+        {
+            Fachada = new Fachada<Cliente>(Dao);
+        }
+
         // GET: Clientes
         public ActionResult Index()
         {
@@ -17,43 +25,13 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvCliente()
         {
-            List<Cliente> clientes = new List<Cliente>
-            {
-                new Cliente
-                {
-                    Id = 1,
-                    Cpf = "123",
-                    DataNascimento = DateTime.Now,
-                    Email = "@",
-                    Endereco = "Rua abc",
-                    Genero = "masculino",
-                    Telefone = "123456",
-                    Login = "gabr",
-                    Senha = "iel",
-                    Nome = "Gabriel"
-                },
-                new Cliente
-                {
-                    Id = 1,
-                    Cpf = "123",
-                    DataNascimento = DateTime.Now,
-                    Email = "@",
-                    Endereco = "Rua abc",
-                    Genero = "masculino",
-                    Telefone = "123456",
-                    Login = "gabr",
-                    Senha = "iel",
-                    Nome = "Gabriel"
-                }
-            };
-
-            return PartialView(clientes);
+            return PartialView(Fachada.ConsultarTodos());
         }
 
         // GET: Clientes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // GET: Clientes/Create
@@ -64,33 +42,33 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Cliente cliente)
         {
             try
             {
-                // TODO: Add insert logic here
+                Fachada.Cadastrar(cliente);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("Error");
             }
         }
 
         // GET: Clientes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // POST: Clientes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Cliente cliente)
         {
             try
             {
-                // TODO: Add update logic here
+                Fachada.Alterar(cliente);
 
                 return RedirectToAction("Index");
             }
@@ -102,9 +80,7 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult TrocarStatus(int id)
         {
-            //to do
-
-            return RedirectToAction("Index");
+            return new EmptyResult();
         }
     }
 }

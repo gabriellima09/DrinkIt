@@ -83,6 +83,14 @@
 
     <hr />
 
+    <!-- Endereço -->
+
+    <div class="form-group">
+        @Html.Label("Endereço(s)", htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+
+    <hr />
+
     <div class="form-group">
         @Html.LabelFor(model => model.CEP, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -133,8 +141,31 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
+            <button id="btnAddEndereco" class="btn btn-info">Adicionar Endereço</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Endereço
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <hr />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
             @Html.ActionLink("Cadastrar", "Index", "Clientes", null, new { @id = "btnCadastrar", @class = "btn btn-success" })
-            @*<input id="btnCadastrar" type="button" value="Cadastrar" class="btn btn-success" />*@
         </div>
     </div>
 </div>
