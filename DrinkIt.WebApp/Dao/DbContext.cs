@@ -50,25 +50,18 @@ namespace DrinkIt.WebApp.Dao
 
         public static IDataReader ExecuteReader(string Query)
         {
-            using (SqlConnection conn = _SqlConnection)
-            {
-                using (SqlCommand cmd = new SqlCommand(Query, conn) { CommandType = CommandType.Text })
-                {
-                    try
-                    {
-                        OpenConnection(conn);
+            SqlConnection conn = _SqlConnection;
+            SqlCommand cmd = new SqlCommand(Query, conn) { CommandType = CommandType.Text };
 
-                        return cmd.ExecuteReader();
-                    }
-                    catch (ExternalException ex)
-                    {
-                        throw new ExternalException("Erro ao executar ação do banco de dados. ", ex);
-                    }
-                    finally
-                    {
-                        DisposeConnection();
-                    }
-                }
+            try
+            {
+                OpenConnection(conn);
+
+                return cmd.ExecuteReader();
+            }
+            catch (ExternalException ex)
+            {
+                throw new ExternalException("Erro ao executar ação do banco de dados. ", ex);
             }
         }
 

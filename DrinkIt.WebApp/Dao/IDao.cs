@@ -1,5 +1,6 @@
 ﻿using DrinkIt.WebApp.Models;
 using System.Collections.Generic;
+using System.Data;
 
 namespace DrinkIt.WebApp.Dao
 {
@@ -10,5 +11,6 @@ namespace DrinkIt.WebApp.Dao
         void Excluir(int id);
         T ConsultarPorId(int id);
         List<T> ConsultarTodos();
+        T ObterEntidadeReader(IDataReader reader);
     }
 }
