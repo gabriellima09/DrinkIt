@@ -189,6 +189,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\crystal.jpg" />
     <Content Include="Images\drink.jpg" />
+    <Content Include="Scripts\Bebidas\Script_CreateBebidas.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

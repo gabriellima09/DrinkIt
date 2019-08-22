@@ -176,13 +176,13 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Create
         [HttpPost]
-        public ActionResult Create(Bebida bebida)
+        public ActionResult Create(Bebida bebida, String[] teste)
         {
             try
             {
                 //Fachada.Cadastrar(bebida);
                 // TODO: Add insert logic here
-
+                //COLOCA O BOTÃO DE REMOVER SÓ NO ULTIMO
                 Bebida b = new Bebida();
                 b.Nome = bebida.Nome;
                 b.Descricao = bebida.Descricao;

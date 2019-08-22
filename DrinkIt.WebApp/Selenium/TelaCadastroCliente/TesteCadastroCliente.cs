@@ -15,12 +15,15 @@ namespace DrinkIt.WebApp.Selenium
                 Cpf = "123.456.789-00",
                 DataNascimento = DateTime.Now,
                 Email = "teste@teste.com",
-                Endereco = "Rua abc",
-                Bairro = "Centro",
-                CEP = "01234-567",
-                Cidade = "Mogi das Cruzes",
-                Complemento = string.Empty,
-                Estado = "SP",
+                Endereco = new Endereco
+                {
+                    Logradouro = "Rua abc",
+                    Bairro = "Centro",
+                    CEP = "01234-567",
+                    Cidade = "Mogi das Cruzes",
+                    Complemento = string.Empty,
+                    Estado = "SP"
+                },                
                 Genero = "Masculino",
                 Telefone = "(11) 91234-5678",
                 Login = "teste",

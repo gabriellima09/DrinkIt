@@ -34,12 +34,12 @@ namespace DrinkIt.WebApp.Selenium
             _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd/MM/yyyy"));
             _driver.SetText(By.Name("Genero"), cliente.Genero.ToString());
             _driver.SetText(By.Name("Telefone"), cliente.Telefone.ToString());
-            _driver.SetText(By.Name("CEP"), cliente.CEP.ToString());
+            _driver.SetText(By.Name("CEP"), cliente.Endereco.CEP.ToString());
             _driver.SetText(By.Name("Endereco"), cliente.Endereco.ToString());
-            _driver.SetText(By.Name("Complemento"), cliente.Complemento.ToString());
-            _driver.SetText(By.Name("Bairro"), cliente.Bairro.ToString());
-            _driver.SetText(By.Name("Cidade"), cliente.Cidade.ToString());
-            _driver.SetText(By.Name("Estado"), cliente.Estado.ToString());
+            _driver.SetText(By.Name("Complemento"), cliente.Endereco.Complemento.ToString());
+            _driver.SetText(By.Name("Bairro"), cliente.Endereco.Bairro.ToString());
+            _driver.SetText(By.Name("Cidade"), cliente.Endereco.Cidade.ToString());
+            _driver.SetText(By.Name("Estado"), cliente.Endereco.Estado.ToString());
         }
 
         public void ProcessarCadastro()
