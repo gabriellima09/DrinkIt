@@ -39,13 +39,13 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("Senha ");
             Sql.Append(")");
             Sql.Append("VALUES (");
-            Sql.Append(entidade.Cpf);
-            Sql.Append(entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss"));
-            Sql.Append(entidade.Email);
-            Sql.Append(entidade.Genero);
-            Sql.Append(entidade.Telefone);
-            Sql.Append(entidade.Nome);
-            Sql.Append(entidade.Login);
+            Sql.Append(entidade.Cpf + ", ");
+            Sql.Append(entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + ", ");
+            Sql.Append(entidade.Email + ", ");
+            Sql.Append(entidade.Genero + ", ");
+            Sql.Append(entidade.Telefone + ", ");
+            Sql.Append(entidade.Nome + ", ");
+            Sql.Append(entidade.Login + ", ");
             Sql.Append(entidade.Senha);
             Sql.Append(");");
 

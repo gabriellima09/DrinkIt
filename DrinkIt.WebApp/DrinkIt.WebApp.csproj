@@ -150,6 +150,7 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dao\BebidaDao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\IDao.cs" />
