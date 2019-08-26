@@ -1,6 +1,8 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
+using DrinkIt.WebApp.Strategy;
+using System;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -9,10 +11,13 @@ namespace DrinkIt.WebApp.Controllers
     {
         private readonly IDao<Cliente> Dao;
         private readonly IFachada<Cliente> Fachada;
+        private readonly IStrategy<Cliente> Strategy;
 
         public ClientesController()
         {
-            Fachada = new Fachada<Cliente>(Dao);
+            Dao = new ClienteDao();
+            Strategy = new ClienteStrategy();
+            Fachada = new Fachada<Cliente>(Dao, Strategy);
         }
 
         // GET: Clientes
@@ -46,9 +51,19 @@ namespace DrinkIt.WebApp.Controllers
             {
                 Fachada.Cadastrar(cliente);
 
+                Usuario usuario = new Usuario
+                {
+                    Id = cliente.Id,
+                    Email = cliente.Email,
+                    Login = cliente.Login,
+                    Senha = cliente.Senha
+                };
+
+                Session["Usuario"] = usuario;
+
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View("Error");
             }

@@ -13,14 +13,14 @@ namespace DrinkIt.WebApp.Dao
         public void Alterar(Cliente entidade)
         {
             Sql.Append("UPDATE CLIENTES SET");
-            Sql.Append("Cpf = " + entidade.Cpf +", ");
-            Sql.Append("DataNascimento = " + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + ", ");
-            Sql.Append("Email = " + entidade.Email + ", ");
-            Sql.Append("Genero = " + entidade.Genero + ", ");
-            Sql.Append("Telefone = " + entidade.Telefone + ", ");
-            Sql.Append("Nome = " + entidade.Nome + ", ");
-            Sql.Append("Login = " + entidade.Login + ", ");
-            Sql.Append("Senha = " + entidade.Senha);
+            Sql.Append("Cpf = '" + entidade.Cpf +"', ");
+            Sql.Append("DataNascimento = " + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sql.Append("Email = '" + entidade.Email + "', ");
+            Sql.Append("Genero = '" + entidade.Genero + "', ");
+            Sql.Append("Telefone = '" + entidade.Telefone + "', ");
+            Sql.Append("Nome = '" + entidade.Nome + "', ");
+            Sql.Append("Login = '" + entidade.Login + "', ");
+            Sql.Append("Senha = '" + entidade.Senha +"'");
             Sql.Append(" WHERE Id = " + entidade.Id);
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -38,18 +38,31 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("Login, ");
             Sql.Append("Senha ");
             Sql.Append(")");
-            Sql.Append("VALUES (");
-            Sql.Append(entidade.Cpf + ", ");
-            Sql.Append(entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + ", ");
-            Sql.Append(entidade.Email + ", ");
-            Sql.Append(entidade.Genero + ", ");
-            Sql.Append(entidade.Telefone + ", ");
-            Sql.Append(entidade.Nome + ", ");
-            Sql.Append(entidade.Login + ", ");
-            Sql.Append(entidade.Senha);
+            Sql.Append(" VALUES (");
+            Sql.Append("'" + entidade.Cpf + "', ");
+            Sql.Append("'" + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sql.Append("'" + entidade.Email + "', ");
+            Sql.Append("'" + entidade.Genero + "', ");
+            Sql.Append("'" + entidade.Telefone + "', ");
+            Sql.Append("'" + entidade.Nome + "', ");
+            Sql.Append("'" + entidade.Login + "', ");
+            Sql.Append("'" + entidade.Senha + "'");
             Sql.Append(");");
 
             DbContext.ExecuteQuery(Sql.ToString());
+
+            int Id = 0;
+
+            using (var reader = DbContext.ExecuteReader("SELECT (SELECT TOP 1 Id FROM Clientes ORDER BY 1 DESC) AS Id"))
+            {
+                Id = Convert.ToInt32(reader["Id"]);
+            }
+
+            entidade.Endereco.ClienteId = Id;
+            entidade.Cartao.ClienteId = Id;
+
+            new EnderecoDao().Cadastrar(entidade.Endereco);
+            new CartaoDao().Cadastrar(entidade.Cartao);
         }
 
         public Cliente ConsultarPorId(int id)
@@ -108,20 +121,10 @@ namespace DrinkIt.WebApp.Dao
                 Nome = Convert.ToString(reader["Nome"]),
                 Login = Convert.ToString(reader["Login"]),
                 Senha = Convert.ToString(reader["Senha"]),
-                Endereco = new Endereco
-                {
-                    Id = Convert.ToInt32(reader["IdEndereco"]),
-                    Bairro = Convert.ToString(reader["Bairro"]),
-                    CEP = Convert.ToString(reader["CEP"]),
-                    Cidade = Convert.ToString(reader["Cidade"]),
-                    Cobranca = Convert.ToBoolean(reader["Cobranca"]),
-                    Entrega = Convert.ToBoolean(reader["Entrega"]),
-                    Complemento = Convert.ToString(reader["Complemento"]),
-                    Descricao = Convert.ToString(reader["Descricao"]),
-                    Estado = Convert.ToString(reader["Estado"]),
-                    Logradouro = Convert.ToString(reader["Logradouro"]),
-                    ClienteId = Convert.ToInt32(reader["ClienteId"])
-                }
+                Endereco = new Endereco(),
+                Enderecos = new List<Endereco>(),
+                Cartao = new CartaoCredito(),
+                Cartoes = new List<CartaoCredito>()
             };
 
             return cliente;

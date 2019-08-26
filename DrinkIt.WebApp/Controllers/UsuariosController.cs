@@ -59,7 +59,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             if (Session.Count > 0)
             {
-                ViewBag.NomeUsuario = "Usuário Teste";
+                ViewBag.NomeUsuario = ((Usuario)Session["Usuario"]).Login;
             }
 
             return PartialView();

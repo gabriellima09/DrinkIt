@@ -151,8 +151,10 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dao\BebidaDao.cs" />
+    <Compile Include="Dao\CartaoDao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
+    <Compile Include="Dao\EnderecoDao.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Facade\Fachada.cs" />
     <Compile Include="Facade\IFachada.cs" />
@@ -161,6 +163,7 @@
     </Compile>
     <Compile Include="Models\Bebida.cs" />
     <Compile Include="Models\Carrinho.cs" />
+    <Compile Include="Models\CartaoCredito.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\Endereco.cs" />
@@ -177,6 +180,7 @@
     <Compile Include="Selenium\TelaCadastroCliente\TesteCadastroCliente.cs" />
     <Compile Include="Selenium\WebDriveFactory.cs" />
     <Compile Include="Selenium\WebDriverExtensions.cs" />
+    <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\IStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +251,7 @@
     <Content Include="Views\Cupons\Create.cshtml" />
     <Content Include="Views\Cupons\Edit.cshtml" />
     <Content Include="Views\Endereco\Create.cshtml" />
+    <Content Include="Views\Endereco\PvEndereco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

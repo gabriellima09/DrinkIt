@@ -19,7 +19,7 @@ namespace DrinkIt.WebApp.Controllers
 
         public BebidasController()
         {
-            Fachada = new Fachada<Bebida>(Dao);
+            Fachada = new Fachada<Bebida>(Dao, null);
         }
 
         // GET: Bebidas

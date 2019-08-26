@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrinkIt.WebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,16 @@ namespace DrinkIt.WebApp.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult PvEndereco(List<Endereco> enderecos)
+        {
+            if (enderecos == null)
+            {
+                enderecos = new List<Endereco>();
+            }
+
+            return PartialView(enderecos);
         }
 
         // GET: Endereco/Details/5
@@ -84,6 +95,45 @@ namespace DrinkIt.WebApp.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult AdicionarEndereco(Cliente cliente)
+        {
+            if (cliente.Enderecos == null)
+            {
+                cliente.Enderecos = new List<Endereco>();
+            }
+
+            cliente.Enderecos.Add(cliente.Endereco);
+
+            if (cliente.Enderecos.Count == 1)
+            {
+                cliente.Enderecos.ElementAt(0).Cobranca = true;
+                cliente.Enderecos.ElementAt(0).Entrega = true;
+            }
+
+            for (int i = 0; i < cliente.Enderecos.Count; i++)
+            {
+                cliente.Enderecos.ElementAt(i).Id = i + 1;
+            }
+
+            cliente.Endereco = new Endereco();
+
+            return PartialView("PvEndereco", cliente.Enderecos);
+        }
+
+        [HttpPost]
+        public ActionResult RemoverEndereco(Cliente cliente)
+        {
+            cliente.Enderecos.RemoveAll(x => x.Remover != 0);
+
+            for (int i = 0; i < cliente.Enderecos.Count; i++)
+            {
+                cliente.Enderecos.ElementAt(i).Id = i + 1;
+            }
+
+            return PartialView("PvEndereco", cliente.Enderecos);
         }
     }
 }

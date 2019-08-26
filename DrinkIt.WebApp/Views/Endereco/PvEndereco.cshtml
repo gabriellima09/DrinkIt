@@ -1,0 +1,108 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.Endereco>
+
+@{
+    Layout = null;
+}
+
+<div>
+    <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CEP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cobranca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entrega)
+            </th>
+            <th></th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" name="cliente.Enderecos[@i].Id" value="@Model.ElementAt(i).Id" />
+                    <input type="hidden" id="cliente.Enderecos[@i].Remover" name="cliente.Enderecos[@i].Remover" value="@Model.ElementAt(i).Remover" />
+
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Descricao)
+                    <input type="hidden" name="cliente.Enderecos[@i].Descricao" value="@Model.ElementAt(i).Descricao" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Logradouro)
+                    <input type="hidden" name="cliente.Enderecos[@i].Logradouro" value="@Model.ElementAt(i).Logradouro" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Numero)
+                    <input type="hidden" name="cliente.Enderecos[@i].Numero" value="@Model.ElementAt(i).Numero" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Bairro)
+                    <input type="hidden" name="cliente.Enderecos[@i].Bairro" value="@Model.ElementAt(i).Bairro" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).CEP)
+                    <input type="hidden" name="cliente.Enderecos[@i].CEP" value="@Model.ElementAt(i).CEP" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Complemento)
+                    <input type="hidden" name="cliente.Enderecos[@i].Complemento" value="@Model.ElementAt(i).Complemento" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Cidade)
+                    <input type="hidden" name="cliente.Enderecos[@i].Cidade" value="@Model.ElementAt(i).Cidade" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAt(i).Estado)
+                    <input type="hidden" name="cliente.Enderecos[@i].Estado" value="@Model.ElementAt(i).Estado" />
+                </td>
+
+                <td align="center">
+                    <input type="radio" name="cliente.Enderecos[@i].Cobranca" value="@Model.ElementAt(i).Cobranca" />
+                </td>
+                <td align="center">
+                    <input type="radio" name="cliente.Enderecos[@i].Entrega" value="@Model.ElementAt(i).Entrega" />
+                </td>
+
+                <td align="center">
+
+                    <script>
+                        $(".btnRemover").unbind().click(function () {
+                            $('[name="cliente.Enderecos[' + ($(this).attr('data-idEndereco') - 1) + '].Remover"]').val(1);
+                            $("#btnRemover").trigger('click');
+                        });
+                    </script>
+
+                    <button type="button" class="btn btn-danger btnRemover" data-idEndereco="@Model.ElementAt(i).Id">Remover</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
