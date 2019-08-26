@@ -59,9 +59,7 @@ namespace DrinkIt.WebApp.Controllers
                     Senha = cliente.Senha
                 };
 
-                Session["Usuario"] = usuario;
-
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Usuarios", new { usuario });
             }
             catch (Exception ex)
             {
@@ -89,6 +87,20 @@ namespace DrinkIt.WebApp.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            return View(Fachada.ConsultarPorId(id));
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(Cliente cliente)
+        {
+            Fachada.Excluir(cliente.Id);
+
+            return RedirectToAction("Index", "Usuarios");
         }
 
         public ActionResult TrocarStatus(int id)

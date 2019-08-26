@@ -45,6 +45,8 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                cartao.ClienteId = ((Usuario)Session["Usuario"]).Id;
+
                 Fachada.Cadastrar(cartao);
 
                 return RedirectToAction("Index", "Clientes");

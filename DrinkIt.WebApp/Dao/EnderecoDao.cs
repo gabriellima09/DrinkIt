@@ -12,12 +12,14 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Endereco entidade)
         {
+            Sql.Clear();
+
             Sql.Append("UPDATE ENDERECOS SET");
-            Sql.Append("Bairro = '" + entidade.Bairro + "', ");
-            Sql.Append("CEP = " + entidade.CEP + "', ");
+            Sql.Append(" Bairro = '" + entidade.Bairro + "', ");
+            Sql.Append("CEP = '" + entidade.CEP + "', ");
             Sql.Append("Cidade = '" + entidade.Cidade + "', ");
-            Sql.Append("Cobranca = '" + (entidade.Cobranca == true ? 1 : 0) + "', ");
-            Sql.Append("Entrega = '" + (entidade.Entrega == true ? 1 : 0) + "', ");
+            Sql.Append("Cobranca = " + (entidade.Cobranca == true ? 1 : 0) + ", ");
+            Sql.Append("Entrega = " + (entidade.Entrega == true ? 1 : 0) + ", ");
             Sql.Append("Complemento = '" + entidade.Complemento + "', ");
             Sql.Append("Descricao = '" + entidade.Descricao + "', ");
             Sql.Append("Estado = '" + entidade.Estado + "', ");

@@ -1,10 +1,23 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
+using DrinkIt.WebApp.Models;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
     public class UsuariosController : Controller
     {
+        public readonly IFachada<Usuario> Fachada;
+        public readonly IDao<Usuario> Dao;
+        public readonly IUsuario usuarioDao;
+
+        public UsuariosController()
+        {
+            usuarioDao = new UsuarioDao();
+            Dao = new UsuarioDao();
+            Fachada = new Fachada<Usuario>(Dao, null);
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -31,11 +44,11 @@ namespace DrinkIt.WebApp.Controllers
         [HttpPost]
         public ActionResult Login(Usuario usuario)
         {
-            if (usuario.Login.Equals("admin"))
+            if (usuario.Email.Equals("admin"))
             {
                 Session["Usuario"] = new Usuario
                 {
-                    Id = 1,
+                    Id = 0,
                     Email = "admin@admin.com.br",
                     Login = "admin",
                     Senha = "admin"
@@ -44,15 +57,22 @@ namespace DrinkIt.WebApp.Controllers
                 return View("Index");
             }
 
-            Session["Usuario"] = new Usuario
+            if (usuarioDao.Login(usuario.Email, usuario.Senha))
             {
-                Id = 1,
-                Email = "teste@teste.com.br",
-                Login = "Teste",
-                Senha = "Teste"
-            };
+                usuario = usuarioDao.RecuperarUsuario(usuario.Email);
 
-            return RedirectToAction("Index", "Clientes");
+                Session["Usuario"] = new Usuario
+                {
+                    Id = usuario.Id,
+                    Email = usuario.Email,
+                    Login = usuario.Login,
+                    Senha = usuario.Senha
+                };
+
+                return RedirectToAction("Index", "Clientes");
+            }
+
+            return View(usuario);
         }
 
         public ActionResult PvUsuario()

@@ -157,6 +157,8 @@
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
     <Compile Include="Dao\IDao.cs" />
+    <Compile Include="Dao\IUsuario.cs" />
+    <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Facade\Fachada.cs" />
     <Compile Include="Facade\IFachada.cs" />
     <Compile Include="Global.asax.cs">
@@ -251,11 +253,9 @@
     <Content Include="Views\Cupons\PvCupom.cshtml" />
     <Content Include="Views\Cupons\Create.cshtml" />
     <Content Include="Views\Cupons\Edit.cshtml" />
-    <Content Include="Views\Endereco\Create.cshtml" />
     <Content Include="Views\Endereco\PvEndereco.cshtml" />
     <Content Include="Views\Endereco\PvEnderecos.cshtml" />
     <Content Include="Views\Cartao\PvCartoes.cshtml" />
-    <Content Include="Views\Endereco\Edit.cshtml" />
     <Content Include="Views\Endereco\Delete.cshtml" />
     <Content Include="Views\Endereco\Details.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
@@ -264,6 +264,9 @@
     <Content Include="Views\Cartao\Create.cshtml" />
     <Content Include="Views\Cartao\Edit.cshtml" />
     <Content Include="Views\Cartao\Delete.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Endereco\Create.cshtml" />
+    <Content Include="Views\Endereco\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -75,6 +75,36 @@
             @Html.DisplayFor(model => model.Estado)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Cobranca)
+        </dt>
+
+        <dd>
+            @if (Model.Cobranca)
+            {
+                <span>SIM</span>
+            }
+            else
+            {
+                <span>NÃO</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrega)
+        </dt>
+
+        <dd>
+            @if (Model.Entrega)
+            {
+                <span>SIM</span>
+            }
+            else
+            {
+                <span>NÃO</span>
+            }
+        </dd>
+
     </dl>
 </div>
 <p>

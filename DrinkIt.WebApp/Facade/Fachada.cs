@@ -18,13 +18,11 @@ namespace DrinkIt.WebApp.Facade
 
         public void Alterar(T entidade)
         {
-            _strategy.Processar(entidade);
             _dao.Alterar(entidade);
         }
 
         public void Cadastrar(T entidade)
         {
-            _strategy.Processar(entidade);
             _dao.Cadastrar(entidade);
         }
 

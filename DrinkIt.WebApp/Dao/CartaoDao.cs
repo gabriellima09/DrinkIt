@@ -13,7 +13,7 @@ namespace DrinkIt.WebApp.Dao
         public void Alterar(CartaoCredito entidade)
         {
             Sql.Append("UPDATE Cartoes SET");
-            Sql.Append("Bandeira = '" + entidade.Bandeira + "', ");
+            Sql.Append(" Bandeira = '" + entidade.Bandeira + "', ");
             Sql.Append("ClienteId = " + entidade.ClienteId + ", ");
             Sql.Append("CodigoSeguranca = " + entidade.CodigoSeguranca + ", ");
             Sql.Append("NomeTitular = '" + entidade.NomeTitular + "', ");

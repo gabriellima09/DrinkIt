@@ -61,6 +61,9 @@ namespace DrinkIt.WebApp.Dao
                 }
             }
 
+
+            entidade.Endereco.Cobranca = true;
+            entidade.Endereco.Entrega = true;
             entidade.Endereco.ClienteId = Id;
             entidade.Cartao.ClienteId = Id;
 

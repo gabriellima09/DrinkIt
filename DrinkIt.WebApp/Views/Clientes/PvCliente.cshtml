@@ -30,24 +30,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Telefone)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Endereco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Complemento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CEP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
         <th></th>
     </tr>
 
@@ -77,33 +59,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Telefone)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Endereco)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CEP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
         <td align="center">
             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Opções <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Editar", "Edit", new { id = 1 }, new { @class = "btn-warning" })</li>
-                    <li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-default" })</li>
-                    <li>@Html.ActionLink("Trocar Status", "TrocarStatus", "Clientes", new { id = 1 }, new { @class = "btn-primary" })</li>
+                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                    <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-default" })</li>
+                    <li>@Html.ActionLink("Deletar", "Delete", "Clientes", new { id = item.Id }, new { @class = "btn-danger" })</li>
                 </ul>
             </div>
         </td>
