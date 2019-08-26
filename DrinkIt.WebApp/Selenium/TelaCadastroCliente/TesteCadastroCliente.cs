@@ -22,8 +22,19 @@ namespace DrinkIt.WebApp.Selenium
                     CEP = "01234-567",
                     Cidade = "Mogi das Cruzes",
                     Complemento = string.Empty,
-                    Estado = "SP"
-                },                
+                    Estado = "SP",
+                    Cobranca = true,
+                    Descricao = "Minha Casa",
+                    Entrega = true,
+                    Numero = "123",
+                },
+                Cartao = new CartaoCredito
+                {
+                    Bandeira = "Visa",
+                    CodigoSeguranca = 123,
+                    NomeTitular = "",
+                    Numero = "123456789000"
+                },
                 Genero = "Masculino",
                 Telefone = "(11) 91234-5678",
                 Login = "teste",
