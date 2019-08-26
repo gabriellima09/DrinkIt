@@ -1,0 +1,51 @@
+﻿@model DrinkIt.WebApp.Models.CartaoCredito
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Cartão de Crédito</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTitular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeTitular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bandeira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bandeira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoSeguranca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoSeguranca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index", "Clientes")
+</p>

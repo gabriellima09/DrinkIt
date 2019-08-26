@@ -1,14 +1,23 @@
-﻿using DrinkIt.WebApp.Models;
-using System;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
+using DrinkIt.WebApp.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
     public class EnderecoController : Controller
     {
+        private readonly IDao<Endereco> Dao;
+        private readonly IFachada<Endereco> Fachada;
+
+        public EnderecoController()
+        {
+            Dao = new EnderecoDao();
+            Fachada = new Fachada<Endereco>(Dao, null);
+        }
+
         // GET: Endereco
         public ActionResult Index()
         {
@@ -25,10 +34,15 @@ namespace DrinkIt.WebApp.Controllers
             return PartialView(enderecos);
         }
 
+        public ActionResult PvEnderecos()
+        {
+            return PartialView(Fachada.ConsultarTodos());
+        }
+
         // GET: Endereco/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // GET: Endereco/Create
@@ -39,13 +53,13 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Endereco/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Endereco endereco)
         {
             try
             {
-                // TODO: Add insert logic here
+                Fachada.Cadastrar(endereco);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Clientes");
             }
             catch
             {
@@ -56,18 +70,18 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Endereco/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // POST: Endereco/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Endereco endereco)
         {
             try
             {
-                // TODO: Add update logic here
+                Fachada.Alterar(endereco);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Clientes");
             }
             catch
             {
@@ -78,18 +92,18 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Endereco/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // POST: Endereco/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Endereco endereco)
         {
             try
             {
-                // TODO: Add delete logic here
+                Fachada.Excluir(endereco.Id);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Clientes");
             }
             catch
             {

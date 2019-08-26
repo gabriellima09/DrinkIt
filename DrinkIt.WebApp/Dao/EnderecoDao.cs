@@ -12,7 +12,7 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Endereco entidade)
         {
-            Sql.Append("UPDATE ENDERECO SET");
+            Sql.Append("UPDATE ENDERECOS SET");
             Sql.Append("Bairro = '" + entidade.Bairro + "', ");
             Sql.Append("CEP = " + entidade.CEP + "', ");
             Sql.Append("Cidade = '" + entidade.Cidade + "', ");
@@ -30,7 +30,7 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Endereco entidade)
         {
-            Sql.Append("INSERT INTO ENDERECO (");
+            Sql.Append("INSERT INTO ENDERECOS (");
             Sql.Append("Bairro, ");
             Sql.Append("CEP, ");
             Sql.Append("Cidade, ");
@@ -64,7 +64,7 @@ namespace DrinkIt.WebApp.Dao
         {
             Endereco endereco = new Endereco();
 
-            Sql.Append("SELECT * FROM ENDERECO WHERE Id = " + id);
+            Sql.Append("SELECT * FROM ENDERECOS WHERE Id = " + id);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -81,7 +81,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<Endereco> enderecos = new List<Endereco>();
 
-            Sql.Append("SELECT * FROM CLIENTES");
+            Sql.Append("SELECT * FROM ENDERECOS");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -96,7 +96,7 @@ namespace DrinkIt.WebApp.Dao
 
         public void Excluir(int id)
         {
-            Sql.Append("DELETE FROM ENDERECO WHERE Id = ");
+            Sql.Append("DELETE FROM ENDERECOS WHERE Id = ");
             Sql.Append(id);
             Sql.Append(";");
 

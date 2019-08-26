@@ -3,24 +3,31 @@
     ViewBag.Title = "Index";
 }
 
+@using DrinkIt.WebApp.Models;
+
 <style>
     h4 {
         margin-left: 15px;
         margin-top: 15px;
     }
-    button{
-        margin-left:15px;
+
+    button {
+        margin-left: 15px;
     }
 </style>
 
-<h2>Olá, Usuário Teste</h2>
+@{
+    string nome = ((Usuario)Session["Usuario"]).Login ?? "Usuário Teste";
+}
+
+<h2>Seja bem vindo, @nome</h2>
 
 <hr />
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#Pedidos">Meus pedidos</a></li>
     <li><a data-toggle="tab" href="#Endereco">Meus Endereços</a></li>
-    <li><a data-toggle="tab" href="#Cartoes">Meus cartões</a></li>
+    <li><a data-toggle="tab" href="#Cartoes">Meus Cartões</a></li>
     <li><a data-toggle="tab" href="#Cupons">Meus Cupons</a></li>
 </ul>
 
@@ -30,129 +37,29 @@
         <div class="panel panel-default">
             <h4>Meus Pedidos</h4>
             <hr />
-            @Html.Action("PvPedido", "Pedidos")
+            @*@Html.Action("PvPedido", "Pedidos")*@
         </div>
     </div>
 
     <!-- Endereços -->
     <div class="tab-pane" id="Endereco">
         <div class="panel panel-default">
-            <h4>Endereços</h4>
+            <h4>Meus Endereços</h4>
             <hr />
-            <button type="button" class="btn btn-primary">Cadastrar</button>
+            @Html.ActionLink("Cadastrar novo", "Create", "Endereco", null, new { @class = "btn btn-primary", @target = "_blank" })
             <hr />
-            <table class="table tab-content table-bordered table-hover">
-                <tr>
-                    <th>
-                        Descrição
-                    </th>
-                    <th>
-                        Endereço
-                    </th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>
-                        Casa
-                    </td>
-                    <td>
-                        Rua ABC, 123 - Mogi das Cruzes - SP - 08693-370
-                    </td>
-                    <td align="center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-warning">Editar</a></li>
-                                <li><a class="btn btn-info">Detalhes</a></li>
-                                <li><a class="btn btn-danger">Excluir</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Trabalho
-                    </td>
-                    <td>
-                        Rua XYZ, 1010 - 10º Andar, Sala 4 - Mogi das Cruzes - SP - 08693-370
-                    </td>
-                    <td align="center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-warning">Editar</a></li>
-                                <li><a class="btn btn-info">Detalhes</a></li>
-                                <li><a class="btn btn-danger">Excluir</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            @Html.Action("PvEnderecos", "Endereco")
         </div>
     </div>
 
     <!-- Cartões -->
     <div class="tab-pane" id="Cartoes">
         <div class="panel panel-default">
-            <h4>Cartões</h4>
+            <h4>Meus Cartões</h4>
             <hr />
-            <button type="button" class="btn btn-primary">Cadastrar</button>
+            @Html.ActionLink("Cadastrar novo", "Create", "Cartao", null, new { @class = "btn btn-primary", @target = "_blank" })
             <hr />
-            <table class="table tab-content table-bordered table-hover">
-                <tr>
-                    <th>
-                        Número do Cartão
-                    </th>
-                    <th>
-                        Bandeira
-                    </th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>
-                        XXXX-XXXX-XXXX-1234
-                    </td>
-                    <td>
-                        VISA
-                    </td>
-                    <td align="center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-warning">Editar</a></li>
-                                <li><a class="btn btn-info">Detalhes</a></li>
-                                <li><a class="btn btn-danger">Excluir</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        XXXX-XXXX-XXXX-5678
-                    </td>
-                    <td>
-                        MASTERCARD
-                    </td>
-                    <td align="center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-warning">Editar</a></li>
-                                <li><a class="btn btn-info">Detalhes</a></li>
-                                <li><a class="btn btn-danger">Excluir</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            @Html.Action("PvCartoes", "Cartao")
         </div>
     </div>
 
@@ -161,7 +68,7 @@
         <div class="panel panel-default">
             <h4>Meus Cupons</h4>
             <hr />
-            @Html.Action("PvCupom", "Cupons")
+            @*@Html.Action("PvCupom", "Cupons")*@
         </div>
     </div>
 </div>

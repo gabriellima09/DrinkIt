@@ -53,9 +53,12 @@ namespace DrinkIt.WebApp.Dao
 
             int Id = 0;
 
-            using (var reader = DbContext.ExecuteReader("SELECT (SELECT TOP 1 Id FROM Clientes ORDER BY 1 DESC) AS Id"))
+            using (IDataReader reader = DbContext.ExecuteReader("SELECT MAX(id) as Id FROM Clientes"))
             {
-                Id = Convert.ToInt32(reader["Id"]);
+                if (reader.Read())
+                {
+                    Id = Convert.ToInt32(reader["Id"]);
+                }
             }
 
             entidade.Endereco.ClienteId = Id;

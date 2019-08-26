@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BebidasController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
+    <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Controllers\CuponsController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -252,6 +253,17 @@
     <Content Include="Views\Cupons\Edit.cshtml" />
     <Content Include="Views\Endereco\Create.cshtml" />
     <Content Include="Views\Endereco\PvEndereco.cshtml" />
+    <Content Include="Views\Endereco\PvEnderecos.cshtml" />
+    <Content Include="Views\Cartao\PvCartoes.cshtml" />
+    <Content Include="Views\Endereco\Edit.cshtml" />
+    <Content Include="Views\Endereco\Delete.cshtml" />
+    <Content Include="Views\Endereco\Details.cshtml" />
+    <Content Include="Views\Endereco\Index.cshtml" />
+    <Content Include="Views\Cartao\Index.cshtml" />
+    <Content Include="Views\Cartao\Details.cshtml" />
+    <Content Include="Views\Cartao\Create.cshtml" />
+    <Content Include="Views\Cartao\Edit.cshtml" />
+    <Content Include="Views\Cartao\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

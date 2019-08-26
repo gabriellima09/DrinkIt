@@ -12,7 +12,7 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(CartaoCredito entidade)
         {
-            Sql.Append("UPDATE CARTAO SET");
+            Sql.Append("UPDATE Cartoes SET");
             Sql.Append("Bandeira = '" + entidade.Bandeira + "', ");
             Sql.Append("ClienteId = " + entidade.ClienteId + ", ");
             Sql.Append("CodigoSeguranca = " + entidade.CodigoSeguranca + ", ");
@@ -25,12 +25,12 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(CartaoCredito entidade)
         {
-            Sql.Append("INSERT INTO CARTAO (");
+            Sql.Append("INSERT INTO Cartoes (");
             Sql.Append("Bandeira, ");
             Sql.Append("ClienteId, ");
             Sql.Append("CodigoSeguranca, ");
             Sql.Append("NomeTitular, ");
-            Sql.Append("Numero, ");
+            Sql.Append("Numero ");
             Sql.Append(")");
             Sql.Append(" VALUES (");
             Sql.Append("'" + entidade.Bandeira + "', ");
@@ -47,7 +47,7 @@ namespace DrinkIt.WebApp.Dao
         {
             CartaoCredito cartao = new CartaoCredito();
 
-            Sql.Append("SELECT * FROM CARTAO WHERE Id = " + id);
+            Sql.Append("SELECT * FROM Cartoes WHERE Id = " + id);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -64,7 +64,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<CartaoCredito> cartoes = new List<CartaoCredito>();
 
-            Sql.Append("SELECT * FROM CARTAO");
+            Sql.Append("SELECT * FROM Cartoes");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -79,7 +79,7 @@ namespace DrinkIt.WebApp.Dao
 
         public void Excluir(int id)
         {
-            Sql.Append("DELETE FROM CARTAO WHERE Id = ");
+            Sql.Append("DELETE FROM Cartoes WHERE Id = ");
             Sql.Append(id);
             Sql.Append(";");
 

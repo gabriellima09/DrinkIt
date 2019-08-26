@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.CartaoCredito>
+
+@{
+    Layout = null;
+}
+
+<table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeTitular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bandeira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoSeguranca)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeTitular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bandeira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoSeguranca)
+        </td>
+        <td align="center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Opções <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })</li>
+                    <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-info" })</li>
+                    <li>@Html.ActionLink("Excluir", "Excluir", new { id = item.Id }, new { @class = "btn btn-danger" })</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    }
+
+</table>
