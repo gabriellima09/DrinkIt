@@ -15,7 +15,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             usuarioDao = new UsuarioDao();
             Dao = new UsuarioDao();
-            Fachada = new Fachada<Usuario>(Dao, null);
+            Fachada = new Fachada<Usuario>(Dao);
         }
 
         public ActionResult Index()

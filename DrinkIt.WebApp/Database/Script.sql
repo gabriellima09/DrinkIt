@@ -1,13 +1,9 @@
 USE [master]
 GO
-/****** Object:  Database [drinkit]    Script Date: 22/08/2019 21:10:00 ******/
-
+/****** Object:  Database [drinkit]    Script Date: 27/08/2019 21:41:17 ******/
 CREATE DATABASE [drinkit]
  CONTAINMENT = NONE
  ON  PRIMARY 
- /**/
- /* NÃO ESQUECE DE TROCAR ESSE PATH E COLOCAR O CAMINHO DA PASTA DO SEU USUÁRIO, SENÃO NÃO FUNCIONA !!! */
- /**/
 ( NAME = N'drinkit', FILENAME = N'C:\Users\Gabriel\drinkit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
 ( NAME = N'drinkit_log', FILENAME = N'C:\Users\Gabriel\drinkit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
@@ -99,7 +95,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [drinkit]
 GO
-/****** Object:  Table [dbo].[Bebidas]    Script Date: 22/08/2019 21:10:00 ******/
+/****** Object:  Table [dbo].[Bebidas]    Script Date: 27/08/2019 21:41:17 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +125,21 @@ CREATE TABLE [dbo].[Bebidas](
 	[CaminhoImagem] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 22/08/2019 21:10:01 ******/
+/****** Object:  Table [dbo].[Cartoes]    Script Date: 27/08/2019 21:41:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cartoes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ClienteId] [int] NULL,
+	[Numero] [varchar](50) NULL,
+	[CodigoSeguranca] [int] NULL,
+	[Bandeira] [varchar](50) NULL,
+	[NomeTitular] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Clientes]    Script Date: 27/08/2019 21:41:18 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -146,7 +156,7 @@ CREATE TABLE [dbo].[Clientes](
 	[Senha] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Enderecos]    Script Date: 22/08/2019 21:10:01 ******/
+/****** Object:  Table [dbo].[Enderecos]    Script Date: 27/08/2019 21:41:18 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,10 +172,11 @@ CREATE TABLE [dbo].[Enderecos](
 	[Cidade] [varchar](50) NULL,
 	[Estado] [varchar](50) NULL,
 	[Cobranca] [bit] NULL,
-	[Entrega] [bit] NULL
+	[Entrega] [bit] NULL,
+	[Numero] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Ingredientes]    Script Date: 22/08/2019 21:10:01 ******/
+/****** Object:  Table [dbo].[Ingredientes]    Script Date: 27/08/2019 21:41:18 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

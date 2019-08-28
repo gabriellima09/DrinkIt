@@ -30,9 +30,9 @@ namespace DrinkIt.WebApp.Selenium
                 },
                 Cartao = new CartaoCredito
                 {
-                    Bandeira = "Visa",
+                    Bandeira = "Mastercard",
                     CodigoSeguranca = 123,
-                    NomeTitular = "",
+                    NomeTitular = "Gabriel Lima Gomes",
                     Numero = "123456789000"
                 },
                 Genero = "Masculino",

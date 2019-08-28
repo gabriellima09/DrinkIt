@@ -31,15 +31,21 @@ namespace DrinkIt.WebApp.Selenium
             _driver.SetText(By.Name("Senha"), cliente.Senha.ToString());
             _driver.SetText(By.Name("Nome"), cliente.Nome.ToString());
             _driver.SetText(By.Name("Cpf"), cliente.Cpf.ToString());
-            _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd/MM/yyyy"));
+            _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd-MM-yyyy"));
             _driver.SetText(By.Name("Genero"), cliente.Genero.ToString());
             _driver.SetText(By.Name("Telefone"), cliente.Telefone.ToString());
-            _driver.SetText(By.Name("CEP"), cliente.Endereco.CEP.ToString());
-            _driver.SetText(By.Name("Endereco"), cliente.Endereco.ToString());
-            _driver.SetText(By.Name("Complemento"), cliente.Endereco.Complemento.ToString());
-            _driver.SetText(By.Name("Bairro"), cliente.Endereco.Bairro.ToString());
-            _driver.SetText(By.Name("Cidade"), cliente.Endereco.Cidade.ToString());
-            _driver.SetText(By.Name("Estado"), cliente.Endereco.Estado.ToString());
+            _driver.SetText(By.Name("Endereco.Descricao"), cliente.Endereco.Descricao.ToString());
+            _driver.SetText(By.Name("Endereco.CEP"), cliente.Endereco.CEP.ToString());
+            _driver.SetText(By.Name("Endereco.Logradouro"), cliente.Endereco.Logradouro.ToString());
+            _driver.SetText(By.Name("Endereco.Numero"), cliente.Endereco.Numero.ToString());
+            _driver.SetText(By.Name("Endereco.Complemento"), cliente.Endereco.Complemento.ToString());
+            _driver.SetText(By.Name("Endereco.Bairro"), cliente.Endereco.Bairro.ToString());
+            _driver.SetText(By.Name("Endereco.Cidade"), cliente.Endereco.Cidade.ToString());
+            _driver.SetText(By.Name("Endereco.Estado"), cliente.Endereco.Estado.ToString());
+            _driver.SetText(By.Name("Cartao.Numero"), cliente.Cartao.Numero.ToString());
+            _driver.SetText(By.Name("Cartao.NomeTitular"), cliente.Cartao.NomeTitular.ToString());
+            _driver.SetText(By.Name("Cartao.Bandeira"), cliente.Cartao.Bandeira.ToString());
+            _driver.SetText(By.Name("Cartao.CodigoSeguranca"), cliente.Cartao.CodigoSeguranca.ToString());
         }
 
         public void ProcessarCadastro()

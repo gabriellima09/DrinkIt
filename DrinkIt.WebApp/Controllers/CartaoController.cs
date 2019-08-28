@@ -13,7 +13,7 @@ namespace DrinkIt.WebApp.Controllers
         public CartaoController()
         {
             Dao = new CartaoDao();
-            Fachada = new Fachada<CartaoCredito>(Dao, null);
+            Fachada = new Fachada<CartaoCredito>(Dao);
         }
 
         // GET: Cartao

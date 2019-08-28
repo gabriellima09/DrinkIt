@@ -1,12 +1,8 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -19,7 +15,7 @@ namespace DrinkIt.WebApp.Controllers
 
         public BebidasController()
         {
-            Fachada = new Fachada<Bebida>(Dao, null);
+            Fachada = new Fachada<Bebida>(Dao);
         }
 
         // GET: Bebidas
