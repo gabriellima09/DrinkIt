@@ -37,7 +37,6 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Bandeira, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @*@Html.EditorFor(model => model.Bandeira, new { htmlAttributes = new { @class = "form-control" } })*@
             <select class="form-control" name="Bandeira">
                 @if (Model.Bandeira.Equals("Visa"))
                 {

@@ -11,13 +11,11 @@ namespace DrinkIt.WebApp.Controllers
     {
         private readonly IDao<Cliente> Dao;
         private readonly IFachada<Cliente> Fachada;
-        private readonly IStrategy<Cliente> Strategy;
 
         public ClientesController()
         {
             Dao = new ClienteDao();
-            Strategy = new ClienteStrategy();
-            Fachada = new Fachada<Cliente>(Dao, Strategy);
+            Fachada = new Fachada<Cliente>(Dao);
         }
 
         // GET: Clientes

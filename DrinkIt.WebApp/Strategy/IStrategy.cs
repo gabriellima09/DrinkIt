@@ -1,7 +1,9 @@
-﻿namespace DrinkIt.WebApp.Strategy
+﻿using DrinkIt.WebApp.Models;
+
+namespace DrinkIt.WebApp.Strategy
 {
-    public interface IStrategy<T>
+    public interface IStrategy
     {
-        bool Processar(T entidade);
+        bool Processar(EntidadeDominio entidade);
     }
 }

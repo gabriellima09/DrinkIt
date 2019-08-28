@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Models;
+using DrinkIt.WebApp.Strategy;
 using System.Collections.Generic;
 
 namespace DrinkIt.WebApp.Facade
@@ -10,5 +11,6 @@ namespace DrinkIt.WebApp.Facade
         void Excluir(int id);
         T ConsultarPorId(int id);
         List<T> ConsultarTodos();
+        void ProcessarStrategies(EntidadeDominio entidade);
     }
 }

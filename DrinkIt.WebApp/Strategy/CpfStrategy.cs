@@ -1,13 +1,14 @@
 ﻿using DrinkIt.WebApp.Models;
-using System;
 
 namespace DrinkIt.WebApp.Strategy
 {
-    public class ClienteStrategy : IStrategy<Cliente>
+    public class CpfStrategy : IStrategy
     {
-        public bool Processar(Cliente entidade)
+        public bool Processar(EntidadeDominio entidade)
         {
-            return ValidarCpf(entidade.Cpf);
+            Cliente cliente = (Cliente)entidade;
+
+            return ValidarCpf(cliente.Cpf);
         }
 
         private bool ValidarCpf(string cpf)

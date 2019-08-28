@@ -15,7 +15,7 @@ namespace DrinkIt.WebApp.Controllers
         public EnderecoController()
         {
             Dao = new EnderecoDao();
-            Fachada = new Fachada<Endereco>(Dao, null);
+            Fachada = new Fachada<Endereco>(Dao);
         }
 
         // GET: Endereco
