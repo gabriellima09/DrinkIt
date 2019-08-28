@@ -6,8 +6,7 @@ function Add() {
     $('#hiddenCounter').val(counter);
     $("#tbIngredientes tbody").append(
         "<tr>" +
-        '<td><input type="text" class="form-control" name="teste" /></td>' +
-        '<td><input type="text" class="form-control" name="Qtde" /></td>' +
+        '<td><input type="text" class="form-control" name="LstIngredientes" /></td>' +
         '<td style="text-align:center"><button type="button" class="btnDelete btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span> Remover</button></td>' +
         "</tr>");
 
@@ -31,7 +30,7 @@ $("#btnAddIng").click(function () {
 });
 
 $('#btnCadastrar').click(function () {
-    var rows = document.getElementById('tbIngredientes').getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
+    /*var rows = document.getElementById('tbIngredientes').getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
     for (var i = 0; i < rows; i++) {
         alert("entrou no for> " + i);
         document.getElementById('tbIngredientes').getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("input").setAttribute("name", "Ingredientes[" + i + "].Descricao");
@@ -39,6 +38,6 @@ $('#btnCadastrar').click(function () {
         alert("B");
         //var descricao = tr.; //tr.children("td:nth-child(1)").children("input[type=text]");
     }
-    alert("A");
+    alert("A");*/
     $('#FormCreateBebida').submit();
 });
