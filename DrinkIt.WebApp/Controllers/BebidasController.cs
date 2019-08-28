@@ -172,24 +172,10 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Create
         [HttpPost]
-        public ActionResult Create(Bebida bebida, List<string> LstIngredientes)
+        public ActionResult Create(Bebida bebida, String[] teste)
         {
             try
             {
-
-                bebida.Ingredientes = new List<Ingrediente>();
-
-                foreach(var item in LstIngredientes)
-                {
-                    Ingrediente i = new Ingrediente
-                    {
-                        Descricao = item
-                    };
-
-                    bebida.Ingredientes.Add(i);
-                }
-
-
                 //Fachada.Cadastrar(bebida);
                 // TODO: Add insert logic here
                 //COLOCA O BOTÃO DE REMOVER SÓ NO ULTIMO
