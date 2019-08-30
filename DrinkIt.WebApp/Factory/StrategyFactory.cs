@@ -7,12 +7,7 @@ namespace DrinkIt.WebApp.Factory
 {
     public static class StrategyFactory<T>
     {
-        private static IList<IStrategy> List;
-
-        static StrategyFactory()
-        {
-            List = new List<IStrategy>();
-        }
+        private static IList<IStrategy> List = new List<IStrategy>();        
 
         public static IList<IStrategy> GetStrategies()
         {
@@ -22,7 +17,26 @@ namespace DrinkIt.WebApp.Factory
             {
                 List = new List<IStrategy>
                 {
-                    new CpfStrategy()
+                    new ClienteStrategy(),
+                    new CpfStrategy(),
+                    new EnderecoStrategy(),
+                    new CartaoStrategy()
+                };
+            }
+
+            if (type == typeof(Endereco))
+            {
+                List = new List<IStrategy>
+                {
+                    new EnderecoStrategy()
+                };
+            }
+
+            if (type == typeof(CartaoCredito))
+            {
+                List = new List<IStrategy>
+                {
+                    new CartaoStrategy()
                 };
             }
 
