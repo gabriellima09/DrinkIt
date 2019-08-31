@@ -177,39 +177,20 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 bebida.Ingredientes = new List<Ingrediente>();
-                foreach(var item in LstIngrediente)
+                if(LstIngrediente != null && LstIngrediente.Count > 0)
                 {
-                    Ingrediente i = new Ingrediente
+                    foreach (var item in LstIngrediente)
                     {
-                        Descricao = item
-                    };
+                        Ingrediente i = new Ingrediente
+                        {
+                            Descricao = item
+                        };
 
-                    bebida.Ingredientes.Add(i);
+                        bebida.Ingredientes.Add(i);
+                    }
                 }
 
-
-                //Fachada.Cadastrar(bebida);
-                // TODO: Add insert logic here
-                //COLOCA O BOTÃO DE REMOVER SÓ NO ULTIMO
-                Bebida b = new Bebida();
-                b.Nome = bebida.Nome;
-                b.Descricao = bebida.Descricao;
-                b.Marca = bebida.Marca;
-                b.Valor = bebida.Valor;
-                b.Volume = bebida.Volume;
-                b.Peso = bebida.Peso;
-                b.Sabor = bebida.Sabor;
-                b.Lote = bebida.Lote;
-                b.DataFabricacao = bebida.DataFabricacao;
-                b.DataValidade = bebida.DataValidade;
-                b.Fabricante = bebida.Fabricante;
-                b.CodigoBarras = bebida.CodigoBarras;
-                b.Alcoolico = bebida.Alcoolico;
-                b.Teor = bebida.Teor;
-                b.Gaseificada = bebida.Gaseificada;
-                b.ContemGluten = bebida.ContemGluten;
-                b.DicaConservacao = bebida.DicaConservacao;
-                b.Status = bebida.Status;
+                Fachada.Cadastrar(bebida);
 
                 return RedirectToAction("Index");
             }
