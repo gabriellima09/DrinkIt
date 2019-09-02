@@ -40,6 +40,14 @@ namespace DrinkIt.WebApp.Factory
                 };
             }
 
+            if(type == typeof(Bebida))
+            {
+                List = new List<IStrategy>
+                {
+                    new BebidaStrategy()
+                };
+            }
+
             return List;
         }
     }
