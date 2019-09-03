@@ -24,6 +24,7 @@
     <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
+    <li><a data-toggle="tab" href="#Trocas">Trocas</a></li>
 </ul>
 
 <div class="tab-content">
@@ -167,6 +168,58 @@
             <a style="margin-left:15px" href="/Cupons/Create/" class="btn btn-primary">Novo Cupom</a>
             <hr />
             @Html.Action("PvCupom", "Cupons")
+        </div>
+    </div>
+
+    <!-- Trocas -->
+    <div class="tab-pane" id="Trocas">
+        <div class="panel panel-default">
+            <h4>Solicitações de Troca</h4>
+            <hr />
+
+            <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+                <tr>
+                    <th>
+                        Cliente
+                    </th>
+                    <th>
+                        Pedido
+                    </th>
+                    <th>
+                        Motivo
+                    </th>
+                    <th>
+                        Data Solicitação
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        Cliente Teste
+                    </td>
+                    <td>
+                        12345
+                    </td>
+                    <td>
+                        O produto estava vencido
+                    </td>
+                    <td>
+                        @DateTime.Now
+                    </td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Opções <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="btn btn-success">Aprovar</a></li>
+                                <li><a class="btn btn-danger">Reprovar</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
 </div>
