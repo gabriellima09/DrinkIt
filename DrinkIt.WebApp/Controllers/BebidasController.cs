@@ -15,6 +15,7 @@ namespace DrinkIt.WebApp.Controllers
 
         public BebidasController()
         {
+            Dao = new BebidaDao();
             Fachada = new Fachada<Bebida>(Dao);
         }
 
@@ -189,6 +190,13 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
+                bebida.TipoBebida = new TipoBebida
+                {
+                    Id = 1,
+                    Descricao = "Refri"
+                };
+
+                bebida.CaminhoImagem = "caminho";
 
                 Fachada.Cadastrar(bebida);
 
