@@ -62,7 +62,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("ContemGluten, ");
             Sql.Append("DicaConservacao, ");
             Sql.Append("Status, ");
-            Sql.Append("CaminhoImagem, ");
+            Sql.Append("CaminhoImagem");
             Sql.Append(")");
             Sql.Append("VALUES ('");
             Sql.Append(entidade.Nome + "', '");
@@ -78,7 +78,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append(entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
             Sql.Append(entidade.Fabricante + "', '");
             Sql.Append(entidade.Embalagem + "', '");
-            Sql.Append(entidade.CodigoBarras + "', '");
+            Sql.Append(entidade.CodigoBarras + "', ");
             Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", '");
             Sql.Append(entidade.Teor + "', ");
             Sql.Append((entidade.Gaseificada == true ? 1 : 0) + ", ");

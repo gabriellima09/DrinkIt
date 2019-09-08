@@ -185,7 +185,10 @@
     <Compile Include="Selenium\WebDriveFactory.cs" />
     <Compile Include="Selenium\WebDriverExtensions.cs" />
     <Compile Include="Strategy\BebidaStrategy.cs" />
+    <Compile Include="Strategy\CartaoStrategy.cs" />
+    <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\CpfStrategy.cs" />
+    <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\IStrategy.cs" />
 	<Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
