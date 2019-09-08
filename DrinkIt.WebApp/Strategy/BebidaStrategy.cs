@@ -15,7 +15,8 @@ namespace DrinkIt.WebApp.Strategy
             if (
                 string.IsNullOrEmpty(bebida.Nome) ||
                 string.IsNullOrEmpty(bebida.Descricao) ||
-                bebida.TipoBebida.Id == 0 ||
+                string.IsNullOrEmpty(bebida.TipoBebida.Descricao) ||
+                //bebida.TipoBebida.Id == 0 ||
                 string.IsNullOrEmpty(bebida.Marca) ||
                 string.IsNullOrEmpty(bebida.Volume) ||
                 bebida.Valor == 0 ||

@@ -250,13 +250,16 @@ namespace DrinkIt.WebApp.Controllers
         [HttpPost]
         public ActionResult Edit(Bebida bebida)
         {
+            bebida.CaminhoImagem = "/Images/dolly.jpg";
+            bebida.Ingredientes = new List<Ingrediente>();
+            bebida.TipoBebida = new TipoBebida();
             try
             {
                 // TODO: Add update logic here
                 Fachada.Alterar(bebida);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
@@ -265,7 +268,17 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult TrocarStatus(int id)
         {
-            return new EmptyResult();
+            try
+            {
+                // TODO: Add update logic here
+                Fachada.Excluir(id);
+                return RedirectToAction("Index", "Usuarios", null);
+            }
+            catch(Exception ex)
+            {
+                return View();
+            }
+            //return new EmptyResult();
         }
         /*
         // GET: Bebidas/Delete/5
