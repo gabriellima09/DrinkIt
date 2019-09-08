@@ -190,9 +190,6 @@
     <Compile Include="Strategy\CpfStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\IStrategy.cs" />
-    <Compile Include="Strategy\ClienteStrategy.cs" />
-    <Compile Include="Strategy\EnderecoStrategy.cs" />
-    <Compile Include="Strategy\CartaoStrategy.cs" />
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>

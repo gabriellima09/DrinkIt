@@ -70,7 +70,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append(entidade.Descricao + "', '");
             Sql.Append(entidade.TipoBebida + "', '");
             Sql.Append(entidade.Marca + "', ");
-            Sql.Append(entidade.Valor + ", '");
+            Sql.Append(entidade.Valor.ToString(new CultureInfo("en-US")) + ", '");
             Sql.Append(entidade.Volume + "', '");
             Sql.Append(entidade.Peso + "', '");
             Sql.Append(entidade.Sabor + "', '");
@@ -127,8 +127,34 @@ namespace DrinkIt.WebApp.Dao
         }
 
         public void Excluir(int id)
-        {
-            Sql.Append("DELETE FROM BEBIDAS WHERE Id = ");
+        {//O método EXLCUIR para a DAO de Bebidas troca o status atual de uma bebida.
+
+            Bebida bebida = new Bebida();
+            string statusBebida;
+
+            Sql.Append("SELECT * FROM BEBIDAS WHERE Id = " + id);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    bebida = ObterEntidadeReader(reader);
+                }
+            }
+
+            if (bebida.Status == "ATIVO")
+            {
+                statusBebida = "INATIVO";
+            }
+            else
+            {
+                statusBebida = "ATIVO";
+            }
+            
+            Sql.Clear();
+            
+
+            Sql.Append("UPDATE BEBIDAS SET STATUS = '" + statusBebida + "' WHERE Id = ");
             Sql.Append(id);
             Sql.Append(";");
 
