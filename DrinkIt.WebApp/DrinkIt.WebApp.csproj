@@ -190,10 +190,10 @@
     <Compile Include="Strategy\CpfStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\IStrategy.cs" />
-	<Compile Include="Strategy\ClienteStrategy.cs" />
+    <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\CartaoStrategy.cs" />
-	<Compile Include="Strategy\ValidadorAuxiliar.cs" />
+    <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -205,6 +205,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\crystal.jpg" />
+    <Content Include="Images\dolly.jpg" />
     <Content Include="Images\drink.jpg" />
     <Content Include="Scripts\Bebidas\Script_CreateBebidas.js" />
     <Content Include="Scripts\bootstrap.js" />

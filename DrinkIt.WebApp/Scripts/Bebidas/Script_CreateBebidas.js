@@ -30,6 +30,7 @@ $("#btnAddIng").click(function () {
 });
 
 $('#btnCadastrar').click(function () {
+
    
     $('#FormCreateBebida').submit();
 });

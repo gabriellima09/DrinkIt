@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Text;
 using DrinkIt.WebApp.Models;
 
@@ -11,23 +12,23 @@ namespace DrinkIt.WebApp.Dao
         private StringBuilder Sql = new StringBuilder();
 
         public void Alterar(Bebida entidade)
-        {
-            Sql.Append("UPDATE BEBIDAS SET");
+       {
+            Sql.Append("UPDATE BEBIDAS SET ");
             Sql.Append("Nome = '" + entidade.Nome + "', ");
-            Sql.Append("Descricao '= " + entidade.Descricao + "', ");
-            Sql.Append("TipoBebida '= " + entidade.TipoBebida.Id + "', ");
-            Sql.Append("Marca '= " + entidade.Marca + "', ");
-            Sql.Append("Valor = " + entidade.Valor + ", ");
-            Sql.Append("Volume '= " + entidade.Volume + "', ");
-            Sql.Append("Peso '= " + entidade.Peso + "', ");
-            Sql.Append("Sabor '= " + entidade.Sabor + "', ");
+            Sql.Append("Descricao = '" + entidade.Descricao + "', ");
+            Sql.Append("TipoBebida = '" + entidade.TipoBebida.Descricao + "', ");
+            Sql.Append("Marca = '" + entidade.Marca + "', ");
+            Sql.Append("Valor = " + entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
+            Sql.Append("Volume = '" + entidade.Volume + "', ");
+            Sql.Append("Peso = '" + entidade.Peso + "', ");
+            Sql.Append("Sabor = '" + entidade.Sabor + "', ");
             Sql.Append("Lote = '" + entidade.Lote + "', ");
             Sql.Append("DataFabricacao = '" + entidade.DataFabricacao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("DataValidade = " + entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("Fabricante = " + entidade.Fabricante + "', ");
-            Sql.Append("Embalagem = " + entidade.Embalagem + ", ");
-            Sql.Append("CodigoBarras = " + entidade.CodigoBarras + "', ");
-            Sql.Append("Alcoolico = " +(entidade.Alcoolico == true ? 1 : 0) + ", ");
+            Sql.Append("DataValidade = '" + entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sql.Append("Fabricante = '" + entidade.Fabricante + "', ");
+            Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
+            Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
+            Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
             Sql.Append("Teor = '" + entidade.Teor + "', ");
             Sql.Append("Gaseificada = " +(entidade.Gaseificada == true ? 1 : 0) + ", ");
             Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0)  + ", ");
@@ -143,7 +144,7 @@ namespace DrinkIt.WebApp.Dao
                 Descricao = Convert.ToString(reader["Descricao"]),
                 TipoBebida = new TipoBebida
                 {
-                    Id = Convert.ToInt32(reader["TipoBebida"])
+                    Descricao = Convert.ToString(reader["TipoBebida"])
                 },
                 Marca = Convert.ToString(reader["Marca"]),
                 Valor = Convert.ToDecimal(reader["Valor"]),

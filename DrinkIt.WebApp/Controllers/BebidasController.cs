@@ -250,13 +250,16 @@ namespace DrinkIt.WebApp.Controllers
         [HttpPost]
         public ActionResult Edit(Bebida bebida)
         {
+            bebida.CaminhoImagem = "/Images/dolly.jpg";
+            bebida.Ingredientes = new List<Ingrediente>();
+            bebida.TipoBebida = new TipoBebida();
             try
             {
                 // TODO: Add update logic here
                 Fachada.Alterar(bebida);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
