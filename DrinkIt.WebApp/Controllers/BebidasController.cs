@@ -22,7 +22,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas
         public ActionResult Index()
         {
-            return View();
+            return View();//teste
         }
 
         public ActionResult PvBebida()
