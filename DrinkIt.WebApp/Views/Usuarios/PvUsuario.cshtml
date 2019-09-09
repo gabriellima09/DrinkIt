@@ -11,7 +11,7 @@
 <ul class="nav navbar-nav" style="float:right">
     <li><a>Bem vindo, <span style="color: #9d9d9d;">@ViewBag.NomeUsuario</span></a></li>
     <li class="btn-group">
-        <button type="button" style="margin-top: 7px;"
+        <button id="btnOpcoesMenu" type="button" style="margin-top: 7px;"
                 class="btn btn-default dropdown-toggle navbar-left"
                 data-toggle="dropdown" aria-haspopup="true">
             <span class="glyphicon glyphicon-user"></span>
@@ -31,7 +31,7 @@
             }
 
             <li role="separator" class="divider"></li>
-            <li>@Html.ActionLink("Sair", "Logout")</li>
+            <li>@Html.ActionLink("Sair", "Logout", null, new { @id = "btnLogout" })</li>
         </ul>
     </li>
 </ul>

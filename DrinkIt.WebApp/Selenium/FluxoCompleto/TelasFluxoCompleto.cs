@@ -19,57 +19,114 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver = WebDriveFactory.CreateWebDriver(_browser, caminhoDriver);
         }
 
+        public void Esperar(double segundos)
+        {
+            _driver.Wait(segundos);
+        }
+
         public void CadastroBebidas()
         {
-            TelaCadastroBebida tela = new TelaCadastroBebida(Browser.Chrome);
+            Bebida bebida = GetBebida();
 
-            tela.CarregarPagina();
-            tela.PreencherDadosBebida(GetBebida());
-            tela.ProcessarCadastro();
+            _driver.SetText(By.Name("Nome"), bebida.Nome.ToString());
+            _driver.SetText(By.Name("Descricao"), bebida.Descricao.ToString());
+            _driver.SetText(By.Name("Marca"), bebida.Marca.ToString());
+            _driver.SetText(By.Name("Valor"), bebida.Valor.ToString());
+            _driver.SetText(By.Name("Volume"), bebida.Volume.ToString());
+            _driver.SetText(By.Name("Peso"), bebida.Peso.ToString());
+            _driver.SetText(By.Name("Sabor"), bebida.Sabor.ToString());
+            _driver.SetText(By.Name("Lote"), bebida.Lote.ToString());
+            _driver.SetText(By.Name("DataFabricacao"), bebida.DataFabricacao.ToString("dd/MM/yyyy"));
+            _driver.SetText(By.Name("DataValidade"), bebida.DataValidade.ToString("dd/MM/yyyy"));
+            _driver.SetText(By.Name("Fabricante"), bebida.Fabricante.ToString());
+            _driver.SetText(By.Name("Embalagem"), bebida.Embalagem.ToString());
+            _driver.SetText(By.Name("CodigoBarras"), bebida.CodigoBarras.ToString());
+            _driver.SetText(By.Name("Teor"), bebida.Teor.ToString());
+            _driver.SetText(By.Name("DicaConservacao"), bebida.DicaConservacao.ToString());
+            _driver.SetText(By.Name("Status"), bebida.Status.ToString());
+            _driver.SetText(By.Name("LstIngrediente"), "Água mineral");
+
+            _driver.Submit(By.Id("btnCadastrar"));
         }
 
         public void CadastroClientes()
         {
-            TelaCadastroCliente tela = new TelaCadastroCliente(Browser.Chrome);
+            Cliente cliente = GetCliente();
 
-            tela.CarregarPagina();
-            tela.PreencherDadosCliente(GetCliente());
-            tela.ProcessarCadastro();
+            _driver.SetText(By.Name("Email"), cliente.Email.ToString());
+            _driver.SetText(By.Name("Login"), cliente.Login.ToString());
+            _driver.SetText(By.Name("Senha"), cliente.Senha.ToString());
+            _driver.SetText(By.Name("Nome"), cliente.Nome.ToString());
+            _driver.SetText(By.Name("Cpf"), cliente.Cpf.ToString());
+            _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd-MM-yyyy"));
+            _driver.SetText(By.Name("Genero"), cliente.Genero.ToString());
+            _driver.SetText(By.Name("Telefone"), cliente.Telefone.ToString());
+            _driver.SetText(By.Name("Endereco.Descricao"), cliente.Endereco.Descricao.ToString());
+            _driver.SetText(By.Name("Endereco.CEP"), cliente.Endereco.CEP.ToString());
+            _driver.SetText(By.Name("Endereco.Logradouro"), cliente.Endereco.Logradouro.ToString());
+            _driver.SetText(By.Name("Endereco.Numero"), cliente.Endereco.Numero.ToString());
+            _driver.SetText(By.Name("Endereco.Complemento"), cliente.Endereco.Complemento.ToString());
+            _driver.SetText(By.Name("Endereco.Bairro"), cliente.Endereco.Bairro.ToString());
+            _driver.SetText(By.Name("Endereco.Cidade"), cliente.Endereco.Cidade.ToString());
+            _driver.SetText(By.Name("Endereco.Estado"), cliente.Endereco.Estado.ToString());
+            _driver.SetText(By.Name("Cartao.Numero"), cliente.Cartao.Numero.ToString());
+            _driver.SetText(By.Name("Cartao.NomeTitular"), cliente.Cartao.NomeTitular.ToString());
+            _driver.SetText(By.Name("Cartao.Bandeira"), cliente.Cartao.Bandeira.ToString());
+            _driver.SetText(By.Name("Cartao.CodigoSeguranca"), cliente.Cartao.CodigoSeguranca.ToString());
+
+            _driver.Submit(By.Id("btnCadastrar"));
         }
 
         public void LoginAdmin()
         {
-            throw new NotImplementedException();
+            _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaLogin"]);
+            _driver.SetText(By.Name("Email"), "admin");
+            _driver.SetText(By.Name("Senha"), "12345");
+            _driver.Submit(By.Id("btnEntrar"));
         }
 
         public void NavegarParaTelaCadastroBebidas()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("navTabBebida")).Click();
+            Esperar(5);
+            _driver.FindElement(By.Id("btnNovaBebida")).Click();
         }
+
+        public void NavegarParaTelaCadastroCliente()
+        {
+            _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaCadastroCliente"]);
+        }
+
 
         public void Logout()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("btnOpcoesMenu")).Click();
+            Esperar(5);
+            _driver.FindElement(By.Id("btnLogout")).Click();
         }
 
         public void LoginCliente()
         {
-            throw new NotImplementedException();
+            _driver.SetText(By.Name("Email"), "teste@teste.com");
+            _driver.SetText(By.Name("Senha"), "teste");
+            _driver.Submit(By.Id("btnEntrar"));
         }
 
         public void TelaInicial()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("btnHome")).Click();
         }
 
         public void SelecionaBebida()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.ClassName("dashBebida")).Click();
+            Esperar(5);
+            _driver.FindElement(By.Id("btnAddCarrinho")).Click();
         }
 
-        public void MostrarCarrinho()
+        public void IrParaCheckout()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
         }
 
         public void Checkout()

@@ -36,7 +36,8 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-info" })</li>
-                    <li>@Html.ActionLink("Solicitar Cupom de Troca", "TrocarStatus", new { id = 1 }, new { @class = "btn-primary" })</li>
+                    @*<li>@Html.ActionLink("Solicitar Cupom de Troca", "TrocarStatus", new { id = 1 }, new { @class = "btn-primary" })</li>*@
+                    <li><a class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');">Solicitar Cupom de Troca</a></li>
                 </ul>
             </div>
         </td>
@@ -44,3 +45,81 @@
 }
 
 </table>
+
+<div id="modalTrocaPedidos" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info" style="display: flex;">
+                <h3 class="modal-title">Deseja solicitar a troca desse pedido?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Pedido</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstOrDefault().Id)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Data)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstOrDefault().Data)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstOrDefault().Status)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Cliente)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstOrDefault().Cliente.Nome)
+                        </dd>
+                    </dl>
+
+                    <hr />
+
+                    <h4>Bebidas</h4>
+                    <dl class="dl-horizontal">
+                        @foreach (var item in Model.FirstOrDefault().Bebidas)
+                        {
+                            <dt>
+                                @Html.DisplayName(item.Nome)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => item.Nome)
+                            </dd>
+                        }
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Informe o motivo da solicitação: <br /> (o motivo irá impactar na aprovação/reprovação da mesma)</label>
+                    </h5>
+                    <textarea class="form-control" name="MotivoSolicitacao" cols="20" rows="5" placeholder="Digite o motivo da troca"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Solicitar Troca</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

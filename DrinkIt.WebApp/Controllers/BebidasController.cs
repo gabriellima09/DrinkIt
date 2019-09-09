@@ -50,45 +50,47 @@ namespace DrinkIt.WebApp.Controllers
                     Gaseificada = false,
                     ContemGluten = false,
                     Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
                         {
-                            Descricao = "H2O"
-                        }
-                    },
+                            new Ingrediente
+                            {
+                                Descricao = "H2O"
+                            }
+                        },
                     DicaConservacao = "Beba água",
-                    Status = "ATIVO"                    
+                    Status = "ATIVO",
+                    CaminhoImagem = "/Images/crystal.jpg"
 
                 },
                 new Bebida
                 {
                     Id = 2,
-                    Nome = "Soda",
-                    Descricao = "Soda Limonada",
-                    Marca = "Soda",
+                    Nome = "Crystal",
+                    Descricao = "Água Mineral sem Gás",
+                    Marca = "Crystal",
                     Valor = 1.99M,
-                    Volume = "350ml",
-                    Peso = "350mg",
-                    Sabor = "Limão",
+                    Volume = "1.5L",
+                    Peso = "1KG",
+                    Sabor = "---",
                     Lote = "12321",
                     DataFabricacao = DateTime.Now,
                     DataValidade = DateTime.Now,
-                    Fabricante = "Nem sei",
-                    Embalagem = "Lata",
+                    Fabricante = "Coca-Cola",
+                    Embalagem = "Garrafa",
                     CodigoBarras = "662607004",
                     Alcoolico = false,
                     Teor = "0%",
-                    Gaseificada = true,
+                    Gaseificada = false,
                     ContemGluten = false,
                     Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
                         {
-                            Descricao = "Soda"
-                        }
-                    },
-                    DicaConservacao = "Beba mais água",
-                    Status = "ATIVO"
+                            new Ingrediente
+                            {
+                                Descricao = "H2O"
+                            }
+                        },
+                    DicaConservacao = "Beba água",
+                    Status = "ATIVO",
+                    CaminhoImagem = "/Images/crystal.jpg"
 
                 },
                 new Bebida
@@ -162,12 +164,13 @@ namespace DrinkIt.WebApp.Controllers
                 CaminhoImagem = "/Images/crystal.jpg"
 
             };
-            return View(Fachada.ConsultarPorId(id));
+            //return View(Fachada.ConsultarPorId(id)); -- comentado para usar o selenium
+            return View(bebida);
         }
 
         // GET: Bebidas/Create
         public ActionResult Create()
-        {            
+        {
             return View();
         }
 
@@ -178,7 +181,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 bebida.Ingredientes = new List<Ingrediente>();
-                if(LstIngrediente != null && LstIngrediente.Count > 0)
+                if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {
                     foreach (var item in LstIngrediente)
                     {
@@ -259,12 +262,11 @@ namespace DrinkIt.WebApp.Controllers
                 Fachada.Alterar(bebida);
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
         }
-
 
         public ActionResult TrocarStatus(int id)
         {
@@ -274,7 +276,7 @@ namespace DrinkIt.WebApp.Controllers
                 Fachada.Excluir(id);
                 return RedirectToAction("Index", "Usuarios", null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }

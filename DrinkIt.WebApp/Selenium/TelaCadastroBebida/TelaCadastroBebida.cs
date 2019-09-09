@@ -42,6 +42,7 @@ namespace DrinkIt.WebApp.Selenium
             _driver.SetText(By.Name("Teor"), bebida.Teor.ToString());
             _driver.SetText(By.Name("DicaConservacao"), bebida.DicaConservacao.ToString());
             _driver.SetText(By.Name("Status"), bebida.Status.ToString());
+            _driver.SetText(By.Name("LstIngrediente"), bebida.Status.ToString());
         }
 
         public void ProcessarCadastro()

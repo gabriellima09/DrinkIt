@@ -20,7 +20,7 @@
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#Dashboard">Dashboard</a></li>
-    <li><a data-toggle="tab" href="#Bebidas">Bebidas</a></li>
+    <li><a id="navTabBebida" data-toggle="tab" href="#Bebidas">Bebidas</a></li>
     <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
@@ -134,7 +134,7 @@
             <h4>Bebidas</h4>
             <hr />
 
-            <a style="margin-left:15px" href="/Bebidas/Create/" class="btn btn-primary">Nova Bebida</a>
+            <a id="btnNovaBebida" style="margin-left:15px" href="/Bebidas/Create/" class="btn btn-primary">Nova Bebida</a>
 
             <hr />
 
@@ -212,14 +212,137 @@
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-success">Aprovar</a></li>
-                                <li><a class="btn btn-danger">Reprovar</a></li>
+                                <li><a class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
+                                <li><a class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show');">Reprovar</a></li>
                             </ul>
                         </div>
                     </td>
                 </tr>
             </table>
 
+        </div>
+    </div>
+</div>
+
+<div id="modalAprovarTrocaPedidos" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success" style="display: flex;">
+                <h3 class="modal-title">Deseja aprovar a troca desse pedido?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Pedido</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Cliente
+                        </dt>
+                        <dd>
+                            Cliente Teste
+                        </dd>
+
+                        <dt>
+                            Pedido
+                        </dt>
+                        <dd>
+                            12345
+                        </dd>
+
+                        <dt>
+                            Motivo
+                        </dt>
+                        <dd>
+                            O produto estava vencido
+                        </dd>
+
+                        <dt>
+                            Data Solicitação
+                        </dt>
+                        <dd>
+                            @DateTime.Now
+                        </dd>
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Selecione um cupom para a troca: <br /> (o valor do pedido será convertido no valor do cupom para o cliente)</label>
+                    </h5>
+                    <select class="form-control">
+                        <option value="Cupom1">Cupom1</option>
+                        <option value="Cupom2">Cupom2</option>
+                        <option value="Cupom3">Cupom3</option>
+                        <option value="Cupom4">Cupom4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Aprovar Troca</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalReprovarTrocaPedidos" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info" style="display: flex;">
+                <h3 class="modal-title">Deseja reprovar a troca desse pedido?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Pedido</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Cliente
+                        </dt>
+                        <dd>
+                            Cliente Teste
+                        </dd>
+
+                        <dt>
+                            Pedido
+                        </dt>
+                        <dd>
+                            12345
+                        </dd>
+
+                        <dt>
+                            Motivo
+                        </dt>
+                        <dd>
+                            O produto estava vencido
+                        </dd>
+
+                        <dt>
+                            Data Solicitação
+                        </dt>
+                        <dd>
+                            @DateTime.Now
+                        </dd>
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Informe o motivo da reprovação:</label>
+                    </h5>
+                    <textarea class="form-control" name="MotivoSolicitacao" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Reprovar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
 </div>

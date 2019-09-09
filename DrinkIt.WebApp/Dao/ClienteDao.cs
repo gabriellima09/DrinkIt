@@ -60,8 +60,7 @@ namespace DrinkIt.WebApp.Dao
                     Id = Convert.ToInt32(reader["Id"]);
                 }
             }
-
-
+            
             entidade.Endereco.Cobranca = true;
             entidade.Endereco.Entrega = true;
             entidade.Endereco.ClienteId = Id;

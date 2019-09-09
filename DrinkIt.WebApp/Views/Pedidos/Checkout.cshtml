@@ -15,13 +15,13 @@
             <div class="form-horizontal">
                 <h4>Endereço</h4>
                 <hr />
-                @*
+                
         <address>
             <strong>Meu endereço</strong><br>
             Rua ABC, 1355 - Centro<br>
             Mogi das Cruzes, SP<br>
-            @*<abbr title="Phone">P:</abbr> (123) 456-7890
-        </address>*@
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
 
                 <select class="form-control" id="dropEndereco" name="Endereco">
                     <option>Casa - Rua ABC 135 - Centro, Mogi das Cruzes SP</option>
@@ -30,7 +30,100 @@
 
                 <br />
 
-                @Html.ActionLink("Novo Endereço", "Create", "Endereco", null, new { @class = "btn btn-info" })
+                <div class="btn-group">
+                    <button id="btnNovoEndereco" type="button" class="btn btn-info">Novo Endereço</button>
+                    <button id="btnNovoEnderecoFechar" type="button" class="btn btn-default" style="display:none">Fechar</button>
+                </div>
+
+                <div id="divNovoEndereco" class="container" style="display:none">
+                    <br />
+                    <div class="form-group">
+                        <label class="control-label" for="Descricao">Descricao</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Descricao é obrigatório." id="Descricao" name="Descricao" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Logradouro">Logradouro</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Logradouro é obrigatório." id="Logradouro" name="Logradouro" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Logradouro" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Numero">Numero</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Numero é obrigatório." id="Numero" name="Numero" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Numero" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Bairro">Bairro</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Bairro é obrigatório." id="Bairro" name="Bairro" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Bairro" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="CEP">CEP</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CEP é obrigatório." id="CEP" name="CEP" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="CEP" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Complemento">Complemento</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" id="Complemento" name="Complemento" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Complemento" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Cidade">Cidade</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Cidade é obrigatório." id="Cidade" name="Cidade" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Cidade" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Estado">Estado</label>
+                        <div class="">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Estado é obrigatório." id="Estado" name="Estado" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Estado" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Cobranca">Cobranca</label>
+                        <div class="">
+                            <div class="checkbox">
+                                <input class="form-control" data-val="true" data-val-required="O campo Cobranca é obrigatório." id="Cobranca" name="Cobranca" type="checkbox" value="true"><input name="Cobranca" type="hidden" value="false">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Cobranca" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Entrega">Entrega</label>
+                        <div class="">
+                            <div class="checkbox">
+                                <input class="form-control" data-val="true" data-val-required="O campo Entrega é obrigatório." id="Entrega" name="Entrega" type="checkbox" value="true"><input name="Entrega" type="hidden" value="false">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Entrega" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="btnSalvarEndereco" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Endereço</button>
+
+                </div>
 
             </div>
         </div>
@@ -52,39 +145,24 @@
 
                 <hr />
 
-                <label>Pagar com 2 Cartões: </label>
+                <div class="form-group">
+                    <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Selecionar Cartão</label>
+                    <select class="form-control" id="SelectCartao">
+                        <option>Nenhum</option>
+                        <option>VISA terminado em 1234</option>
+                        <option>MASTERCARD terminado em 5678</option>
+                    </select>
+                </div>
 
                 <hr />
 
-                <div class="form-group">
-                    <label for="inputAddress">Número do Cartão</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Nome Titular</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6" style="padding-left:0;margin-right:15px">
-                        <label for="inputEmail4">Mês</label>
-                        <input type="text" class="form-control" id="mes" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6" style="padding-right:0;">
-                        <label for="inputPassword4">Ano</label>
-                        <input type="text" class="form-control" id="ano" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Código de segurança</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
                 <div class="btn-group">
                     <button id="btnAddCartao" type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
                     <button id="btnRemoverCartao" style="display:none" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                    <button id="btnSalvarCartao" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Cartão</button>
                 </div>
 
             </div>
