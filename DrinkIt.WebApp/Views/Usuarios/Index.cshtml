@@ -24,7 +24,7 @@
     <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
-    <li><a data-toggle="tab" href="#Trocas">Trocas</a></li>
+    <li><a id="navTabTroca" data-toggle="tab" href="#Trocas">Trocas</a></li>
 </ul>
 
 <div class="tab-content">
@@ -208,12 +208,12 @@
                     </td>
                     <td align="center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesTrocaPedidos">
                                 Opções <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
-                                <li><a class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show');">Reprovar</a></li>
+                                <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
+                                <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show');">Reprovar</a></li>
                             </ul>
                         </div>
                     </td>
@@ -272,7 +272,7 @@
                     <h5>
                         <label class="control-label">Selecione um cupom para a troca: <br /> (o valor do pedido será convertido no valor do cupom para o cliente)</label>
                     </h5>
-                    <select class="form-control">
+                    <select class="form-control" id="selectCupomTroca">
                         <option value="Cupom1">Cupom1</option>
                         <option value="Cupom2">Cupom2</option>
                         <option value="Cupom3">Cupom3</option>
@@ -281,7 +281,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Aprovar Troca</button>
+                <button id="btnAprovarTroca" type="button" class="btn btn-success" data-dismiss="modal">Aprovar Troca</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -291,7 +291,7 @@
 <div id="modalReprovarTrocaPedidos" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info" style="display: flex;">
+            <div class="modal-header bg-danger" style="display: flex;">
                 <h3 class="modal-title">Deseja reprovar a troca desse pedido?</h3>
             </div>
             <div class="modal-body">
@@ -336,11 +336,11 @@
                     <h5>
                         <label class="control-label">Informe o motivo da reprovação:</label>
                     </h5>
-                    <textarea class="form-control" name="MotivoSolicitacao" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                    <textarea class="form-control" name="MotivoReprovacao" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Reprovar</button>
+                <button id="btnReprovarTroca" type="button" class="btn btn-danger" data-dismiss="modal">Reprovar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>

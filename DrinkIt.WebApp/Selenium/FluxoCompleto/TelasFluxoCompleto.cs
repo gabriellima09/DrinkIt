@@ -8,7 +8,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
     public class TelasFluxoCompleto
     {
         private readonly Browser _browser;
-        private readonly IWebDriver _driver;
+        private IWebDriver _driver;
 
         public TelasFluxoCompleto(Browser browser)
         {
@@ -22,6 +22,11 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
         public void Esperar(double segundos)
         {
             _driver.Wait(segundos);
+        }
+
+        public void Esperar()
+        {
+            _driver.Wait1();
         }
 
         public void CadastroBebidas()
@@ -131,22 +136,72 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
 
         public void Checkout()
         {
-            throw new NotImplementedException();
-        }
+            _driver.FindElement(By.Id("dropEndereco")).Click();
+            _driver.Wait1();
 
-        public void MostrarPedido()
-        {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("btnNovoEndereco")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnNovoEnderecoFechar")).Click();
+            _driver.Wait1();
+
+            _driver.FindElement(By.Id("SelectCartao")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("SelectCartao2")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnAddCartao")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnRemoverCartao")).Click();
+            _driver.Wait1();
+
+            _driver.SetText(By.Id("inputCupom"), "CUPOM123");
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnValidarCupom")).Click();
+            _driver.Wait1();
+
+            _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
         }
 
         public void SolicitarTroca()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("opcoesPedidos")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("solicitarTroca")).Click();
+            _driver.Wait1();
+
+            _driver.SetText(By.Name("MotivoSolicitacao"), "O produto estava vencido !!!");
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnSolicitarTroca")).Click();
+            _driver.Wait1();
         }
 
         public void TratarSolicitacaoTroca()
         {
-            throw new NotImplementedException();
+            _driver.FindElement(By.Id("navTabTroca")).Click();
+            _driver.Wait1();
+
+            _driver.FindElement(By.Id("opcoesTrocaPedidos")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnReprovar")).Click();
+            _driver.Wait1();
+            _driver.SetText(By.Name("MotivoReprovacao"), "O produto NÃO estava vencido !!!");
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnReprovarTroca")).Click();
+            _driver.Wait1();
+
+            _driver.FindElement(By.Id("opcoesTrocaPedidos")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnAprovar")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("selectCupomTroca")).Click();
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnAprovarTroca")).Click();
+            _driver.Wait1();
+        }
+
+        public void Fechar()
+        {
+            _driver.Quit();
+            _driver = null;
         }
 
         public Cliente GetCliente()

@@ -17,7 +17,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.Logout();
             tela.NavegarParaTelaCadastroCliente();
             tela.CadastroClientes();
-            tela.Esperar(5);
+            tela.Esperar();
             tela.LoginCliente();
             tela.Esperar(5);
             tela.TelaInicial();
@@ -25,10 +25,15 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.SelecionaBebida();
             tela.Esperar(5);
             tela.IrParaCheckout();
-            //tela.Checkout();
-            //tela.SolicitarTroca();
-            //tela.Logout();
-            //tela.TratarSolicitacaoTroca();
+            tela.Checkout();
+            tela.Esperar(5);
+            tela.SolicitarTroca();
+            tela.Logout();
+            tela.LoginAdmin();
+            tela.Esperar(5);
+            tela.TratarSolicitacaoTroca();
+            tela.Esperar();
+            tela.Fechar();
         }
     }
 }

@@ -23,4 +23,8 @@ $(document).ready(function () {
         $('#divNovoEndereco').css('display', 'none');
         $(this).css('display', 'none');
     });
+
+    $('#btnValidarCupom').click(function () {
+        $('#spanCupomValido').css('display', 'block');
+    });
 });

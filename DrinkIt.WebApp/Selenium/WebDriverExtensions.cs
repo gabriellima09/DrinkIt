@@ -42,6 +42,10 @@ namespace DrinkIt.WebApp.Selenium
             Thread.Sleep(3000);
         }
 
+        public static void Wait1(this IWebDriver webDriver)
+        {
+            Thread.Sleep(1500);
+        }
 
         public static void Quit(this IWebDriver webDriver)
         {
