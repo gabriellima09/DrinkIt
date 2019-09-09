@@ -190,14 +190,7 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-                bebida.TipoBebida = new TipoBebida
-                {
-                    Id = 1,
-                    Descricao = "Refri"
-                };
-
-                bebida.CaminhoImagem = "caminho";
-
+                
                 Fachada.Cadastrar(bebida);
 
                 return RedirectToAction("Index");
@@ -248,10 +241,17 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Edit/5
         [HttpPost]
-        public ActionResult Edit(Bebida bebida)
+        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente)
         {
-            bebida.CaminhoImagem = "/Images/dolly.jpg";
             bebida.Ingredientes = new List<Ingrediente>();
+
+            foreach(var item in LstIngrediente)
+            {
+                Ingrediente ing = new Ingrediente();
+                ing.Descricao = item;
+                bebida.Ingredientes.Add(ing);
+            }
+            
             bebida.TipoBebida = new TipoBebida();
             try
             {
@@ -406,7 +406,7 @@ namespace DrinkIt.WebApp.Controllers
 
             };
 
-            return PartialView(bebidas);
+            return PartialView(Fachada.ConsultarTodos());
         }
     }
 }

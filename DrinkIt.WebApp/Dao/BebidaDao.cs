@@ -13,83 +13,147 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Bebida entidade)
        {
-            Sql.Append("UPDATE BEBIDAS SET ");
-            Sql.Append("Nome = '" + entidade.Nome + "', ");
-            Sql.Append("Descricao = '" + entidade.Descricao + "', ");
-            Sql.Append("TipoBebida = '" + entidade.TipoBebida.Descricao + "', ");
-            Sql.Append("Marca = '" + entidade.Marca + "', ");
-            Sql.Append("Valor = " + entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append("Volume = '" + entidade.Volume + "', ");
-            Sql.Append("Peso = '" + entidade.Peso + "', ");
-            Sql.Append("Sabor = '" + entidade.Sabor + "', ");
-            Sql.Append("Lote = '" + entidade.Lote + "', ");
-            Sql.Append("DataFabricacao = '" + entidade.DataFabricacao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("DataValidade = '" + entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("Fabricante = '" + entidade.Fabricante + "', ");
-            Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
-            Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
-            Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
-            Sql.Append("Teor = '" + entidade.Teor + "', ");
-            Sql.Append("Gaseificada = " +(entidade.Gaseificada == true ? 1 : 0) + ", ");
-            Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0)  + ", ");
-            Sql.Append("DicaConservacao = '" + entidade.DicaConservacao + "', ");
-            Sql.Append("Status = '" + entidade.Status + "', ");            
-            Sql.Append("CaminhoImagem = '" + entidade.CaminhoImagem + "'");            
-            Sql.Append(" WHERE Id = " + entidade.Id);
+            try
+            {
+                Sql.Append("UPDATE BEBIDAS SET ");
+                Sql.Append("Nome = '" + entidade.Nome + "', ");
+                Sql.Append("Descricao = '" + entidade.Descricao + "', ");
+                Sql.Append("TipoBebida = '" + entidade.TipoBebida.Descricao + "', ");
+                Sql.Append("Marca = '" + entidade.Marca + "', ");
+                Sql.Append("Valor = " + entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
+                Sql.Append("Volume = '" + entidade.Volume + "', ");
+                Sql.Append("Peso = '" + entidade.Peso + "', ");
+                Sql.Append("Sabor = '" + entidade.Sabor + "', ");
+                Sql.Append("Lote = '" + entidade.Lote + "', ");
+                Sql.Append("DataFabricacao = '" + entidade.DataFabricacao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("DataValidade = '" + entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("Fabricante = '" + entidade.Fabricante + "', ");
+                Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
+                Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
+                Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
+                Sql.Append("Teor = '" + entidade.Teor + "', ");
+                Sql.Append("Gaseificada = " + (entidade.Gaseificada == true ? 1 : 0) + ", ");
+                Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0) + ", ");
+                Sql.Append("DicaConservacao = '" + entidade.DicaConservacao + "', ");
+                Sql.Append("Status = '" + entidade.Status + "', ");
+                Sql.Append("CaminhoImagem = '" + entidade.CaminhoImagem + "'");
+                Sql.Append(" WHERE Id = " + entidade.Id);
 
-            DbContext.ExecuteQuery(Sql.ToString());
+                DbContext.ExecuteQuery(Sql.ToString());
+
+                DeletarIngredientes(entidade.Id);
+
+                Sql.Clear();
+
+                foreach (var item in entidade.Ingredientes)
+                {
+                    Sql.Append("INSERT INTO INGREDIENTES (");
+                    Sql.Append("BebidaId, ");
+                    Sql.Append("Descricao, ");
+                    Sql.Append("Qtde");
+                    Sql.Append(")");
+                    Sql.Append("VALUES (");
+                    Sql.Append(entidade.Id + ", '");
+                    Sql.Append(item.Descricao + "', ");
+                    Sql.Append(item.Qtde);
+                    Sql.Append(");");
+
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
+                }
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            
         }
 
         public void Cadastrar(Bebida entidade)
         {
-            Sql.Append("INSERT INTO BEBIDAS (");
-            Sql.Append("Nome, ");
-            Sql.Append("Descricao, ");
-            Sql.Append("TipoBebida, ");
-            Sql.Append("Marca, ");
-            Sql.Append("Valor, ");
-            Sql.Append("Volume, ");
-            Sql.Append("Peso, ");
-            Sql.Append("Sabor,  ");
-            Sql.Append("Lote, ");
-            Sql.Append("DataFabricacao, ");
-            Sql.Append("DataValidade, ");
-            Sql.Append("Fabricante, ");
-            Sql.Append("Embalagem, ");
-            Sql.Append("CodigoBarras, ");
-            Sql.Append("Alcoolico, ");
-            Sql.Append("Teor, ");
-            Sql.Append("Gaseificada, ");
-            Sql.Append("ContemGluten, ");
-            Sql.Append("DicaConservacao, ");
-            Sql.Append("Status, ");
-            Sql.Append("CaminhoImagem");
-            Sql.Append(")");
-            Sql.Append("VALUES ('");
-            Sql.Append(entidade.Nome + "', '");
-            Sql.Append(entidade.Descricao + "', '");
-            Sql.Append(entidade.TipoBebida + "', '");
-            Sql.Append(entidade.Marca + "', ");
-            Sql.Append(entidade.Valor.ToString(new CultureInfo("en-US")) + ", '");
-            Sql.Append(entidade.Volume + "', '");
-            Sql.Append(entidade.Peso + "', '");
-            Sql.Append(entidade.Sabor + "', '");
-            Sql.Append(entidade.Lote + "', '");
-            Sql.Append(entidade.DataFabricacao.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
-            Sql.Append(entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
-            Sql.Append(entidade.Fabricante + "', '");
-            Sql.Append(entidade.Embalagem + "', '");
-            Sql.Append(entidade.CodigoBarras + "', ");
-            Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", '");
-            Sql.Append(entidade.Teor + "', ");
-            Sql.Append((entidade.Gaseificada == true ? 1 : 0) + ", ");
-            Sql.Append((entidade.ContemGluten == true ? 1 : 0) + ", '");
-            Sql.Append(entidade.DicaConservacao + "', '");
-            Sql.Append(entidade.Status + "', '");
-            Sql.Append(entidade.CaminhoImagem + "'");
-            Sql.Append(");");
+            try
+            {
+                int LastInsertID = 0;
 
-            DbContext.ExecuteQuery(Sql.ToString());
+                Sql.Append("INSERT INTO BEBIDAS (");
+                Sql.Append("Nome, ");
+                Sql.Append("Descricao, ");
+                Sql.Append("TipoBebida, ");
+                Sql.Append("Marca, ");
+                Sql.Append("Valor, ");
+                Sql.Append("Volume, ");
+                Sql.Append("Peso, ");
+                Sql.Append("Sabor,  ");
+                Sql.Append("Lote, ");
+                Sql.Append("DataFabricacao, ");
+                Sql.Append("DataValidade, ");
+                Sql.Append("Fabricante, ");
+                Sql.Append("Embalagem, ");
+                Sql.Append("CodigoBarras, ");
+                Sql.Append("Alcoolico, ");
+                Sql.Append("Teor, ");
+                Sql.Append("Gaseificada, ");
+                Sql.Append("ContemGluten, ");
+                Sql.Append("DicaConservacao, ");
+                Sql.Append("Status, ");
+                Sql.Append("CaminhoImagem");
+                Sql.Append(")");
+                Sql.Append("VALUES ('");
+                Sql.Append(entidade.Nome + "', '");
+                Sql.Append(entidade.Descricao + "', '");
+                Sql.Append(entidade.TipoBebida + "', '");
+                Sql.Append(entidade.Marca + "', ");
+                Sql.Append(entidade.Valor.ToString(new CultureInfo("en-US")) + ", '");
+                Sql.Append(entidade.Volume + "', '");
+                Sql.Append(entidade.Peso + "', '");
+                Sql.Append(entidade.Sabor + "', '");
+                Sql.Append(entidade.Lote + "', '");
+                Sql.Append(entidade.DataFabricacao.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
+                Sql.Append(entidade.DataValidade.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
+                Sql.Append(entidade.Fabricante + "', '");
+                Sql.Append(entidade.Embalagem + "', '");
+                Sql.Append(entidade.CodigoBarras + "', ");
+                Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", '");
+                Sql.Append(entidade.Teor + "', ");
+                Sql.Append((entidade.Gaseificada == true ? 1 : 0) + ", ");
+                Sql.Append((entidade.ContemGluten == true ? 1 : 0) + ", '");
+                Sql.Append(entidade.DicaConservacao + "', '");
+                Sql.Append(entidade.Status + "', '");
+                Sql.Append(entidade.CaminhoImagem + "'");
+                Sql.Append(");");
+
+                DbContext.ExecuteQuery(Sql.ToString());
+
+                LastInsertID = ObterUltimoIdInserido();
+
+                Sql.Clear();
+
+                foreach (var item in entidade.Ingredientes)
+                {
+                    Sql.Append("INSERT INTO INGREDIENTES (");
+                    Sql.Append("BebidaId, ");
+                    Sql.Append("Descricao, ");
+                    Sql.Append("Qtde");
+                    Sql.Append(")");
+                    Sql.Append("VALUES (");
+                    Sql.Append(LastInsertID + ", '");
+                    Sql.Append(item.Descricao + "', ");
+                    Sql.Append(item.Qtde);
+                    Sql.Append(");");
+
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
+
         }
 
         public Bebida ConsultarPorId(int id)
@@ -105,6 +169,10 @@ namespace DrinkIt.WebApp.Dao
                     bebida = ObterEntidadeReader(reader);
                 }
             }
+
+            Sql.Clear();
+
+            bebida.Ingredientes = GetIngredientes(bebida.Id);
 
             return bebida;
         }
@@ -192,6 +260,53 @@ namespace DrinkIt.WebApp.Dao
                 CaminhoImagem = Convert.ToString(reader["CaminhoImagem"])
             };
             return bebida;
+        }
+
+        public int ObterUltimoIdInserido()
+        {
+            int ID = 0;
+            Sql.Clear();
+            Sql.Append("SELECT MAX(ID) FROM BEBIDAS;");
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    ID = reader.GetInt32(0);
+                }
+            }
+
+            return ID;
+
+        }
+
+        public List<Ingrediente> GetIngredientes(int id)
+        {
+            List<Ingrediente> lista = new List<Ingrediente>();
+
+            Sql.Append("SELECT * FROM INGREDIENTES WHERE BebidaId = " + id);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    Ingrediente ingrediente = new Ingrediente
+                    {
+                        Descricao = Convert.ToString(reader["Descricao"]),
+                        Qtde = Convert.ToInt32(reader["Qtde"])
+                    };
+
+                    lista.Add(ingrediente);
+                }
+            }
+
+            return lista;
+        }
+
+        public void DeletarIngredientes(int id)
+        {
+            Sql.Clear();
+            Sql.Append("DELETE FROM INGREDIENTES WHERE BebidaId = " + id + ";");
+            DbContext.ExecuteQuery(Sql.ToString());
         }
     }
 }
