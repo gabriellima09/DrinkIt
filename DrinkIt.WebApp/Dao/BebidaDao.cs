@@ -12,13 +12,13 @@ namespace DrinkIt.WebApp.Dao
         private StringBuilder Sql = new StringBuilder();
 
         public void Alterar(Bebida entidade)
-       {
+        {
             try
             {
                 Sql.Append("UPDATE BEBIDAS SET ");
                 Sql.Append("Nome = '" + entidade.Nome + "', ");
                 Sql.Append("Descricao = '" + entidade.Descricao + "', ");
-                Sql.Append("TipoBebida = '" + entidade.TipoBebida.Descricao + "', ");
+                Sql.Append("TipoBebida = " + entidade.TipoBebida.Id + ", ");
                 Sql.Append("Marca = '" + entidade.Marca + "', ");
                 Sql.Append("Valor = " + entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append("Volume = '" + entidade.Volume + "', ");
@@ -31,11 +31,11 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
                 Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
                 Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
-                Sql.Append("Teor = '" + entidade.Teor + "', ");
+                Sql.Append("Teor = " + entidade.Teor + ", ");
                 Sql.Append("Gaseificada = " + (entidade.Gaseificada == true ? 1 : 0) + ", ");
                 Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0) + ", ");
                 Sql.Append("DicaConservacao = '" + entidade.DicaConservacao + "', ");
-                Sql.Append("Status = '" + entidade.Status + "', ");
+                Sql.Append("Status = " + (entidade.Status == true ? 1 : 0) + ", ");
                 Sql.Append("CaminhoImagem = '" + entidade.CaminhoImagem + "'");
                 Sql.Append(" WHERE Id = " + entidade.Id);
 
@@ -55,7 +55,6 @@ namespace DrinkIt.WebApp.Dao
                     Sql.Append("VALUES (");
                     Sql.Append(entidade.Id + ", '");
                     Sql.Append(item.Descricao + "', ");
-                    Sql.Append(item.Qtde);
                     Sql.Append(");");
 
                     DbContext.ExecuteQuery(Sql.ToString());
@@ -64,12 +63,12 @@ namespace DrinkIt.WebApp.Dao
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
 
-            
+
         }
 
         public void Cadastrar(Bebida entidade)
@@ -103,8 +102,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(")");
                 Sql.Append("VALUES ('");
                 Sql.Append(entidade.Nome + "', '");
-                Sql.Append(entidade.Descricao + "', '");
-                Sql.Append(entidade.TipoBebida + "', '");
+                Sql.Append(entidade.Descricao + "', ");
+                Sql.Append(entidade.TipoBebida.Id + ", '");
                 Sql.Append(entidade.Marca + "', ");
                 Sql.Append(entidade.Valor.ToString(new CultureInfo("en-US")) + ", '");
                 Sql.Append(entidade.Volume + "', '");
@@ -116,12 +115,12 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(entidade.Fabricante + "', '");
                 Sql.Append(entidade.Embalagem + "', '");
                 Sql.Append(entidade.CodigoBarras + "', ");
-                Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", '");
-                Sql.Append(entidade.Teor + "', ");
+                Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", ");
+                Sql.Append(entidade.Teor + ", ");
                 Sql.Append((entidade.Gaseificada == true ? 1 : 0) + ", ");
                 Sql.Append((entidade.ContemGluten == true ? 1 : 0) + ", '");
-                Sql.Append(entidade.DicaConservacao + "', '");
-                Sql.Append(entidade.Status + "', '");
+                Sql.Append(entidade.DicaConservacao + "', ");
+                Sql.Append((entidade.Status == true ? 1 : 0) + ", '");
                 Sql.Append(entidade.CaminhoImagem + "'");
                 Sql.Append(");");
 
@@ -135,24 +134,22 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Sql.Append("INSERT INTO INGREDIENTES (");
                     Sql.Append("BebidaId, ");
-                    Sql.Append("Descricao, ");
-                    Sql.Append("Qtde");
+                    Sql.Append("Descricao ");
                     Sql.Append(")");
                     Sql.Append("VALUES (");
                     Sql.Append(LastInsertID + ", '");
-                    Sql.Append(item.Descricao + "', ");
-                    Sql.Append(item.Qtde);
+                    Sql.Append(item.Descricao + "'");
                     Sql.Append(");");
 
                     DbContext.ExecuteQuery(Sql.ToString());
                     Sql.Clear();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
 
         }
 
@@ -198,7 +195,7 @@ namespace DrinkIt.WebApp.Dao
         {//O método EXLCUIR para a DAO de Bebidas troca o status atual de uma bebida.
 
             Bebida bebida = new Bebida();
-            string statusBebida;
+            int statusBebida;
 
             Sql.Append("SELECT * FROM BEBIDAS WHERE Id = " + id);
 
@@ -210,21 +207,19 @@ namespace DrinkIt.WebApp.Dao
                 }
             }
 
-            if (bebida.Status == "ATIVO")
+            if (bebida.Status)
             {
-                statusBebida = "INATIVO";
+                statusBebida = 0;
             }
             else
             {
-                statusBebida = "ATIVO";
+                statusBebida = 1;
             }
-            
-            Sql.Clear();
-            
 
-            Sql.Append("UPDATE BEBIDAS SET STATUS = '" + statusBebida + "' WHERE Id = ");
-            Sql.Append(id);
-            Sql.Append(";");
+            Sql.Clear();
+
+
+            Sql.Append("UPDATE BEBIDAS SET STATUS = " + statusBebida + " WHERE Id = " + id + ";");
 
             DbContext.ExecuteQuery(Sql.ToString());
         }
@@ -238,7 +233,7 @@ namespace DrinkIt.WebApp.Dao
                 Descricao = Convert.ToString(reader["Descricao"]),
                 TipoBebida = new TipoBebida
                 {
-                    Descricao = Convert.ToString(reader["TipoBebida"])
+                    Id = Convert.ToInt32(reader["TipoBebida"])
                 },
                 Marca = Convert.ToString(reader["Marca"]),
                 Valor = Convert.ToDecimal(reader["Valor"]),
@@ -252,11 +247,11 @@ namespace DrinkIt.WebApp.Dao
                 CodigoBarras = Convert.ToString(reader["CodigoBarras"]),
                 Embalagem = Convert.ToString(reader["Embalagem"]),
                 Alcoolico = Convert.ToBoolean(reader["Alcoolico"]),
-                Teor = Convert.ToString(reader["Teor"]),
+                Teor = Convert.ToDecimal(reader["Teor"]),
                 Gaseificada = Convert.ToBoolean(reader["Gaseificada"]),
                 ContemGluten = Convert.ToBoolean(reader["ContemGluten"]),
                 DicaConservacao = Convert.ToString(reader["DicaConservacao"]),
-                Status = Convert.ToString(reader["Status"]),
+                Status = Convert.ToBoolean(reader["Status"]),
                 CaminhoImagem = Convert.ToString(reader["CaminhoImagem"])
             };
             return bebida;
@@ -291,8 +286,7 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Ingrediente ingrediente = new Ingrediente
                     {
-                        Descricao = Convert.ToString(reader["Descricao"]),
-                        Qtde = Convert.ToInt32(reader["Qtde"])
+                        Descricao = Convert.ToString(reader["Descricao"])
                     };
 
                     lista.Add(ingrediente);
@@ -307,6 +301,85 @@ namespace DrinkIt.WebApp.Dao
             Sql.Clear();
             Sql.Append("DELETE FROM INGREDIENTES WHERE BebidaId = " + id + ";");
             DbContext.ExecuteQuery(Sql.ToString());
+        }
+
+        public void EntradaEstoque(int IdBebida, int Qtde)
+        {
+            bool flgHaRegistro = false;
+            Sql.Append("SELECT * FROM ESTOQUE WHERE IdBebida = " + IdBebida);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    flgHaRegistro = true;
+                }
+            }
+
+            Sql.Clear();
+
+            if (flgHaRegistro)
+            {//UPDATE, POIS JÁ EXISTE LÁ
+                int QtdeAtual = 0;
+                Sql.Append("SELECT Qtde FROM Estoque WHERE IdBebida =" + IdBebida + ";");//PEGA QTDE ATUAL
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        QtdeAtual = reader.GetInt32(0);
+                    }
+                }
+                Sql.Clear();
+                QtdeAtual += Qtde;//SOMA
+                Sql.Append("UPDATE ESTOQUE SET QTDE = " + QtdeAtual + " WHERE IDBEBIDA = " + IdBebida + ";");//ATUALIZA
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+            else
+            {//NÃO EXISTE LÁ, ENTÃO INSERT
+                Sql.Append("INSERT INTO ESTOQUE (IDBEBIDA, QTDE) VALUES (" + IdBebida + ", " + Qtde + ");");//ATUALIZA
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+        }
+
+        //TRUE = BAIXA COM SUCESSO / FALSE = INSUFICIENTE NO ESTOQUE PARA BAIXA ou ITEM NÃO EXISTE
+        public bool BaixaEstoque(int IdBebida, int Qtde)
+        {
+            bool flgHaRegistro = false;
+            Sql.Append("SELECT * FROM ESTOQUE WHERE IdBebida = " + IdBebida);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    flgHaRegistro = true;
+                }
+            }
+
+            if (!flgHaRegistro)//Item não existe no estoque?
+                return false;
+
+            Sql.Clear();
+
+            int QtdeAtual = 0;
+            Sql.Append("SELECT Qtde FROM Estoque WHERE IdBebida =" + IdBebida + ";");//PEGA QTDE ATUAL
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    QtdeAtual = reader.GetInt32(0);
+                }
+            }
+
+            Sql.Clear();
+
+            if (QtdeAtual < Qtde)//Tem menos no estoque do que pode tirar?
+                return false; 
+
+            QtdeAtual -= Qtde;//Subtrai
+            Sql.Append("UPDATE ESTOQUE SET QTDE = " + QtdeAtual + " WHERE IDBEBIDA = " + IdBebida + ";");//ATUALIZA
+            DbContext.ExecuteQuery(Sql.ToString());
+
+            return true;
         }
     }
 }

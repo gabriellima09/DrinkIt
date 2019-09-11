@@ -20,12 +20,12 @@ namespace DrinkIt.WebApp.Models
         public string Embalagem { get; set; }
         public string CodigoBarras { get; set; }
         public bool Alcoolico { get; set; }
-        public string Teor { get; set; }
+        public decimal Teor { get; set; }
         public bool Gaseificada { get; set; }
         public bool ContemGluten { get; set; }
         public List<Ingrediente> Ingredientes { get; set; }
         public string DicaConservacao { get; set; }
-        public string Status { get; set; }
+        public bool Status { get; set; }
         public string CaminhoImagem { get; set; }
     }
 }
