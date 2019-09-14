@@ -76,6 +76,11 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Edit/5
         public ActionResult Edit(int id)
         {
+            if(id == 0)
+            {
+                return View("Error");
+            }
+
             return View(Fachada.ConsultarPorId(id));
         }
 

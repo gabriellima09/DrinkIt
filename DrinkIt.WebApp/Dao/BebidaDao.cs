@@ -147,7 +147,7 @@ namespace DrinkIt.WebApp.Dao
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
 
 
@@ -222,6 +222,21 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("UPDATE BEBIDAS SET STATUS = " + statusBebida + " WHERE Id = " + id + ";");
 
             DbContext.ExecuteQuery(Sql.ToString());
+            
+            
+        }
+
+        //Sobrecarga, para registrar motivo
+        public void Excluir(int id, string motivo)
+        {
+            Excluir(id);
+
+            Sql.Clear();
+
+            Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", SYSDATE, '" + motivo + "');");
+
+            DbContext.ExecuteQuery(Sql.ToString());
+
         }
 
         public Bebida ObterEntidadeReader(IDataReader reader)
@@ -373,7 +388,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Clear();
 
             if (QtdeAtual < Qtde)//Tem menos no estoque do que pode tirar?
-                return false; 
+                return false;
 
             QtdeAtual -= Qtde;//Subtrai
             Sql.Append("UPDATE ESTOQUE SET QTDE = " + QtdeAtual + " WHERE IDBEBIDA = " + IdBebida + ";");//ATUALIZA
