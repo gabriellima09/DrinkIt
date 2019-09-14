@@ -227,17 +227,19 @@ namespace DrinkIt.WebApp.Dao
         }
 
         //Sobrecarga, para registrar motivo
-        public void Excluir(int id, string motivo)
+        public void GravarMotivoInativacao(int id, string motivo)
         {
-            Excluir(id);
+            if (!string.IsNullOrEmpty(motivo))
+            {
+                Sql.Clear();
 
-            Sql.Clear();
+                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", SYSDATE, '" + motivo + "');");
 
-            Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", SYSDATE, '" + motivo + "');");
-
-            DbContext.ExecuteQuery(Sql.ToString());
+                DbContext.ExecuteQuery(Sql.ToString());
+            }          
 
         }
+        
 
         public Bebida ObterEntidadeReader(IDataReader reader)
         {

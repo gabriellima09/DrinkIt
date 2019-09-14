@@ -147,11 +147,11 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                 Embalagem = "Lata",
                 CodigoBarras = "0123456789",
                 Alcoolico = true,
-                Teor = "10%",
+                Teor = 10,
                 Gaseificada = false,
                 ContemGluten = false,
                 DicaConservacao = "Dica Teste",
-                Status = "ATIVO"
+                Status = true
             };
         }
     }

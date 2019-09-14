@@ -2,7 +2,20 @@
 
 @{
     ViewBag.Title = "Nova Bebida";
-    
+    WebImage photo = null;
+    var newFileName = "";
+    var imagePath = "";
+
+    if (IsPost)
+    {
+        photo = WebImage.GetImageFromRequest();
+        if (photo != null)
+        {
+            newFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(photo.FileName);
+            imagePath = @"Images\" + newFileName;
+            photo.Save(@"~\" + imagePath);
+        }
+    }
 }
 
 <h2>Nova Bebida</h2>

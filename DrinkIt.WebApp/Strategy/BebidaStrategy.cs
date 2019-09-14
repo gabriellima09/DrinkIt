@@ -30,13 +30,12 @@ namespace DrinkIt.WebApp.Strategy
                 string.IsNullOrEmpty(bebida.CodigoBarras) ||
                 bebida.Ingredientes.Count == 0 ||
                 string.IsNullOrEmpty(bebida.DicaConservacao) ||
-                string.IsNullOrEmpty(bebida.Status) ||
                 string.IsNullOrEmpty(bebida.CaminhoImagem) ||
                 string.IsNullOrEmpty(bebida.Nome)
             ) return false;
 
             //Caso seja alcoólica, deve-se fornecer o teor.
-            if (bebida.Alcoolico && string.IsNullOrEmpty(bebida.Teor))
+            if (bebida.Alcoolico && bebida.Teor == 0)
                 return false;
 
             //OK, bebida validada.

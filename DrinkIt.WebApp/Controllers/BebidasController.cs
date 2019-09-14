@@ -49,6 +49,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                
                 bebida.Ingredientes = new List<Ingrediente>();
                 if(LstIngrediente != null && LstIngrediente.Count > 0)
                 {
@@ -111,43 +112,23 @@ namespace DrinkIt.WebApp.Controllers
         }
 
 
-        public ActionResult TrocarStatus(int id)
+        public ActionResult TrocarStatus(int id, string motivo = null)
         {
             try
             {
+                BebidaDao dao = new BebidaDao();
                 // TODO: Add update logic here
                 Fachada.Excluir(id);
+                dao.GravarMotivoInativacao(id, motivo); //aqui precisaria ser uma strategy...
                 return RedirectToAction("Index", "Usuarios", null);
             }
             catch(Exception ex)
             {
                 return View();
             }
-            //return new EmptyResult();
+           
         }
-        /*
-        // GET: Bebidas/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Bebidas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        */
+       
         public ActionResult PvDashBebidas()
         {
             return PartialView(Fachada.ConsultarTodos());
