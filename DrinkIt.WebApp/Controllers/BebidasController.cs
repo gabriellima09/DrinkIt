@@ -49,7 +49,8 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                
+                int count = Request.Files.Count;
+                var teste = Request.Files[0];
                 bebida.Ingredientes = new List<Ingrediente>();
                 if(LstIngrediente != null && LstIngrediente.Count > 0)
                 {
