@@ -96,5 +96,10 @@ namespace DrinkIt.WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult PvSolicitacoesTroca()
+        {
+            return PartialView();
+        }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.SolicitacaoTroca>
+
+<table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+    <tr>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Pedido
+        </th>
+        <th>
+            Motivo
+        </th>
+        <th>
+            Data Solicitação
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.DescCliente
+            </td>
+            <td>
+                @item.IdPedido
+            </td>
+            <td>
+                @item.Descricao
+            </td>
+            <td>
+                @item.Data
+            </td>
+            <td align="center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Opções <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="btn btn-success">Aprovar</a></li>
+                        <li><a class="btn btn-danger">Reprovar</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+
+</table>

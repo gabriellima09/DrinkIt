@@ -44,7 +44,7 @@ namespace DrinkIt.WebApp.Controllers
                             Embalagem = "Garrafa",
                             CodigoBarras = "662607004",
                             Alcoolico = false,
-                            Teor = "0%",
+                            Teor = 0,
                             Gaseificada = false,
                             ContemGluten = false,
                             Ingredientes = new List<Ingrediente>
@@ -55,7 +55,7 @@ namespace DrinkIt.WebApp.Controllers
                                 }
                             },
                             DicaConservacao = "Beba água",
-                            Status = "ATIVO"
+                            Status = true
                         }
                     }
                 }
@@ -98,7 +98,7 @@ namespace DrinkIt.WebApp.Controllers
                             Embalagem = "Garrafa",
                             CodigoBarras = "662607004",
                             Alcoolico = false,
-                            Teor = "0%",
+                            Teor = 0,
                             Gaseificada = false,
                             ContemGluten = false,
                             Ingredientes = new List<Ingrediente>
@@ -109,7 +109,7 @@ namespace DrinkIt.WebApp.Controllers
                                 }
                             },
                             DicaConservacao = "Beba água",
-                            Status = "ATIVO"
+                            Status = true
                         },
                         new Bebida
                         {
@@ -128,7 +128,7 @@ namespace DrinkIt.WebApp.Controllers
                             Embalagem = "Garrafa",
                             CodigoBarras = "662607004",
                             Alcoolico = false,
-                            Teor = "0%",
+                            Teor = 0,
                             Gaseificada = false,
                             ContemGluten = false,
                             Ingredientes = new List<Ingrediente>
@@ -139,7 +139,7 @@ namespace DrinkIt.WebApp.Controllers
                                 }
                             },
                             DicaConservacao = "Beba água",
-                            Status = "ATIVO"
+                            Status = true
                         }
                     }
             };
@@ -181,7 +181,7 @@ namespace DrinkIt.WebApp.Controllers
                             Embalagem = "Garrafa",
                             CodigoBarras = "662607004",
                             Alcoolico = false,
-                            Teor = "0%",
+                            Teor = 0,
                             Gaseificada = false,
                             ContemGluten = false,
                             Ingredientes = new List<Ingrediente>
@@ -192,7 +192,7 @@ namespace DrinkIt.WebApp.Controllers
                                 }
                             },
                             DicaConservacao = "Beba água",
-                            Status = "ATIVO"
+                            Status = true
                         }
                     }
             };

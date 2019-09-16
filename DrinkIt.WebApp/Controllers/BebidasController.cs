@@ -3,6 +3,8 @@ using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -22,109 +24,11 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas
         public ActionResult Index()
         {
-            return View();
+            return View();//teste
         }
 
         public ActionResult PvBebida()
         {
-            List<Bebida> bebidas = new List<Bebida>
-            {
-                new Bebida
-                {
-                    Id = 1,
-                    Nome = "Crystal",
-                    Descricao = "Água Mineral sem Gás",
-                    Marca = "Crystal",
-                    Valor = 1.99M,
-                    Volume = "1.5L",
-                    Peso = "1KG",
-                    Sabor = "---",
-                    Lote = "12321",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Coca-Cola",
-                    Embalagem = "Garrafa",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = false,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                        {
-                            new Ingrediente
-                            {
-                                Descricao = "H2O"
-                            }
-                        },
-                    DicaConservacao = "Beba água",
-                    Status = "ATIVO",
-                    CaminhoImagem = "/Images/crystal.jpg"
-
-                },
-                new Bebida
-                {
-                    Id = 2,
-                    Nome = "Crystal",
-                    Descricao = "Água Mineral sem Gás",
-                    Marca = "Crystal",
-                    Valor = 1.99M,
-                    Volume = "1.5L",
-                    Peso = "1KG",
-                    Sabor = "---",
-                    Lote = "12321",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Coca-Cola",
-                    Embalagem = "Garrafa",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = false,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                        {
-                            new Ingrediente
-                            {
-                                Descricao = "H2O"
-                            }
-                        },
-                    DicaConservacao = "Beba água",
-                    Status = "ATIVO",
-                    CaminhoImagem = "/Images/crystal.jpg"
-
-                },
-                new Bebida
-                {
-                    Id = 3,
-                    Nome = "Café",
-                    Descricao = "Café Preto",
-                    Marca = "Pilão",
-                    Valor = 1.99M,
-                    Volume = "600ml",
-                    Peso = "740mg",
-                    Sabor = "Café",
-                    Lote = "12421",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Starbucks",
-                    Embalagem = "Caixinha",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = false,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "Cafeína"
-                        }
-                    },
-                    DicaConservacao = "Manter em local seco e arejado.",
-                    Status = "ATIVO"
-                }
-
-            };
 
             return PartialView(Fachada.ConsultarTodos());
         }
@@ -132,40 +36,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Details/5
         public ActionResult Details(int id)
         {
-            Bebida bebida = new Bebida
-            {
-                Id = id,
-                Nome = "Crystal",
-                Descricao = "Água Mineral sem Gás",
-                Marca = "Crystal",
-                Valor = 1.99M,
-                Volume = "1.5L",
-                Peso = "1KG",
-                Sabor = "---",
-                Lote = "12321",
-                DataFabricacao = DateTime.Now,
-                DataValidade = DateTime.Now,
-                Fabricante = "Coca-Cola",
-                Embalagem = "Garrafa",
-                CodigoBarras = "662607004",
-                Alcoolico = false,
-                Teor = "0%",
-                Gaseificada = false,
-                ContemGluten = false,
-                Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "H2O"
-                        }
-                    },
-                DicaConservacao = "Beba água",
-                Status = "ATIVO",
-                CaminhoImagem = "/Images/crystal.jpg"
-
-            };
-            //return View(Fachada.ConsultarPorId(id)); -- comentado para usar o selenium
-            return View(bebida);
+            return View(Fachada.ConsultarPorId(id));
         }
 
         // GET: Bebidas/Create
@@ -180,6 +51,19 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                //Access the File using the Name of HTML INPUT File.
+                HttpPostedFileBase postedFile = Request.Files["CaminhoImagem"];
+
+                //Check if File is available.
+                if (postedFile != null && postedFile.ContentLength > 0)
+                {
+                    //Save the File.
+                    string filePath = Server.MapPath("~/Images/") + Path.GetFileName(postedFile.FileName);
+                    postedFile.SaveAs(filePath);
+                    bebida.CaminhoImagem = postedFile.FileName;
+                }
+
+                
                 bebida.Ingredientes = new List<Ingrediente>();
                 if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {
@@ -193,19 +77,12 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-                bebida.TipoBebida = new TipoBebida
-                {
-                    Id = 1,
-                    Descricao = "Refri"
-                };
-
-                bebida.CaminhoImagem = "caminho";
 
                 Fachada.Cadastrar(bebida);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View("Error");
             }
@@ -214,47 +91,27 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Edit/5
         public ActionResult Edit(int id)
         {
-            Bebida bebida = new Bebida
+            if (id == 0)
             {
-                Id = id,
-                Nome = "Crystal",
-                Descricao = "Água Mineral sem Gás",
-                Marca = "Crystal",
-                Valor = 1.99M,
-                Volume = "1.5L",
-                Peso = "1KG",
-                Sabor = "---",
-                Lote = "12321",
-                DataFabricacao = DateTime.Now,
-                DataValidade = DateTime.Now,
-                Fabricante = "Coca-Cola",
-                Embalagem = "Garrafa",
-                CodigoBarras = "662607004",
-                Alcoolico = false,
-                Teor = "0%",
-                Gaseificada = false,
-                ContemGluten = false,
-                Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "H2O"
-                        }
-                    },
-                DicaConservacao = "Beba água",
-                Status = "ATIVO"
-            };
-
+                return View("Error");
+            }
 
             return View(Fachada.ConsultarPorId(id));
         }
 
         // POST: Bebidas/Edit/5
         [HttpPost]
-        public ActionResult Edit(Bebida bebida)
+        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente)
         {
-            bebida.CaminhoImagem = "/Images/dolly.jpg";
             bebida.Ingredientes = new List<Ingrediente>();
+
+            foreach (var item in LstIngrediente)
+            {
+                Ingrediente ing = new Ingrediente();
+                ing.Descricao = item;
+                bebida.Ingredientes.Add(ing);
+            }
+
             bebida.TipoBebida = new TipoBebida();
             try
             {
@@ -268,147 +125,27 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
-        public ActionResult TrocarStatus(int id)
+
+        public ActionResult TrocarStatus(int id, string motivo = null)
         {
             try
             {
+                BebidaDao dao = new BebidaDao();
                 // TODO: Add update logic here
                 Fachada.Excluir(id);
+                dao.GravarMotivoInativacao(id, motivo); //aqui precisaria ser uma strategy...
                 return RedirectToAction("Index", "Usuarios", null);
             }
             catch (Exception ex)
             {
                 return View();
             }
-            //return new EmptyResult();
-        }
-        /*
-        // GET: Bebidas/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+
         }
 
-        // POST: Bebidas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        */
         public ActionResult PvDashBebidas()
         {
-            List<Bebida> bebidas = new List<Bebida>
-            {
-
-                new Bebida
-                {
-                    Id = 1,
-                    Nome = "Crystal",
-                    Descricao = "Água Mineral sem Gás",
-                    Marca = "Crystal",
-                    Valor = 1.99M,
-                    Volume = "1.5L",
-                    Peso = "1KG",
-                    Sabor = "---",
-                    Lote = "12321",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Coca-Cola",
-                    Embalagem = "Garrafa",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = false,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "H2O"
-                        }
-                    },
-                    DicaConservacao = "Beba água",
-                    Status = "ATIVO"
-
-                },
-
-                new Bebida
-                {
-                    Id = 2,
-                    Nome = "Soda",
-                    Descricao = "Soda Limonada",
-                    Marca = "Soda",
-                    Valor = 1.99M,
-                    Volume = "350ml",
-                    Peso = "350mg",
-                    Sabor = "Limão",
-                    Lote = "12321",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Nem sei",
-                    Embalagem = "Lata",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = true,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "Soda"
-                        }
-                    },
-                    DicaConservacao = "Beba mais água",
-                    Status = "ATIVO"
-
-                },
-
-                new Bebida
-                {
-                    Id = 3,
-                    Nome = "Café",
-                    Descricao = "Café Preto",
-                    Marca = "Pilão",
-                    Valor = 1.99M,
-                    Volume = "600ml",
-                    Peso = "740mg",
-                    Sabor = "Café",
-                    Lote = "12421",
-                    DataFabricacao = DateTime.Now,
-                    DataValidade = DateTime.Now,
-                    Fabricante = "Starbucks",
-                    Embalagem = "Caixinha",
-                    CodigoBarras = "662607004",
-                    Alcoolico = false,
-                    Teor = "0%",
-                    Gaseificada = false,
-                    ContemGluten = false,
-                    Ingredientes = new List<Ingrediente>
-                    {
-                        new Ingrediente
-                        {
-                            Descricao = "Cafeína"
-                        }
-                    },
-                    DicaConservacao = "Manter em local seco e arejado.",
-                    Status = "ATIVO"
-
-                }
-
-            };
-
-            return PartialView(bebidas);
+            return PartialView(Fachada.ConsultarTodos());
         }
     }
 }
