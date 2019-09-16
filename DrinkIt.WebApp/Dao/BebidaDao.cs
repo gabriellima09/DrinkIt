@@ -31,7 +31,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
                 Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
                 Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
-                Sql.Append("Teor = " + entidade.Teor + ", ");
+                Sql.Append("Teor = " + entidade.Teor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append("Gaseificada = " + (entidade.Gaseificada == true ? 1 : 0) + ", ");
                 Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0) + ", ");
                 Sql.Append("DicaConservacao = '" + entidade.DicaConservacao + "', ");
@@ -49,12 +49,11 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Sql.Append("INSERT INTO INGREDIENTES (");
                     Sql.Append("BebidaId, ");
-                    Sql.Append("Descricao, ");
-                    Sql.Append("Qtde");
+                    Sql.Append("Descricao ");
                     Sql.Append(")");
                     Sql.Append("VALUES (");
                     Sql.Append(entidade.Id + ", '");
-                    Sql.Append(item.Descricao + "', ");
+                    Sql.Append(item.Descricao + "' ");
                     Sql.Append(");");
 
                     DbContext.ExecuteQuery(Sql.ToString());
