@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,13 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: SolicitacoesTroca/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(string MotivoSolicitacao, int IdPedido)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                Usuario usuario = new Usuario();
+                usuario = (Usuario)Session["Usuario"];
                 return RedirectToAction("Index");
             }
             catch

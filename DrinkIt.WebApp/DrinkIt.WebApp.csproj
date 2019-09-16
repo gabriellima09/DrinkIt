@@ -225,6 +225,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Pedidos\Script_Checkout_Pedidos.js" />
+    <Content Include="Scripts\Pedidos\Script_PvPedidos.js" />
     <Content Include="Scripts\Util.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
