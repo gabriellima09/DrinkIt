@@ -10,5 +10,6 @@ namespace DrinkIt.WebApp.Models
         public string Login { get; set; }
         [Required]
         public string Senha { get; set; }
+        public Carrinho Carrinho { get; set; } = new Carrinho();
     }
 }

@@ -57,7 +57,7 @@
                 @Html.TextBox("Quantidade", null, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;" })
             </td>
             <td align="center">
-                <button type="submit" class="btn btn-danger">Remover</button>
+                @Html.ActionLink("Remover", "RemoverBebidaSessao", "Carrinho", new { idBebida = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

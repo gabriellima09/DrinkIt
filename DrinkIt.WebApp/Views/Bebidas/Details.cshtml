@@ -95,7 +95,7 @@
         <div align="center">
             <!-- comentado para o selenium -->
             @*<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>*@
-            @Html.ActionLink("Adicionar ao Carrinho", "Index", "Carrinho",  null, new { @class="btn btn-success", @id= "btnAddCarrinho" })
+            @Html.ActionLink("Adicionar ao Carrinho", "AdicionarBebidaSessao", "Carrinho",  new { bebida = Model }, new { @class="btn btn-success", @id= "btnAddCarrinho" })
         </div>
 
         <hr />

@@ -4,6 +4,6 @@ namespace DrinkIt.WebApp.Models
 {
     public class Carrinho
     {
-        public List<Bebida> Bebidas { get; set; }
+        public List<Bebida> Bebidas { get; set; } = new List<Bebida>();
     }
 }
