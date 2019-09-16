@@ -34,10 +34,14 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 // TODO: Add insert logic here
                 Usuario usuario = new Usuario();
                 usuario = (Usuario)Session["Usuario"];
-                return RedirectToAction("Index");
+
+                dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
+
+                return RedirectToAction("Index", "Home", null);
             }
             catch
             {

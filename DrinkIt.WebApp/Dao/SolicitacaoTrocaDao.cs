@@ -15,7 +15,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<SolicitacaoTroca> lista = new List<SolicitacaoTroca>();
 
-            Sql.Append("SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id");
+            Sql.Append("SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -37,6 +37,12 @@ namespace DrinkIt.WebApp.Dao
             }
 
             return lista;
+        }
+
+        public void Cadastrar(int idCliente, int idPedido, string motivo)
+        {
+            Sql.Append("INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('" + motivo + "', 0, " + idCliente + ", " + idPedido + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "');");
+            DbContext.ExecuteReader(Sql.ToString());
         }
     }
 }
