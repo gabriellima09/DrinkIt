@@ -1,6 +1,52 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.SolicitacaoTroca>
 
+
+
 <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+    <tr>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Pedido
+        </th>
+        <th>
+            Motivo
+        </th>
+        <th>
+            Data Solicitação
+        </th>
+        <th></th>
+    </tr>
+    
+    <tr>
+        <td>
+            Cliente Teste
+        </td>
+        <td>
+            12345
+        </td>
+        <td>
+            O produto estava vencido
+        </td>
+        <td>
+            @DateTime.Now
+        </td>
+        <td align="center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesTrocaPedidos">
+                    Opções <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
+                    <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show');">Reprovar</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+
+@*<table class="table table-bordered table-condensed table-hover table-responsive table-striped">
     <tr>
         <th>
             Cliente
@@ -47,4 +93,4 @@
     }
 
 
-</table>
+</table>*@

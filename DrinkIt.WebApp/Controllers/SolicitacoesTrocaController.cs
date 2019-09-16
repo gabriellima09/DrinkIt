@@ -41,9 +41,9 @@ namespace DrinkIt.WebApp.Controllers
 
                 dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
 
-                return RedirectToAction("Index", "Home", null);
+                return RedirectToAction("Index", "Clientes");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

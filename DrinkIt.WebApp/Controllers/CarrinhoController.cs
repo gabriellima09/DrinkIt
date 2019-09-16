@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Models;
+using Newtonsoft.Json;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -14,11 +15,15 @@ namespace DrinkIt.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult AdicionarBebidaSessao(Bebida bebida)
+        public ActionResult AdicionarBebidaSessao(string bebida)
         {
+            Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebida);
+
             Usuario usuario = (Usuario)Session["Usuario"];
 
-            usuario.Carrinho.Bebidas.Add(bebida);
+            usuario.Carrinho.Bebidas.Add(novaBebida);
+
+            Session["Usuario"] = usuario;
 
             return View("Index", usuario.Carrinho);
         }
@@ -29,6 +34,8 @@ namespace DrinkIt.WebApp.Controllers
             Usuario usuario = (Usuario)Session["Usuario"];
 
             usuario.Carrinho.Bebidas.RemoveAll(x => x.Id.Equals(idBebida));
+
+            Session["Usuario"] = usuario;
 
             return View("Index", usuario.Carrinho);
         }
