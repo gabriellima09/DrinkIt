@@ -238,8 +238,7 @@ namespace DrinkIt.WebApp.Dao
                 DbContext.ExecuteQuery(Sql.ToString());
             }          
 
-        }
-        
+        }        
 
         public Bebida ObterEntidadeReader(IDataReader reader)
         {

@@ -3,6 +3,8 @@ using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -27,7 +29,7 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvBebida()
         {
-            
+
             return PartialView(Fachada.ConsultarTodos());
         }
 
@@ -39,7 +41,7 @@ namespace DrinkIt.WebApp.Controllers
 
         // GET: Bebidas/Create
         public ActionResult Create()
-        {            
+        {
             return View();
         }
 
@@ -49,10 +51,21 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                int count = Request.Files.Count;
-                var teste = Request.Files[0];
+                //Access the File using the Name of HTML INPUT File.
+                HttpPostedFileBase postedFile = Request.Files["CaminhoImagem"];
+
+                //Check if File is available.
+                if (postedFile != null && postedFile.ContentLength > 0)
+                {
+                    //Save the File.
+                    string filePath = Server.MapPath("~/Images/") + Path.GetFileName(postedFile.FileName);
+                    postedFile.SaveAs(filePath);
+                    bebida.CaminhoImagem = postedFile.FileName;
+                }
+
+                
                 bebida.Ingredientes = new List<Ingrediente>();
-                if(LstIngrediente != null && LstIngrediente.Count > 0)
+                if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {
                     foreach (var item in LstIngrediente)
                     {
@@ -64,12 +77,12 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-                
+
                 Fachada.Cadastrar(bebida);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View("Error");
             }
@@ -78,7 +91,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Edit/5
         public ActionResult Edit(int id)
         {
-            if(id == 0)
+            if (id == 0)
             {
                 return View("Error");
             }
@@ -92,13 +105,13 @@ namespace DrinkIt.WebApp.Controllers
         {
             bebida.Ingredientes = new List<Ingrediente>();
 
-            foreach(var item in LstIngrediente)
+            foreach (var item in LstIngrediente)
             {
                 Ingrediente ing = new Ingrediente();
                 ing.Descricao = item;
                 bebida.Ingredientes.Add(ing);
             }
-            
+
             bebida.TipoBebida = new TipoBebida();
             try
             {
@@ -106,7 +119,7 @@ namespace DrinkIt.WebApp.Controllers
                 Fachada.Alterar(bebida);
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -123,13 +136,13 @@ namespace DrinkIt.WebApp.Controllers
                 dao.GravarMotivoInativacao(id, motivo); //aqui precisaria ser uma strategy...
                 return RedirectToAction("Index", "Usuarios", null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
-           
+
         }
-       
+
         public ActionResult PvDashBebidas()
         {
             return PartialView(Fachada.ConsultarTodos());
