@@ -51,5 +51,11 @@ namespace DrinkIt.WebApp.Dao
                 + Motivo + "' WHERE ID = " + IdSolicitacao + "");
             DbContext.ExecuteReader(Sql.ToString());
         }
+
+        public void Aprovar(int IdSolicitacao, int IdCupom)
+        {
+            Sql.Append("UPDATE SOLICITACOESTROCA SET STATUS = 1, IDCUPOM = " + IdCupom + " WHERE ID = " + IdSolicitacao + ";");
+            DbContext.ExecuteReader(Sql.ToString());
+        }
     }
 }

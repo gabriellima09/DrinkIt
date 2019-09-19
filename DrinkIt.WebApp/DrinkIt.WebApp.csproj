@@ -146,6 +146,7 @@
     <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Controllers\CuponsController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\SolicitacoesTrocaController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
+    <Compile Include="Dao\EstoqueDao.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />
@@ -174,6 +176,7 @@
     <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
+    <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />
@@ -282,6 +285,7 @@
     <Content Include="Views\Endereco\Create.cshtml" />
     <Content Include="Views\Endereco\Edit.cshtml" />
     <Content Include="Views\SolicitacoesTroca\PvSolicitacoesTroca.cshtml" />
+    <Content Include="Views\Estoque\PvEstoque.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

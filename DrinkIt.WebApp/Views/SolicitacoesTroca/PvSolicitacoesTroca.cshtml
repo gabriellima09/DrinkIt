@@ -39,8 +39,8 @@
                         Opções <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
-                        <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show'); $('#hiddenIdSolicitacaoRep').val(@item.Id);">Reprovar</a></li>
+                        <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');  $('#hiddenIdSolicitacaoAp').val(@item.Id); $('#ddDescClienteAp').html('@item.DescCliente'); $('#ddIdPedidoAp').html('@item.IdPedido'); $('#ddMotivoAp').html('@item.Descricao'); $('#ddDataAp').html('@item.Data');">Aprovar</a></li>
+                        <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show'); $('#hiddenIdSolicitacaoRep').val(@item.Id); $('#ddDescClienteRep').html('@item.DescCliente'); $('#ddIdPedidoRep').html('@item.IdPedido'); $('#ddMotivoRep').html('@item.Descricao'); $('#ddDataRep').html('@item.Data'); ">Reprovar</a></li>
                     </ul>
                 </div>
             </td>
