@@ -44,5 +44,12 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('" + motivo + "', 0, " + idCliente + ", " + idPedido + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "');");
             DbContext.ExecuteReader(Sql.ToString());
         }
+
+        public void Reprovar(int IdSolicitacao, string Motivo)
+        {
+            Sql.Append("UPDATE SOLICITACOESTROCA SET STATUS = " + 2 + ", MotivoReprovacao = '"
+                + Motivo + "' WHERE ID = " + IdSolicitacao + "");
+            DbContext.ExecuteReader(Sql.ToString());
+        }
     }
 }

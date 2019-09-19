@@ -100,6 +100,19 @@ namespace DrinkIt.WebApp.Controllers
             return PartialView(dao.ConsultarTodos());
         }
 
+        public ActionResult Reprovar(string MotivoReprova, int IdSolicitacao)
+        {
+            try
+            {
+                SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
+                dao.Reprovar(IdSolicitacao, MotivoReprova);
+                return RedirectToAction("Index", "Usuarios");
+            }catch(Exception ex)
+            {
+                return View("Error");
+            }
+            
+        }
 
 
     }
