@@ -17,7 +17,6 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("DataNascimento = " + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sql.Append("Email = '" + entidade.Email + "', ");
             Sql.Append("Genero = '" + entidade.Genero + "', ");
-            Sql.Append("Telefone = '" + entidade.Telefone + "', ");
             Sql.Append("Nome = '" + entidade.Nome + "', ");
             Sql.Append("Login = '" + entidade.Login + "', ");
             Sql.Append("Senha = '" + entidade.Senha +"'");
@@ -28,46 +27,74 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Cliente entidade)
         {
-            Sql.Append("INSERT INTO CLIENTES (");
-            Sql.Append("Cpf, ");
-            Sql.Append("DataNascimento, ");
-            Sql.Append("Email, ");
-            Sql.Append("Genero, ");
-            Sql.Append("Telefone, ");
-            Sql.Append("Nome, ");
-            Sql.Append("Login, ");
-            Sql.Append("Senha ");
-            Sql.Append(")");
-            Sql.Append(" VALUES (");
-            Sql.Append("'" + entidade.Cpf + "', ");
-            Sql.Append("'" + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("'" + entidade.Email + "', ");
-            Sql.Append("'" + entidade.Genero + "', ");
-            Sql.Append("'" + entidade.Telefone + "', ");
-            Sql.Append("'" + entidade.Nome + "', ");
-            Sql.Append("'" + entidade.Login + "', ");
-            Sql.Append("'" + entidade.Senha + "'");
-            Sql.Append(");");
-
-            DbContext.ExecuteQuery(Sql.ToString());
-
-            int Id = 0;
-
-            using (IDataReader reader = DbContext.ExecuteReader("SELECT MAX(id) as Id FROM Clientes"))
+            try
             {
-                if (reader.Read())
+                Sql.Append("INSERT INTO CLIENTES (");
+                Sql.Append("Cpf, ");
+                Sql.Append("DataNascimento, ");
+                Sql.Append("Email, ");
+                Sql.Append("Genero, ");
+                Sql.Append("Nome, ");
+                Sql.Append("Login, ");
+                Sql.Append("Senha ");
+                Sql.Append(")");
+                Sql.Append(" VALUES (");
+                Sql.Append("'" + entidade.Cpf + "', ");
+                Sql.Append("'" + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("'" + entidade.Email + "', ");
+                Sql.Append("'" + entidade.Genero + "', ");
+                Sql.Append("'" + entidade.Nome + "', ");
+                Sql.Append("'" + entidade.Login + "', ");
+                Sql.Append("'" + entidade.Senha + "'");
+                Sql.Append(");");
+
+                DbContext.ExecuteQuery(Sql.ToString());
+
+                int Id = 0;
+
+                using (IDataReader reader = DbContext.ExecuteReader("SELECT MAX(id) as Id FROM Clientes"))
                 {
-                    Id = Convert.ToInt32(reader["Id"]);
+                    if (reader.Read())
+                    {
+                        Id = Convert.ToInt32(reader["Id"]);
+                    }
+                }
+
+                entidade.Endereco.Cobranca = true;
+                entidade.Endereco.Entrega = true;
+                entidade.Endereco.ClienteId = Id;
+                entidade.Cartao.ClienteId = Id;
+
+                new EnderecoDao().Cadastrar(entidade.Endereco);
+                new CartaoDao().Cadastrar(entidade.Cartao);
+
+                Sql.Clear();
+
+                foreach (var item in entidade.Telefones)
+                {
+                    Sql.Append("INSERT INTO TELEFONES (");
+                    Sql.Append("IdUsuario, ");
+                    Sql.Append("DDD, ");
+                    Sql.Append("Numero, ");
+                    Sql.Append("IdTipoTelefone");
+                    Sql.Append(")");
+                    Sql.Append("VALUES (");
+                    Sql.Append(Id + ", ");
+                    Sql.Append(item.DDD + ",'");
+                    Sql.Append(item.Numero + "',");
+                    Sql.Append(item.IdTipo);
+                    Sql.Append(");");
+
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
                 }
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
             
-            entidade.Endereco.Cobranca = true;
-            entidade.Endereco.Entrega = true;
-            entidade.Endereco.ClienteId = Id;
-            entidade.Cartao.ClienteId = Id;
 
-            new EnderecoDao().Cadastrar(entidade.Endereco);
-            new CartaoDao().Cadastrar(entidade.Cartao);
         }
 
         public Cliente ConsultarPorId(int id)
@@ -122,7 +149,6 @@ namespace DrinkIt.WebApp.Dao
                 DataNascimento = Convert.ToDateTime(reader["DataNascimento"]),
                 Email = Convert.ToString(reader["Email"]),
                 Genero = Convert.ToString(reader["Genero"]),
-                Telefone = Convert.ToString(reader["Telefone"]),
                 Nome = Convert.ToString(reader["Nome"]),
                 Login = Convert.ToString(reader["Login"]),
                 Senha = Convert.ToString(reader["Senha"]),

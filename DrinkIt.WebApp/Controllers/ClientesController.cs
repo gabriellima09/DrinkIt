@@ -3,6 +3,7 @@ using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using DrinkIt.WebApp.Strategy;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -43,10 +44,46 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(Cliente cliente, List<int> LstDDD, List<string> LstTelefone, List<int> TiposTelefone)
         {
             try
             {
+                bool checkTelefones = true;
+                cliente.Telefones = new List<Telefone>();
+
+                for(int i = 0; i < LstDDD.Count; i++)
+                {
+                    if (LstDDD[i] == 0)
+                        checkTelefones = false;
+
+                    if (LstTelefone[i] == null || LstTelefone[i] == "")
+                        checkTelefones = false;
+
+                    if (TiposTelefone[i] == 0)
+                        checkTelefones = false;
+                }
+                
+                if (checkTelefones)
+                {
+                    for(int i = 0; i < LstDDD.Count; i++)
+                    {
+                        Telefone telefone = new Telefone
+                        {
+                            DDD = LstDDD[i],
+                            Numero = LstTelefone[i],
+                            IdTipo = TiposTelefone[i]
+                        };
+
+                        cliente.Telefones.Add(telefone);
+                    }
+                }
+                else
+                {
+                    ViewBag.ErroTelefone = "Cadastro de telefones inválido. Insira os dados corretamente.";
+                    return View();
+                }
+
+
                 Fachada.Cadastrar(cliente);
 
                 Usuario usuario = new Usuario

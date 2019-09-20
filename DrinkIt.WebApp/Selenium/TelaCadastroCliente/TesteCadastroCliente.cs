@@ -36,7 +36,6 @@ namespace DrinkIt.WebApp.Selenium
                     Numero = "123456789000"
                 },
                 Genero = "Masculino",
-                Telefone = "(11) 91234-5678",
                 Login = "teste",
                 Senha = "teste",
                 Nome = "Usuário Teste"

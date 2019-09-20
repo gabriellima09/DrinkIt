@@ -65,7 +65,6 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Cpf"), cliente.Cpf.ToString());
             _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd-MM-yyyy"));
             _driver.SetText(By.Name("Genero"), cliente.Genero.ToString());
-            _driver.SetText(By.Name("Telefone"), cliente.Telefone.ToString());
             _driver.SetText(By.Name("Endereco.Descricao"), cliente.Endereco.Descricao.ToString());
             _driver.SetText(By.Name("Endereco.CEP"), cliente.Endereco.CEP.ToString());
             _driver.SetText(By.Name("Endereco.Logradouro"), cliente.Endereco.Logradouro.ToString());
@@ -233,7 +232,6 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                     Numero = "123456789000"
                 },
                 Genero = "Masculino",
-                Telefone = "(11) 91234-5678",
                 Login = "teste",
                 Senha = "teste",
                 Nome = "Usuário Teste"

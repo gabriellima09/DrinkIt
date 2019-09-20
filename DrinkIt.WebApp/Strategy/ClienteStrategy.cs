@@ -13,8 +13,7 @@ namespace DrinkIt.WebApp.Strategy
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Login)
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Senha)
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Nome)
-                && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Genero)
-                && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Telefone);
+                && ValidadorAuxiliar.ValidarPropriedadeVazia(cliente.Genero);
         }
     }
 }
