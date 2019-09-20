@@ -4,9 +4,9 @@ GO
 CREATE DATABASE [drinkit]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'drinkit', FILENAME = N'C:\Users\guga-\drinkit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'drinkit', FILENAME = N'C:\Users\Gabriel\drinkit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'drinkit_log', FILENAME = N'C:\Users\guga-\drinkit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'drinkit_log', FILENAME = N'C:\Users\Gabriel\drinkit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [drinkit] SET COMPATIBILITY_LEVEL = 130
 GO

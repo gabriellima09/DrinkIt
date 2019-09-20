@@ -1,4 +1,5 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -66,6 +67,42 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult Checkout()
         {
+            var listaEnderecos = new EnderecoDao().ConsultarTodos();
+            var listaCartoes = new CartaoDao().ConsultarTodos();
+
+            List<SelectListItem> ddlEnderecos = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Text = "Selecione uma endereço ...",
+                    Value = "0"
+                }
+            };
+            List<SelectListItem> ddlCartoes = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Text = "Selecione uma cartão ...",
+                    Value = "0"
+                }
+            };
+
+            listaEnderecos.ForEach(x => ddlEnderecos.Add(new SelectListItem
+            {
+                Text = string.Concat(x.Descricao, " - ", x.Logradouro, ", ", x.Numero, " ", x.Complemento),
+                Value = x.Id.ToString(),
+                Selected = x.Entrega
+            }));
+            listaCartoes.ForEach(x => ddlCartoes.Add(new SelectListItem
+            {
+                Text = string.Concat(x.Bandeira, " - final ", x.Numero.Substring(x.Numero.Length - 4)),
+                Value = x.Id.ToString(),
+                Selected = x.Preferencial
+            }));
+
+            ViewBag.Enderecos = ddlEnderecos;
+            ViewBag.Cartoes = ddlCartoes;
+
             Pedido pedido = new Pedido
             {
                 Data = DateTime.Now,
@@ -145,6 +182,11 @@ namespace DrinkIt.WebApp.Controllers
             };
 
             return View(pedido);
+        }
+
+        public ActionResult FinalizarPedido(Pedido pedido)
+        {
+            return View("Index", "Usuarios");
         }
 
         public ActionResult Details(int id)

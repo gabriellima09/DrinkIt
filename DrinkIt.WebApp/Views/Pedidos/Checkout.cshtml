@@ -8,254 +8,224 @@
 
 <hr />
 
-<div class="panel panel-default">
-    <div class="container" style="padding-left:0;padding-right:30px">
+@using (Html.BeginForm("FinalizarPedido", "Pedidos", FormMethod.Post, new { @id = "FormPedido" }))
+{
+    <div class="panel panel-default">
+        <div class="container" style="padding-left:0;padding-right:30px">
 
-        <!-- Endereço -->
-        <div class="col-lg-4 col-md-4">
-            <div class="form-horizontal">
-                <h4>Endereço</h4>
-                <hr />
-                @*
-        <address>
-            <strong>Meu endereço</strong><br>
-            Rua ABC, 1355 - Centro<br>
-            Mogi das Cruzes, SP<br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890
-        </address>*@
+            <!--Endereço-->
+            <div class="col-lg-4 col-md-4">
+                <div class="form-horizontal">
+                    <h4>Endereço</h4>
+                    <hr />
 
-                <select class="form-control" id="dropEndereco" name="Endereco">
-                    <option>Casa - Rua ABC 135 - Centro, Mogi das Cruzes SP</option>
-                    <option>Trabalho - Rua DEF 23 - Centro, Suzano SP</option>
-                </select>
-
-                <br />
-
-                <div class="btn-group">
-                    <button id="btnNovoEndereco" type="button" class="btn btn-info">Novo Endereço</button>
-                    <button id="btnNovoEnderecoFechar" type="button" class="btn btn-default" style="display:none">Fechar</button>
-                </div>
-
-                <div id="divNovoEndereco" class="container" style="display:none">
-                    <br />
-                    <div class="form-group">
-                        <label class="control-label" for="Descricao">Descricao</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Descricao é obrigatório." id="Descricao" name="Descricao" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Logradouro">Logradouro</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Logradouro é obrigatório." id="Logradouro" name="Logradouro" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Logradouro" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Numero">Numero</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Numero é obrigatório." id="Numero" name="Numero" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Numero" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Bairro">Bairro</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Bairro é obrigatório." id="Bairro" name="Bairro" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Bairro" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="CEP">CEP</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo CEP é obrigatório." id="CEP" name="CEP" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="CEP" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Complemento">Complemento</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" id="Complemento" name="Complemento" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Complemento" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Cidade">Cidade</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Cidade é obrigatório." id="Cidade" name="Cidade" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Cidade" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Estado">Estado</label>
-                        <div class="">
-                            <input class="form-control text-box single-line" data-val="true" data-val-required="O campo Estado é obrigatório." id="Estado" name="Estado" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Estado" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Cobranca">Cobranca</label>
-                        <div class="">
-                            <div class="checkbox">
-                                <input class="form-control" data-val="true" data-val-required="O campo Cobranca é obrigatório." id="Cobranca" name="Cobranca" type="checkbox" value="true"><input name="Cobranca" type="hidden" value="false">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Cobranca" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label" for="Entrega">Entrega</label>
-                        <div class="">
-                            <div class="checkbox">
-                                <input class="form-control" data-val="true" data-val-required="O campo Entrega é obrigatório." id="Entrega" name="Entrega" type="checkbox" value="true"><input name="Entrega" type="hidden" value="false">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Entrega" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>
-                    </div>
+                    @Html.DropDownListFor(x => x.IdEnderecoEntrega, (List<SelectListItem>)ViewBag.Enderecos, new { @class = "form-control" })
 
                     <br />
 
-                    <button id="btnSalvarEndereco" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Endereço</button>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Forma de pagamento -->
-        <div class="col-lg-4 col-md-4">
-            <div class="form-horizontal">
-                <h4>Forma de Pagamento</h4>
-                <hr />
-
-                <div class="form-group">
-                    <label class="control-label">Selecionar Cartão</label>
-                    <select class="form-control" id="SelectCartao">
-                        <option>Nenhum</option>
-                        <option>VISA terminado em 1234</option>
-                        <option>MASTERCARD terminado em 5678</option>
-                    </select>
-                </div>
-
-                <hr />
-
-                <div class="form-group">
-                    <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Selecionar Cartão</label>
-                    <select class="form-control" id="SelectCartao2">
-                        <option>Nenhum</option>
-                        <option>VISA terminado em 1234</option>
-                        <option>MASTERCARD terminado em 5678</option>
-                    </select>
-                </div>
-
-                <hr />
-
-                <div class="btn-group">
-                    <button id="btnAddCartao" type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
-                    <button id="btnRemoverCartao" style="display:none" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                </div>
-
-            </div>
-
-            <br />
-
-            <div class="form-horizontal" id="divCartaoAdicional" style="display:none">
-
-                <div class="form-group">
-                    <label for="inputAddress">Número do Cartão</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Nome Titular</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6" style="padding-left:0;margin-right:15px">
-                        <label for="inputEmail4">Mês</label>
-                        <input type="text" class="form-control" id="mes" placeholder="">
+                    <div class="btn-group">
+                        <button id="btnNovoEndereco" type="button" class="btn btn-info">Novo Endereço</button>
+                        <button id="btnNovoEnderecoFechar" type="button" class="btn btn-default" style="display:none">Fechar</button>
                     </div>
-                    <div class="form-group col-md-6" style="padding-right:0;">
-                        <label for="inputPassword4">Ano</label>
-                        <input type="text" class="form-control" id="ano" placeholder="">
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="inputAddress">Código de segurança</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
+                    <div id="divNovoEndereco" class="container" style="display:none">
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Descricao, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Descricao, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                <button id="btnSalvarCartao2" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span> Salvar Cartão</button>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Logradouro, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Logradouro, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Logradouro, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-            </div>
-        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Numero, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Numero, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <!-- Revisão do pedido -->
-        <div class="col-lg-4 col-md-4">
-            <div class="form-horizontal">
-                <h4>Revisão do pedido</h4>
-                <hr />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.CEP, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.CEP, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.CEP, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Resumo do pedido</div>
-                    <div class="panel-body">
-                        <dl>
-                            @foreach (var item in Model.Bebidas)
-                            {
-                                <dt>
-                                    <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"))</label>
-                                </dt>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Complemento, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Complemento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                                <dd>
-                                    @Html.DisplayFor(model => item.Descricao)
-                                </dd>
-                            }
-                        </dl>
-                    </div>
-                    <div class="panel-footer">
-                        <label class="control-label">Valor Total: </label>
-                        <label class="control-label" style="float:right">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</label>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Cidade, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Cidade, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Estado, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Estado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NovoEndereco.Bairro, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NovoEndereco.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NovoEndereco.Bairro, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <br />
 
-            <div class="form-group">
-                <label for="inputAddress">Cupom de desconto/troca:</label>
-                <input type="text" class="form-control" id="inputCupom" placeholder="Insira um cupom válido">
+            <!-- Forma de pagamento -->
+            <div class="col-lg-4 col-md-4">
+                <div class="form-horizontal">
+                    <h4>Forma de Pagamento</h4>
+                    <hr />
+
+                    @Html.DropDownListFor(x => x.IdCartao1, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
+                    </div>
+
+                    @Html.DropDownListFor(x => x.IdCartao2, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+
+                    <hr />
+
+                    <div class="btn-group">
+                        <button id="btnAddCartao" type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
+                        <button id="btnRemoverCartao" style="display:none" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                    </div>
+
+                </div>
+
                 <br />
-                <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
-                <span id="spanCupomValido" style="color:green;display:none;"><strong>Cupom válido !!!</strong></span>
+
+                <div class="form-horizontal" id="divCartaoAdicional" style="display:none">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NovoCartao.Numero, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.NovoCartao.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NovoCartao.Numero, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NovoCartao.NomeTitular, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.NovoCartao.NomeTitular, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NovoCartao.NomeTitular, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NovoCartao.Bandeira, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            <select class="form-control" name="Cartao.Bandeira">
+                                <option value="Visa">Visa</option>
+                                <option value="Mastercard">Mastercard</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.NovoCartao.Bandeira, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NovoCartao.CodigoSeguranca, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.NovoCartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NovoCartao.CodigoSeguranca, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
+            <!-- Revisão do pedido -->
+            <div class="col-lg-4 col-md-4">
+                <div class="form-horizontal">
+                    <h4>Revisão do pedido</h4>
+                    <hr />
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Resumo do pedido</div>
+                        <div class="panel-body">
+                            <dl>
+                                @foreach (var item in Model.Bebidas)
+                                {
+                                    <dt>
+                                        <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"))</label>
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => item.Descricao)
+                                    </dd>
+                                }
+                            </dl>
+                        </div>
+                        <div class="panel-footer">
+                            <label class="control-label">Valor Total: </label>
+                            <label class="control-label" style="float:right">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <label for="inputCupomDesconto">Cupom de desconto:</label>
+                    <input type="text" class="form-control" id="inputCupomDesconto" placeholder="Insira um cupom válido">
+                    @Html.HiddenFor(x => x.IdCupomDesconto)
+                    <br />
+                    <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
+                    <span id="spanCupomValido" style="color:green;display:none;"><strong>Cupom válido !!!</strong></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputCupomTroca">Cupom de troca:</label>
+                    <input type="text" class="form-control" id="inputCupomTroca" placeholder="Insira um cupom válido">
+                    @Html.HiddenFor(x => x.IdCupomTroca)
+                    <br />
+                    <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
+                    <span id="spanCupomValido" style="color:green;display:none;"><strong>Cupom válido !!!</strong></span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-horizontal">
+            <div class="form-group" align="right" style="margin-right:15px">
+                <button id = "btnFinalizarPedido" class = "btn btn-success" type="submit">Finalizar Compra</button>
+            </div>
         </div>
     </div>
+}
 
-    <hr />
-
-    <div class="form-horizontal">
-        <div class="form-group" align="right" style="margin-right:15px">
-            @*<button type="button" class="btn btn-success">Finalizar Compra</button>*@
-            @Html.ActionLink("Finalizar Compra", "Index", "Clientes", null, new { @id= "btnFinalizarPedido", @class= "btn btn-success" })
-        </div>
-    </div>
-</div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")

@@ -13,5 +13,6 @@ namespace DrinkIt.WebApp.Models
         public string Bandeira { get; set; }
         [Required]
         public int CodigoSeguranca { get; set; }
+        public bool Preferencial { get; set; }
     }
 }
