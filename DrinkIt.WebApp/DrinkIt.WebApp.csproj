@@ -159,6 +159,7 @@
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
     <Compile Include="Dao\EstoqueDao.cs" />
+    <Compile Include="Dao\IBebida.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />

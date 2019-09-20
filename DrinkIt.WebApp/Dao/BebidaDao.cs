@@ -7,7 +7,7 @@ using DrinkIt.WebApp.Models;
 
 namespace DrinkIt.WebApp.Dao
 {
-    public class BebidaDao : IDao<Bebida>
+    public class BebidaDao : IDao<Bebida>, IBebida
     {
         private StringBuilder Sql = new StringBuilder();
 
@@ -221,8 +221,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("UPDATE BEBIDAS SET STATUS = " + statusBebida + " WHERE Id = " + id + ";");
 
             DbContext.ExecuteQuery(Sql.ToString());
-            
-            
+
+
         }
 
         //Sobrecarga, para registrar motivo
@@ -232,12 +232,12 @@ namespace DrinkIt.WebApp.Dao
             {
                 Sql.Clear();
 
-                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", SYSDATE, '" + motivo + "');");
+                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + motivo + "');");
 
                 DbContext.ExecuteQuery(Sql.ToString());
-            }          
+            }
 
-        }        
+        }
 
         public Bebida ObterEntidadeReader(IDataReader reader)
         {

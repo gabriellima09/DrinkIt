@@ -14,11 +14,13 @@ namespace DrinkIt.WebApp.Controllers
 
         private readonly IDao<Bebida> Dao;
         private readonly IFachada<Bebida> Fachada;
+        private readonly IBebida bebidaDao;
 
         public BebidasController()
         {
             Dao = new BebidaDao();
             Fachada = new Fachada<Bebida>(Dao);
+            bebidaDao = new BebidaDao();
         }
 
         // GET: Bebidas
@@ -126,15 +128,17 @@ namespace DrinkIt.WebApp.Controllers
         }
 
 
-        public ActionResult TrocarStatus(int id, string motivo = null)
+        public ActionResult TrocarStatus(int id, int statusAtual, string motivo = null)
         {
             try
             {
-                BebidaDao dao = new BebidaDao();
                 // TODO: Add update logic here
                 Fachada.Excluir(id);
-                dao.GravarMotivoInativacao(id, motivo); //aqui precisaria ser uma strategy...
-                return RedirectToAction("Index", "Usuarios", null);
+                if(statusAtual == 1)//Inativando?
+                {
+                    bebidaDao.GravarMotivoInativacao(id, motivo);
+                }                
+                return RedirectToAction("Index", "Usuarios");
             }
             catch (Exception ex)
             {
