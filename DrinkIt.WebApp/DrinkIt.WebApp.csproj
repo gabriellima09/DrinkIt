@@ -203,6 +203,9 @@
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artifacts\Diagrams\Images\drinkit-architecture.jpg" />
+    <Content Include="Artifacts\Diagrams\Images\fluxo-atividade-usuarios.jpg" />
+    <Content Include="Artifacts\logo-empresa.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -212,11 +215,16 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\crystal.jpg" />
+    <Content Include="Images\dolly.jpg" />
     <Content Include="Images\drink.jpg" />
     <Content Include="Scripts\Bebidas\Script_CreateBebidas.js" />
     <Content Include="Scripts\Bebidas\Script_EditBebidas.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Artifacts\Diagrams\drinkit-architecture.drawio" />
+    <Content Include="Artifacts\Diagrams\fluxo-atividade-usuarios.asta" />
+    <Content Include="Artifacts\DRS_LES_2_2019.docx" />
+    <Content Include="Artifacts\Proposta Técnica Comercial - DrinkIt.docx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
