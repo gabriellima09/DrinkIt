@@ -49,23 +49,17 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Create
         [HttpPost]
-        public ActionResult Create(Bebida bebida, List<string> LstIngrediente)
+        public ActionResult Create(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
             try
             {
-                //Access the File using the Name of HTML INPUT File.
-                HttpPostedFileBase postedFile = Request.Files["CaminhoImagem"];
+                var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
+                string fileId = DateTime.Now.ToString().Replace(":", "").Replace("-", "").Replace("/", "").Replace(" ", "");
 
-                //Check if File is available.
-                if (postedFile != null && postedFile.ContentLength > 0)
-                {
-                    //Save the File.
-                    string filePath = Server.MapPath("~/Images/") + Path.GetFileName(postedFile.FileName);
-                    postedFile.SaveAs(filePath);
-                    bebida.CaminhoImagem = postedFile.FileName;
-                }
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
+                ArquivoImagem.SaveAs(path);
 
-                
+                bebida.CaminhoImagem = fileId;
                 bebida.Ingredientes = new List<Ingrediente>();
                 if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {

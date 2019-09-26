@@ -20,7 +20,7 @@
 
 <h2>Nova Bebida</h2>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "FormCreateBebida" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "FormCreateBebida", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -197,7 +197,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.CaminhoImagem, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CaminhoImagem, new { htmlAttributes = new { @class = "form-control", @name = "CaminhoImagem", @type = "file", accept = "image/*" } })
+            <input type="file" class="form-control" name="ArquivoImagem" accept="image/*" />
+            @*@Html.EditorFor(model => model.CaminhoImagem, new { htmlAttributes = new { @class = "form-control", @name = "CaminhoImagem", @type = "file", accept = "image/*" } })*@
             @Html.ValidationMessageFor(model => model.CaminhoImagem, "", new { @class = "text-danger" })
         </div>
     </div>
