@@ -54,7 +54,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
-                string fileId = DateTime.Now.ToString().Replace(":", "").Replace("-", "").Replace("/", "").Replace(" ", "");
+                string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
 
                 var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
                 ArquivoImagem.SaveAs(path);
@@ -97,8 +97,20 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Edit/5
         [HttpPost]
-        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente)
+        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
+            if(ArquivoImagem != null)
+            {
+                var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
+                string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
+                ArquivoImagem.SaveAs(path);
+
+                bebida.CaminhoImagem = fileId;
+            }
+            
+
             bebida.Ingredientes = new List<Ingrediente>();
 
             foreach (var item in LstIngrediente)
