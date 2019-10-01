@@ -160,6 +160,7 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Cryptography\Criptografia.cs" />
     <Compile Include="Dao\BebidaDao.cs" />
     <Compile Include="Dao\CartaoDao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
