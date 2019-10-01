@@ -21,7 +21,7 @@ namespace DrinkIt.WebApp.Logger
 
             var fileTarget = new FileTarget("Log")
             {
-                FileName = @"${basedir}\Logs\Log.txt",
+                FileName = @"${basedir}\Logger\Log.txt",
                 Layout = "${longdate}|${level}|${message}|${exception}"
             };
 
