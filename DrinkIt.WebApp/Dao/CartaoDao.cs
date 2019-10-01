@@ -21,7 +21,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("ClienteId = " + entidade.ClienteId + ", ");
             Sql.Append("CodigoSeguranca = " + entidade.CodigoSeguranca + ", ");
             Sql.Append("NomeTitular = '" + entidade.NomeTitular + "', ");
-            Sql.Append("Numero = '" + entidade.Numero + "'");
+            Sql.Append("Numero = '" + entidade.Numero + "', ");
+            Sql.Append("Preferencial = '" + (entidade.Preferencial ? 1 : 0));
             Sql.Append(" WHERE Id = " + entidade.Id);
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -38,14 +39,16 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("ClienteId, ");
             Sql.Append("CodigoSeguranca, ");
             Sql.Append("NomeTitular, ");
-            Sql.Append("Numero ");
+            Sql.Append("Numero ,");
+            Sql.Append("Preferencial");
             Sql.Append(")");
             Sql.Append(" VALUES (");
             Sql.Append("'" + entidade.Bandeira + "', ");
             Sql.Append(entidade.ClienteId + ", ");
             Sql.Append(entidade.CodigoSeguranca + ", ");
             Sql.Append("'" + entidade.NomeTitular + "', ");
-            Sql.Append("'" + entidade.Numero + "'");
+            Sql.Append("'" + entidade.Numero + "', ");
+            Sql.Append(entidade.Preferencial ? 1 : 0);
             Sql.Append(");");
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -103,7 +106,8 @@ namespace DrinkIt.WebApp.Dao
                 Bandeira = Convert.ToString(reader["Bandeira"]),
                 CodigoSeguranca = Convert.ToInt32(reader["CodigoSeguranca"]),
                 NomeTitular = Convert.ToString(reader["NomeTitular"]),
-                Numero = Convert.ToString(reader["Numero"])
+                Numero = Convert.ToString(reader["Numero"]),
+                Preferencial = Convert.ToBoolean(reader["Preferencial"])
             };
 
             return cartao;
