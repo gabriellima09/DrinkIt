@@ -1,4 +1,5 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Cryptography;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -42,7 +43,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("SELECT (SELECT COUNT(*) FROM Clientes ");
             Sql.Append("WHERE ");
             Sql.Append("Email LIKE '%" + email + "%' ");
-            Sql.Append("AND Senha LIKE '%" + senha + "%') AS 'Exists'");
+            Sql.Append("AND Senha LIKE '%" + Criptografia.RetornarMD5(senha) + "%') AS 'Exists'");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {

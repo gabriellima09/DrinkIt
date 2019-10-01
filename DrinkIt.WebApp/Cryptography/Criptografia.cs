@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DrinkIt.WebApp.Cryptography
 {
-    public class Criptografia
+    public static class Criptografia
     {
-        public string RetornarMD5(string Senha)
+        public static string RetornarMD5(string Senha)
         {
             using (MD5 md5Hash = MD5.Create())
             {
@@ -14,7 +14,7 @@ namespace DrinkIt.WebApp.Cryptography
             }
         }
 
-        public bool CompararMD5(string senhabanco, string Senha_MD5)
+        public static bool CompararMD5(string senhabanco, string Senha_MD5)
         {
             using (MD5 md5Hash = MD5.Create())
             {
@@ -30,7 +30,7 @@ namespace DrinkIt.WebApp.Cryptography
             }
         }
 
-        private string RetonarHash(MD5 md5Hash, string input)
+        private static string RetonarHash(MD5 md5Hash, string input)
         {
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
@@ -44,7 +44,7 @@ namespace DrinkIt.WebApp.Cryptography
             return sBuilder.ToString();
         }
 
-        private bool VerificarHash(string input, string hash)
+        private static bool VerificarHash(string input, string hash)
         {
             StringComparer compara = StringComparer.OrdinalIgnoreCase;
 
