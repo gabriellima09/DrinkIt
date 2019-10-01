@@ -18,8 +18,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append(" Bairro = '" + entidade.Bairro + "', ");
             Sql.Append("CEP = '" + entidade.CEP + "', ");
             Sql.Append("Cidade = '" + entidade.Cidade + "', ");
-            Sql.Append("Cobranca = " + (entidade.Cobranca == true ? 1 : 0) + ", ");
-            Sql.Append("Entrega = " + (entidade.Entrega == true ? 1 : 0) + ", ");
+            Sql.Append("Cobranca = " + (entidade.Cobranca ? 1 : 0) + ", ");
+            Sql.Append("Entrega = " + (entidade.Entrega ? 1 : 0) + ", ");
             Sql.Append("Complemento = '" + entidade.Complemento + "', ");
             Sql.Append("Descricao = '" + entidade.Descricao + "', ");
             Sql.Append("Estado = '" + entidade.Estado + "', ");
@@ -49,8 +49,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("'" + entidade.Bairro + "', ");
             Sql.Append("'" + entidade.CEP + "', ");
             Sql.Append("'" + entidade.Cidade + "', ");
-            Sql.Append((entidade.Cobranca == true ? 1 : 0) + ", ");
-            Sql.Append((entidade.Entrega == true ? 1 : 0) + ", ");
+            Sql.Append((entidade.Cobranca ? 1 : 0) + ", ");
+            Sql.Append((entidade.Entrega ? 1 : 0) + ", ");
             Sql.Append("'" + entidade.Complemento + "', ");
             Sql.Append("'" + entidade.Descricao + "', ");
             Sql.Append("'" + entidade.Estado + "', ");

@@ -64,6 +64,7 @@ namespace DrinkIt.WebApp.Dao
                 entidade.Endereco.Entrega = true;
                 entidade.Endereco.ClienteId = Id;
                 entidade.Cartao.ClienteId = Id;
+                entidade.Cartao.Preferencial = true;
 
                 new EnderecoDao().Cadastrar(entidade.Endereco);
                 new CartaoDao().Cadastrar(entidade.Cartao);
