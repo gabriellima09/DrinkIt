@@ -92,14 +92,26 @@ namespace DrinkIt.WebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Configuracoes()
-        {
-            return View();
-        }
-
         public ActionResult PvSolicitacoesTroca()
         {
             return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult TrocarSenha(string senhaAtual, string novaSenha)
+        {
+            try
+            {
+                int clienteId = ((Usuario)Session["Usuario"]).Id;
+
+                usuarioDao.TrocarSenha(clienteId, novaSenha);
+            }
+            catch (System.Exception)
+            {
+                return View("Error");
+            }
+
+            return RedirectToAction("Index", "Clientes");
         }
     }
 }

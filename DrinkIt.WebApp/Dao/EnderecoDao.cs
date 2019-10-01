@@ -12,6 +12,8 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Endereco entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
             Sql.Clear();
 
             Sql.Append("UPDATE ENDERECOS SET");
@@ -32,6 +34,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Endereco entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
+            Sql.Clear();
+
             Sql.Append("INSERT INTO ENDERECOS (");
             Sql.Append("Bairro, ");
             Sql.Append("CEP, ");
@@ -124,6 +130,18 @@ namespace DrinkIt.WebApp.Dao
             };
 
             return endereco;
+        }
+
+        private void ZerarFlags(int idCliente)
+        {
+            Sql.Clear();
+
+            Sql.Append("UPDATE ENDERECOS SET");
+            Sql.Append("Cobranca = 0, ");
+            Sql.Append("Entrega = 0");
+            Sql.Append(" WHERE ClienteId = " + idCliente);
+
+            DbContext.ExecuteQuery(Sql.ToString());
         }
     }
 }

@@ -284,7 +284,6 @@
     <Content Include="Views\TipoBebida\Create.cshtml" />
     <Content Include="Views\TipoBebida\Edit.cshtml" />
     <Content Include="Views\Bebidas\PvDashBebidas.cshtml" />
-    <Content Include="Views\Usuarios\Configuracoes.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
     <Content Include="Views\Pedidos\Checkout.cshtml" />
     <Content Include="Views\Cupons\Index.cshtml" />

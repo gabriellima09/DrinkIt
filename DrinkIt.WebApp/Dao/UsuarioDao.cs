@@ -87,5 +87,16 @@ namespace DrinkIt.WebApp.Dao
 
             return usuario;
         }
+
+        public void TrocarSenha(int clienteId, string novaSenha)
+        {
+            Sql.Clear();
+
+            Sql.Append("UPDATE Clientes SET");
+            Sql.Append(" Senha = '" + Criptografia.RetornarMD5(novaSenha) + "'");
+            Sql.Append(" WHERE Id = " + clienteId);
+
+            DbContext.ExecuteQuery(Sql.ToString());
+        }
     }
 }

@@ -81,6 +81,8 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                endereco.ClienteId = ((Usuario)Session["Usuario"]).Id;
+
                 Fachada.Alterar(endereco);
 
                 return RedirectToAction("Index", "Clientes");

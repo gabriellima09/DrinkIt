@@ -12,6 +12,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(CartaoCredito entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
+            Sql.Clear();
+
             Sql.Append("UPDATE Cartoes SET");
             Sql.Append(" Bandeira = '" + entidade.Bandeira + "', ");
             Sql.Append("ClienteId = " + entidade.ClienteId + ", ");
@@ -25,6 +29,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(CartaoCredito entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
+            Sql.Clear();
+
             Sql.Append("INSERT INTO Cartoes (");
             Sql.Append("Bandeira, ");
             Sql.Append("ClienteId, ");
@@ -99,6 +107,17 @@ namespace DrinkIt.WebApp.Dao
             };
 
             return cartao;
+        }
+
+        private void ZerarFlags(int idCliente)
+        {
+            Sql.Clear();
+
+            Sql.Append("UPDATE Cartoes SET");
+            Sql.Append(" Preferencial = 0 ");
+            Sql.Append(" WHERE ClienteId = " + idCliente);
+
+            DbContext.ExecuteQuery(Sql.ToString());
         }
     }
 }
