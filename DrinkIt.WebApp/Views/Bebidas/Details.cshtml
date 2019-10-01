@@ -4,6 +4,8 @@
     ViewBag.Title = "Detalhes";
 }
 
+@using Newtonsoft.Json;
+
 <h2>Detalhes da Bebida</h2>
 <hr />
 
@@ -93,9 +95,15 @@
         <br />
 
         <div align="center">
+            @using (Html.BeginForm("AdicionarBebidaSessao", "Carrinho", FormMethod.Post))
+            {
+                <input type="hidden" name="bebida" value="@JsonConvert.SerializeObject(Model)" />
+
+                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>
+            }
             <!-- comentado para o selenium -->
             @*<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>*@
-            @Html.ActionLink("Adicionar ao Carrinho", "AdicionarBebidaSessao", "Carrinho",  new { bebida = Model }, new { @class="btn btn-success", @id= "btnAddCarrinho" })
+            @*@Html.ActionLink("Adicionar ao Carrinho", "AdicionarBebidaSessao", "Carrinho", new { Model }, new { @class = "btn btn-success", @id = "btnAddCarrinho" })*@
         </div>
 
         <hr />

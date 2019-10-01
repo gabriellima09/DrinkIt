@@ -1,5 +1,4 @@
 ﻿using DrinkIt.WebApp.Dao;
-using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,54 +7,49 @@ using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
-    public class SolicitacoesTrocaController : Controller
+    public class EstoqueController : Controller
     {
-        // GET: SolicitacoesTroca
+        // GET: Estoque
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: SolicitacoesTroca/Details/5
+        // GET: Estoque/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: SolicitacoesTroca/Create
+        // GET: Estoque/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SolicitacoesTroca/Create
+        // POST: Estoque/Create
         [HttpPost]
-        public ActionResult Create(string MotivoSolicitacao, int IdPedido)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 // TODO: Add insert logic here
-                Usuario usuario = new Usuario();
-                usuario = (Usuario)Session["Usuario"];
 
-                dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
-
-                return RedirectToAction("Index", "Clientes");
+                return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch
             {
                 return View();
             }
         }
 
-        // GET: SolicitacoesTroca/Edit/5
+        // GET: Estoque/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SolicitacoesTroca/Edit/5
+        // POST: Estoque/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -71,13 +65,13 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
-        // GET: SolicitacoesTroca/Delete/5
+        // GET: Estoque/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SolicitacoesTroca/Delete/5
+        // POST: Estoque/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -93,41 +87,48 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
-        public ActionResult PvSolicitacoesTroca()
-        {
-            SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-
-            return PartialView(dao.ConsultarTodos());
-        }
-
-        public ActionResult Reprovar(string MotivoReprova, int IdSolicitacao)
+        public ActionResult PvEstoque()
         {
             try
             {
-                SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-                dao.Reprovar(IdSolicitacao, MotivoReprova);
-                return RedirectToAction("Index", "Usuarios");
+                EstoqueDao dao = new EstoqueDao();
+                return PartialView(dao.ConsultarTodos());
+
             }catch(Exception ex)
             {
                 return View("Error");
             }
             
+
         }
 
-        public ActionResult Aprovar(int IdSolicitacao, int IdCupom)
+        public ActionResult Entrada(int IdBebida, int Qtde)
+        {            
+            try
+            {
+                EstoqueDao dao = new EstoqueDao();
+                dao.Entrada(IdBebida, Qtde);
+                return RedirectToAction("Index", "Usuarios");
+            }
+            catch(Exception ex)
+            {
+                return View("Erro");
+            }
+        
+}
+
+        public ActionResult Baixa(int IdBebida, int Qtde)
         {
             try
             {
-                SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-                dao.Aprovar(IdSolicitacao, IdCupom);
+                EstoqueDao dao = new EstoqueDao();
+                dao.Baixa(IdBebida, Qtde);
                 return RedirectToAction("Index", "Usuarios");
-            }
-            catch (Exception ex)
+
+            }catch(Exception ex)
             {
-                return View("Error");
+                return View("Erro");
             }
         }
-
-
     }
 }

@@ -25,6 +25,7 @@
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
     <li><a id="navTabTroca" data-toggle="tab" href="#Trocas">Trocas</a></li>
+    <li><a id="navTabTroca" data-toggle="tab" href="#Estoque">Estoque</a></li>
 </ul>
 
 <div class="tab-content">
@@ -177,48 +178,18 @@
             <h4>Solicitações de Troca</h4>
             <hr />
 
-            <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
-                <tr>
-                    <th>
-                        Cliente
-                    </th>
-                    <th>
-                        Pedido
-                    </th>
-                    <th>
-                        Motivo
-                    </th>
-                    <th>
-                        Data Solicitação
-                    </th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>
-                        Cliente Teste
-                    </td>
-                    <td>
-                        12345
-                    </td>
-                    <td>
-                        O produto estava vencido
-                    </td>
-                    <td>
-                        @DateTime.Now
-                    </td>
-                    <td align="center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesTrocaPedidos">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');">Aprovar</a></li>
-                                <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show');">Reprovar</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            @Html.Action("PvSolicitacoesTroca", "SolicitacoesTroca")
+
+        </div>
+    </div>
+
+    <!--Estoque-->
+    <div class="tab-pane" id="Estoque">
+        <div class="panel panel-default">
+            <h4>Estoque</h4>
+            <hr />
+
+            @Html.Action("PvEstoque", "Estoque")
 
         </div>
     </div>
@@ -239,29 +210,29 @@
                         <dt>
                             Cliente
                         </dt>
-                        <dd>
-                            Cliente Teste
+                        <dd id="ddDescClienteAp">
+                            
                         </dd>
 
                         <dt>
                             Pedido
                         </dt>
-                        <dd>
-                            12345
+                        <dd id="ddIdPedidoAp">
+                            
                         </dd>
 
                         <dt>
                             Motivo
                         </dt>
-                        <dd>
-                            O produto estava vencido
+                        <dd id="ddMotivoAp">
+                            
                         </dd>
 
                         <dt>
                             Data Solicitação
                         </dt>
-                        <dd>
-                            @DateTime.Now
+                        <dd id="ddDataAp">
+                            
                         </dd>
                     </dl>
                 </div>
@@ -272,16 +243,19 @@
                     <h5>
                         <label class="control-label">Selecione um cupom para a troca: <br /> (o valor do pedido será convertido no valor do cupom para o cliente)</label>
                     </h5>
-                    <select class="form-control" id="selectCupomTroca">
-                        <option value="Cupom1">Cupom1</option>
-                        <option value="Cupom2">Cupom2</option>
-                        <option value="Cupom3">Cupom3</option>
-                        <option value="Cupom4">Cupom4</option>
-                    </select>
+                    <form id="FormAprovar" method="post" action="/SolicitacoesTroca/Aprovar/">
+                        <select class="form-control" id="selectCupomTroca" name="IdCupom">
+                            <option value="1">Cupom1</option>
+                            <option value="2">Cupom2</option>
+                            <option value="3">Cupom3</option>
+                            <option value="4">Cupom4</option>
+                        </select>
+                        <input type="hidden" id="hiddenIdSolicitacaoAp" name="IdSolicitacao" />
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnAprovarTroca" type="button" class="btn btn-success" data-dismiss="modal">Aprovar Troca</button>
+                <button id="btnAprovarTroca" type="button" class="btn btn-success" onclick="$('#FormAprovar').submit();">Aprovar Troca</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -303,29 +277,29 @@
                         <dt>
                             Cliente
                         </dt>
-                        <dd>
-                            Cliente Teste
+                        <dd id="ddDescClienteRep">
+                            
                         </dd>
 
                         <dt>
                             Pedido
                         </dt>
-                        <dd>
-                            12345
+                        <dd id="ddIdPedidoRep">
+                            
                         </dd>
 
                         <dt>
                             Motivo
                         </dt>
-                        <dd>
-                            O produto estava vencido
+                        <dd id="ddMotivoRep">
+                           
                         </dd>
 
                         <dt>
                             Data Solicitação
                         </dt>
-                        <dd>
-                            @DateTime.Now
+                        <dd id="ddDataRep">
+                            
                         </dd>
                     </dl>
                 </div>
@@ -336,14 +310,178 @@
                     <h5>
                         <label class="control-label">Informe o motivo da reprovação:</label>
                     </h5>
-                    <textarea class="form-control" name="MotivoReprovacao" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                    <form action="/SolicitacoesTroca/Reprovar/" method="post" id="FormReprovar">
+                        <input type="hidden" id="hiddenIdSolicitacaoRep" name="idSolicitacao"/>
+                        <textarea class="form-control" name="MotivoReprova" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnReprovarTroca" type="button" class="btn btn-danger" data-dismiss="modal">Reprovar</button>
+                <button id="btnReprovarTroca" type="button" class="btn btn-danger" onclick="$('#FormReprovar').submit();">Reprovar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
-            @Html.Action("PvSolicitacoesTroca", "SolicitacoesTroca")
+        </div>
+    </div>
+</div>
+
+<div id="modalEntradaEstoque" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success" style="display: flex;">
+                <h3 class="modal-title">Deseja dar entrada no estoque deste item?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Estoque</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Código
+                        </dt>
+                        <dd id="ddCodigoEnt">
+
+                        </dd>
+
+                        <dt>
+                            Descrição
+                        </dt>
+                        <dd id="ddDescEnt">
+
+                        </dd>
+
+                        <dt>
+                            Quantidade Atual
+                        </dt>
+                        <dd id="ddQtdeEnt">
+
+                        </dd>
+
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Insira a quantidade adicionada:</label>
+                    </h5>
+                    <form id="FormEntradaEstoque" method="post" action="/Estoque/Entrada/">
+                        <input class="form-control" type="number" maxlength="6" name="Qtde" placeholder="Quantidade" required />
+                        <input type="hidden" id="hiddenIdBebida" name="IdBebida" />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSalvarEntrada" type="button" class="btn btn-success" onclick="$('#FormEntradaEstoque').submit();">Salvar Entrada</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalBaixaEstoque" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning" style="display: flex;">
+                <h3 class="modal-title">Deseja dar baixa no estoque deste item?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Estoque</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Código
+                        </dt>
+                        <dd id="ddCodigoBaixa">
+
+                        </dd>
+
+                        <dt>
+                            Descrição
+                        </dt>
+                        <dd id="ddDescBaixa">
+
+                        </dd>
+
+                        <dt>
+                            Quantidade Atual
+                        </dt>
+                        <dd id="ddQtdeBaixa">
+
+                        </dd>
+
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Insira a quantidade reduzida:</label>
+                    </h5>
+                    <form id="FormBaixaEstoque" method="post" action="/Estoque/Baixa/">
+                        <input class="form-control" type="number" maxlength="6" name="Qtde" placeholder="Quantidade" required />
+                        <input type="hidden" id="hiddenIdBebidaBaixa" name="IdBebida" />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSalvarBaixa" type="button" class="btn btn-warning" onclick="$('#FormBaixaEstoque').submit();">Salvar Baixa</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalInativarBebida" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger" style="display: flex;">
+                <h3 class="modal-title">Deseja inativar esta bebida?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Bebida</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Código
+                        </dt>
+                        <dd id="ddCodigoBebida">
+
+                        </dd>
+
+                        <dt>
+                            Descrição
+                        </dt>
+                        <dd id="ddDescBebida">
+
+                        </dd>
+
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Informe o motivo da inativação:</label>
+                    </h5>
+                    <form action="/Bebidas/TrocarStatus/" method="post" id="FormInativarBebida">
+                        <input type="hidden" id="hiddenIdBebidaInativar" name="id" />
+                        <textarea class="form-control" name="motivo" cols="20" rows="5" placeholder="Digite o motivo da inativação"></textarea>
+                        <input type="hidden" name="statusAtual" value="1"/>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnInativar" type="button" class="btn btn-danger" onclick="$('#FormInativarBebida').submit();">Inativar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
 </div>

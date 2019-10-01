@@ -14,11 +14,13 @@ namespace DrinkIt.WebApp.Controllers
 
         private readonly IDao<Bebida> Dao;
         private readonly IFachada<Bebida> Fachada;
+        private readonly IBebida bebidaDao;
 
         public BebidasController()
         {
             Dao = new BebidaDao();
             Fachada = new Fachada<Bebida>(Dao);
+            bebidaDao = new BebidaDao();
         }
 
         // GET: Bebidas
@@ -47,23 +49,17 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Create
         [HttpPost]
-        public ActionResult Create(Bebida bebida, List<string> LstIngrediente)
+        public ActionResult Create(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
             try
             {
-                //Access the File using the Name of HTML INPUT File.
-                HttpPostedFileBase postedFile = Request.Files["CaminhoImagem"];
+                var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
+                string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
 
-                //Check if File is available.
-                if (postedFile != null && postedFile.ContentLength > 0)
-                {
-                    //Save the File.
-                    string filePath = Server.MapPath("~/Images/") + Path.GetFileName(postedFile.FileName);
-                    postedFile.SaveAs(filePath);
-                    bebida.CaminhoImagem = postedFile.FileName;
-                }
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
+                ArquivoImagem.SaveAs(path);
 
-                
+                bebida.CaminhoImagem = fileId;
                 bebida.Ingredientes = new List<Ingrediente>();
                 if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {
@@ -101,8 +97,20 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Bebidas/Edit/5
         [HttpPost]
-        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente)
+        public ActionResult Edit(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
+            if(ArquivoImagem != null)
+            {
+                var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
+                string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
+                ArquivoImagem.SaveAs(path);
+
+                bebida.CaminhoImagem = fileId;
+            }
+            
+
             bebida.Ingredientes = new List<Ingrediente>();
 
             foreach (var item in LstIngrediente)
@@ -126,15 +134,17 @@ namespace DrinkIt.WebApp.Controllers
         }
 
 
-        public ActionResult TrocarStatus(int id, string motivo = null)
+        public ActionResult TrocarStatus(int id, int statusAtual, string motivo = null)
         {
             try
             {
-                BebidaDao dao = new BebidaDao();
                 // TODO: Add update logic here
                 Fachada.Excluir(id);
-                dao.GravarMotivoInativacao(id, motivo); //aqui precisaria ser uma strategy...
-                return RedirectToAction("Index", "Usuarios", null);
+                if(statusAtual == 1)//Inativando?
+                {
+                    bebidaDao.GravarMotivoInativacao(id, motivo);
+                }                
+                return RedirectToAction("Index", "Usuarios");
             }
             catch (Exception ex)
             {

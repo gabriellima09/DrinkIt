@@ -71,12 +71,37 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(x => x.Telefone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
-            </div>
+        <div>
+            <button type="button" id="btnAddTel" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Adicionar Telefone</button>
+            <br />
+            <br />
+            <label style="color:red">@ViewBag.ErroTelefone</label>
+            <table class="table tab-content table-bordered table-hover" id="tbTelefones">
+                <thead>
+                    <tr>
+                        <th>DDD</th>
+                        <th>Telefone</th>
+                        <th>Tipo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" maxlength="2" class="form-control" name="LstDDD" /></td>
+                        <td><input type="text" maxlength="9" class="form-control" name="LstTelefone" /></td>
+                        <td>
+                            <select class="form-control" name="TiposTelefone">
+                                <option value="0">Selecione um tipo</option>
+                                <option value="1">Residencial</option>
+                                <option value="2">Celular</option>
+                                <option value="3">Comercial</option>
+                            </select>
+
+                        </td>
+                        <td style="text-align:center">@*<button type="button" class="btnDeleteTel btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span> Remover</button>*@</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <hr />
@@ -212,4 +237,9 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/Clientes/Script_CreateClientes.js"></script>
 }
+

@@ -7,7 +7,7 @@ using DrinkIt.WebApp.Models;
 
 namespace DrinkIt.WebApp.Dao
 {
-    public class BebidaDao : IDao<Bebida>
+    public class BebidaDao : IDao<Bebida>, IBebida
     {
         private StringBuilder Sql = new StringBuilder();
 
@@ -31,7 +31,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("Embalagem = '" + entidade.Embalagem + "', ");
                 Sql.Append("CodigoBarras = '" + entidade.CodigoBarras + "', ");
                 Sql.Append("Alcoolico = " + (entidade.Alcoolico == true ? 1 : 0) + ", ");
-                Sql.Append("Teor = " + entidade.Teor + ", ");
+                Sql.Append("Teor = " + entidade.Teor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append("Gaseificada = " + (entidade.Gaseificada == true ? 1 : 0) + ", ");
                 Sql.Append("ContemGluten = " + (entidade.ContemGluten == true ? 1 : 0) + ", ");
                 Sql.Append("DicaConservacao = '" + entidade.DicaConservacao + "', ");
@@ -49,12 +49,11 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Sql.Append("INSERT INTO INGREDIENTES (");
                     Sql.Append("BebidaId, ");
-                    Sql.Append("Descricao, ");
-                    Sql.Append("Qtde");
+                    Sql.Append("Descricao ");
                     Sql.Append(")");
                     Sql.Append("VALUES (");
                     Sql.Append(entidade.Id + ", '");
-                    Sql.Append(item.Descricao + "', ");
+                    Sql.Append(item.Descricao + "' ");
                     Sql.Append(");");
 
                     DbContext.ExecuteQuery(Sql.ToString());
@@ -222,8 +221,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("UPDATE BEBIDAS SET STATUS = " + statusBebida + " WHERE Id = " + id + ";");
 
             DbContext.ExecuteQuery(Sql.ToString());
-            
-            
+
+
         }
 
         //Sobrecarga, para registrar motivo
@@ -233,12 +232,12 @@ namespace DrinkIt.WebApp.Dao
             {
                 Sql.Clear();
 
-                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", SYSDATE, '" + motivo + "');");
+                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + motivo + "');");
 
                 DbContext.ExecuteQuery(Sql.ToString());
-            }          
+            }
 
-        }        
+        }
 
         public Bebida ObterEntidadeReader(IDataReader reader)
         {

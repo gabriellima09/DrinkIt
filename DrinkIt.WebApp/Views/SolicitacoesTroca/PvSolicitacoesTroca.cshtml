@@ -1,7 +1,56 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.SolicitacaoTroca>
 
+
+
 <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
     <tr>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Pedido
+        </th>
+        <th>
+            Motivo
+        </th>
+        <th>
+            Data Solicitação
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.DescCliente
+            </td>
+            <td>
+                @item.IdPedido
+            </td>
+            <td>
+                @item.Descricao
+            </td>
+            <td>
+                @item.Data
+            </td>
+            <td align="center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesTrocaPedidos">
+                        Opções <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="btnAprovar" class="btn btn-success" href="#" onclick="$('#modalAprovarTrocaPedidos').modal('show');  $('#hiddenIdSolicitacaoAp').val(@item.Id); $('#ddDescClienteAp').html('@item.DescCliente'); $('#ddIdPedidoAp').html('@item.IdPedido'); $('#ddMotivoAp').html('@item.Descricao'); $('#ddDataAp').html('@item.Data');">Aprovar</a></li>
+                        <li><a id="btnReprovar" class="btn btn-danger" href="#" onclick="$('#modalReprovarTrocaPedidos').modal('show'); $('#hiddenIdSolicitacaoRep').val(@item.Id); $('#ddDescClienteRep').html('@item.DescCliente'); $('#ddIdPedidoRep').html('@item.IdPedido'); $('#ddMotivoRep').html('@item.Descricao'); $('#ddDataRep').html('@item.Data'); ">Reprovar</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*<table class="table table-bordered table-condensed table-hover ta@*ble-responsive table-striped">
+    <tr>@*
         <th>
             Cliente
         </th>
@@ -47,4 +96,4 @@
     }
 
 
-</table>
+</table>*@

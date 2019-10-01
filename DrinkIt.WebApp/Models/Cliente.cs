@@ -15,7 +15,7 @@ namespace DrinkIt.WebApp.Models
         [Required]
         public string Cpf { get; set; }
         [Required]
-        public string Telefone { get; set; }
+        public List<Telefone> Telefones { get; set; }
         [Required]
         public Endereco Endereco { get; set; }
         public List<Endereco> Enderecos { get; set; }

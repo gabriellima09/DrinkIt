@@ -1,12 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [drinkit]    Script Date: 27/08/2019 21:41:17 ******/
+/****** Object:  Database [drinkit]    Script Date: 30/09/2019 00:21:20 ******/
 CREATE DATABASE [drinkit]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'drinkit', FILENAME = N'C:\Users\Gabriel\drinkit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'drinkit', FILENAME = N'C:\Users\guga-\drinkit.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'drinkit_log', FILENAME = N'C:\Users\Gabriel\drinkit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'drinkit_log', FILENAME = N'C:\Users\guga-\drinkit_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 ALTER DATABASE [drinkit] SET COMPATIBILITY_LEVEL = 130
 GO
@@ -95,7 +95,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [drinkit]
 GO
-/****** Object:  Table [dbo].[Bebidas]    Script Date: 27/08/2019 21:41:17 ******/
+/****** Object:  Table [dbo].[Bebidas]    Script Date: 30/09/2019 00:21:20 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +104,7 @@ CREATE TABLE [dbo].[Bebidas](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Nome] [varchar](50) NULL,
 	[Descricao] [varchar](50) NULL,
-	[TipoBebida] [varchar](50) NULL,
+	[TipoBebida] [int] NULL,
 	[Marca] [varchar](50) NULL,
 	[Valor] [decimal](18, 2) NULL,
 	[Volume] [varchar](50) NULL,
@@ -117,15 +117,15 @@ CREATE TABLE [dbo].[Bebidas](
 	[Embalagem] [varchar](50) NULL,
 	[CodigoBarras] [varchar](50) NULL,
 	[Alcoolico] [bit] NULL,
-	[Teor] [varchar](50) NULL,
+	[Teor] [decimal](18, 0) NULL,
 	[Gaseificada] [bit] NULL,
 	[ContemGluten] [bit] NULL,
 	[DicaConservacao] [varchar](50) NULL,
-	[Status] [varchar](50) NULL,
+	[Status] [bit] NULL,
 	[CaminhoImagem] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cartoes]    Script Date: 27/08/2019 21:41:18 ******/
+/****** Object:  Table [dbo].[Cartoes]    Script Date: 30/09/2019 00:21:20 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -139,7 +139,7 @@ CREATE TABLE [dbo].[Cartoes](
 	[NomeTitular] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 27/08/2019 21:41:18 ******/
+/****** Object:  Table [dbo].[Clientes]    Script Date: 30/09/2019 00:21:20 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Clientes](
 	[Senha] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Enderecos]    Script Date: 27/08/2019 21:41:18 ******/
+/****** Object:  Table [dbo].[Enderecos]    Script Date: 30/09/2019 00:21:20 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -176,7 +176,28 @@ CREATE TABLE [dbo].[Enderecos](
 	[Numero] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Ingredientes]    Script Date: 27/08/2019 21:41:18 ******/
+/****** Object:  Table [dbo].[Estoque]    Script Date: 30/09/2019 00:21:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Estoque](
+	[IdBebida] [int] NULL,
+	[Qtde] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[InativacaoBebidas]    Script Date: 30/09/2019 00:21:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[InativacaoBebidas](
+	[IdBebida] [int] NULL,
+	[DtInativacao] [smalldatetime] NULL,
+	[MotivoInativacao] [varchar](150) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ingredientes]    Script Date: 30/09/2019 00:21:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,8 +205,59 @@ GO
 CREATE TABLE [dbo].[Ingredientes](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[BebidaId] [int] NULL,
-	[Descricao] [varchar](50) NULL,
-	[Qtde] [decimal](18, 2) NULL
+	[Descricao] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SolicitacoesTroca]    Script Date: 30/09/2019 00:21:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SolicitacoesTroca](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Descricao] [varchar](200) NULL,
+	[Status] [int] NULL,
+	[IdCliente] [int] NULL,
+	[IdPedido] [int] NULL,
+	[Data] [smalldatetime] NULL,
+	[MotivoReprovacao] [varchar](200) NULL,
+	[IdCupom] [int] NULL,
+ CONSTRAINT [PK__Solicita__3214EC075960EB9F] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Telefones]    Script Date: 30/09/2019 00:21:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Telefones](
+	[IdUsuario] [int] NULL,
+	[DDD] [int] NULL,
+	[Numero] [varchar](9) NULL,
+	[IdTipoTelefone] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoBebida]    Script Date: 30/09/2019 00:21:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoBebida](
+	[Id] [int] NULL,
+	[Descricao] [varchar](30) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoCupom]    Script Date: 30/09/2019 00:21:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoCupom](
+	[Id] [int] NULL,
+	[Descricao] [varchar](30) NULL
 ) ON [PRIMARY]
 GO
 USE [master]

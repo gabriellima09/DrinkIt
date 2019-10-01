@@ -1,5 +1,4 @@
 ﻿using DrinkIt.WebApp.Models;
-using DrinkIt.WebApp.Strategy;
 using System.Collections.Generic;
 
 namespace DrinkIt.WebApp.Facade

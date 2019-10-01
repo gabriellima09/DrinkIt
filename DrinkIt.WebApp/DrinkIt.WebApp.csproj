@@ -153,6 +153,7 @@
     <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Controllers\CuponsController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\SolicitacoesTrocaController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
@@ -164,6 +165,8 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
+    <Compile Include="Dao\EstoqueDao.cs" />
+    <Compile Include="Dao\IBebida.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />
@@ -182,6 +185,7 @@
     <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
+    <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />
@@ -207,6 +211,10 @@
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artifacts\Diagrams\Images\Controller.jpg" />
+    <Content Include="Artifacts\Diagrams\Images\drinkit-architecture.jpg" />
+    <Content Include="Artifacts\Diagrams\Images\fluxo-atividade-usuarios.jpg" />
+    <Content Include="Artifacts\logo-empresa.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -216,13 +224,19 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\crystal.jpg" />
+    <Content Include="Images\dolly.jpg" />
     <Content Include="Images\drink.jpg" />
     <Content Include="Scripts\Bebidas\Script_CreateBebidas.js" />
     <Content Include="Scripts\Bebidas\Script_EditBebidas.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Logger\Nlog.config" />
+    <Content Include="Artifacts\Diagrams\drinkit-architecture.drawio" />
+    <Content Include="Artifacts\Diagrams\fluxo-atividade-usuarios.asta" />
+    <Content Include="Artifacts\DRS_LES_2_2019.docx" />
+    <Content Include="Artifacts\Proposta Técnica Comercial - DrinkIt.docx" />
+    <Content Include="Artifacts\DVP.docx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -291,6 +305,7 @@
     <Content Include="Views\Endereco\Create.cshtml" />
     <Content Include="Views\Endereco\Edit.cshtml" />
     <Content Include="Views\SolicitacoesTroca\PvSolicitacoesTroca.cshtml" />
+    <Content Include="Views\Estoque\PvEstoque.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
