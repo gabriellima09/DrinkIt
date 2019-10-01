@@ -9,6 +9,7 @@ namespace DrinkIt.WebApp.Models
         public Cliente Cliente { get; set; }
         public DateTime Data { get; set; }
         public string Status { get; set; }
+        public decimal ValorTotal { get; set; }
 
         public int IdEnderecoEntrega { get; set; }
         public int IdCartao1 { get; set; }
