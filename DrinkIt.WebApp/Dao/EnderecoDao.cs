@@ -12,7 +12,15 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Endereco entidade)
         {
-            ZerarFlags(entidade.ClienteId);
+            if (entidade.Cobranca)
+            {
+                ZerarFlagsCobranca(entidade.ClienteId);
+            }
+
+            if (entidade.Entrega)
+            {
+                ZerarFlagsEntrega(entidade.ClienteId);
+            }
 
             Sql.Clear();
 
@@ -34,7 +42,15 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Endereco entidade)
         {
-            ZerarFlags(entidade.ClienteId);
+            if (entidade.Cobranca)
+            {
+                ZerarFlagsCobranca(entidade.ClienteId);
+            }
+
+            if (entidade.Entrega)
+            {
+                ZerarFlagsEntrega(entidade.ClienteId);
+            }
 
             Sql.Clear();
 
@@ -132,12 +148,22 @@ namespace DrinkIt.WebApp.Dao
             return endereco;
         }
 
-        private void ZerarFlags(int idCliente)
+        private void ZerarFlagsCobranca(int idCliente)
         {
             Sql.Clear();
 
             Sql.Append("UPDATE ENDERECOS SET ");
-            Sql.Append("Cobranca = 0, ");
+            Sql.Append("Cobranca = 0 ");
+            Sql.Append(" WHERE ClienteId = " + idCliente);
+
+            DbContext.ExecuteQuery(Sql.ToString());
+        }
+
+        private void ZerarFlagsEntrega(int idCliente)
+        {
+            Sql.Clear();
+
+            Sql.Append("UPDATE ENDERECOS SET ");
             Sql.Append("Entrega = 0");
             Sql.Append(" WHERE ClienteId = " + idCliente);
 

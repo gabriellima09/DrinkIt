@@ -113,3 +113,47 @@
 2019-10-01 22:01:09.9817|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
 2019-10-01 22:01:11.0282|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
 2019-10-01 22:01:11.0482|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-02 09:41:40.2332|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:41:40.2601|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:43:10.2107|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:43:10.2107|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:43:10.2327|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-02 09:43:10.2386|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-02 09:43:12.8367|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-02 09:43:12.8367|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-02 09:43:13.3185|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-02 09:43:13.3185|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-02 09:44:39.5086|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('gabriel', 'assad', 2, 'd', 0, 'csvdbn', 'ghjnm,', 'fdgh', 'j', '2000-06-09 00:00:00', '2000-06-09 00:00:00', 'g', 'vb', '345678-', 1, 0, 1, 1, 'dfghjkl', 1, '20191002094439494.jpg');|
+2019-10-02 09:44:39.5345|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('gabriel', 'assad', 2, 'd', 0, 'csvdbn', 'ghjnm,', 'fdgh', 'j', '2000-06-09 00:00:00', '2000-06-09 00:00:00', 'g', 'vb', '345678-', 1, 0, 1, 1, 'dfghjkl', 1, '20191002094439494.jpg');|
+2019-10-02 09:44:39.5345|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-02 09:44:39.5345|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-02 09:44:39.5554|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'sacdfgh');|
+2019-10-02 09:44:39.5554|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'sacdfgh');|
+2019-10-02 09:44:39.5654|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'adsdfgh');|
+2019-10-02 09:44:39.5654|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'adsdfgh');|
+2019-10-02 09:44:39.5894|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:44:39.5943|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:44:42.2629|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-02 09:44:42.2819|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-02 09:44:42.2819|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-02 09:44:42.2989|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-02 09:45:15.9263|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-02 09:45:15.9263|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-02 09:45:15.9263|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-02 09:45:15.9432|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-02 09:45:52.0051|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (0, '2019-10-02 09:45:52', 0, '2019-10-02 09:45:52', 0, 0, 0, 0, 0, 0);|
+2019-10-02 09:45:52.0051|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (0, '2019-10-02 09:45:52', 0, '2019-10-02 09:45:52', 0, 0, 0, 0, 0, 0);|
+2019-10-02 09:45:52.0170|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-02 09:45:52.0170|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-02 09:45:52.0170|Debug|Executando query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, PedidoId )VALUES (1, 1);|
+2019-10-02 09:45:52.0330|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, PedidoId )VALUES (1, 1);|
+2019-10-02 09:45:52.0330|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:45:52.0519|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:45:52.0689|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-02 09:45:52.0689|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-02 09:45:52.0879|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-02 09:45:52.0879|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-02 09:45:52.1068|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-02 09:45:52.1128|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-02 09:45:58.5999|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-02 09:45:58.5999|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
