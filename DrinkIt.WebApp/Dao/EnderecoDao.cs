@@ -136,7 +136,7 @@ namespace DrinkIt.WebApp.Dao
         {
             Sql.Clear();
 
-            Sql.Append("UPDATE ENDERECOS SET");
+            Sql.Append("UPDATE ENDERECOS SET ");
             Sql.Append("Cobranca = 0, ");
             Sql.Append("Entrega = 0");
             Sql.Append(" WHERE ClienteId = " + idCliente);

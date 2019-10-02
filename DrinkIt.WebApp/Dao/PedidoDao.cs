@@ -42,7 +42,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append(entidade.IdEnderecoEntrega + ", ");
             Sql.Append(entidade.IdCartao1 + ", ");
             Sql.Append(entidade.IdCartao2 + ", ");
-            Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")) + "'");
+            Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")));
             Sql.Append(");");
 
             DbContext.ExecuteQuery(Sql.ToString());

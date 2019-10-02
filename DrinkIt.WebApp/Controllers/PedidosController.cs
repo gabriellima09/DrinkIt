@@ -189,6 +189,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 pedido.IdCliente = ((Usuario)Session["Usuario"]).Id;
+                pedido.Bebidas = ((Usuario)Session["Usuario"]).Carrinho.Bebidas;
 
                 new PedidoDao().Cadastrar(pedido);
             }
@@ -197,7 +198,7 @@ namespace DrinkIt.WebApp.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            return View("Index", "Usuarios");
+            return RedirectToAction("Index", "Usuarios");
         }
 
         public ActionResult Details(int id)

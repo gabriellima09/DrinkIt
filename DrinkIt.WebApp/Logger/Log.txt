@@ -32,3 +32,84 @@
 2019-10-01 16:49:17.6793|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
 2019-10-01 16:49:17.6962|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
 2019-10-01 16:49:17.8428|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 21:42:41.4511|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:42:41.5568|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:44:54.7431|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('47512979886', '2000-06-09 00:00:00', 'gabriellimagomes.14@hotmail.com', 'Masculino', 'Gabriel', 'gabriel', '202cb962ac59075b964b07152d234b70');|
+2019-10-01 21:44:54.8707|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('47512979886', '2000-06-09 00:00:00', 'gabriellimagomes.14@hotmail.com', 'Masculino', 'Gabriel', 'gabriel', '202cb962ac59075b964b07152d234b70');|
+2019-10-01 21:44:54.8907|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-01 21:44:54.9276|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-01 21:44:54.9485|Debug|Executando query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 1|
+2019-10-01 21:44:55.0732|Error|Erro ao executar query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 1|Incorrect syntax near 'SETCobranca'.
+2019-10-01 21:44:55.1031|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 1|
+2019-10-01 21:46:35.3699|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('47512979886', '2000-06-09 00:00:00', 'gabriellimagomes.14@hotmail.com', 'Masculino', 'Gabriel', 'gabriel', '202cb962ac59075b964b07152d234b70');|
+2019-10-01 21:46:35.3869|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('47512979886', '2000-06-09 00:00:00', 'gabriellimagomes.14@hotmail.com', 'Masculino', 'Gabriel', 'gabriel', '202cb962ac59075b964b07152d234b70');|
+2019-10-01 21:46:38.2806|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-01 21:46:38.3285|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-01 21:47:20.2996|Debug|Executando query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:47:20.3714|Error|Erro ao executar query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|Incorrect syntax near 'SETCobranca'.
+2019-10-01 21:47:20.4023|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:47:39.7333|Debug|Executando query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:47:39.7832|Error|Erro ao executar query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|Incorrect syntax near 'SETCobranca'.
+2019-10-01 21:47:39.8109|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SETCobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:48:28.9252|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:48:28.9771|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0, Entrega = 0 WHERE ClienteId = 2|
+2019-10-01 21:48:35.9189|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Sesc', '08693370', 'Suzano', 1, 1, '', 'Rua Sebastião Pereira Vidal', 'SP', 'Rua Abc', '2', '123');|
+2019-10-01 21:48:35.9448|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Sesc', '08693370', 'Suzano', 1, 1, '', 'Rua Sebastião Pereira Vidal', 'SP', 'Rua Abc', '2', '123');|
+2019-10-01 21:48:58.0335|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 2|
+2019-10-01 21:48:58.1153|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 2|
+2019-10-01 21:49:07.3912|Debug|Executando query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,Preferencial) VALUES ('Mastercard', 2, 123, 'Gabriel Lima Gomes', '1234567890123456', 1);|
+2019-10-01 21:49:07.4391|Info|Fim de execução de query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,Preferencial) VALUES ('Mastercard', 2, 123, 'Gabriel Lima Gomes', '1234567890123456', 1);|
+2019-10-01 21:49:10.5864|Debug|Executando query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (2, 11,'982436242',2);|
+2019-10-01 21:49:10.6532|Info|Fim de execução de query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (2, 11,'982436242',2);|
+2019-10-01 21:49:16.6348|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%gabriellimagomes.14@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 21:49:16.6607|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%gabriellimagomes.14@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 21:49:16.6607|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'gabriellimagomes.14@hotmail.com'|
+2019-10-01 21:49:16.6946|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'gabriellimagomes.14@hotmail.com'|
+2019-10-01 21:49:34.7689|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 21:49:34.7929|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 21:49:34.8048|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 21:49:34.8198|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 21:52:16.7974|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (2, '2019-10-01 21:51:47', 0, '2019-10-01 21:51:47', 0, 0, 1, 1, 1, 0);|
+2019-10-01 21:52:16.8174|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (2, '2019-10-01 21:51:47', 0, '2019-10-01 21:51:47', 0, 0, 1, 1, 1, 0);|
+2019-10-01 21:52:17.8735|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-01 21:52:17.9423|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-01 21:54:46.3132|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:54:46.4000|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:54:58.0235|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%gabriellimagomes.14@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 21:54:58.0434|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%gabriellimagomes.14@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 21:54:58.0624|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'gabriellimagomes.14@hotmail.com'|
+2019-10-01 21:54:58.0763|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'gabriellimagomes.14@hotmail.com'|
+2019-10-01 21:55:14.5095|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:14.5324|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:16.7739|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:16.7949|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:17.5552|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:17.5747|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:18.1311|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:55:18.1541|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:56:39.8092|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida teste', 'teste', 2, 'fghjk', 2345, 'fcgvbhj', 'cfgvh', 'cfgvhbj', 'dfgvhbj', '2000-06-09 00:00:00', '2000-06-09 00:00:00', 'rctvybu', 'cfgbh', '234567890', 1, 0, 1, 1, 'drtyuyio', 1, '20191001215639748.jpg');|
+2019-10-01 21:56:39.8381|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida teste', 'teste', 2, 'fghjk', 2345, 'fcgvbhj', 'cfgvh', 'cfgvhbj', 'dfgvhbj', '2000-06-09 00:00:00', '2000-06-09 00:00:00', 'rctvybu', 'cfgbh', '234567890', 1, 0, 1, 1, 'drtyuyio', 1, '20191001215639748.jpg');|
+2019-10-01 21:56:39.8500|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-01 21:56:39.8949|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-01 21:56:39.9189|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'fghjk');|
+2019-10-01 21:56:39.9428|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'fghjk');|
+2019-10-01 21:56:39.9687|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:56:39.9897|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 21:56:46.2537|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-01 21:56:46.2776|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-01 21:56:46.2876|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-01 21:56:46.3151|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-01 21:56:53.9991|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 21:56:54.0220|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 21:56:54.0220|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 21:56:54.0493|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 21:59:16.3198|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (1, '2019-10-01 21:59:13', 0, '2019-10-01 21:59:13', 0, 0, 1, 1, 1, 0);|
+2019-10-01 21:59:16.3826|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, IdStatus, DataUltimaAtualizacao, IdCupomDesconto, IdCupomTroca, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorTotal)VALUES (1, '2019-10-01 21:59:13', 0, '2019-10-01 21:59:13', 0, 0, 1, 1, 1, 0);|
+2019-10-01 21:59:16.8933|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-01 21:59:16.9132|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-01 21:59:25.3029|Debug|Executando query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, PedidoId )VALUES (1, 3);|
+2019-10-01 21:59:25.3269|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, PedidoId )VALUES (1, 3);|
+2019-10-01 22:01:09.9588|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 22:01:09.9817|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 22:01:11.0282|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 22:01:11.0482|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|

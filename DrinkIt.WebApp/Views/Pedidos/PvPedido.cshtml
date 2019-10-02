@@ -10,7 +10,7 @@
             @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Data)
+            @Html.DisplayNameFor(model => model.DataCadastro)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -25,7 +25,7 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Data)
+                @Html.DisplayFor(modelItem => item.DataCadastro)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
@@ -68,11 +68,11 @@
                             </dd>
 
                             <dt>
-                                @Html.DisplayNameFor(model => model.Data)
+                                @Html.DisplayNameFor(model => model.DataCadastro)
                             </dt>
 
                             <dd>
-                                @Html.DisplayFor(model => model.FirstOrDefault().Data)
+                                @Html.DisplayFor(model => model.FirstOrDefault().DataCadastro)
                             </dd>
 
                             <dt>
