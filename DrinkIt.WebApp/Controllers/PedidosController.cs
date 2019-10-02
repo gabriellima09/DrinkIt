@@ -15,7 +15,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 new Pedido
                 {
-                    Data = DateTime.Now,
+                    DataCadastro = DateTime.Now,
                     Status = "Finalizado",
                     Id = 1,
                     Cliente = new Cliente
@@ -105,7 +105,7 @@ namespace DrinkIt.WebApp.Controllers
 
             Pedido pedido = new Pedido
             {
-                Data = DateTime.Now,
+                DataCadastro = DateTime.Now,
                 Status = "Finalizado",
                 Id = 1,
                 Cliente = new Cliente
@@ -186,6 +186,17 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult FinalizarPedido(Pedido pedido)
         {
+            try
+            {
+                pedido.IdCliente = ((Usuario)Session["Usuario"]).Id;
+
+                new PedidoDao().Cadastrar(pedido);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
             return View("Index", "Usuarios");
         }
 
@@ -193,7 +204,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             Pedido pedido = new Pedido
             {
-                Data = DateTime.Now,
+                DataCadastro = DateTime.Now,
                 Status = "Finalizado",
                 Id = 1,
                 Cliente = new Cliente

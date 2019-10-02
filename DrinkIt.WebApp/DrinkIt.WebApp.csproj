@@ -162,6 +162,7 @@
     <Compile Include="Dao\IBebida.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\IUsuario.cs" />
+    <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Facade\Fachada.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\CartaoStrategy.cs" />
+    <Compile Include="Strategy\PedidoStrategy.cs" />
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
