@@ -1,0 +1,34 @@
+2019-10-01 16:47:22.3076|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 16:47:22.6657|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 16:47:34.6363|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%tekiteki02@hotmail.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-01 16:47:34.7141|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%tekiteki02@hotmail.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-01 16:47:34.7191|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'tekiteki02@hotmail.com'|
+2019-10-01 16:47:34.7929|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'tekiteki02@hotmail.com'|
+2019-10-01 16:47:36.8474|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:47:36.8833|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:47:37.6812|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:47:37.9135|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:47:50.9111|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:47:50.9579|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:47:50.9579|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:47:51.2043|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:48:20.5914|Debug|Executando query ... Query: UPDATE Clientes SET Senha = '202cb962ac59075b964b07152d234b70' WHERE Id = 1|
+2019-10-01 16:48:20.6862|Info|Fim de execução de query ... Query: UPDATE Clientes SET Senha = '202cb962ac59075b964b07152d234b70' WHERE Id = 1|
+2019-10-01 16:48:30.1339|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:48:30.1598|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:48:30.1598|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:48:30.2777|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:49:07.9622|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:49:08.0091|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:49:08.0171|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:49:08.1756|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:49:12.0847|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 16:49:12.3011|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-01 16:49:17.5018|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%tekiteki02@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 16:49:17.5377|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%tekiteki02@hotmail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-01 16:49:17.5377|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'tekiteki02@hotmail.com'|
+2019-10-01 16:49:17.5476|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'tekiteki02@hotmail.com'|
+2019-10-01 16:49:17.6444|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:49:17.6793|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-01 16:49:17.6962|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-01 16:49:17.8428|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|

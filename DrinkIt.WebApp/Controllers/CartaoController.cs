@@ -69,6 +69,8 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                cartao.ClienteId = ((Usuario)Session["Usuario"]).Id;
+
                 Fachada.Alterar(cartao);
 
                 return RedirectToAction("Index", "Clientes");

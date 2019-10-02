@@ -12,14 +12,16 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Endereco entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
             Sql.Clear();
 
             Sql.Append("UPDATE ENDERECOS SET");
             Sql.Append(" Bairro = '" + entidade.Bairro + "', ");
             Sql.Append("CEP = '" + entidade.CEP + "', ");
             Sql.Append("Cidade = '" + entidade.Cidade + "', ");
-            Sql.Append("Cobranca = " + (entidade.Cobranca == true ? 1 : 0) + ", ");
-            Sql.Append("Entrega = " + (entidade.Entrega == true ? 1 : 0) + ", ");
+            Sql.Append("Cobranca = " + (entidade.Cobranca ? 1 : 0) + ", ");
+            Sql.Append("Entrega = " + (entidade.Entrega ? 1 : 0) + ", ");
             Sql.Append("Complemento = '" + entidade.Complemento + "', ");
             Sql.Append("Descricao = '" + entidade.Descricao + "', ");
             Sql.Append("Estado = '" + entidade.Estado + "', ");
@@ -32,6 +34,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Endereco entidade)
         {
+            ZerarFlags(entidade.ClienteId);
+
+            Sql.Clear();
+
             Sql.Append("INSERT INTO ENDERECOS (");
             Sql.Append("Bairro, ");
             Sql.Append("CEP, ");
@@ -49,8 +55,8 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("'" + entidade.Bairro + "', ");
             Sql.Append("'" + entidade.CEP + "', ");
             Sql.Append("'" + entidade.Cidade + "', ");
-            Sql.Append((entidade.Cobranca == true ? 1 : 0) + ", ");
-            Sql.Append((entidade.Entrega == true ? 1 : 0) + ", ");
+            Sql.Append((entidade.Cobranca ? 1 : 0) + ", ");
+            Sql.Append((entidade.Entrega ? 1 : 0) + ", ");
             Sql.Append("'" + entidade.Complemento + "', ");
             Sql.Append("'" + entidade.Descricao + "', ");
             Sql.Append("'" + entidade.Estado + "', ");
@@ -124,6 +130,18 @@ namespace DrinkIt.WebApp.Dao
             };
 
             return endereco;
+        }
+
+        private void ZerarFlags(int idCliente)
+        {
+            Sql.Clear();
+
+            Sql.Append("UPDATE ENDERECOS SET");
+            Sql.Append("Cobranca = 0, ");
+            Sql.Append("Entrega = 0");
+            Sql.Append(" WHERE ClienteId = " + idCliente);
+
+            DbContext.ExecuteQuery(Sql.ToString());
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using DrinkIt.WebApp.Cryptography;
 using DrinkIt.WebApp.Models;
 
 namespace DrinkIt.WebApp.Dao
@@ -19,7 +20,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("Genero = '" + entidade.Genero + "', ");
             Sql.Append("Nome = '" + entidade.Nome + "', ");
             Sql.Append("Login = '" + entidade.Login + "', ");
-            Sql.Append("Senha = '" + entidade.Senha +"'");
+            Sql.Append("Senha = '" + Criptografia.RetornarMD5(entidade.Senha) + "'");
             Sql.Append(" WHERE Id = " + entidade.Id);
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -45,7 +46,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("'" + entidade.Genero + "', ");
                 Sql.Append("'" + entidade.Nome + "', ");
                 Sql.Append("'" + entidade.Login + "', ");
-                Sql.Append("'" + entidade.Senha + "'");
+                Sql.Append("'" + Criptografia.RetornarMD5(entidade.Senha) + "'");
                 Sql.Append(");");
 
                 DbContext.ExecuteQuery(Sql.ToString());
@@ -64,6 +65,7 @@ namespace DrinkIt.WebApp.Dao
                 entidade.Endereco.Entrega = true;
                 entidade.Endereco.ClienteId = Id;
                 entidade.Cartao.ClienteId = Id;
+                entidade.Cartao.Preferencial = true;
 
                 new EnderecoDao().Cadastrar(entidade.Endereco);
                 new CartaoDao().Cadastrar(entidade.Cartao);

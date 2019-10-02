@@ -6,5 +6,6 @@ namespace DrinkIt.WebApp.Dao
     {
         bool Login(string email, string senha);
         Usuario RecuperarUsuario(string email);
+        void TrocarSenha(int clienteId, string novaSenha);
     }
 }

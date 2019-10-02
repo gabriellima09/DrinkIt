@@ -185,6 +185,16 @@
                                     </dd>
                                 }
                             </dl>
+
+                            <dl>
+                                <dt>
+                                    Valor total:
+                                </dt>
+                                <dd>
+                                    @Model.Bebidas.Sum(x => x.Valor)
+                                    @Html.HiddenFor(x => x.ValorTotal)
+                                </dd>
+                            </dl>
                         </div>
                         <div class="panel-footer">
                             <label class="control-label">Valor Total: </label>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrinkIt.WebApp.Logger;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,34 +35,46 @@ namespace DrinkIt.WebApp.Dao
                     {
                         OpenConnection(conn);
 
+                        LoggerManager.Instance.Logger.Debug($"Executando query ... Query: {query}");
+
                         cmd.ExecuteScalar();
                     }
-                    catch (ExternalException ex)
+                    catch (Exception ex)
                     {
+                        LoggerManager.Instance.Logger.Error(ex, $"Erro ao executar query: {query}");
                         throw new ExternalException("Erro ao executar ação do banco de dados. ", ex);
                     }
                     finally
                     {
+                        LoggerManager.Instance.Logger.Info($"Fim de execução de query ... Query: {query}");
                         DisposeConnection();
                     }
                 }
             }
         }
 
-        public static IDataReader ExecuteReader(string Query)
+        public static IDataReader ExecuteReader(string query)
         {
             SqlConnection conn = _SqlConnection;
-            SqlCommand cmd = new SqlCommand(Query, conn) { CommandType = CommandType.Text };
+            SqlCommand cmd = new SqlCommand(query, conn) { CommandType = CommandType.Text };
 
             try
             {
                 OpenConnection(conn);
 
+                LoggerManager.Instance.Logger.Debug($"Executando query reader ... Query: {query}");
+
                 return cmd.ExecuteReader();
             }
-            catch (ExternalException ex)
+            catch (Exception ex)
             {
+                LoggerManager.Instance.Logger.Error(ex, $"Erro ao executar query: {query}");
+
                 throw new ExternalException("Erro ao executar ação do banco de dados. ", ex);
+            }
+            finally
+            {
+                LoggerManager.Instance.Logger.Info($"Fim de execução de query ... Query: {query}");
             }
         }
 
