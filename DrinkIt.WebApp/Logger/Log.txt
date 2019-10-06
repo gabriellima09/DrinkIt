@@ -157,3 +157,21 @@
 2019-10-02 09:45:52.1128|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
 2019-10-02 09:45:58.5999|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
 2019-10-02 09:45:58.5999|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 16:33:17.1547|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 16:33:17.9448|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 16:41:05.2126|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:41:05.3444|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:46.0652|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:46.0652|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:46.9370|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:46.9370|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:48.1909|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:42:48.1909|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 16:43:06.3408|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 16:43:06.3408|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 16:43:06.4694|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-06 16:43:06.4694|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-06 16:43:08.9949|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-06 16:43:09.0428|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-06 16:43:09.3650|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-06 16:43:09.3650|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|

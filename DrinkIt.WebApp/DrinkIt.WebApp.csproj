@@ -214,6 +214,7 @@
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artifacts\DAS2.docx" />
     <Content Include="Artifacts\Diagrams\Images\Controller.jpg" />
     <Content Include="Artifacts\Diagrams\Images\drinkit-architecture.jpg" />
     <Content Include="Artifacts\Diagrams\Images\fluxo-atividade-usuarios.jpg" />
@@ -239,7 +240,6 @@
     <Content Include="Artifacts\Proposta Técnica Comercial - DrinkIt.docx" />
     <Content Include="Artifacts\DVP.docx" />
     <Content Include="Logger\Nlog.config" />
-    <Content Include="Artifacts\DAS2.docx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
