@@ -143,6 +143,8 @@ namespace DrinkIt.WebApp.Dao
                     DbContext.ExecuteQuery(Sql.ToString());
                     Sql.Clear();
                 }
+
+                InicializarEstoque(LastInsertID);
             }
             catch (Exception ex)
             {
@@ -316,6 +318,13 @@ namespace DrinkIt.WebApp.Dao
             Sql.Clear();
             Sql.Append("DELETE FROM INGREDIENTES WHERE BebidaId = " + id + ";");
             DbContext.ExecuteQuery(Sql.ToString());
+        }
+
+        public void InicializarEstoque(int idBebida)
+        {
+            Sql.Clear();
+
+            Sql.Append("INSERT INTO Estoque (IdBebida, Qtde) VALUES (" + idBebida + ", 0)");
         }
 
         public void EntradaEstoque(int IdBebida, int Qtde)

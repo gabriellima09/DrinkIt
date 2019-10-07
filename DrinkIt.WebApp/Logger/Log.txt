@@ -175,3 +175,130 @@
 2019-10-06 16:43:09.0428|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
 2019-10-06 16:43:09.3650|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
 2019-10-06 16:43:09.3650|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-06 21:30:58.9462|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 21:30:58.9852|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 21:32:22.4423|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:32:22.4423|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:32:32.6783|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:32:32.6783|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:33:00.3161|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:33:00.3161|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:34:07.0520|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:34:07.3210|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:34:07.3210|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:34:07.3210|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:34:07.3494|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 2|
+2019-10-06 21:34:07.3732|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 2|
+2019-10-06 21:34:07.3732|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 2|
+2019-10-06 21:34:07.3732|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 2|
+2019-10-06 21:34:07.3732|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '2', '10');|
+2019-10-06 21:34:07.3732|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '2', '10');|
+2019-10-06 21:34:07.3732|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 2|
+2019-10-06 21:34:07.6993|Error|Erro ao executar query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 2|Invalid column name 'Preferencial'.
+2019-10-06 21:34:07.7199|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 2|
+2019-10-06 21:35:46.5992|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:35:46.6957|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:35:58.8633|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:35:58.8633|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:37:04.0468|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:04.0468|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:04.0468|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:04.0468|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:04.0468|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:37:04.0758|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:37:04.9059|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:04.9249|Error|Erro ao executar query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|Invalid column name 'Preferencial'.
+2019-10-06 21:37:04.9428|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:22.4827|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:22.5650|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:22.5650|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:22.6498|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:22.6498|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:37:22.6607|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:37:39.3238|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:39.3458|Error|Erro ao executar query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|Invalid column name 'Preferencial'.
+2019-10-06 21:37:39.3657|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:53.5150|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:53.5150|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:37:53.5150|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:53.5150|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:37:53.5150|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:37:53.5150|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:39:10.7177|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:39:10.7417|Error|Erro ao executar query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|Invalid column name 'Preferencial'.
+2019-10-06 21:39:10.7606|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:39:19.3932|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:39:19.3932|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 3|
+2019-10-06 21:39:19.3932|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:39:19.4237|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 3|
+2019-10-06 21:39:19.4237|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:39:19.4237|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '3', '10');|
+2019-10-06 21:39:32.5810|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:48:10.5644|Error|Erro ao executar query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|Invalid column name 'Preferencial'.
+2019-10-06 21:48:10.6043|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 3|
+2019-10-06 21:50:15.5631|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:50:15.5631|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha ) VALUES ('11122233300', '2010-10-10 00:00:00', 'teste@mail2.com', 'Non-Binary', 'Teste', 'teste2', '202cb962ac59075b964b07152d234b70');|
+2019-10-06 21:50:15.5631|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:50:15.5631|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-06 21:50:15.5631|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 4|
+2019-10-06 21:50:15.5890|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 4|
+2019-10-06 21:50:15.5890|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 4|
+2019-10-06 21:50:15.5890|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 4|
+2019-10-06 21:50:15.5920|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '4', '10');|
+2019-10-06 21:50:15.5920|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Teste', '111', 'Testelândia', 1, 1, '', 'Rua Teste', 'SP', 'Rua Teste', '4', '10');|
+2019-10-06 21:50:15.5920|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 4|
+2019-10-06 21:50:15.5920|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 4|
+2019-10-06 21:50:15.5920|Debug|Executando query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,Preferencial) VALUES ('Visa', 4, 123, 'Teste', '1111222211112222', 1);|
+2019-10-06 21:50:15.5920|Info|Fim de execução de query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,Preferencial) VALUES ('Visa', 4, 123, 'Teste', '1111222211112222', 1);|
+2019-10-06 21:50:15.5920|Debug|Executando query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (4, 11,'119123456',2);|
+2019-10-06 21:50:15.6119|Info|Fim de execução de query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (4, 11,'119123456',2);|
+2019-10-06 21:50:26.9196|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:50:26.9226|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:50:26.9226|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 21:50:26.9226|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 21:50:33.7699|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 21:50:33.7699|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 21:50:35.5170|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-06 21:50:35.5170|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-06 21:52:40.5718|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:52:40.5718|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 21:52:40.5778|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 21:52:40.5778|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 21:52:40.5987|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 21:52:40.5987|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 21:52:40.6127|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-06 21:52:40.6127|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-06 21:57:45.0886|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 21:57:45.0926|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 22:00:16.7747|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:00:16.7747|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:00:16.7797|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:00:16.7797|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:11.4289|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:11.4289|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:11.4289|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:11.4289|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:21.5651|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:21.5651|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:21.5651|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:21.5651|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:26.3793|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:26.3793|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:26.3793|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:26.3793|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:36.8637|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:36.8637|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-06 22:01:36.8637|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 22:01:36.8637|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-06 23:13:20.2069|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 23:13:20.2357|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 23:20:35.1945|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 23:20:35.2374|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-06 23:20:45.8638|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 23:20:45.8638|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-06 23:20:45.8638|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 23:20:45.8638|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-06 23:20:47.6307|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 23:20:47.6417|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-06 23:20:48.2623|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-06 23:20:48.2653|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
