@@ -9,7 +9,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Carrinho
         public ActionResult Index()
         {
-            Usuario usuario = (Usuario)Session["Usuario"];
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
             return View(usuario.Carrinho);
         }
@@ -19,7 +19,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebida);
 
-            Usuario usuario = (Usuario)Session["Usuario"];
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
             usuario.Carrinho.Bebidas.Add(novaBebida);
 
@@ -31,7 +31,7 @@ namespace DrinkIt.WebApp.Controllers
         [HttpPost]
         public ActionResult RemoverBebidaSessao(int idBebida)
         {
-            Usuario usuario = (Usuario)Session["Usuario"];
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
             usuario.Carrinho.Bebidas.RemoveAll(x => x.Id.Equals(idBebida));
 

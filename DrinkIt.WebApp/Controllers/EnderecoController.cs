@@ -57,7 +57,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                endereco.ClienteId = ((Usuario)Session["Usuario"]).Id;
+                endereco.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 Fachada.Cadastrar(endereco);
 
@@ -81,7 +81,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                endereco.ClienteId = ((Usuario)Session["Usuario"]).Id;
+                endereco.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 Fachada.Alterar(endereco);
 

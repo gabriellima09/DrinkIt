@@ -17,7 +17,7 @@
 </style>
 
 @{
-    string nome = ((Usuario)Session["Usuario"]).Login ?? "Usuário Teste";
+    string nome = ((Usuario)Session["Usuario"])?.Login ?? "Usuário Teste";
 }
 
 <h2>Seja bem vindo, @nome</h2>

@@ -79,7 +79,18 @@ namespace DrinkIt.WebApp.Controllers
         {
             if (Session.Count > 0)
             {
-                ViewBag.NomeUsuario = ((Usuario)Session["Usuario"]).Login;
+                Usuario usuario = ((Usuario)Session["Usuario"]) ?? new Usuario();
+
+                string nome = "Admin";
+
+                if (usuario.Id > 0)
+                {
+                    Cliente cliente = new ClienteDao().ConsultarPorId(usuario.Id);
+
+                    nome = cliente.Nome;
+                }
+
+                ViewBag.NomeUsuario = nome;
             }
 
             return PartialView();
@@ -102,7 +113,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                int clienteId = ((Usuario)Session["Usuario"]).Id;
+                int clienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 usuarioDao.TrocarSenha(clienteId, novaSenha);
             }

@@ -11,56 +11,18 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Pedidos
         public ActionResult PvPedido()
         {
-            List<Pedido> pedidos = new List<Pedido>
+            int idCliente = ((Usuario)Session["Usuario"]).Id;
+
+            List<Pedido> pedidos = new List<Pedido>();
+
+            if (idCliente == 0)
             {
-                new Pedido
-                {
-                    DataCadastro = DateTime.Now,
-                    Status = "Finalizado",
-                    Id = 1,
-                    Cliente = new Cliente
-                    {
-                        Id = 1,
-                        Email = "teste@teste.com.br",
-                        Login = "Teste",
-                        Senha = "Teste",
-                        Nome = "Usuário Teste"
-                    },
-                    Bebidas = new List<Bebida>
-                    {
-                        new Bebida
-                        {
-                            Id = 1,
-                            Nome = "Crystal",
-                            Descricao = "Água Mineral sem Gás",
-                            Marca = "Crystal",
-                            Valor = 1.99M,
-                            Volume = "1.5L",
-                            Peso = "1KG",
-                            Sabor = "---",
-                            Lote = "12321",
-                            DataFabricacao = DateTime.Now,
-                            DataValidade = DateTime.Now,
-                            Fabricante = "Coca-Cola",
-                            Embalagem = "Garrafa",
-                            CodigoBarras = "662607004",
-                            Alcoolico = false,
-                            Teor = 0,
-                            Gaseificada = false,
-                            ContemGluten = false,
-                            Ingredientes = new List<Ingrediente>
-                            {
-                                new Ingrediente
-                                {
-                                    Descricao = "H2O"
-                                }
-                            },
-                            DicaConservacao = "Beba água",
-                            Status = true
-                        }
-                    }
-                }
-            };
+                pedidos = new PedidoDao().ConsultarTodos();
+            }
+            else
+            {
+                pedidos = new PedidoDao().ConsultarPorCliente(idCliente);
+            }
 
             return PartialView(pedidos);
         }
@@ -105,80 +67,9 @@ namespace DrinkIt.WebApp.Controllers
 
             Pedido pedido = new Pedido
             {
-                DataCadastro = DateTime.Now,
                 Status = "Finalizado",
-                Id = 1,
-                Cliente = new Cliente
-                {
-                    Id = 1,
-                    Email = "teste@teste.com.br",
-                    Login = "Teste",
-                    Senha = "Teste",
-                    Nome = "Usuário Teste"
-                },
-                Bebidas = new List<Bebida>
-                    {
-                        new Bebida
-                        {
-                            Id = 1,
-                            Nome = "Crystal",
-                            Descricao = "Água Mineral sem Gás",
-                            Marca = "Crystal",
-                            Valor = 1.99M,
-                            Volume = "1.5L",
-                            Peso = "1KG",
-                            Sabor = "---",
-                            Lote = "12321",
-                            DataFabricacao = DateTime.Now,
-                            DataValidade = DateTime.Now,
-                            Fabricante = "Coca-Cola",
-                            Embalagem = "Garrafa",
-                            CodigoBarras = "662607004",
-                            Alcoolico = false,
-                            Teor = 0,
-                            Gaseificada = false,
-                            ContemGluten = false,
-                            Ingredientes = new List<Ingrediente>
-                            {
-                                new Ingrediente
-                                {
-                                    Descricao = "H2O"
-                                }
-                            },
-                            DicaConservacao = "Beba água",
-                            Status = true
-                        },
-                        new Bebida
-                        {
-                            Id = 1,
-                            Nome = "Crystal",
-                            Descricao = "Água Mineral sem Gás",
-                            Marca = "Crystal",
-                            Valor = 1.99M,
-                            Volume = "1.5L",
-                            Peso = "1KG",
-                            Sabor = "---",
-                            Lote = "12321",
-                            DataFabricacao = DateTime.Now,
-                            DataValidade = DateTime.Now,
-                            Fabricante = "Coca-Cola",
-                            Embalagem = "Garrafa",
-                            CodigoBarras = "662607004",
-                            Alcoolico = false,
-                            Teor = 0,
-                            Gaseificada = false,
-                            ContemGluten = false,
-                            Ingredientes = new List<Ingrediente>
-                            {
-                                new Ingrediente
-                                {
-                                    Descricao = "H2O"
-                                }
-                            },
-                            DicaConservacao = "Beba água",
-                            Status = true
-                        }
-                    }
+                Cliente = (Cliente)Session["Usuario"] ?? new Cliente(),
+                Bebidas = ((Cliente)Session["Usuario"]).Carrinho.Bebidas ?? new List<Bebida>()
             };
 
             return View(pedido);
@@ -188,8 +79,18 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                pedido.IdCliente = ((Usuario)Session["Usuario"]).Id;
-                pedido.Bebidas = ((Usuario)Session["Usuario"]).Carrinho.Bebidas;
+                pedido.IdCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
+                pedido.Bebidas = ((Usuario)Session["Usuario"])?.Carrinho.Bebidas ?? new List<Bebida>();
+
+                if (pedido.NovoCartao != null)
+                {
+                    new CartaoDao().Cadastrar(pedido.NovoCartao);
+                }
+
+                if (pedido.NovoEndereco != null)
+                {
+                    new EnderecoDao().Cadastrar(pedido.NovoEndereco);
+                }
 
                 new PedidoDao().Cadastrar(pedido);
             }
@@ -199,6 +100,18 @@ namespace DrinkIt.WebApp.Controllers
             }
 
             return RedirectToAction("Index", "Usuarios");
+        }
+
+        [HttpPost]
+        public ActionResult ValidarCupomDesconto(Pedido pedido)
+        {
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult ValidarCupomTroca(Pedido pedido)
+        {
+            return new EmptyResult();
         }
 
         public ActionResult Details(int id)
