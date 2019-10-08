@@ -12,7 +12,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(CartaoCredito entidade)
         {
-            ZerarFlags(entidade.ClienteId);
+            if (entidade.Preferencial)
+            {
+                ZerarFlags(entidade.ClienteId);
+            }
 
             Sql.Clear();
 
@@ -30,7 +33,10 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(CartaoCredito entidade)
         {
-            ZerarFlags(entidade.ClienteId);
+            if (entidade.Preferencial)
+            {
+                ZerarFlags(entidade.ClienteId);
+            }
 
             Sql.Clear();
 

@@ -14,5 +14,7 @@ namespace DrinkIt.WebApp.Models
         [Required]
         public int CodigoSeguranca { get; set; }
         public bool Preferencial { get; set; }
+        public int MesValidade { get; set; }
+        public int AnoValidade { get; set; }
     }
 }

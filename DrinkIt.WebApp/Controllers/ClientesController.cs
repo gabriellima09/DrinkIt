@@ -44,10 +44,21 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(Cliente cliente, List<int> LstDDD, List<string> LstTelefone, List<int> TiposTelefone)
+        public ActionResult Create(Cliente cliente, string confirmSenha, List<int> LstDDD, List<string> LstTelefone, List<int> TiposTelefone)
         {
             try
             {
+                //Validando a confirmação de senha
+                if(cliente.Senha != confirmSenha)
+                {
+                    ViewBag.MsgErroConfirmarSenha = "Senha não confirmada corretamente.";
+                    return View();
+                }
+                else
+                {
+                    ViewBag.MsgErroConfirmarSenha = "";
+                }
+
                 bool checkTelefones = true;
                 cliente.Telefones = new List<Telefone>();
 

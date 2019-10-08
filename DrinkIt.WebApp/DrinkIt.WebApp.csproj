@@ -214,6 +214,7 @@
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artifacts\DAS2.docx" />
     <Content Include="Artifacts\Diagrams\Images\Controller.jpg" />
     <Content Include="Artifacts\Diagrams\Images\drinkit-architecture.jpg" />
     <Content Include="Artifacts\Diagrams\Images\fluxo-atividade-usuarios.jpg" />
