@@ -1,4 +1,6 @@
-﻿using DrinkIt.WebApp.Models;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -7,6 +9,8 @@ namespace DrinkIt.WebApp.Controllers
 {
     public class CuponsController : Controller
     {
+        private readonly IDao<Cupom> Dao;
+        private readonly IFachada<Cupom> Fachada;
         // GET: Cupons
         public ActionResult Index()
         {
@@ -22,21 +26,21 @@ namespace DrinkIt.WebApp.Controllers
                     Id = 1,
                     DataEmissao = DateTime.Now,
                     Descricao = "CUPOM123",
-                    Status = "ATIVO"
+                    Status = true
                 },
                 new Cupom
                 {
                     Id = 2,
                     DataEmissao = DateTime.Now,
                     Descricao = "CUPOM456",
-                    Status = "ATIVO"
+                    Status = true
                 },
                 new Cupom
                 {
                     Id = 3,
                     DataEmissao = DateTime.Now,
                     Descricao = "CUPOM789",
-                    Status = "ATIVO"
+                    Status = true
                 }
             };
 
@@ -51,7 +55,7 @@ namespace DrinkIt.WebApp.Controllers
                 Id = 1,
                 DataEmissao = DateTime.Now,
                 Descricao = "CUPOM123",
-                Status = "ATIVO"
+                Status = true
             };
 
             return View();
@@ -70,6 +74,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 // TODO: Add insert logic here
+                Fachada.Cadastrar(cupom);
 
                 return RedirectToAction("Index");
             }
@@ -87,7 +92,7 @@ namespace DrinkIt.WebApp.Controllers
                 Id = 1,
                 DataEmissao = DateTime.Now,
                 Descricao = "CUPOM123",
-                Status = "ATIVO"
+                Status = true
             };
 
             return View();

@@ -164,6 +164,7 @@
     <Compile Include="Dao\BebidaDao.cs" />
     <Compile Include="Dao\CartaoDao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
+    <Compile Include="Dao\CupomDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
     <Compile Include="Dao\EstoqueDao.cs" />
