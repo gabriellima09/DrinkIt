@@ -45,7 +45,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                cartao.ClienteId = ((Usuario)Session["Usuario"]).Id;
+                cartao.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 Fachada.Cadastrar(cartao);
 
@@ -69,7 +69,7 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                cartao.ClienteId = ((Usuario)Session["Usuario"]).Id;
+                cartao.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 Fachada.Alterar(cartao);
 

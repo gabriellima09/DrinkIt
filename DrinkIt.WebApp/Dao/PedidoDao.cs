@@ -86,6 +86,24 @@ namespace DrinkIt.WebApp.Dao
             return pedido;
         }
 
+        public List<Pedido> ConsultarPorCliente(int idCliente)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+
+            Sql.Append("SELECT * FROM PEDIDOS WHERE ClienteId = " + idCliente);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    pedidos.Add(ObterEntidadeReader(reader));
+                }
+            }
+
+            return pedidos;
+        }
+
+
         public List<Pedido> ConsultarTodos()
         {
             List<Pedido> pedidos = new List<Pedido>();

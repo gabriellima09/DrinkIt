@@ -115,8 +115,8 @@
                         <label class="control-label">Calcular frete:</label>
                     </div>
                     <div class="row col-md-6">
-                        <input id="frete" class="form-control" type="text" name="frete" value="" maxlength="9" />
-                        <label id="lblFrete" class="control-label" style="color: #4cae4c;display:none">Grátis - Prazo de 7-9 dias úteis</label>
+                        <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
+                        <label id="ResultadoValorFrete"></label>
                     </div>
                     <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
                 </div>
@@ -131,3 +131,8 @@
 <div>
     @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script src="~/Scripts/Bebidas/Details.js"></script>

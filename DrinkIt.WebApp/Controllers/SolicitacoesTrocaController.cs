@@ -37,7 +37,7 @@ namespace DrinkIt.WebApp.Controllers
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 // TODO: Add insert logic here
                 Usuario usuario = new Usuario();
-                usuario = (Usuario)Session["Usuario"];
+                usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
                 dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
 
