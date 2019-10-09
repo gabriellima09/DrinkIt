@@ -166,5 +166,28 @@ namespace DrinkIt.WebApp.Controllers
 
             return View(pedido);
         }
+
+        [HttpPost]
+        public ActionResult CalcularFretePedido(Pedido pedido)
+        {
+            decimal total = 0;
+
+            pedido.Bebidas.ForEach(x => total += SimularFrete(x));
+
+            var resultado = new
+            {
+                Valor = total
+            };
+
+            return Json(resultado);
+        }
+
+
+        public decimal SimularFrete(Bebida bebida)
+        {
+            decimal frete = Convert.ToDecimal(new Random().NextDouble() * (double)(bebida.Valor / 3));
+
+            return frete;
+        }
     }
 }

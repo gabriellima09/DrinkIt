@@ -206,6 +206,15 @@
                     <br />
 
                     <div class="form-group">
+                        <label class="control-label">Calcular frete:</label>
+                        <div>
+                            <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
+                            <label id="ResultadoValorFrete"></label>
+                        </div>
+                        <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
+                    </div>
+
+                    <div class="form-group">
                         <label for="inputCupomDesconto">Cupom de desconto:</label>
                         <input type="text" class="form-control" id="inputCupomDesconto" placeholder="Insira um cupom válido">
                         @Html.HiddenFor(x => x.IdCupomDesconto)

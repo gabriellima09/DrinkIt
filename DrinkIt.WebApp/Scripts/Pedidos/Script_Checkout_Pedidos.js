@@ -27,4 +27,17 @@ $(document).ready(function () {
     $('#btnValidarCupom').click(function () {
         $('#spanCupomValido').css('display', 'block');
     });
+
+    $("#btnCalcularFrete").click(function myfunction() {
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: "/Pedidos/CalcularFretePedido",
+            data: { pedido: pedido },
+            success: function (data) {
+                $("#ResultadoValorFrete").text(data.Valor);
+            }
+        });
+    });
+
 });
