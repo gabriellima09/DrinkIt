@@ -302,3 +302,32 @@
 2019-10-06 23:20:47.6417|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
 2019-10-06 23:20:48.2623|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
 2019-10-06 23:20:48.2653|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-09 20:19:42.3398|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:19:42.4575|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:20:19.7029|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:20:19.7029|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:20:19.7787|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:20:19.7817|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:20:20.6892|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:20:20.9896|Error|Erro ao executar query: SELECT * FROM PEDIDOS|Invalid object name 'PEDIDOS'.
+2019-10-09 20:21:17.2742|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:26:07.8889|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:26:07.8889|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:26:09.6170|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:26:09.6170|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:26:12.1876|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:26:12.2145|Error|Erro ao executar query: SELECT * FROM PEDIDOS|Invalid object name 'PEDIDOS'.
+2019-10-09 20:26:21.4511|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:26:39.2848|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:26:39.2848|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:26:40.0796|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:26:40.3158|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:27:00.4480|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:27:00.4799|Error|Erro ao executar query: SELECT * FROM PEDIDOS|Invalid object name 'PEDIDOS'.
+2019-10-09 20:27:04.0191|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:27:07.4350|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:27:07.4360|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-09 20:27:07.4360|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:27:07.4360|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-09 20:27:42.0920|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-09 20:27:42.1219|Error|Erro ao executar query: SELECT * FROM PEDIDOS|Invalid object name 'PEDIDOS'.
