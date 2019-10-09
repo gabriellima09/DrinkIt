@@ -2,9 +2,15 @@
 
 @using DrinkIt.WebApp.Models;
 
+@{ 
+    int itensCarrinho = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas?.Count ?? 0;
+}
+
 <ul class="nav navbar-nav" style="padding-left:30%;">
     <li class="btn-group">
-        <button id="btnCarrinho" class="btn btn-md btn-info glyphicon glyphicon-shopping-cart" style="margin-top: 15%;"></button>
+        <button id="btnCarrinho" class="btn btn-md btn-info glyphicon glyphicon-shopping-cart" style="margin-top: 15%;">
+            <span class="badge">@itensCarrinho</span>
+        </button>
     </li>
 </ul>
 
