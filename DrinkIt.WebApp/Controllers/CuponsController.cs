@@ -11,6 +11,13 @@ namespace DrinkIt.WebApp.Controllers
     {
         private readonly IDao<Cupom> Dao;
         private readonly IFachada<Cupom> Fachada;
+
+        public CuponsController()
+        {
+            Dao = new CupomDao();
+            Fachada = new Fachada<Cupom>(Dao);
+        }
+
         // GET: Cupons
         public ActionResult Index()
         {
@@ -19,32 +26,15 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvCupom()
         {
-            List<Cupom> cupons = new List<Cupom>
+            try
             {
-                new Cupom
-                {
-                    Id = 1,
-                    DataEmissao = DateTime.Now,
-                    Descricao = "CUPOM123",
-                    Status = true
-                },
-                new Cupom
-                {
-                    Id = 2,
-                    DataEmissao = DateTime.Now,
-                    Descricao = "CUPOM456",
-                    Status = true
-                },
-                new Cupom
-                {
-                    Id = 3,
-                    DataEmissao = DateTime.Now,
-                    Descricao = "CUPOM789",
-                    Status = true
-                }
-            };
+                return PartialView(Fachada.ConsultarTodos());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-            return PartialView(cupons);
         }
 
         // GET: Cupons/Details/5
@@ -76,9 +66,9 @@ namespace DrinkIt.WebApp.Controllers
                 // TODO: Add insert logic here
                 Fachada.Cadastrar(cupom);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Usuarios");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -87,15 +77,15 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Cupons/Edit/5
         public ActionResult Edit(int id)
         {
-            Cupom cupom = new Cupom
+            try
             {
-                Id = 1,
-                DataEmissao = DateTime.Now,
-                Descricao = "CUPOM123",
-                Status = true
-            };
-
-            return View();
+                return View(Fachada.ConsultarPorId(id));
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         // POST: Cupons/Edit/5
@@ -106,9 +96,11 @@ namespace DrinkIt.WebApp.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                Fachada.Alterar(cupom);
+
+                return RedirectToAction("Index", "Usuarios");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
@@ -116,7 +108,16 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult TrocarStatus(int id)
         {
-            return new EmptyResult();
+            try
+            {
+                Fachada.Excluir(id);
+                return RedirectToAction("Index", "Usuarios");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }

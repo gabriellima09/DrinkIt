@@ -13,7 +13,13 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
+            Tipo
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DataEmissao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataExpiracao)
         </th>
         <th></th>
     </tr>
@@ -26,8 +32,23 @@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
+        @if (item.IdTipo == 1)
+        {
+            <td>
+                Promocional
+            </td>
+        }
+        else
+        {
+            <td>
+                Troca
+            </td>
+        }
         <td>
             @Html.DisplayFor(modelItem => item.DataEmissao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataExpiracao)
         </td>
         <td align="center">
             <div class="btn-group">
@@ -35,9 +56,9 @@
                     Opções <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Editar", "Edit", new { id = 1 }, new { @class = "btn-warning" })</li>
-                    <li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-info" })</li>
-                    <li>@Html.ActionLink("Trocar Status", "TrocarStatus", new { id = 1 }, new { @class = "btn-primary" })</li>
+                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                    @*<li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-info" })</li>*@
+                    <li>@Html.ActionLink("Trocar Status", "TrocarStatus", new { id = item.Id }, new { @class = "btn-primary" })</li>
                 </ul>
             </div>
         </td>

@@ -95,16 +95,20 @@
 
                         <h4>Bebidas</h4>
                         <dl class="dl-horizontal">
-                            @foreach (var item in Model.FirstOrDefault().Bebidas)
+                            @if (Model.Count() != 0 && Model != null)
                             {
-                                <dt>
-                                    @Html.DisplayName(item.Nome)
-                                </dt>
+                                foreach (var item in Model.FirstOrDefault().Bebidas)
+                                {
+                                    <dt>
+                                        @Html.DisplayName(item.Nome)
+                                    </dt>
 
-                                <dd>
-                                    @Html.DisplayFor(model => item.Nome)
-                                </dd>
+                                    <dd>
+                                        @Html.DisplayFor(model => item.Nome)
+                                    </dd>
+                                }
                             }
+
                         </dl>
                     </div>
 
