@@ -405,5 +405,72 @@ namespace DrinkIt.WebApp.Dao
 
             return true;
         }
+
+        public List<Bebida> ConsultarComFiltro(int idGas = 0, int idTeor = 0, int idValor = 0, string textoBusca = "")
+        {
+            try
+            {
+                List<Bebida> bebidas = new List<Bebida>();
+
+                Sql.Append("SELECT * FROM BEBIDAS WHERE 1=1 ");
+
+                //GASEIFICADA
+                if (idGas == 1)//COM GÁS
+                {
+                    Sql.Append("AND GASEIFICADA = 1 ");
+                }
+                if (idGas == 2)//SEM GÁS
+                {
+                    Sql.Append("AND GASEIFICADA = 0 ");
+                }
+
+                //TEOR
+                if (idTeor == 1)//MENOR QUE 10%
+                {
+                    Sql.Append("AND TEOR < 10 ");
+                }
+                if (idTeor == 2)//MAIOR/IGUAL 10%
+                {
+                    Sql.Append("AND TEOR >= 10 ");
+                }
+
+                //VALOR
+                if (idValor == 1)//15 REAIS OU MENOS
+                {
+                    Sql.Append("AND VALOR <= 15 ");
+                }
+                if (idValor == 2)//ENTRE 15 E 50 REAIS
+                {
+                    Sql.Append("AND VALOR > 15 AND VALOR <= 50 ");
+                }
+                if (idValor == 3)//50 REAIS OU MAIS
+                {
+                    Sql.Append("AND VALOR > 50 ");
+                }
+
+                //TEXTO DE BUSCA
+                if (!textoBusca.Equals(""))//TEXTO NÃO VAZIO
+                {
+                    Sql.Append("AND NOME LIKE '%" + textoBusca + "%'");
+                }
+
+                Sql.Append(";");
+
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    while (reader.Read())
+                    {
+                        bebidas.Add(ObterEntidadeReader(reader));
+                    }
+                }
+
+                return bebidas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

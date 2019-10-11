@@ -28,7 +28,20 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                return PartialView(Fachada.ConsultarTodos());
+                int idCliente = ((Usuario)Session["Usuario"]).Id;
+
+                List<Cupom> cupons = new List<Cupom>();
+
+                if (idCliente == 0)
+                {
+                    cupons = Fachada.ConsultarTodos();
+                }
+                else
+                {
+                    cupons = new CupomDao().ConsultarPorCliente(idCliente);
+                }
+
+                return PartialView(cupons);
             }
             catch (Exception ex)
             {

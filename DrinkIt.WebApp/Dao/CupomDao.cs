@@ -26,11 +26,11 @@ namespace DrinkIt.WebApp.Dao
 
                 DbContext.ExecuteQuery(Sql.ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-                        
+
         }
 
         public void Cadastrar(Cupom entidade)
@@ -142,7 +142,7 @@ namespace DrinkIt.WebApp.Dao
 
                 DbContext.ExecuteQuery(Sql.ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -151,6 +151,39 @@ namespace DrinkIt.WebApp.Dao
         public Cupom ObterEntidadeReader(IDataReader reader)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Cupom> ConsultarPorCliente(int IdCliente)
+        {
+            try
+            {
+                List<Cupom> cupons = new List<Cupom>();
+
+                Sql.Append("SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = " + IdCliente + ")");
+
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    while (reader.Read())
+                    {
+                        Cupom cupom = new Cupom
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Descricao = Convert.ToString(reader["Descricao"]),
+                            IdTipo = Convert.ToInt32(reader["IdTipo"]),
+                            DataEmissao = Convert.ToDateTime(reader["DtCriacao"]),
+                            DataExpiracao = Convert.ToDateTime(reader["DtExpiracao"]),
+                            Status = Convert.ToBoolean(reader["Ativo"])
+                        };
+                        cupons.Add(cupom);
+                    }
+                }
+
+                return cupons;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

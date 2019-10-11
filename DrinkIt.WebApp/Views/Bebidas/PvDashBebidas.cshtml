@@ -20,33 +20,36 @@
 
             <div class="col-md-4">
                 <label class="control-label">Gaseificada</label>
-                <select class="form-control">
-                    <option>Sim</option>
-                    <option>Não</option>
+                <select class="form-control" id="selectGaseificada">
+                    <option value="0" selected>Selecione uma opção</option>
+                    <option value="1">Sim</option>
+                    <option value="2">Não</option>
                 </select>
             </div>
 
             <div class="col-md-4">
                 <label class="control-label">Teor Alcoólico</label>
-                <select class="form-control">
-                    <option>Menor que 10%</option>
-                    <option>Maior que 10%</option>
+                <select class="form-control" id="selectTeor">
+                    <option value="0" selected>Selecione uma opção</option>
+                    <option value="1">Menor que 10%</option>
+                    <option value="2">Maior ou igual a 10%</option>
                 </select>
             </div>
 
             <div class="col-md-4">
                 <label class="control-label">Valor (R$)</label>
-                <select class="form-control">
-                    <option>Até R$ 15,00</option>
-                    <option>Entre R$ 16,00 e R$ 50,00</option>
-                    <option>Acima de R$ 50,00</option>
+                <select class="form-control" id="selectValor">
+                    <option value="0" selected>Selecione uma opção</option>
+                    <option value="1">Até R$ 15,00</option>
+                    <option value="2">Entre R$ 15,00 e R$ 50,00</option>
+                    <option value="3">Acima de R$ 50,00</option>
                 </select>
             </div>
         </div>
 
         <hr />
 
-        <button class="btn btn-default">Aplicar Filtros</button>
+        <button class="btn btn-default" id="btnAplicarFiltros">Aplicar Filtros</button>
     </div>
 </div>
 
@@ -63,18 +66,27 @@
         <div class="panel-body">
             <div class="container">
                 <div class="row">
-                    @foreach (var item in Model)
+
+                    @if (Model.Count() == 0)
                     {
-                        <div class="col-xs-6 col-md-3 col-lg-3 dashBebida" style="margin-bottom:15px">
-                            <a href="/Bebidas/Details/@item.Id" class="thumbnail" align="center">
-                                <h4><strong>@item.Nome</strong></h4>
-                                <hr />
-                                <img src="/Images/@item.CaminhoImagem" />
-                                <hr />
-                                <span class="btn btn-primary">Ver detalhes</span>
-                            </a>
-                        </div>
+                        <h4>Nenhuma bebida encontrada :(</h4>
                     }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-xs-6 col-md-3 col-lg-3 dashBebida" style="margin-bottom:15px">
+                                <a href="/Bebidas/Details/@item.Id" class="thumbnail" align="center">
+                                    <h4><strong>@item.Nome</strong></h4>
+                                    <hr />
+                                    <img src="/Images/@item.CaminhoImagem" />
+                                    <hr />
+                                    <span class="btn btn-primary">Ver detalhes</span>
+                                </a>
+                            </div>
+                        }
+                    }
+                    
 
                 </div>
             </div>
