@@ -406,7 +406,7 @@ namespace DrinkIt.WebApp.Dao
             return true;
         }
 
-        public List<Bebida> ConsultarComFiltro(int idGas = 0, int idTeor = 0, int idValor = 0, string textoBusca = "")
+        public List<Bebida> ConsultarComFiltro(int idGas = 0, int idTeor = 0, int idValor = 0, int idTipo = 0, string textoBusca = "")
         {
             try
             {
@@ -446,6 +446,12 @@ namespace DrinkIt.WebApp.Dao
                 if (idValor == 3)//50 REAIS OU MAIS
                 {
                     Sql.Append("AND VALOR > 50 ");
+                }
+
+                //TIPO DE BEBIDA
+                if (idTipo != 0)
+                {
+                    Sql.Append("AND TIPOBEBIDA = " + idTipo + " ");
                 }
 
                 //TEXTO DE BUSCA

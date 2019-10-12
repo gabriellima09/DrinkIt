@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DrinkIt.WebApp.Models
 {
-    public class Telefone
+    public class Telefone : EntidadeDominio
     {
         public int IdTipo { get; set; }
         public string DescricaoTipo { get; set; }

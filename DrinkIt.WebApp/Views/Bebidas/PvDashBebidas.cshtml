@@ -2,7 +2,7 @@
 
 <div class="input-group">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
-    <input class="form-control" placeholder="Procurar Bebidas" />
+    <input class="form-control" placeholder="Procurar Bebidas" id="inputPesquisarBebidas"/>
 </div>
 
 <br />
@@ -18,7 +18,7 @@
     <div class="container form-group">
         <div class="row" style="margin-top:15px">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label class="control-label">Gaseificada</label>
                 <select class="form-control" id="selectGaseificada">
                     <option value="0" selected>Selecione uma opção</option>
@@ -27,7 +27,7 @@
                 </select>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label class="control-label">Teor Alcoólico</label>
                 <select class="form-control" id="selectTeor">
                     <option value="0" selected>Selecione uma opção</option>
@@ -36,13 +36,31 @@
                 </select>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label class="control-label">Valor (R$)</label>
                 <select class="form-control" id="selectValor">
                     <option value="0" selected>Selecione uma opção</option>
                     <option value="1">Até R$ 15,00</option>
                     <option value="2">Entre R$ 15,00 e R$ 50,00</option>
                     <option value="3">Acima de R$ 50,00</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label class="control-label">Tipo de Bebida</label>
+                <select class="form-control" id="selectTipo">
+                    <option value="0" selected>Selecione um tipo</option>
+                    <option value="1">Água</option>
+                    <option value="2">Refrigerante</option>
+                    <option value="3">Suco</option>
+                    <option value="4">Cerveja</option>
+                    <option value="5">Chá</option>
+                    <option value="6">Café</option>
+                    <option value="7">Leite</option>
+                    <option value="8">Energético</option>
+                    <option value="9">Vodka</option>
+                    <option value="10">Gin</option>
+                    <option value="11">Saquê</option>
                 </select>
             </div>
         </div>

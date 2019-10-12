@@ -44,6 +44,10 @@
                 <option value="5">Chá</option>
                 <option value="6">Café</option>
                 <option value="7">Leite</option>
+                <option value="8">Energético</option>
+                <option value="9">Vodka</option>
+                <option value="10">Gin</option>
+                <option value="11">Saquê</option>
             </select>
             @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
         </div>
@@ -189,6 +193,8 @@
             <img src="/Images/@Model.CaminhoImagem" width="200" height="200"/>
         </div>
     </div>
+
+    <input type="hidden" name="CaminhoImagem" value="@Model.CaminhoImagem" />
 
     <div class="form-group">
         @Html.LabelFor(model => model.CaminhoImagem, htmlAttributes: new { @class = "control-label col-md-2" })

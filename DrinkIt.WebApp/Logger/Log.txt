@@ -898,3 +898,365 @@
 2019-10-10 23:37:59.3289|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND VALOR > 15 AND VALOR <= 50 ;|
 2019-10-10 23:38:03.1289|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND VALOR <= 15 ;|
 2019-10-10 23:38:03.1289|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND VALOR <= 15 ;|
+2019-10-11 21:20:08.5034|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 21:20:08.6216|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:11:10.9581|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:11:10.9581|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:13.9144|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:14.0054|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:20.7838|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%Dolly%';|
+2019-10-11 22:20:20.9446|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%Dolly%';|
+2019-10-11 22:20:29.9627|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:29.9627|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:33.4961|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%Peps%';|
+2019-10-11 22:20:33.5090|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%Peps%';|
+2019-10-11 22:20:35.4125|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:35.4125|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:37.7959|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:37.7959|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:40.0951|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:40.0951|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:41.7848|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:20:41.7848|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:21:08.6256|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:21:08.6256|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:21:08.7029|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:21:08.7029|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:21:11.5161|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%DOL%';|
+2019-10-11 22:21:11.5161|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%DOL%';|
+2019-10-11 22:26:23.0209|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:26:23.0209|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:26:25.5983|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%do%';|
+2019-10-11 22:26:25.5983|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%do%';|
+2019-10-11 22:26:27.3554|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%pe%';|
+2019-10-11 22:26:27.3574|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%pe%';|
+2019-10-11 22:26:41.8114|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%suco%';|
+2019-10-11 22:26:41.8114|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%suco%';|
+2019-10-11 22:26:45.2982|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%s%';|
+2019-10-11 22:26:45.2982|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%s%';|
+2019-10-11 22:26:48.8379|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%ll%';|
+2019-10-11 22:26:48.8379|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%ll%';|
+2019-10-11 22:27:23.6302|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:27:23.6302|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:27:26.3051|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%ss%';|
+2019-10-11 22:27:26.3051|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%ss%';|
+2019-10-11 22:27:32.8523|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%a%';|
+2019-10-11 22:27:32.8523|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%a%';|
+2019-10-11 22:28:29.5549|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%doll%';|
+2019-10-11 22:28:29.5549|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%doll%';|
+2019-10-11 22:28:38.6737|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:28:38.6737|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:28:50.0355|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:28:50.0355|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:28:53.7732|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%dol%';|
+2019-10-11 22:28:53.7732|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%dol%';|
+2019-10-11 22:29:25.1614|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:25.1614|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:28.0889|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%teste%';|
+2019-10-11 22:29:28.0889|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND NOME LIKE '%teste%';|
+2019-10-11 22:29:30.0932|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:30.0932|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:41.9121|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-11 22:29:42.0004|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-11 22:29:42.0004|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-11 22:29:42.0783|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-11 22:29:56.1440|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:56.1440|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:59.4339|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:29:59.4339|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-11 22:30:04.7831|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND VALOR <= 15 ;|
+2019-10-11 22:30:04.8037|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND VALOR <= 15 ;|
+2019-10-11 22:30:16.1128|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND GASEIFICADA = 0 ;|
+2019-10-11 22:30:16.1431|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND GASEIFICADA = 0 ;|
+2019-10-11 22:30:20.6440|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND GASEIFICADA = 1 ;|
+2019-10-11 22:30:20.6440|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND GASEIFICADA = 1 ;|
+2019-10-12 00:04:13.1053|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:04:13.1073|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:04:14.0432|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:04:14.2437|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:04:16.2033|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:04:16.2033|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:04:17.0779|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:04:17.1003|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:04:17.5029|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:04:17.5707|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:04:17.9048|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:04:17.9535|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:04:32.1583|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:04:32.1583|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:04:32.1583|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:04:32.1583|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:05:00.1621|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:05:00.1621|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:05:00.1621|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:05:00.1621|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:05:25.3877|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 0, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000525379.jpg' WHERE Id = 2002|
+2019-10-12 00:05:26.6910|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 0, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000525379.jpg' WHERE Id = 2002|
+2019-10-12 00:05:26.6910|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:05:26.7633|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:05:26.7633|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:05:26.9014|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:05:26.9014|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:05:26.9014|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:05:26.9517|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:05:26.9517|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:06:43.0396|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:06:43.0396|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:06:43.0695|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:06:43.0695|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:06:43.0815|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:06:43.0815|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:06:43.0945|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:06:43.0945|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:06:43.0945|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:06:43.1084|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:06:43.1084|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:06:43.1084|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:06:48.1398|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:06:48.1398|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:06:48.1398|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:06:48.1398|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:08:33.7306|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 0, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '' WHERE Id = 2002|
+2019-10-12 00:08:33.7814|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 0, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '' WHERE Id = 2002|
+2019-10-12 00:08:33.7814|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:08:33.8034|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:08:33.8034|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:08:33.8243|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:08:33.8243|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:08:33.8313|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:08:33.8613|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:08:33.8613|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:08:45.7969|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:08:45.7969|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:08:45.7969|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:08:45.7969|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:09:04.9669|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:09:04.9669|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:09:04.9669|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:09:04.9669|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:09:04.9838|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:09:04.9838|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:09:04.9838|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:09:04.9838|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:09:04.9838|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:09:05.0008|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:09:05.0008|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:09:05.0008|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:09:36.5991|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:09:36.5991|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:09:36.5991|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:09:36.5991|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:09:45.2581|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 3, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000945257.jpg' WHERE Id = 2002|
+2019-10-12 00:09:45.3660|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 3, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000945257.jpg' WHERE Id = 2002|
+2019-10-12 00:09:45.3660|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:09:45.3660|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:09:45.3660|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:09:45.3730|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:09:45.3730|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:09:45.3730|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:09:45.3730|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:09:45.3730|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:10:16.9138|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:10:16.9138|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:10:16.9237|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:10:16.9237|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:10:16.9237|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:10:16.9237|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:10:16.9387|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:10:16.9387|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:10:16.9387|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:10:16.9387|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:10:16.9387|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:10:16.9527|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:10:22.0868|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:10:22.0868|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:10:22.0931|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:10:22.0931|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:12:22.3721|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:12:22.3751|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:12:22.3751|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:12:22.3751|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:13:11.4848|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 3, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000945257.jpg' WHERE Id = 2002|
+2019-10-12 00:13:11.7319|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Suco de Laranja', Descricao = 'Parece de limão e tem gosto de tamarindo.', TipoBebida = 3, Marca = 'Jailson', Valor = 2.50, Volume = '300ml', Peso = '310g', Sabor = 'Laranja', Lote = '0001AA', DataFabricacao = '2019-09-26 00:00:00', DataValidade = '2019-12-26 00:00:00', Fabricante = 'Jailson', Embalagem = 'Copo', CodigoBarras = '0000012', Alcoolico = 0, Teor = 0.00, Gaseificada = 0, ContemGluten = 0, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012000945257.jpg' WHERE Id = 2002|
+2019-10-12 00:13:11.7327|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:13:11.7327|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2002;|
+2019-10-12 00:13:11.7327|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:13:11.7327|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Suco de Laranja' );|
+2019-10-12 00:13:11.7327|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:13:11.7327|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2002, 'Açúcar' );|
+2019-10-12 00:13:11.7580|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:11.7580|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:27.2524|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:27.2524|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:27.2814|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:13:27.2814|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:13:27.2814|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:13:27.2814|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:13:27.3029|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:13:27.3029|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:13:27.3139|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:13:27.3139|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:13:27.3139|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:13:27.3139|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:13:31.1208|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2|
+2019-10-12 00:13:31.1228|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2|
+2019-10-12 00:13:31.1228|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-12 00:13:31.1228|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-12 00:13:40.3767|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Pepsi', Descricao = 'Tipo Coca-Cola', TipoBebida = 2, Marca = 'Pepsi', Valor = 3.70, Volume = '2L', Peso = '1,2Kg', Sabor = 'Cola', Lote = '123AAA', DataFabricacao = '2019-09-23 00:00:00', DataValidade = '2019-12-31 00:00:00', Fabricante = 'Pepsi', Embalagem = 'Garrafa', CodigoBarras = '000000019', Alcoolico = 0, Teor = 0.00, Gaseificada = 1, ContemGluten = 1, DicaConservacao = 'Manter em local seco e arejado.', Status = 0, CaminhoImagem = '20191012001340372.jpg' WHERE Id = 2|
+2019-10-12 00:13:40.4114|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Pepsi', Descricao = 'Tipo Coca-Cola', TipoBebida = 2, Marca = 'Pepsi', Valor = 3.70, Volume = '2L', Peso = '1,2Kg', Sabor = 'Cola', Lote = '123AAA', DataFabricacao = '2019-09-23 00:00:00', DataValidade = '2019-12-31 00:00:00', Fabricante = 'Pepsi', Embalagem = 'Garrafa', CodigoBarras = '000000019', Alcoolico = 0, Teor = 0.00, Gaseificada = 1, ContemGluten = 1, DicaConservacao = 'Manter em local seco e arejado.', Status = 0, CaminhoImagem = '20191012001340372.jpg' WHERE Id = 2|
+2019-10-12 00:13:40.4114|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2;|
+2019-10-12 00:13:40.4114|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 2;|
+2019-10-12 00:13:40.4114|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2, 'Água' );|
+2019-10-12 00:13:40.4114|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2, 'Água' );|
+2019-10-12 00:13:40.4114|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2, 'SÓdio' );|
+2019-10-12 00:13:40.4204|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (2, 'SÓdio' );|
+2019-10-12 00:13:40.4204|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:40.4204|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:48.9993|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:48.9993|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:13:48.9993|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:13:48.9993|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:13:49.0143|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:13:49.0143|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:13:49.0143|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:13:49.0143|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:13:49.0322|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:13:49.0322|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:13:49.0322|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:13:49.0322|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:14:00.3750|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:14:01.2650|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:14:01.2650|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:14:01.2650|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:15:56.1878|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:15:56.1878|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:15:56.2058|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:15:56.2058|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:15:56.2207|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:15:56.2207|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:15:56.2377|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:15:56.2377|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:15:56.2487|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:15:56.2487|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:15:56.2487|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:15:56.2646|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:16:02.1714|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:16:02.1714|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:16:02.1714|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:16:02.1714|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:16:07.4556|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:16:07.4556|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:16:07.4556|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:16:07.4556|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:16:55.0506|Debug|Executando query ... Query: UPDATE BEBIDAS SET Nome = 'Dolly', Descricao = 'Refrigerante de Guaraná', TipoBebida = 2, Marca = 'Dolly', Valor = 3.50, Volume = '350ml', Peso = '200g', Sabor = 'Guaraná', Lote = '123654', DataFabricacao = '2019-07-10 00:00:00', DataValidade = '2019-07-10 00:00:00', Fabricante = 'Dolly', Embalagem = 'Garrafinha', CodigoBarras = '123456', Alcoolico = 0, Teor = 0.00, Gaseificada = 1, ContemGluten = 1, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012001655043.jpg' WHERE Id = 1|
+2019-10-12 00:16:55.0901|Info|Fim de execução de query ... Query: UPDATE BEBIDAS SET Nome = 'Dolly', Descricao = 'Refrigerante de Guaraná', TipoBebida = 2, Marca = 'Dolly', Valor = 3.50, Volume = '350ml', Peso = '200g', Sabor = 'Guaraná', Lote = '123654', DataFabricacao = '2019-07-10 00:00:00', DataValidade = '2019-07-10 00:00:00', Fabricante = 'Dolly', Embalagem = 'Garrafinha', CodigoBarras = '123456', Alcoolico = 0, Teor = 0.00, Gaseificada = 1, ContemGluten = 1, DicaConservacao = 'Manter em local seco e arejado.', Status = 1, CaminhoImagem = '20191012001655043.jpg' WHERE Id = 1|
+2019-10-12 00:16:55.0901|Debug|Executando query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 1;|
+2019-10-12 00:16:55.0941|Info|Fim de execução de query ... Query: DELETE FROM INGREDIENTES WHERE BebidaId = 1;|
+2019-10-12 00:16:55.0941|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água' );|
+2019-10-12 00:16:55.0941|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água' );|
+2019-10-12 00:17:00.0179|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:17:00.0179|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:17:00.0459|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:17:00.0459|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-12 00:17:00.0608|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:17:00.0608|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-12 00:17:00.0608|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:17:00.0768|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-12 00:17:00.0768|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:17:00.0768|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-12 00:17:00.0957|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:17:00.0957|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-12 00:17:10.2331|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:17:10.2331|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:25:31.9549|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:25:31.9549|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
+2019-10-12 00:25:31.9549|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:25:31.9688|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-12 00:25:35.1792|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2|
+2019-10-12 00:25:35.1792|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2|
+2019-10-12 00:25:35.1862|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-12 00:25:35.1862|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-12 00:25:38.3174|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:25:38.3174|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 2002|
+2019-10-12 00:25:38.3174|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:25:38.3284|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2002|
+2019-10-12 00:26:28.6131|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:26:28.6131|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:17.7211|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:17.7211|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:37.1833|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:37.1833|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:55.2215|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:31:55.2215|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:36:21.3384|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:36:21.3643|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:36:43.3418|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:36:43.3418|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:37:33.0578|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:37:33.0808|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:37:38.6739|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:37:38.6739|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:39:33.7095|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:39:33.7424|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:39:46.6528|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 3 ;|
+2019-10-12 00:39:46.6997|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 3 ;|
+2019-10-12 00:39:52.0525|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 2 ;|
+2019-10-12 00:39:52.0525|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 2 ;|
+2019-10-12 00:39:56.6249|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:39:56.6249|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 00:41:25.2247|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 3 ;|
+2019-10-12 00:41:25.2247|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 3 ;|
+2019-10-12 00:41:37.8886|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 2 ;|
+2019-10-12 00:41:37.8886|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE 1=1 AND TIPOBEBIDA = 2 ;|
+2019-10-12 01:30:29.2393|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:30:29.2682|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:30:44.8010|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:30:44.9356|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:30:44.9356|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-12 01:30:44.9356|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-12 01:30:45.8681|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 3|
+2019-10-12 01:30:45.8681|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 3|
+2019-10-12 01:30:46.8356|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:30:46.8976|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:30:47.6124|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:30:47.6293|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:30:48.1264|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 3)|
+2019-10-12 01:30:48.2165|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 3)|
+2019-10-12 01:31:23.6969|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 3|
+2019-10-12 01:31:23.6969|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 3|
+2019-10-12 01:33:42.4458|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:33:42.5495|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:33:51.7553|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:33:51.7553|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail2.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:33:51.7553|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-12 01:33:51.7553|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail2.com'|
+2019-10-12 01:33:52.7385|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 3|
+2019-10-12 01:33:52.8561|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 3|
+2019-10-12 01:33:53.7562|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:33:53.7872|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:33:54.7332|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:33:54.7332|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:33:55.1356|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 3)|
+2019-10-12 01:33:55.1406|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 3)|
+2019-10-12 01:33:55.6622|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 3|
+2019-10-12 01:33:55.6622|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 3|
+2019-10-12 01:33:56.0447|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 3|
+2019-10-12 01:33:56.0447|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 3|
+2019-10-12 01:34:43.1763|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:34:43.1763|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-12 01:34:47.3919|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:34:47.3919|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@mail.com%' AND Senha LIKE '%202cb962ac59075b964b07152d234b70%') AS 'Exists'|
+2019-10-12 01:34:47.3919|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail.com'|
+2019-10-12 01:34:47.3919|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@mail.com'|
+2019-10-12 01:34:47.4178|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-12 01:34:47.4198|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-12 01:34:47.4198|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:34:47.4198|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-12 01:34:47.4493|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:34:47.4513|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-12 01:34:47.4513|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-12 01:34:47.4513|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-12 01:34:47.4682|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-12 01:34:47.4682|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-12 01:34:47.4682|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-12 01:34:47.4682|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
