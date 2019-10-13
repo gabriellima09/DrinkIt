@@ -103,15 +103,14 @@ namespace DrinkIt.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult ValidarCupomDesconto(Pedido pedido)
+        public ActionResult ValidarCupom(Pedido pedido)
         {
-            return new EmptyResult();
-        }
+            var resultado = new
+            {
+                Resultado = new CupomDao().ValidarCupom(pedido.CupomDesconto.Id)
+            };
 
-        [HttpPost]
-        public ActionResult ValidarCupomTroca(Pedido pedido)
-        {
-            return new EmptyResult();
+            return Json(resultado);
         }
 
         public ActionResult Details(int id)

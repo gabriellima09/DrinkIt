@@ -194,8 +194,8 @@ namespace DrinkIt.WebApp.Dao
             pedido.EnderecoEntrega = new EnderecoDao().ConsultarPorId(pedido.IdEnderecoEntrega);
             pedido.Cartao1 = new CartaoDao().ConsultarPorId(pedido.IdCartao1);
             pedido.Cartao2 = new CartaoDao().ConsultarPorId(pedido.IdCartao2);
-            //pedido.CupomDesconto = new CupomDao().ConsultarPorId(pedido.IdCupomDesconto);
-            //pedido.CupomTroca = new CupomDao().ConsultarPorId(pedido.IdCupomTroca);
+            pedido.CupomDesconto = new CupomDao().ConsultarPorId(pedido.IdCupomDesconto);
+            pedido.CupomTroca = new CupomDao().ConsultarPorId(pedido.IdCupomTroca);
             pedido.Bebidas = RetornarBebidasPedido(pedido.Id);
 
             return pedido;

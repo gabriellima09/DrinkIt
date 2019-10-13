@@ -185,5 +185,25 @@ namespace DrinkIt.WebApp.Dao
                 throw ex;
             }
         }
+
+        public bool ValidarCupom(int idCupom)
+        {
+            bool existe = false;
+
+            Sql.Append("SELECT (SELECT COUNT(*) FROM Cupons) AS 'Exists'");
+            Sql.Append("WHERE ");
+            Sql.Append("Id = " + idCupom);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    existe = Convert.ToInt32(reader["Exists"]) > 0;
+                }
+            }
+
+            return existe;
+        }
+
     }
 }
