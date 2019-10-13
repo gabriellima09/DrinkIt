@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Edit";
+
+    List<SelectListItem> listaTipos = (List<SelectListItem>)ViewBag.ListaTiposBebida;
 }
 
 <h2>Edit</h2>
@@ -35,21 +37,22 @@
     <div class="form-group">
         @Html.LabelFor(model => model.TipoBebida, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <select class="form-control" name="TipoBebida.Id">
-                <option value="0">Selecione um tipo</option>
-                <option value="1">Água</option>
-                <option value="2">Refrigerante</option>
-                <option value="3">Suco</option>
-                <option value="4">Cerveja</option>
-                <option value="5">Chá</option>
-                <option value="6">Café</option>
-                <option value="7">Leite</option>
-                <option value="8">Energético</option>
-                <option value="9">Vodka</option>
-                <option value="10">Gin</option>
-                <option value="11">Saquê</option>
-            </select>
-            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+            @*<select class="form-control" name="TipoBebida.Id">
+            <option value="0">Selecione um tipo</option>
+            <option value="1">Água</option>
+            <option value="2">Refrigerante</option>
+            <option value="3">Suco</option>
+            <option value="4">Cerveja</option>
+            <option value="5">Chá</option>
+            <option value="6">Café</option>
+            <option value="7">Leite</option>
+            <option value="8">Energético</option>
+            <option value="9">Vodka</option>
+            <option value="10">Gin</option>
+            <option value="11">Saquê</option>
+        </select>*@
+            @Html.DropDownListFor(model => model.TipoBebida.Id, listaTipos, new { @class = "form-control", @name = "TipoBebida" })
+            @Html.ValidationMessageFor(model => model.TipoBebida, "", new { @class = "text-danger" })
         </div>
     </div>
 

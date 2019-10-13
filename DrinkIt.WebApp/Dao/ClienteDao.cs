@@ -13,17 +13,24 @@ namespace DrinkIt.WebApp.Dao
 
         public void Alterar(Cliente entidade)
         {
-            Sql.Append("UPDATE CLIENTES SET");
-            Sql.Append("Cpf = '" + entidade.Cpf +"', ");
-            Sql.Append("DataNascimento = " + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append("Email = '" + entidade.Email + "', ");
-            Sql.Append("Genero = '" + entidade.Genero + "', ");
-            Sql.Append("Nome = '" + entidade.Nome + "', ");
-            Sql.Append("Login = '" + entidade.Login + "', ");
-            Sql.Append("Senha = '" + Criptografia.RetornarMD5(entidade.Senha) + "'");
-            Sql.Append(" WHERE Id = " + entidade.Id);
+            try
+            {
+                Sql.Append("UPDATE CLIENTES SET ");
+                Sql.Append("Cpf = '" + entidade.Cpf + "', ");
+                Sql.Append("DataNascimento = '" + entidade.DataNascimento.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("Email = '" + entidade.Email + "', ");
+                Sql.Append("Genero = '" + entidade.Genero + "', ");
+                Sql.Append("Nome = '" + entidade.Nome + "', ");
+                Sql.Append("Login = '" + entidade.Login + "'");
+                Sql.Append(" WHERE Id = " + entidade.Id);
 
-            DbContext.ExecuteQuery(Sql.ToString());
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public void Cadastrar(Cliente entidade)

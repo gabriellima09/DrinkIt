@@ -44,6 +44,10 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Create
         public ActionResult Create()
         {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
+            Items.Add(new SelectListItem { Disabled = true, Selected = true, Text = "Selecione um tipo", Value = null });
+            ViewBag.ListaTiposBebida = Items;
             return View();
         }
 
@@ -52,14 +56,18 @@ namespace DrinkIt.WebApp.Controllers
         public ActionResult Create(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
             try
-            {
-                var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
-                string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+            { 
+                if(ArquivoImagem != null)
+                {
+                    var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
+                    string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
 
-                var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
-                ArquivoImagem.SaveAs(path);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), fileId);
+                    ArquivoImagem.SaveAs(path);
 
-                bebida.CaminhoImagem = fileId;
+                    bebida.CaminhoImagem = fileId;
+                }
+                
                 bebida.Ingredientes = new List<Ingrediente>();
                 if (LstIngrediente != null && LstIngrediente.Count > 0)
                 {
@@ -74,11 +82,23 @@ namespace DrinkIt.WebApp.Controllers
                     }
                 }
 
+                //if (!ModelState.IsValid)
+                //{
+                //    List<SelectListItem> Items = new List<SelectListItem>();
+                //    Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
+                //    if (bebida.TipoBebida == null)
+                //    {
+                //        Items.Add(new SelectListItem { Disabled = true, Selected = true, Text = "Selecione um tipo", Value = null });
+                //    }
+                //    ViewBag.ListaTiposBebida = Items;
+                //    return View();
+                //}
+
                 Fachada.Cadastrar(bebida);
 
                 return RedirectToAction("Index", "Usuarios");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View("Error");
             }
@@ -92,14 +112,30 @@ namespace DrinkIt.WebApp.Controllers
                 return View("Error");
             }
 
-            return View(Fachada.ConsultarPorId(id));
+            List<SelectListItem> Items = new List<SelectListItem>();
+            Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
+
+            Bebida bebida = new Bebida();
+            bebida = Fachada.ConsultarPorId(id);
+
+            foreach(var item in Items)
+            {
+                if(item.Value.Equals(bebida.TipoBebida.Id.ToString()))
+                {
+                    item.Selected = true;
+                }
+            }
+
+            ViewBag.ListaTiposBebida = Items;
+
+            return View(bebida);
         }
 
         // POST: Bebidas/Edit/5
         [HttpPost]
         public ActionResult Edit(Bebida bebida, List<string> LstIngrediente, HttpPostedFileBase ArquivoImagem)
         {
-            if(ArquivoImagem != null)
+            if (ArquivoImagem != null)
             {
                 var originalFilename = Path.GetFileName(ArquivoImagem.FileName);
                 string fileId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
@@ -109,7 +145,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 bebida.CaminhoImagem = fileId;
             }
-            
+
 
             bebida.Ingredientes = new List<Ingrediente>();
 
@@ -140,10 +176,10 @@ namespace DrinkIt.WebApp.Controllers
             {
                 // TODO: Add update logic here
                 Fachada.Excluir(id);
-                if(statusAtual == 1)//Inativando?
+                if (statusAtual == 1)//Inativando?
                 {
                     bebidaDao.GravarMotivoInativacao(id, motivo);
-                }                
+                }
                 return RedirectToAction("Index", "Usuarios");
             }
             catch (Exception ex)
@@ -155,14 +191,19 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvDashBebidas(int idGas = 0, int idTeor = 0, int idValor = 0, int idTipo = 0, string textoBusca = "")
         {
-            if(idGas == 0 && idTeor == 0 && idValor == 0 && idTipo == 0 && textoBusca.Equals(""))
+            if (idGas == 0 && idTeor == 0 && idValor == 0 && idTipo == 0 && textoBusca.Equals(""))
             {//RESULTADO INICIAL: COMPLETO
                 return PartialView(Fachada.ConsultarTodos());
             }
             else
             {//TO-DO: BUSCA POR TEXTO/COMBOS
                 return PartialView(bebidaDao.ConsultarComFiltro(idGas, idTeor, idValor, idTipo, textoBusca));
-            }            
+            }
+        }
+
+        public ActionResult PvCarousel()
+        {
+            return PartialView();
         }
     }
 }

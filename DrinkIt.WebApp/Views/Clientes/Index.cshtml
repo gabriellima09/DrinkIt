@@ -18,6 +18,7 @@
 
 @{
     string nome = ((Usuario)Session["Usuario"])?.Login ?? "Usuário Teste";
+    int idCliente = ((Usuario)Session["Usuario"]).Id;
 }
 
 <h2>Seja bem vindo, @nome</h2>
@@ -30,6 +31,7 @@
     <li><a data-toggle="tab" href="#Cartoes">Meus Cartões</a></li>
     <li><a data-toggle="tab" href="#Cupons">Meus Cupons</a></li>
     <li><a data-toggle="tab" href="#Telefones">Meus Telefones</a></li>
+    <li><a data-toggle="tab" href="#Editar">Editar Perfil</a></li>
     <li><a data-toggle="tab" href="#Senha">Senha</a></li>
 </ul>
 
@@ -80,6 +82,16 @@
             <h4>Meus Telefones</h4>
             <hr />
             @Html.Action("PvTelefone", "Telefones")
+        </div>
+    </div>
+
+
+    <!-- Editar Perfil -->
+    <div class="tab-pane" id="Editar">
+        <div class="panel panel-default">
+            <h4>Editar Perfil</h4>
+            <hr />
+            @Html.ActionLink("Editar meu Perfil", "Edit", new { id = idCliente }, new { @class = "btn btn-info", @style = "margin-left:2%;margin-bottom:2%"} )
         </div>
     </div>
 

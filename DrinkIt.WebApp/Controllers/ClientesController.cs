@@ -129,7 +129,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

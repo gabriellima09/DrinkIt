@@ -231,6 +231,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\banner1.jpg" />
+    <Content Include="Images\banner2.jpg" />
+    <Content Include="Images\banner3.jpg" />
     <Content Include="Images\crystal.jpg" />
     <Content Include="Images\dolly.jpg" />
     <Content Include="Images\drink.jpg" />
@@ -317,6 +320,7 @@
     <Content Include="Views\SolicitacoesTroca\PvSolicitacoesTroca.cshtml" />
     <Content Include="Views\Estoque\PvEstoque.cshtml" />
     <Content Include="Views\Telefones\PvTelefone.cshtml" />
+    <Content Include="Views\Bebidas\PvCarousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Text;
+using System.Web.Mvc;
 using DrinkIt.WebApp.Models;
 
 namespace DrinkIt.WebApp.Dao
@@ -478,5 +479,28 @@ namespace DrinkIt.WebApp.Dao
             }
 
         }
+
+        public IEnumerable<SelectListItem> GetTiposBebida()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+
+            Sql.Append("SELECT * FROM TIPOBEBIDA;");
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    SelectListItem item = new SelectListItem
+                    {
+                        Value = Convert.ToString(reader["Id"]),
+                        Text = Convert.ToString(reader["Descricao"])
+                    };
+                    Items.Add(item);
+                }
+            }
+
+            return Items;
+        }
+        
     }
 }
