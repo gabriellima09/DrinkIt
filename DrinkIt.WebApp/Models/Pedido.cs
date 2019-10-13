@@ -23,6 +23,8 @@ namespace DrinkIt.WebApp.Models
         public int IdCupom { get; set; }
         public int IdCliente { get; set; }
 
+        public bool Pagar2Cartoes { get; set; }
+
         public Cupom Cupom { get; set; }
 
         public Endereco NovoEndereco { get; set; }

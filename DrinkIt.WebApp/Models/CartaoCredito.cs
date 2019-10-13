@@ -10,7 +10,7 @@ namespace DrinkIt.WebApp.Models
         [Required]
         public string NomeTitular { get; set; }
         [Required]
-        public string Bandeira { get; set; }
+        public Bandeira Bandeira { get; set; }
         [Required]
         public int CodigoSeguranca { get; set; }
         public bool Preferencial { get; set; }

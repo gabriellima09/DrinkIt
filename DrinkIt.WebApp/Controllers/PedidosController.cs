@@ -75,7 +75,6 @@ namespace DrinkIt.WebApp.Controllers
 
             Pedido pedido = new Pedido
             {
-                Status = "Finalizado", //trocar os status
                 Cliente = cliente,
                 Bebidas = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas ?? new List<Bebida>()
             };
@@ -93,11 +92,21 @@ namespace DrinkIt.WebApp.Controllers
                 if (pedido.NovoCartao != null)
                 {
                     new CartaoDao().Cadastrar(pedido.NovoCartao);
+
+                    if (pedido.IdCartao1 == 0)
+                    {
+                        pedido.IdCartao1 = new CartaoDao().ObterUltimoIdInserido();
+                    }
+                    else if (pedido.IdCartao2 == 0)
+                    {
+                        pedido.IdCartao2 = new CartaoDao().ObterUltimoIdInserido();
+                    }
                 }
 
-                if (pedido.NovoEndereco != null)
+                if (pedido.NovoEndereco != null && pedido.IdEnderecoEntrega == 0)
                 {
                     new EnderecoDao().Cadastrar(pedido.NovoEndereco);
+                    pedido.IdEnderecoEntrega = new EnderecoDao().ObterUltimoIdInserido();
                 }
 
                 new PedidoDao().Cadastrar(pedido);
@@ -107,60 +116,12 @@ namespace DrinkIt.WebApp.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            return RedirectToAction("Index", "Usuarios");
+            return RedirectToAction("Index", "Clientes");
         }
 
         public ActionResult Details(int id)
         {
-            Pedido pedido = new Pedido
-            {
-                DataCadastro = DateTime.Now,
-                Status = "Finalizado",
-                Id = 1,
-                Cliente = new Cliente
-                {
-                    Id = 1,
-                    Email = "teste@teste.com.br",
-                    Login = "Teste",
-                    Senha = "Teste",
-                    Nome = "Usuário Teste"
-                },
-                Bebidas = new List<Bebida>
-                    {
-                        new Bebida
-                        {
-                            Id = 1,
-                            Nome = "Crystal",
-                            Descricao = "Água Mineral sem Gás",
-                            Marca = "Crystal",
-                            Valor = 1.99M,
-                            Volume = "1.5L",
-                            Peso = "1KG",
-                            Sabor = "---",
-                            Lote = "12321",
-                            DataFabricacao = DateTime.Now,
-                            DataValidade = DateTime.Now,
-                            Fabricante = "Coca-Cola",
-                            Embalagem = "Garrafa",
-                            CodigoBarras = "662607004",
-                            Alcoolico = false,
-                            Teor = 0,
-                            Gaseificada = false,
-                            ContemGluten = false,
-                            Ingredientes = new List<Ingrediente>
-                            {
-                                new Ingrediente
-                                {
-                                    Descricao = "H2O"
-                                }
-                            },
-                            DicaConservacao = "Beba água",
-                            Status = true
-                        }
-                    }
-            };
-
-            return View(pedido);
+            return View(new PedidoDao().ConsultarPorId(id));
         }
 
         [HttpPost]

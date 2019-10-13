@@ -17,6 +17,9 @@ else
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DataCadastro)
             </th>
             <th>
@@ -30,6 +33,9 @@ else
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorTotal)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DataCadastro)

@@ -187,6 +187,8 @@ namespace DrinkIt.WebApp.Dao
                 DataCadastro = Convert.ToDateTime(reader["DataCadastro"]),
                 DataUltimaAtualizacao = Convert.ToDateTime(reader["DataUltimaAtualizacao"]),
                 //Status = Convert.ToString(reader["Status"]),
+                Frete = Convert.ToDecimal(reader["Frete"]),
+                Desconto = Convert.ToDecimal(reader["Desconto"]),
                 ValorTotal = Convert.ToDecimal(reader["ValorTotal"])
             };
 

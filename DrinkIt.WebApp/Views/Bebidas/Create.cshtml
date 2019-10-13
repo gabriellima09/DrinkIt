@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control", @name = "Valor" } })
+                @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control money", @name = "Valor" } })
                 @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -155,7 +155,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Teor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Teor, new { htmlAttributes = new { @class = "form-control", @name = "Teor" } })
+                @Html.EditorFor(model => model.Teor, new { htmlAttributes = new { @class = "form-control money", @name = "Teor" } })
                 @Html.ValidationMessageFor(model => model.Teor, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -253,3 +253,13 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/Bebidas/Script_CreateBebidas.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+
+<script>
+    $('.money').mask('#.##0,00', { reverse: true });
+</script>

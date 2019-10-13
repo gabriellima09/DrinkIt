@@ -1,6 +1,7 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
+using System;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -75,7 +76,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 return RedirectToAction("Index", "Clientes");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }

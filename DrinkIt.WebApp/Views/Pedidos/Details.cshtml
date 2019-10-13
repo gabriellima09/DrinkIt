@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Id)
+            Id do Pedido
         </dt>
 
         <dd>
@@ -19,11 +19,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Data)
+            @Html.DisplayNameFor(model => model.DataCadastro)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Data)
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataUltimaAtualizacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataUltimaAtualizacao)
         </dd>
 
         <dt>
@@ -41,6 +49,41 @@
         <dd>
             @Html.DisplayFor(model => model.Cliente.Nome)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnderecoEntrega)
+        </dt>
+
+        <dd>
+            @string.Concat(Model.EnderecoEntrega.Descricao, " - ", Model.EnderecoEntrega.Logradouro, ", ", Model.EnderecoEntrega.Numero,
+           " ", Model.EnderecoEntrega.Complemento, " ", Model.EnderecoEntrega.Bairro, " ", Model.EnderecoEntrega.Cidade, " ",
+           Model.EnderecoEntrega.Estado, " ", Model.EnderecoEntrega.CEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+
+        <dd>
+            @Model.ValorTotal.ToString("C")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desconto)
+        </dt>
+
+        <dd>
+            @Model.Desconto.ToString("C")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frete)
+        </dt>
+
+        <dd>
+            @Model.Frete.ToString("C")
+        </dd>
+
     </dl>
 
     <hr />
@@ -54,9 +97,19 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => item.Nome)
+                @string.Concat(item.Nome, " ", item.Descricao, " ", item.Marca, " ", item.Sabor, " ", item.Peso)
             </dd>
         }
+
+        <dt></dt>
+        <dd><hr /></dd>
+
+        <dt>
+            Valor da Compra
+        </dt>
+        <dd>
+            @Model.Bebidas.Sum(x => x.Valor)
+        </dd>
     </dl>
 </div>
 <p>

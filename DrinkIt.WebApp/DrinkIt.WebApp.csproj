@@ -187,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logger\LoggerManager.cs" />
+    <Compile Include="Models\Bandeira.cs" />
     <Compile Include="Models\Bebida.cs" />
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\CartaoCredito.cs" />

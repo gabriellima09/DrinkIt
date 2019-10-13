@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Descricao, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Descricao, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Descricao, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Logradouro, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Logradouro, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Logradouro, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Logradouro, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Numero, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Numero, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Numero, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.CEP, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.CEP, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.CEP, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.CEP, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Complemento, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Complemento, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Complemento, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Cidade, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Cidade, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Cidade, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Estado, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Estado, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Estado, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.NovoEndereco.Bairro, htmlAttributes: new { @class = "control-label" })
                                 <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NovoEndereco.Bairro, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
                                     @Html.ValidationMessageFor(model => model.NovoEndereco.Bairro, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
 
                         <div class="form-group">
                             <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
-                            <input type="checkbox" id="2cartoes" name="2cartoes" />
+                            <input type="checkbox" id="Pagar2Cartoes" name="Pagar2Cartoes" />
                         </div>
 
                         <div id="divCartao2" style="display:none">
@@ -154,7 +154,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.NovoCartao.Numero, htmlAttributes: new { @class = "control-label" })
                             <div>
-                                @Html.EditorFor(model => model.NovoCartao.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.NovoCartao.Numero, new { htmlAttributes = new { @class = "form-control newCart", @disabled="disabled" } })
                                 @Html.ValidationMessageFor(model => model.NovoCartao.Numero, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.NovoCartao.NomeTitular, htmlAttributes: new { @class = "control-label" })
                             <div>
-                                @Html.EditorFor(model => model.NovoCartao.NomeTitular, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.NovoCartao.NomeTitular, new { htmlAttributes = new { @class = "form-control newCart", @disabled = "disabled" } })
                                 @Html.ValidationMessageFor(model => model.NovoCartao.NomeTitular, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.NovoCartao.Bandeira, htmlAttributes: new { @class = "control-label" })
                             <div>
-                                <select class="form-control" name="Cartao.Bandeira">
+                                <select class="form-control newCart" name="Cartao.Bandeira" disabled="disabled">
                                     <option value="Visa">Visa</option>
                                     <option value="Mastercard">Mastercard</option>
                                 </select>
@@ -181,7 +181,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.NovoCartao.CodigoSeguranca, htmlAttributes: new { @class = "control-label" })
                             <div>
-                                @Html.EditorFor(model => model.NovoCartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.NovoCartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control newCart", @disabled = "disabled" } })
                                 @Html.ValidationMessageFor(model => model.NovoCartao.CodigoSeguranca, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -222,7 +222,6 @@
                                     </dt>
                                     <dd>
                                         @Model.Bebidas.Sum(x => x.Valor)
-                                        @Html.HiddenFor(x => x.ValorTotal)
                                     </dd>
                                 </dl>
 
@@ -249,7 +248,10 @@
                             </div>
                             <div class="panel-footer">
                                 <label class="control-label">Valor Total: </label>
-                                <label class="control-label" style="float:right">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</label>
+                                <label class="control-label" style="float:right">
+                                    <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</span>
+                                </label>
+                                <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.Valor)" />
                             </div>
                         </div>
                     </div>

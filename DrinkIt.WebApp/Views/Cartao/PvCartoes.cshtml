@@ -18,6 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CodigoSeguranca)
         </th>
+        <th>
+            Data de Validade
+        </th>
         <th></th>
     </tr>
 
@@ -35,6 +38,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CodigoSeguranca)
+        </td>
+        <td>
+            @string.Concat(item.MesValidade, "/", item.AnoValidade)
         </td>
         <td align="center">
             <div class="btn-group">
