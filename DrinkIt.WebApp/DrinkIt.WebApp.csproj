@@ -173,6 +173,7 @@
     <Compile Include="Dao\IBebida.cs" />
     <Compile Include="Dao\IDao.cs" />
     <Compile Include="Dao\ITelefone.cs" />
+    <Compile Include="Dao\ITipoBebida.cs" />
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\PrecificacaoDao.cs" />

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -21,7 +22,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("IdTipo = " + entidade.IdTipo + ", ");
                 Sql.Append("DtCriacao = '" + entidade.DataEmissao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
                 Sql.Append("DtExpiracao = '" + entidade.DataExpiracao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-                Sql.Append("Valor = " + entidade.Valor + ", ");
+                Sql.Append("Valor = " + entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append("Ativo = " + (entidade.Status == true ? 1 : 0));
                 Sql.Append(" WHERE Id = " + entidade.Id);
 
@@ -46,7 +47,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(entidade.IdTipo + ", '");
                 Sql.Append(entidade.DataEmissao.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
                 Sql.Append(entidade.DataExpiracao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-                Sql.Append(entidade.Valor + ", '");
+                Sql.Append(entidade.Valor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append((entidade.Status == true ? 1 : 0));
                 Sql.Append(");");
 

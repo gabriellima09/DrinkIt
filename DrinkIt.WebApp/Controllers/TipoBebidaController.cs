@@ -14,11 +14,14 @@ namespace DrinkIt.WebApp.Controllers
 
         private readonly IDao<TipoBebida> Dao;
         private readonly IFachada<TipoBebida> Fachada;
+        private readonly ITipoBebida tipoBebidaDao;
 
         public TipoBebidaController()
         {
             Dao = new TipoBebidaDao();
             Fachada = new Fachada<TipoBebida>(Dao);
+            tipoBebidaDao = new TipoBebidaDao();
+
         }
 
         // GET: TipoBebida
@@ -41,18 +44,21 @@ namespace DrinkIt.WebApp.Controllers
         // GET: TipoBebida/Create
         public ActionResult Create()
         {
+            List<SelectListItem> listaGrupos = new List<SelectListItem>();
+            listaGrupos = (List<SelectListItem>)tipoBebidaDao.GetGruposPrecificacao();
+            ViewBag.listaGrupos = listaGrupos;
             return View();
         }
 
         // POST: TipoBebida/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TipoBebida tipo)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                Fachada.Cadastrar(tipo);
+                return RedirectToAction("Index", "Usuarios");
             }
             catch
             {
@@ -63,23 +69,35 @@ namespace DrinkIt.WebApp.Controllers
         // GET: TipoBebida/Edit/5
         public ActionResult Edit(int id)
         {
-            TipoBebida tipo = new TipoBebida
-            {
-                Descricao = "Água"
-            };
+            TipoBebida tipo = new TipoBebida();
 
+            tipo = Fachada.ConsultarPorId(id);
+
+            List<SelectListItem> listaGrupos = new List<SelectListItem>();
+            listaGrupos = (List<SelectListItem>)tipoBebidaDao.GetGruposPrecificacao();
+
+            foreach(var item in listaGrupos)
+            {
+                if(item.Value.Equals(tipo.IdGrupoPrecificacao.ToString()))
+                {
+                    item.Selected = true;
+                }
+            }
+
+            ViewBag.listaGrupos = listaGrupos;
             return View(tipo);
         }
 
         // POST: TipoBebida/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(TipoBebida tipo)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                Fachada.Alterar(tipo);
+                return RedirectToAction("Index", "Usuarios");
             }
             catch
             {

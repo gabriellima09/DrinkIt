@@ -5636,3 +5636,215 @@ Incorrect syntax near '1 WHERE Id = 1'.
 2019-10-13 18:58:03.4046|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS WHERE Id = 1|
 2019-10-13 18:58:03.4106|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
 2019-10-13 18:58:03.4265|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-13 20:00:31.9012|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:00:31.9301|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:00:38.7915|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:00:38.7915|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:00:38.8688|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:00:38.8688|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:00:39.7076|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:00:39.7076|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:00:40.2163|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:00:40.2173|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:00:40.6022|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:00:40.6022|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:00:41.7027|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:00:41.7027|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:00:42.1111|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:00:42.1111|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:00:42.5345|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:00:42.5345|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:00:45.4870|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:00:45.4870|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:02.9690|Debug|Executando query ... Query: INSERT INTO PRECIFICACAO (Descricao, MargemLucro )VALUES ('teste', 12);|
+2019-10-13 20:01:03.9898|Info|Fim de execução de query ... Query: INSERT INTO PRECIFICACAO (Descricao, MargemLucro )VALUES ('teste', 12);|
+2019-10-13 20:01:03.9998|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:01:03.9998|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:01:03.9998|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:01:03.9998|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:01:04.0138|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:01:04.0138|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:01:04.0138|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:01:04.0138|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:01:04.0138|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:01:04.0138|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:01:04.0312|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:01:04.0312|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:01:04.0312|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:04.0312|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:04.0312|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:01:04.0462|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:01:06.0851|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:06.0851|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:16.5840|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:16.5840|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:01:22.1209|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:01:22.1229|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:04:48.4278|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:04:48.4527|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:04:53.2625|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:04:53.2645|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:04:53.3383|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:04:53.3383|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:04:54.1182|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:04:54.1182|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:04:54.6405|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:04:54.6405|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:04:54.9736|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:04:54.9736|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:04:55.4912|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:04:55.4912|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:04:56.6899|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:04:56.6899|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:04:57.0010|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:04:57.0010|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:05:01.6101|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:01.6101|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:10.5772|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:05:10.5772|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:05:10.5772|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:05:10.5772|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:05:10.5772|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:05:10.5921|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:05:10.5921|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:05:10.5921|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:05:10.6121|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:05:10.6121|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:05:10.6121|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:05:10.6121|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:05:10.6230|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:10.6230|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:10.6230|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:05:10.6230|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:05:12.3152|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:12.3152|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:16.5725|Debug|Executando query ... Query: INSERT INTO TIPOBEBIDA (Descricao, IdPrecificacao)VALUES ('Tipo Teste', 4);|
+2019-10-13 20:05:17.1619|Info|Fim de execução de query ... Query: INSERT INTO TIPOBEBIDA (Descricao, IdPrecificacao)VALUES ('Tipo Teste', 4);|
+2019-10-13 20:05:17.1699|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:05:17.1699|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:05:17.1699|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:05:17.1699|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:05:17.1699|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:05:17.1699|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:05:17.1889|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:05:17.1889|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:05:17.1889|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:05:17.1889|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:05:17.2011|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:05:17.2011|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:05:17.2011|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:17.2011|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:05:17.2011|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:05:17.2011|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:14:47.5392|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:14:47.5632|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:14:56.3222|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:14:56.3222|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:14:56.3895|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:14:56.3895|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:14:57.2106|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:14:57.2106|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:14:57.6946|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:14:57.6946|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:14:58.0881|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:14:58.0881|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:14:58.4591|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:14:58.4591|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:14:58.8401|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:14:58.8401|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:14:59.2041|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:14:59.2041|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:15:10.2290|Debug|Executando query reader ... Query: SELECT * FROM TIPOBEBIDA WHERE Id = 12|
+2019-10-13 20:15:10.2330|Info|Fim de execução de query ... Query: SELECT * FROM TIPOBEBIDA WHERE Id = 12|
+2019-10-13 20:15:10.2330|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:15:10.2330|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:15:14.5128|Debug|Executando query ... Query: UPDATE TIPOBEBIDA SET Descricao = 'Tipo Teste 2', IdPrecificacao = 2 WHERE Id = 12|
+2019-10-13 20:15:14.5912|Info|Fim de execução de query ... Query: UPDATE TIPOBEBIDA SET Descricao = 'Tipo Teste 2', IdPrecificacao = 2 WHERE Id = 12|
+2019-10-13 20:15:14.6022|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:15:14.6022|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:15:14.6081|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:15:14.6081|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:15:14.6081|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:15:14.6081|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:15:14.6081|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:15:14.6081|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:15:14.6281|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:15:14.6281|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:15:14.6281|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:15:14.6281|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:15:14.6411|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:15:14.6411|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:15:14.6411|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:15:14.6411|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:19:20.9605|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:19:20.9844|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:19:28.4288|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:19:28.4288|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:19:28.4932|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:19:28.4932|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:19:29.3010|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:19:29.3010|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:19:29.8141|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:19:29.8141|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:19:30.1851|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:19:30.1901|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:19:30.6000|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:19:30.6000|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:19:31.0578|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:19:31.0817|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:19:31.5200|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:19:31.5200|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:20:44.5317|Debug|Executando query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 2, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 0, '1);|
+2019-10-13 20:20:44.8002|Error|Erro ao executar query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 2, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 0, '1);|Unclosed quotation mark after the character string '1);'.
+Incorrect syntax near '1);'.
+2019-10-13 20:20:44.8188|Info|Fim de execução de query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 2, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 0, '1);|
+2019-10-13 20:20:49.9559|Debug|Executando query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:20:49.9759|Error|Erro ao executar query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|Unclosed quotation mark after the character string '1);'.
+Incorrect syntax near '1);'.
+2019-10-13 20:20:49.9928|Info|Fim de execução de query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:20:51.4104|Debug|Executando query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:20:51.4304|Error|Erro ao executar query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|Unclosed quotation mark after the character string '1);'.
+Incorrect syntax near '1);'.
+2019-10-13 20:20:51.4473|Info|Fim de execução de query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:21:13.4718|Debug|Executando query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:21:13.4908|Error|Erro ao executar query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|Unclosed quotation mark after the character string '1);'.
+Incorrect syntax near '1);'.
+2019-10-13 20:21:13.5097|Info|Fim de execução de query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, '1);|
+2019-10-13 20:22:00.8237|Debug|Executando query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, 1);|
+2019-10-13 20:22:00.8838|Info|Fim de execução de query ... Query: INSERT INTO CUPONS (Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo) VALUES ('CoolPOM_v5', 0, '2019-10-10 00:00:00', '2020-10-10 00:00:00', 9, 1);|
+2019-10-13 20:22:00.8968|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:22:00.8968|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:22:00.9287|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:22:00.9287|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:22:00.9437|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:22:00.9437|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:22:00.9517|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:22:00.9517|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:22:00.9517|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:22:00.9517|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:22:00.9676|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:22:00.9676|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:22:00.9676|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:22:00.9676|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:22:00.9826|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:22:00.9826|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:22:07.0983|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1002|
+2019-10-13 20:22:07.0983|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1002|
+2019-10-13 20:22:26.1845|Debug|Executando query ... Query: UPDATE CUPONS SET Descricao = 'CoolPOM_v5', IdTipo = 1, DtCriacao = '2010-10-10 00:00:00', DtExpiracao = '2020-10-10 00:00:00', Valor = 5, Ativo = 0 WHERE Id = 1002|
+2019-10-13 20:22:26.1905|Info|Fim de execução de query ... Query: UPDATE CUPONS SET Descricao = 'CoolPOM_v5', IdTipo = 1, DtCriacao = '2010-10-10 00:00:00', DtExpiracao = '2020-10-10 00:00:00', Valor = 5, Ativo = 0 WHERE Id = 1002|
+2019-10-13 20:22:26.1905|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:22:26.1905|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-13 20:22:26.2075|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:22:26.2075|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-13 20:22:26.2075|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:22:26.2075|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-13 20:22:26.2224|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:22:26.2224|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-13 20:22:26.2224|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:22:26.2224|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-13 20:22:26.2364|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:22:26.2364|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-13 20:22:26.2364|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:22:26.2364|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-13 20:22:26.2503|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-13 20:22:26.2503|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
