@@ -81,7 +81,10 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-
+                bebida.TipoBebida = new TipoBebida
+                {
+                    Descricao = "Teste"
+                };
                 //if (!ModelState.IsValid)
                 //{
                 //    List<SelectListItem> Items = new List<SelectListItem>();

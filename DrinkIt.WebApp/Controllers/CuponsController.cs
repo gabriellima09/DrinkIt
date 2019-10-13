@@ -132,5 +132,19 @@ namespace DrinkIt.WebApp.Controllers
             }
             
         }
+
+        [HttpPost]
+        public ActionResult ValidarCupom(string cupom)
+        {
+            Dictionary<bool, Cupom> dic = new CupomDao().ValidarCupom(cupom);
+
+            var resultado = new
+            {
+                Resultado = dic.ContainsKey(true),
+                Cupom = dic.Values
+            };
+
+            return Json(resultado);
+        }
     }
 }

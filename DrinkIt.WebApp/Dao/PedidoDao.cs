@@ -25,24 +25,26 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("DataCadastro, ");
             Sql.Append("IdStatus, ");
             Sql.Append("DataUltimaAtualizacao, ");
-            Sql.Append("IdCupomDesconto, ");
-            Sql.Append("IdCupomTroca, ");
+            Sql.Append("IdCupom, ");
             Sql.Append("IdEnderecoEntrega, ");
             Sql.Append("IdCartao1, ");
             Sql.Append("IdCartao2, ");
-            Sql.Append("ValorTotal");
+            Sql.Append("ValorTotal, ");
+            Sql.Append("Desconto, ");
+            Sql.Append("Frete ");
             Sql.Append(")");
             Sql.Append("VALUES (");
             Sql.Append(entidade.IdCliente + ", ");
             Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sql.Append(0 + ", ");
             Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append(entidade.IdCupomDesconto + ", ");
-            Sql.Append(entidade.IdCupomTroca + ", ");
+            Sql.Append(entidade.IdCupom + ", ");
             Sql.Append(entidade.IdEnderecoEntrega + ", ");
             Sql.Append(entidade.IdCartao1 + ", ");
             Sql.Append(entidade.IdCartao2 + ", ");
-            Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")));
+            Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")) + ", ");
+            Sql.Append(entidade.Desconto.ToString(new CultureInfo("en-US")) + ", ");
+            Sql.Append(entidade.Frete.ToString(new CultureInfo("en-US")));
             Sql.Append(");");
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -174,19 +176,17 @@ namespace DrinkIt.WebApp.Dao
         {
             Pedido pedido = new Pedido
             {
-                CupomDesconto = new Cupom(),
-                CupomTroca = new Cupom(),
+                Cupom = new Cupom(),
 
                 Id = Convert.ToInt32(reader["Id"]),
                 IdCliente = Convert.ToInt32(reader["ClienteId"]),
                 IdCartao1 = Convert.ToInt32(reader["IdCartao1"]),
                 IdCartao2 = Convert.ToInt32(reader["IdCartao2"]),
-                IdCupomDesconto = Convert.ToInt32(reader["IdCupomDesconto"]),
-                IdCupomTroca = Convert.ToInt32(reader["IdCupomTroca"]),
+                IdCupom = Convert.ToInt32(reader["IdCupom"]),
                 IdEnderecoEntrega = Convert.ToInt32(reader["IdEnderecoEntrega"]),
                 DataCadastro = Convert.ToDateTime(reader["DataCadastro"]),
                 DataUltimaAtualizacao = Convert.ToDateTime(reader["DataUltimaAtualizacao"]),
-                Status = Convert.ToString(reader["Status"]),
+                //Status = Convert.ToString(reader["Status"]),
                 ValorTotal = Convert.ToDecimal(reader["ValorTotal"])
             };
 
@@ -194,8 +194,7 @@ namespace DrinkIt.WebApp.Dao
             pedido.EnderecoEntrega = new EnderecoDao().ConsultarPorId(pedido.IdEnderecoEntrega);
             pedido.Cartao1 = new CartaoDao().ConsultarPorId(pedido.IdCartao1);
             pedido.Cartao2 = new CartaoDao().ConsultarPorId(pedido.IdCartao2);
-            pedido.CupomDesconto = new CupomDao().ConsultarPorId(pedido.IdCupomDesconto);
-            pedido.CupomTroca = new CupomDao().ConsultarPorId(pedido.IdCupomTroca);
+            pedido.Cupom = new CupomDao().ConsultarPorId(pedido.IdCupom);
             pedido.Bebidas = RetornarBebidasPedido(pedido.Id);
 
             return pedido;

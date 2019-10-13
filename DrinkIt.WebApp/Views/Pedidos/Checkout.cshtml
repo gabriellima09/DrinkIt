@@ -1,12 +1,18 @@
 ﻿@model DrinkIt.WebApp.Models.Pedido
 
+@using Newtonsoft.Json;
+
 @{
     ViewBag.Title = "Checkout";
+
+    int i = 0;
 }
 
 <h2>Checkout</h2>
 
 <hr />
+
+@Html.Hidden("pedido", JsonConvert.SerializeObject(Model))
 
 <div id="divCheckout">
     @using (Html.BeginForm("FinalizarPedido", "Pedidos", FormMethod.Post, new { @id = "FormPedido" }))
@@ -106,13 +112,26 @@
 
                         @Html.DropDownListFor(x => x.IdCartao1, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
 
+                        <div>
+                            <label class="control-label">Valor no cartão: </label>
+                            <input class="form-control money" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                        </div>
+
                         <hr />
 
                         <div class="form-group">
                             <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
+                            <input type="checkbox" id="2cartoes" name="2cartoes" />
                         </div>
 
-                        @Html.DropDownListFor(x => x.IdCartao2, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+                        <div id="divCartao2" style="display:none">
+                            @Html.DropDownListFor(x => x.IdCartao2, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+
+                            <div>
+                                <label class="control-label">Valor no cartão 2: </label>
+                                <input class="form-control money" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                            </div>
+                        </div>
 
                         <hr />
 
@@ -126,6 +145,11 @@
                     <br />
 
                     <div class="form-horizontal" id="divCartaoAdicional" style="display:none">
+
+                        <div class="form-group">
+                            <label class="control-label">Valor no novo cartão: </label>
+                            <input name="valorNovoCartao" class="form-control money" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                        </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.NovoCartao.Numero, htmlAttributes: new { @class = "control-label" })
@@ -178,24 +202,50 @@
                                     @foreach (var item in Model.Bebidas)
                                     {
                                         <dt>
+                                            <input type="hidden" name="Bebidas[@i].Id" value="@item.Id" />
+                                            <input type="hidden" name="Bebidas[@i].Valor" value="@item.Valor" />
+
                                             <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"))</label>
                                         </dt>
 
                                         <dd>
                                             @Html.DisplayFor(model => item.Descricao)
                                         </dd>
+
+                                        i++;
                                     }
                                 </dl>
 
                                 <dl>
                                     <dt>
-                                        Valor total:
+                                        Valor da compra:
                                     </dt>
                                     <dd>
                                         @Model.Bebidas.Sum(x => x.Valor)
                                         @Html.HiddenFor(x => x.ValorTotal)
                                     </dd>
                                 </dl>
+
+                                <dl>
+                                    <dt>
+                                        <label class="control-label">Desconto: </label>
+                                    </dt>
+                                    <dd>
+                                        <span id="spanDesconto"></span>
+                                        @Html.HiddenFor(x => x.Desconto)
+                                    </dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>
+                                        <label class="control-label">Frete: </label>
+                                    </dt>
+                                    <dd>
+                                        <span id="spanFrete"></span>
+                                        @Html.HiddenFor(x => x.Frete)
+                                    </dd>
+                                </dl>
+
                             </div>
                             <div class="panel-footer">
                                 <label class="control-label">Valor Total: </label>
@@ -207,31 +257,26 @@
 
                     <div class="form-group">
                         <label class="control-label">Calcular frete:</label>
-                        <div>
+                        <div style="display: inline-flex;">
                             <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
-                            <label id="ResultadoValorFrete"></label>
+                            <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
                         </div>
-                        <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
+                        <label style="color:forestgreen" class="control-label">
+                            <span id="ResultadoValorFrete"></span>
+                        </label>
                     </div>
+
+                    <hr />
 
                     <div class="form-group">
-                        <label for="inputCupomDesconto">Cupom de desconto:</label>
-                        <input type="text" class="form-control" id="inputCupomDesconto" placeholder="Insira um cupom válido">
-                        @Html.HiddenFor(x => x.IdCupomDesconto)
+                        <label for="inputCupomDesconto">Cupom:</label>
+                        <input type="text" class="form-control" id="inputCupom" placeholder="Insira um cupom válido">
+                        @Html.HiddenFor(x => x.IdCupom)
                         <br />
                         <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
-                        <span id="spanCupomValido" style="color:green;display:none;"><strong>Cupom válido !!!</strong></span>
+                        <span id="spanCupomValido" style="color:forestgreen;display:none;"><strong>Cupom válido !!!</strong></span>
+                        <span id="spanCupomInvalido" style="color:darkred;display:none;"><strong>Cupom inválido !!!</strong></span>
                     </div>
-
-                    <div class="form-group">
-                        <label for="inputCupomTroca">Cupom de troca:</label>
-                        <input type="text" class="form-control" id="inputCupomTroca" placeholder="Insira um cupom válido">
-                        @Html.HiddenFor(x => x.IdCupomTroca)
-                        <br />
-                        <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
-                        <span id="spanCupomValido" style="color:green;display:none;"><strong>Cupom válido !!!</strong></span>
-                    </div>
-
 
                 </div>
             </div>
@@ -240,7 +285,7 @@
 
             <div class="form-horizontal">
                 <div class="form-group" align="right" style="margin-right:15px">
-                    <button id="btnFinalizarPedido" class="btn btn-success" type="submit">Finalizar Compra</button>
+                    <button id="btnFinalizarPedido" class="btn btn-success" type="button">Finalizar Compra</button>
                 </div>
             </div>
         </div>
@@ -252,3 +297,13 @@
 @Scripts.Render("~/bundles/bootstrap")
 
 <script src="~/Scripts/Pedidos/Script_Checkout_Pedidos.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+
+<script>
+    $('.money').mask('#.##0,00', { reverse: true });
+</script>

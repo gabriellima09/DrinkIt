@@ -9,5 +9,6 @@ namespace DrinkIt.WebApp.Models
         public DateTime DataEmissao { get; set; }
         public DateTime DataExpiracao { get; set; }
         public int IdTipo { get; set; }
+        public decimal Valor { get; set; }
     }
 }

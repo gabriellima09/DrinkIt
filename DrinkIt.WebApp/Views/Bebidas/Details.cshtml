@@ -7,8 +7,8 @@
 @using Newtonsoft.Json;
 
 <h2>Detalhes da Bebida</h2>
-<hr />
 
+<hr />
 
 <div class="row">
 
@@ -101,9 +101,6 @@
 
                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>
             }
-            <!-- comentado para o selenium -->
-            @*<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>*@
-            @*@Html.ActionLink("Adicionar ao Carrinho", "AdicionarBebidaSessao", "Carrinho", new { Model }, new { @class = "btn btn-success", @id = "btnAddCarrinho" })*@
         </div>
 
         <hr />
@@ -116,9 +113,14 @@
                     </div>
                     <div class="row col-md-6">
                         <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
-                        <label id="ResultadoValorFrete"></label>
+                        <label style="color:forestgreen" class="control-label">
+                            <span id="ResultadoValorFrete"></span>
+                        </label>
                     </div>
-                    <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
+                    <form id="FormBebidaDetails" action="/Pedidos/SimularFreteDetails/" method="post">
+                        <input type="hidden" id="bebidaFrete" name="bebidaFrete" value="@JsonConvert.SerializeObject(Model)" />
+                        <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
+                    </form>
                 </div>
             </div>
         </div>
