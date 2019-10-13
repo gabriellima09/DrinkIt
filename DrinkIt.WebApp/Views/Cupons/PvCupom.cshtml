@@ -19,6 +19,9 @@ else
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
@@ -35,50 +38,53 @@ else
 
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            @if (item.IdTipo == 1)
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
+                    Promocional
                 </td>
+            }
+            else
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    Troca
                 </td>
-                @if (item.IdTipo == 1)
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEmissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataExpiracao)
+            </td>
+            <td align="center">
+
+                @if (((Usuario)Session["Usuario"]).Login.Equals("admin"))
                 {
-                    <td>
-                        Promocional
-                    </td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Opções <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                            @*<li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-info" })</li>*@
+                            <li>@Html.ActionLink("Trocar Status", "TrocarStatus", new { id = item.Id }, new { @class = "btn-primary" })</li>
+                        </ul>
+                    </div>
                 }
-                else
-                {
-                    <td>
-                        Troca
-                    </td>
-                }
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataEmissao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataExpiracao)
-                </td>
-                <td align="center">
-
-                    @if (((Usuario)Session["Usuario"]).Login.Equals("admin"))
-                    {
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                Opções <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
-                                @*<li>@Html.ActionLink("Detalhes", "Details", new { id = 1 }, new { @class = "btn-info" })</li>*@
-                                <li>@Html.ActionLink("Trocar Status", "TrocarStatus", new { id = item.Id }, new { @class = "btn-primary" })</li>
-                            </ul>
-                        </div>
-                    }
 
 
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
 
     </table>

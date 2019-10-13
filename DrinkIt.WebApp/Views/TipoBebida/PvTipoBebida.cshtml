@@ -1,39 +1,55 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.TipoBebida>
 
 <p>
-    @Html.ActionLink("Adicionar Tipo de Bebida", "Create")
+    @Html.ActionLink("Adicionar Tipo de Bebida", "Create", "TipoBebida", null, new { @class = "btn btn-success", @style = "margin-left:1%" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            Status
-        </th>
-        <th></th>
-    </tr>
+<br />
+@if (Model.Count() == 0)
+{
+    <h4>Nenhum tipo de bebida cadastrado.</h4>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescGrupoPrecificacao)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            ATIVO
-        </td>
-        <td align="center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Opções <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
-                    <li>@Html.ActionLink("Trocar Status", "TrocarStatus", "Bebidas", new { id = item.Id }, new { @class = "btn-primary" })</li>
-                </ul>
-            </div>
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescGrupoPrecificacao)
+            </td>
+            <td align="center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Opções <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                        @*<li>@Html.ActionLink("Excluir", "TrocarStatus", "Bebidas", new { id = item.Id }, new { @class = "btn-primary" })</li>*@
+                    </ul>
+                </div>
+            </td>
+        </tr>
 }
 
-</table>
+    </table>
+}
+
