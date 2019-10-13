@@ -25,7 +25,7 @@ namespace DrinkIt.WebApp.Dao
                     {
                         IdBebida = Convert.ToInt32(reader["IdBebida"]),
                         Qtde = Convert.ToInt32(reader["Qtde"]),
-                        DescBebida = Convert.ToString(reader["Nome"])                        
+                        DescBebida = Convert.ToString(reader["Nome"])
                     };
 
                     lista.Add(e);
@@ -110,6 +110,13 @@ namespace DrinkIt.WebApp.Dao
             QtdeAtual -= Qtde;//Subtrai
             Sql.Append("UPDATE ESTOQUE SET QTDE = " + QtdeAtual + " WHERE IDBEBIDA = " + IdBebida + ";");//ATUALIZA
             DbContext.ExecuteQuery(Sql.ToString());
+
+            if (QtdeAtual == 0)//CASO O ESTOQUE SEJA ESVAZIADO, INATIVA A BEBIDA
+            {
+                Sql.Clear();
+                Sql.Append("UPDATE BEBIDAS SET STATUS = 0 WHERE ID = " + IdBebida + ";");//ATUALIZA
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
 
             return true;
         }
