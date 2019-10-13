@@ -93,11 +93,21 @@ namespace DrinkIt.WebApp.Controllers
                 if (pedido.NovoCartao != null)
                 {
                     new CartaoDao().Cadastrar(pedido.NovoCartao);
+
+                    if (pedido.IdCartao1 == 0)
+                    {
+                        pedido.IdCartao1 = new CartaoDao().ObterUltimoIdInserido();
+                    }
+                    else if (pedido.IdCartao2 == 0)
+                    {
+                        pedido.IdCartao2 = new CartaoDao().ObterUltimoIdInserido();
+                    }
                 }
 
-                if (pedido.NovoEndereco != null)
+                if (pedido.NovoEndereco != null && pedido.IdEnderecoEntrega == 0)
                 {
                     new EnderecoDao().Cadastrar(pedido.NovoEndereco);
+                    pedido.IdEnderecoEntrega = new EnderecoDao().ObterUltimoIdInserido();
                 }
 
                 new PedidoDao().Cadastrar(pedido);

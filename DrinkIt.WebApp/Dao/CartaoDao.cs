@@ -129,5 +129,21 @@ namespace DrinkIt.WebApp.Dao
 
             DbContext.ExecuteQuery(Sql.ToString());
         }
+
+        public int ObterUltimoIdInserido()
+        {
+            int ID = 0;
+            Sql.Clear();
+            Sql.Append("SELECT MAX(ID) FROM CARTOES;");
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    ID = reader.GetInt32(0);
+                }
+            }
+
+            return ID;
+        }
     }
 }
