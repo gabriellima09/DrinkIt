@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.GrupoPrecificacao>
+
+<p>
+    @Html.ActionLink("Novo", "Create", "Precificacao", null, new { @class = "btn btn-success", @style = "margin-left:1%" } )
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MargemLucro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MargemLucro)
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Opções <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>                    
+                </ul>
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

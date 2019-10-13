@@ -9,50 +9,51 @@ using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
-    public class TipoBebidaController : Controller
+    public class PrecificacaoController : Controller
     {
+        private readonly IDao<GrupoPrecificacao> Dao;
+        private readonly IFachada<GrupoPrecificacao> Fachada;
 
-        private readonly IDao<TipoBebida> Dao;
-        private readonly IFachada<TipoBebida> Fachada;
-
-        public TipoBebidaController()
+        public PrecificacaoController()
         {
-            Dao = new TipoBebidaDao();
-            Fachada = new Fachada<TipoBebida>(Dao);
+            Dao = new PrecificacaoDao();
+            Fachada = new Fachada<GrupoPrecificacao>(Dao);
         }
 
-        // GET: TipoBebida
+        // GET: Precificacao
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult PvTipoBebida()
+        public ActionResult PvGrupoPrecificacao()
         {
-            return PartialView(Fachada.ConsultarTodos());
+            return PartialView(Fachada.ConsultarTodos()); 
         }
 
-        // GET: TipoBebida/Details/5
+        // GET: Precificacao/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: TipoBebida/Create
+        // GET: Precificacao/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipoBebida/Create
+        // POST: Precificacao/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(GrupoPrecificacao precificacao)
         {
             try
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                Fachada.Cadastrar(precificacao);
+
+                return RedirectToAction("Index", "Usuarios");
             }
             catch
             {
@@ -60,26 +61,21 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
-        // GET: TipoBebida/Edit/5
+        // GET: Precificacao/Edit/5
         public ActionResult Edit(int id)
         {
-            TipoBebida tipo = new TipoBebida
-            {
-                Descricao = "Água"
-            };
-
-            return View(tipo);
+            return View(Fachada.ConsultarPorId(id));
         }
 
-        // POST: TipoBebida/Edit/5
+        // POST: Precificacao/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(GrupoPrecificacao grupo)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                Fachada.Alterar(grupo);
+                return RedirectToAction("Index", "Usuarios");
             }
             catch
             {
@@ -87,13 +83,13 @@ namespace DrinkIt.WebApp.Controllers
             }
         }
 
-        // GET: TipoBebida/Delete/5
+        // GET: Precificacao/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: TipoBebida/Delete/5
+        // POST: Precificacao/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

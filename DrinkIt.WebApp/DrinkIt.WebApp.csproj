@@ -155,6 +155,7 @@
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\PrecificacaoController.cs" />
     <Compile Include="Controllers\SolicitacoesTrocaController.cs" />
     <Compile Include="Controllers\TelefonesController.cs" />
     <Compile Include="Controllers\TipoBebidaController.cs" />
@@ -174,8 +175,10 @@
     <Compile Include="Dao\ITelefone.cs" />
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
+    <Compile Include="Dao\PrecificacaoDao.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />
     <Compile Include="Dao\TelefoneDao.cs" />
+    <Compile Include="Dao\TipoBebidaDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Facade\Fachada.cs" />
     <Compile Include="Facade\IFachada.cs" />
@@ -192,6 +195,7 @@
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Estoque.cs" />
+    <Compile Include="Models\GrupoPrecificacao.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />
@@ -323,6 +327,9 @@
     <Content Include="Views\Estoque\PvEstoque.cshtml" />
     <Content Include="Views\Telefones\PvTelefone.cshtml" />
     <Content Include="Views\Bebidas\PvCarousel.cshtml" />
+    <Content Include="Views\Precificacao\PvGrupoPrecificacao.cshtml" />
+    <Content Include="Views\Precificacao\Create.cshtml" />
+    <Content Include="Views\Precificacao\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
