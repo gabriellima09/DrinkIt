@@ -2,7 +2,7 @@
 
 @using DrinkIt.WebApp.Models;
 
-@{ 
+@{
     int itensCarrinho = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas?.Count ?? 0;
 }
 
@@ -26,12 +26,12 @@
         <ul class="dropdown-menu">
             @if (!((Usuario)Session["Usuario"]).Login.Equals("admin"))
             {
-                <li>@Html.ActionLink("Meu perfil", "Index", "Clientes")</li>
-                <li>@Html.ActionLink("Meu Carrinho", "Index", "Carrinho")</li>
+            <li>@Html.ActionLink("Meu perfil", "Index", "Clientes")</li>
+            <li>@Html.ActionLink("Meu Carrinho", "Index", "Carrinho")</li>
             }
             else
             {
-                <li>@Html.ActionLink("Administração", "Index", "Usuarios")</li>
+            <li>@Html.ActionLink("Administração", "Index", "Usuarios")</li>
             }
 
             <li role="separator" class="divider"></li>

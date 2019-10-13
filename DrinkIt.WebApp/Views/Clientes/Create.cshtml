@@ -46,7 +46,7 @@
 
     <div class="form-group">
         <label style="color:red" class="control-label col-md-2">@ViewBag.MsgErroConfirmarSenha</label>
-        
+
     </div>
 
 
@@ -220,10 +220,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Cartao.Bandeira, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <select class="form-control" name="Cartao.Bandeira">
-                <option value="Visa">Visa</option>
-                <option value="Mastercard">Mastercard</option>
-            </select>
+            @Html.EnumDropDownListFor(x => x.Cartao.Bandeira, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Cartao.Bandeira, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -233,6 +230,22 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Cartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Cartao.CodigoSeguranca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cartao.MesValidade, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cartao.MesValidade, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cartao.MesValidade, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cartao.AnoValidade, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cartao.AnoValidade, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cartao.AnoValidade, "", new { @class = "text-danger" })
         </div>
     </div>
 

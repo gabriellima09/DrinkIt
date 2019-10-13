@@ -8,10 +8,8 @@ namespace DrinkIt.WebApp.Strategy
         {
             CartaoCredito cartao = (CartaoCredito)entidade;
 
-            return ValidadorAuxiliar.ValidarPropriedadeVazia(cartao.Bandeira)
-                && ValidadorAuxiliar.ValidarPropriedadeVazia(cartao.NomeTitular)
-                && ValidadorAuxiliar.ValidarPropriedadeVazia(cartao.Numero)
-                && cartao.CodigoSeguranca > 99;
+            return ValidadorAuxiliar.ValidarPropriedadeVazia(cartao.NomeTitular)
+                && ValidadorAuxiliar.ValidarPropriedadeVazia(cartao.Numero);
         }
     }
 }

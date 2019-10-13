@@ -20,12 +20,14 @@ namespace DrinkIt.WebApp.Dao
             Sql.Clear();
 
             Sql.Append("UPDATE Cartoes SET");
-            Sql.Append(" Bandeira = '" + entidade.Bandeira + "', ");
+            Sql.Append(" Bandeira = " + (int)entidade.Bandeira + ", ");
             Sql.Append("ClienteId = " + entidade.ClienteId + ", ");
             Sql.Append("CodigoSeguranca = " + entidade.CodigoSeguranca + ", ");
             Sql.Append("NomeTitular = '" + entidade.NomeTitular + "', ");
             Sql.Append("Numero = '" + entidade.Numero + "', ");
-            Sql.Append("Preferencial = '" + (entidade.Preferencial ? 1 : 0));
+            Sql.Append("MesValidade = '" + entidade.MesValidade + "', ");
+            Sql.Append("AnoValidade = '" + entidade.AnoValidade + "', ");
+            Sql.Append("Preferencial = " + (entidade.Preferencial ? 1 : 0));
             Sql.Append(" WHERE Id = " + entidade.Id);
 
             DbContext.ExecuteQuery(Sql.ToString());
@@ -46,14 +48,18 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("CodigoSeguranca, ");
             Sql.Append("NomeTitular, ");
             Sql.Append("Numero ,");
+            Sql.Append("MesValidade,");
+            Sql.Append("AnoValidade,");
             Sql.Append("Preferencial");
             Sql.Append(")");
             Sql.Append(" VALUES (");
-            Sql.Append("'" + entidade.Bandeira + "', ");
+            Sql.Append((int)entidade.Bandeira + ", ");
             Sql.Append(entidade.ClienteId + ", ");
             Sql.Append(entidade.CodigoSeguranca + ", ");
             Sql.Append("'" + entidade.NomeTitular + "', ");
             Sql.Append("'" + entidade.Numero + "', ");
+            Sql.Append("'" + entidade.MesValidade + "', ");
+            Sql.Append("'" + entidade.AnoValidade + "', ");
             Sql.Append(entidade.Preferencial ? 1 : 0);
             Sql.Append(");");
 
@@ -109,10 +115,12 @@ namespace DrinkIt.WebApp.Dao
             {
                 Id = Convert.ToInt32(reader["Id"]),
                 ClienteId = Convert.ToInt32(reader["ClienteId"]),
-                Bandeira = Convert.ToString(reader["Bandeira"]),
+                Bandeira = (Bandeira)Convert.ToInt32(reader["Bandeira"]),
                 CodigoSeguranca = Convert.ToInt32(reader["CodigoSeguranca"]),
                 NomeTitular = Convert.ToString(reader["NomeTitular"]),
                 Numero = Convert.ToString(reader["Numero"]),
+                MesValidade = Convert.ToInt32(reader["MesValidade"]),
+                AnoValidade = Convert.ToInt32(reader["AnoValidade"]),
                 Preferencial = Convert.ToBoolean(reader["Preferencial"])
             };
 
