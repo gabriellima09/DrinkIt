@@ -1,13 +1,12 @@
 ﻿$(document).ready(function () {
-    $("#btnCalcularFrete").click(function myfunction() {
+    $("#btnCalcularFrete").click(function () {
         $.ajax({
             dataType: "json",
-            type: "POST",
-            url: "/Pedidos/CalcularFretePedido",
-            data: { pedido: pedido },
-            success: function (data) {
-                $("#ResultadoValorFrete").text(data.Valor);
+            url: "/Pedidos/SimularFreteDetails/",
+            data: { 'bebidaFrete': $("#bebidaFrete").val() },
+            complete: function (data) {
+                $("#ResultadoValorFrete").text('Frete: R$ ' + data.responseText.valueOf('frete').toString('2d') + ' aprox.');
             }
-        });
+        }); 
     });
 });

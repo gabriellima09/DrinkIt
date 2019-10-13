@@ -1,5 +1,6 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -65,11 +66,18 @@ namespace DrinkIt.WebApp.Controllers
             ViewBag.Enderecos = ddlEnderecos;
             ViewBag.Cartoes = ddlCartoes;
 
+            Usuario usuario = (Usuario)Session["Usuario"];
+
+            Cliente cliente = new Cliente
+            {
+                Carrinho = usuario?.Carrinho ?? new Carrinho()
+            };
+
             Pedido pedido = new Pedido
             {
-                Status = "Finalizado",
-                Cliente = (Cliente)Session["Usuario"] ?? new Cliente(),
-                Bebidas = ((Cliente)Session["Usuario"]).Carrinho.Bebidas ?? new List<Bebida>()
+                Status = "Finalizado", //trocar os status
+                Cliente = cliente,
+                Bebidas = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas ?? new List<Bebida>()
             };
 
             return View(pedido);
@@ -100,17 +108,6 @@ namespace DrinkIt.WebApp.Controllers
             }
 
             return RedirectToAction("Index", "Usuarios");
-        }
-
-        [HttpPost]
-        public ActionResult ValidarCupom(Pedido pedido)
-        {
-            var resultado = new
-            {
-                Resultado = new CupomDao().ValidarCupom(pedido.CupomDesconto.Id)
-            };
-
-            return Json(resultado);
         }
 
         public ActionResult Details(int id)
@@ -167,26 +164,35 @@ namespace DrinkIt.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult CalcularFretePedido(Pedido pedido)
+        public ActionResult CalcularFretePedido(string pedido)
         {
+            Pedido novoPedido = JsonConvert.DeserializeObject<Pedido>(pedido);
+
             decimal total = 0;
 
-            pedido.Bebidas.ForEach(x => total += SimularFrete(x));
+            novoPedido.Bebidas.ForEach(x => total += SimularFrete(x));
 
             var resultado = new
             {
-                Valor = total
+                frete = total
             };
 
             return Json(resultado);
         }
-
-
+        
+        [HttpPost]
         public decimal SimularFrete(Bebida bebida)
         {
-            decimal frete = Convert.ToDecimal(new Random().NextDouble() * (double)(bebida.Valor / 3));
+            decimal frete = Convert.ToDecimal((new Random().NextDouble() * (double)(bebida.Valor / 3)).ToString("0.##"));
 
             return frete;
+        }
+
+        public ActionResult SimularFreteDetails(string bebidaFrete)
+        {
+            Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebidaFrete);
+
+            return Json(SimularFrete(novaBebida), JsonRequestBehavior.AllowGet);
         }
     }
 }

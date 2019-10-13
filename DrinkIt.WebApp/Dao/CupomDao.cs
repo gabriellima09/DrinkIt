@@ -21,6 +21,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("IdTipo = " + entidade.IdTipo + ", ");
                 Sql.Append("DtCriacao = '" + entidade.DataEmissao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
                 Sql.Append("DtExpiracao = '" + entidade.DataExpiracao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("Valor = " + entidade.Valor + ", ");
                 Sql.Append("Ativo = " + (entidade.Status == true ? 1 : 0));
                 Sql.Append(" WHERE Id = " + entidade.Id);
 
@@ -38,13 +39,14 @@ namespace DrinkIt.WebApp.Dao
             try
             {
                 Sql.Append("INSERT INTO CUPONS (");
-                Sql.Append("Descricao, IdTipo, DtCriacao, DtExpiracao, Ativo");
+                Sql.Append("Descricao, IdTipo, DtCriacao, DtExpiracao, Valor, Ativo");
                 Sql.Append(")");
                 Sql.Append(" VALUES ('");
                 Sql.Append(entidade.Descricao + "', ");
                 Sql.Append(entidade.IdTipo + ", '");
                 Sql.Append(entidade.DataEmissao.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
                 Sql.Append(entidade.DataExpiracao.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append(entidade.Valor + ", '");
                 Sql.Append((entidade.Status == true ? 1 : 0));
                 Sql.Append(");");
 
@@ -72,6 +74,7 @@ namespace DrinkIt.WebApp.Dao
                     cupom.DataExpiracao = Convert.ToDateTime(reader["DtExpiracao"]);
                     cupom.IdTipo = Convert.ToInt32(reader["IdTipo"]);
                     cupom.Status = Convert.ToBoolean(reader["Ativo"]);
+                    cupom.Valor = Convert.ToDecimal(reader["Valor"]);
                 }
             }
             return cupom;
@@ -80,6 +83,8 @@ namespace DrinkIt.WebApp.Dao
         public List<Cupom> ConsultarTodos()
         {
             List<Cupom> cupons = new List<Cupom>();
+
+            Sql.Clear();
 
             Sql.Append("SELECT * FROM CUPONS");
 
@@ -94,8 +99,9 @@ namespace DrinkIt.WebApp.Dao
                         DataEmissao = Convert.ToDateTime(reader["DtCriacao"]),
                         DataExpiracao = Convert.ToDateTime(reader["DtExpiracao"]),
                         IdTipo = Convert.ToInt32(reader["IdTipo"]),
-                        Status = Convert.ToBoolean(reader["Ativo"])
-                    };
+                        Status = Convert.ToBoolean(reader["Ativo"]),
+                        Valor = Convert.ToDecimal(reader["Valor"])
+                };
 
                     cupons.Add(cupom);
                 }
@@ -123,6 +129,7 @@ namespace DrinkIt.WebApp.Dao
                         cupom.DataExpiracao = Convert.ToDateTime(reader["DtExpiracao"]);
                         cupom.IdTipo = Convert.ToInt32(reader["IdTipo"]);
                         cupom.Status = Convert.ToBoolean(reader["Ativo"]);
+                        cupom.Valor = Convert.ToDecimal(reader["Valor"]);
                     }
                 }
 
@@ -172,8 +179,9 @@ namespace DrinkIt.WebApp.Dao
                             IdTipo = Convert.ToInt32(reader["IdTipo"]),
                             DataEmissao = Convert.ToDateTime(reader["DtCriacao"]),
                             DataExpiracao = Convert.ToDateTime(reader["DtExpiracao"]),
-                            Status = Convert.ToBoolean(reader["Ativo"])
-                        };
+                            Status = Convert.ToBoolean(reader["Ativo"]),
+                            Valor = Convert.ToDecimal(reader["Valor"])
+                    };
                         cupons.Add(cupom);
                     }
                 }
@@ -186,13 +194,15 @@ namespace DrinkIt.WebApp.Dao
             }
         }
 
-        public bool ValidarCupom(int idCupom)
+        public Dictionary<bool, Cupom> ValidarCupom(string cupom)
         {
             bool existe = false;
+            Cupom cupomRetorno = new Cupom();
+            Dictionary<bool, Cupom> retorno = new Dictionary<bool, Cupom>();
 
-            Sql.Append("SELECT (SELECT COUNT(*) FROM Cupons) AS 'Exists'");
-            Sql.Append("WHERE ");
-            Sql.Append("Id = " + idCupom);
+            Sql.Clear();
+
+            Sql.Append("SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = '" + cupom + "') AS 'Exists'");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -202,7 +212,13 @@ namespace DrinkIt.WebApp.Dao
                 }
             }
 
-            return existe;
+            if (existe)
+            {
+                cupomRetorno = ConsultarTodos().Where(x => x.Descricao.ToUpper().Equals(cupom.ToUpper())).FirstOrDefault();
+                retorno.Add(existe, cupomRetorno);
+            }
+
+            return retorno;
         }
 
     }
