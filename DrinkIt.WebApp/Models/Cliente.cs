@@ -22,5 +22,6 @@ namespace DrinkIt.WebApp.Models
         [Required]
         public CartaoCredito Cartao { get; set; }
         public List<CartaoCredito> Cartoes { get; set; }
+        public bool Status { get; set; }
     }
 }

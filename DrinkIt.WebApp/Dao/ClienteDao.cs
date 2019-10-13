@@ -44,7 +44,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("Genero, ");
                 Sql.Append("Nome, ");
                 Sql.Append("Login, ");
-                Sql.Append("Senha ");
+                Sql.Append("Senha, ");
+                Sql.Append("Status ");
                 Sql.Append(")");
                 Sql.Append(" VALUES (");
                 Sql.Append("'" + entidade.Cpf + "', ");
@@ -53,7 +54,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("'" + entidade.Genero + "', ");
                 Sql.Append("'" + entidade.Nome + "', ");
                 Sql.Append("'" + entidade.Login + "', ");
-                Sql.Append("'" + Criptografia.RetornarMD5(entidade.Senha) + "'");
+                Sql.Append("'" + Criptografia.RetornarMD5(entidade.Senha) + "',");
+                Sql.Append("1");//Status = ATIVO
                 Sql.Append(");");
 
                 DbContext.ExecuteQuery(Sql.ToString());
@@ -142,9 +144,41 @@ namespace DrinkIt.WebApp.Dao
 
         public void Excluir(int id)
         {
-            Sql.Append("DELETE FROM CLIENTES WHERE Id = ");
-            Sql.Append(id);
-            Sql.Append(";");
+            try
+            {
+                Cliente cliente = new Cliente();
+                int statusCliente;
+
+                Sql.Append("SELECT * FROM CLIENTES WHERE Id = " + id);
+
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        cliente = ObterEntidadeReader(reader);
+                    }
+                }
+
+                if (cliente.Status)
+                {
+                    statusCliente = 0;
+                }
+                else
+                {
+                    statusCliente = 1;
+                }
+
+                Sql.Clear();
+
+
+                Sql.Append("UPDATE CLIENTES SET STATUS = " + statusCliente + " WHERE Id = " + id + ";");
+
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
 
             DbContext.ExecuteQuery(Sql.ToString());
         }
@@ -161,6 +195,7 @@ namespace DrinkIt.WebApp.Dao
                 Nome = Convert.ToString(reader["Nome"]),
                 Login = Convert.ToString(reader["Login"]),
                 Senha = Convert.ToString(reader["Senha"]),
+                Status = Convert.ToBoolean(reader["Status"]),
                 Endereco = new Endereco(),
                 Enderecos = new List<Endereco>(),
                 Cartao = new CartaoCredito(),

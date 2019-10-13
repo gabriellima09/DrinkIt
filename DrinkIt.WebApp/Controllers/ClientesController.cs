@@ -151,7 +151,17 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult TrocarStatus(int id)
         {
-            return new EmptyResult();
+            try
+            {
+                // TODO: Add update logic here
+                Fachada.Excluir(id);
+
+                return RedirectToAction("Index", "Usuarios");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
     }
 }

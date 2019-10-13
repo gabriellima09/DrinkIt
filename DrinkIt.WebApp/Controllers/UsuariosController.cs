@@ -69,7 +69,7 @@ namespace DrinkIt.WebApp.Controllers
                     Senha = usuario.Senha
                 };
 
-                return RedirectToAction("Index", "Clientes");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(usuario);
