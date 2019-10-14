@@ -172,7 +172,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("solicitarTroca")).Click();
             _driver.Wait1();
 
-            _driver.SetText(By.Name("MotivoSolicitacao"), "O produto estava vencido !!!");
+            _driver.SetText(By.Name("MotivoSolicitacao"), "O produto estava vencido!");
             _driver.Wait1();
             _driver.FindElement(By.Id("btnSolicitarTroca")).Click();
             _driver.Wait1();
