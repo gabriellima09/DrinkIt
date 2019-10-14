@@ -28,79 +28,6 @@
                         <hr />
 
                         @Html.DropDownListFor(x => x.IdEnderecoEntrega, (List<SelectListItem>)ViewBag.Enderecos, new { @class = "form-control" })
-                        <br />
-
-                        <div class="btn-group">
-                            <button id="btnNovoEndereco" type="button" class="btn btn-info">Novo Endereço</button>
-                            <button id="btnNovoEnderecoFechar" type="button" class="btn btn-default" style="display:none">Fechar</button>
-                        </div>
-
-                        <div id="divNovoEndereco" class="container" style="display:none">
-                            <br />
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Descricao, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Descricao, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Descricao, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Logradouro, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Logradouro, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Logradouro, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Numero, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Numero, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Numero, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.CEP, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.CEP, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.CEP, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Complemento, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Complemento, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Complemento, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Cidade, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Cidade, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Cidade, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Estado, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Estado, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Estado, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NovoEndereco.Bairro, htmlAttributes: new { @class = "control-label" })
-                                <div>
-                                    @Html.EditorFor(model => model.NovoEndereco.Bairro, new { htmlAttributes = new { @class = "form-control newEnd", @disabled = "disabled" } })
-                                    @Html.ValidationMessageFor(model => model.NovoEndereco.Bairro, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -129,60 +56,7 @@
 
                             <div>
                                 <label class="control-label">Valor no cartão 2: </label>
-                                <input class="form-control money pay" name="valorCartao2" value="@Model.Bebidas.Sum(x => x.Valor)" />
-                            </div>
-                        </div>
-
-                        <hr />
-
-                        <div class="btn-group">
-                            <button id="btnAddCartao" type="button" class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Adicionar Cartão</button>
-                            <button id="btnRemoverCartao" style="display:none" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                        </div>
-
-                    </div>
-
-                    <br />
-
-                    <div class="form-horizontal" id="divCartaoAdicional" style="display:none">
-
-                        <div class="form-group">
-                            <label class="control-label">Valor no novo cartão: </label>
-                            <input id="valorNovoCartao" name="valorNovoCartao" class="form-control newCart money pay" disabled="disabled" value="@Model.Bebidas.Sum(x => x.Valor)" />
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NovoCartao.Numero, htmlAttributes: new { @class = "control-label" })
-                            <div>
-                                @Html.EditorFor(model => model.NovoCartao.Numero, new { htmlAttributes = new { @class = "form-control newCart", @disabled="disabled" } })
-                                @Html.ValidationMessageFor(model => model.NovoCartao.Numero, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NovoCartao.NomeTitular, htmlAttributes: new { @class = "control-label" })
-                            <div>
-                                @Html.EditorFor(model => model.NovoCartao.NomeTitular, new { htmlAttributes = new { @class = "form-control newCart", @disabled = "disabled" } })
-                                @Html.ValidationMessageFor(model => model.NovoCartao.NomeTitular, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NovoCartao.Bandeira, htmlAttributes: new { @class = "control-label" })
-                            <div>
-                                <select class="form-control newCart" name="Cartao.Bandeira" disabled="disabled">
-                                    <option value="Visa">Visa</option>
-                                    <option value="Mastercard">Mastercard</option>
-                                </select>
-                                @Html.ValidationMessageFor(model => model.NovoCartao.Bandeira, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NovoCartao.CodigoSeguranca, htmlAttributes: new { @class = "control-label" })
-                            <div>
-                                @Html.EditorFor(model => model.NovoCartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control newCart", @disabled = "disabled" } })
-                                @Html.ValidationMessageFor(model => model.NovoCartao.CodigoSeguranca, "", new { @class = "text-danger" })
+                                <input class="form-control money pay" id="valorCartao2" name="valorCartao2" value="0" />
                             </div>
                         </div>
 
@@ -205,7 +79,7 @@
                                             <input type="hidden" name="Bebidas[@i].Id" value="@item.Id" />
                                             <input type="hidden" name="Bebidas[@i].Valor" value="@item.Valor" />
 
-                                            <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"))</label>
+                                            <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"), " X", item.Quantidade)</label>
                                         </dt>
 
                                         <dd>
@@ -221,7 +95,7 @@
                                         Valor da compra:
                                     </dt>
                                     <dd>
-                                        @Model.Bebidas.Sum(x => x.Valor)
+                                        @Model.Bebidas.Sum(x => x.Valor * x.Quantidade)
                                     </dd>
                                 </dl>
 
@@ -249,9 +123,9 @@
                             <div class="panel-footer">
                                 <label class="control-label">Valor Total: </label>
                                 <label class="control-label" style="float:right">
-                                    <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.Valor).ToString("C")</span>
+                                    <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.Valor * x.Quantidade).ToString("C")</span>
                                 </label>
-                                <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                                <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.Valor * x.Quantidade)" />
                             </div>
                         </div>
                     </div>

@@ -23,27 +23,31 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("INSERT INTO PEDIDOS (");
             Sql.Append("ClienteId, ");
             Sql.Append("DataCadastro, ");
-            Sql.Append("IdStatus, ");
             Sql.Append("DataUltimaAtualizacao, ");
             Sql.Append("IdCupom, ");
             Sql.Append("IdEnderecoEntrega, ");
             Sql.Append("IdCartao1, ");
             Sql.Append("IdCartao2, ");
+            Sql.Append("ValorCartao1, ");
+            Sql.Append("ValorCartao2, ");
             Sql.Append("ValorTotal, ");
             Sql.Append("Desconto, ");
+            Sql.Append("IdStatus, ");
             Sql.Append("Frete ");
             Sql.Append(")");
             Sql.Append("VALUES (");
             Sql.Append(entidade.IdCliente + ", ");
             Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append(0 + ", ");
             Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sql.Append(entidade.IdCupom + ", ");
             Sql.Append(entidade.IdEnderecoEntrega + ", ");
             Sql.Append(entidade.IdCartao1 + ", ");
             Sql.Append(entidade.IdCartao2 + ", ");
+            Sql.Append(entidade.ValorCartao1.ToString(new CultureInfo("en-US")) + ", ");
+            Sql.Append(entidade.ValorCartao2.ToString(new CultureInfo("en-US")) + ", ");
             Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")) + ", ");
             Sql.Append(entidade.Desconto.ToString(new CultureInfo("en-US")) + ", ");
+            Sql.Append(entidade.Status.Id + ", ");
             Sql.Append(entidade.Frete.ToString(new CultureInfo("en-US")));
             Sql.Append(");");
 
@@ -57,10 +61,12 @@ namespace DrinkIt.WebApp.Dao
             {
                 Sql.Append("INSERT INTO PEDIDOSITENS (");
                 Sql.Append("BebidaId, ");
+                Sql.Append("Quantidade, ");
                 Sql.Append("PedidoId ");
                 Sql.Append(")");
                 Sql.Append("VALUES (");
                 Sql.Append(item.Id + ", ");
+                Sql.Append(item.Quantidade + ", ");
                 Sql.Append(lastInsertId);
                 Sql.Append(");");
 
@@ -135,7 +141,7 @@ namespace DrinkIt.WebApp.Dao
             List<int> listIdBebidas = new List<int>();
             List<Bebida> bebidas = new List<Bebida>();
 
-            Sql.Append("SELECT * FROM PEDIDOSITENS WHERE PedidoId = " + pedidoId);
+            Sql.Append("SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = " + pedidoId);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -149,7 +155,10 @@ namespace DrinkIt.WebApp.Dao
 
             foreach (var id in listIdBebidas)
             {
-                bebidas.Add(new BebidaDao().ConsultarPorId(id));
+                Bebida bebida = new BebidaDao().ConsultarPorId(id);
+                bebida.Quantidade = GetQuantidade(id, pedidoId);
+
+                bebidas.Add(bebida);
             }
 
             return bebidas;
@@ -182,11 +191,13 @@ namespace DrinkIt.WebApp.Dao
                 IdCliente = Convert.ToInt32(reader["ClienteId"]),
                 IdCartao1 = Convert.ToInt32(reader["IdCartao1"]),
                 IdCartao2 = Convert.ToInt32(reader["IdCartao2"]),
+                ValorCartao1 = Convert.ToDecimal(reader["ValorCartao1"]),
+                ValorCartao2 = Convert.ToDecimal(reader["ValorCartao2"]),
                 IdCupom = Convert.ToInt32(reader["IdCupom"]),
                 IdEnderecoEntrega = Convert.ToInt32(reader["IdEnderecoEntrega"]),
                 DataCadastro = Convert.ToDateTime(reader["DataCadastro"]),
                 DataUltimaAtualizacao = Convert.ToDateTime(reader["DataUltimaAtualizacao"]),
-                //Status = Convert.ToString(reader["Status"]),
+                Status = GetStatus(Convert.ToInt32(reader["Id"])),
                 Frete = Convert.ToDecimal(reader["Frete"]),
                 Desconto = Convert.ToDecimal(reader["Desconto"]),
                 ValorTotal = Convert.ToDecimal(reader["ValorTotal"])
@@ -201,5 +212,46 @@ namespace DrinkIt.WebApp.Dao
 
             return pedido;
         }
+
+        public Status GetStatus(int pedidoId)
+        {
+            Status status = new Status();
+
+            Sql.Clear();
+
+            Sql.Append("SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = " + pedidoId);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    status.Id = Convert.ToInt32(reader["Id"]);
+                    status.Desricao = Convert.ToString(reader["Descricao"]);
+                }
+            }
+
+            return status;
+        }
+
+        public int GetQuantidade(int bebidaId, int pedidoId)
+        {
+            int quantidade = 0;
+
+            Sql.Clear();
+
+            Sql.Append("SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = " + bebidaId);
+            Sql.Append(" and p.id = " + pedidoId);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    quantidade = Convert.ToInt32(reader["Quantidade"]);
+                }
+            }
+
+            return quantidade;
+        }
+
     }
 }

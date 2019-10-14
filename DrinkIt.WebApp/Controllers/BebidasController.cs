@@ -81,25 +81,10 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-                bebida.TipoBebida = new TipoBebida
-                {
-                    Descricao = "Teste"
-                };
-                //if (!ModelState.IsValid)
-                //{
-                //    List<SelectListItem> Items = new List<SelectListItem>();
-                //    Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
-                //    if (bebida.TipoBebida == null)
-                //    {
-                //        Items.Add(new SelectListItem { Disabled = true, Selected = true, Text = "Selecione um tipo", Value = null });
-                //    }
-                //    ViewBag.ListaTiposBebida = Items;
-                //    return View();
-                //}
 
                 Fachada.Cadastrar(bebida);
 
-                return RedirectToAction("Index", "Usuarios");
+                return RedirectToAction("Index", "Clientes");
             }
             catch (Exception ex)
             {

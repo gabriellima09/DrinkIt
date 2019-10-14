@@ -73,6 +73,8 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Bebida entidade)
         {
+            Sql.Clear();
+
             try
             {
                 int LastInsertID = 0;
@@ -116,7 +118,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(entidade.Embalagem + "', '");
                 Sql.Append(entidade.CodigoBarras + "', ");
                 Sql.Append((entidade.Alcoolico == true ? 1 : 0) + ", ");
-                Sql.Append(entidade.Teor + ", ");
+                Sql.Append(entidade.Teor.ToString(new CultureInfo("en-US")) + ", ");
                 Sql.Append((entidade.Gaseificada == true ? 1 : 0) + ", ");
                 Sql.Append((entidade.ContemGluten == true ? 1 : 0) + ", '");
                 Sql.Append(entidade.DicaConservacao + "', ");
@@ -159,7 +161,9 @@ namespace DrinkIt.WebApp.Dao
         {
             Bebida bebida = new Bebida();
 
-            Sql.Append("SELECT B.*, P.MargemLucro FROM BEBIDAS B INNER JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = " + id);
+            Sql.Clear();
+
+            Sql.Append("SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = " + id);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {

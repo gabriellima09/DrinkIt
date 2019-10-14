@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @Html.DisplayFor(model => model.Status.Desricao)
         </dd>
 
         <dt>
@@ -97,7 +97,7 @@
             </dt>
 
             <dd>
-                @string.Concat(item.Nome, " ", item.Descricao, " ", item.Marca, " ", item.Sabor, " ", item.Peso)
+                @string.Concat(item.Nome, " ", item.Descricao, " ", item.Marca, " ", item.Sabor, " ", item.Peso, " - X", item.Quantidade)
             </dd>
         }
 
@@ -108,7 +108,7 @@
             Valor da Compra
         </dt>
         <dd>
-            @Model.Bebidas.Sum(x => x.Valor)
+            @Model.Bebidas.Sum(x => x.Valor * x.Quantidade).ToString("C")
         </dd>
     </dl>
 </div>

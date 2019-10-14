@@ -19,6 +19,8 @@ namespace DrinkIt.WebApp.Controllers
         {
             Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebida);
 
+            novaBebida.Quantidade = 1;
+
             Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
             usuario.Carrinho.Bebidas.Add(novaBebida);

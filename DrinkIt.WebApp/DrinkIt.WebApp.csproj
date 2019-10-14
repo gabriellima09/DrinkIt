@@ -201,6 +201,7 @@
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Telefone.cs" />
     <Compile Include="Models\TipoBebida.cs" />
     <Compile Include="Models\Usuario.cs" />

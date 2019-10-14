@@ -3,6 +3,7 @@ using DrinkIt.WebApp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -82,6 +83,24 @@ namespace DrinkIt.WebApp.Controllers
             return View(pedido);
         }
 
+        [HttpPost]
+        public ActionResult AtualizarQuantidadeBebida(int idBebida, int quantidade)
+        {
+            Usuario usuario = ((Usuario)Session["Usuario"]);
+
+            foreach (var item in usuario.Carrinho.Bebidas)
+            {
+                if (item.Id == idBebida)
+                {
+                    item.Quantidade = quantidade;
+                }
+            }
+
+            Session["Usuario"] = usuario;
+
+            return RedirectToAction("Checkout");
+        }
+
         public ActionResult FinalizarPedido(Pedido pedido)
         {
             try
@@ -89,25 +108,10 @@ namespace DrinkIt.WebApp.Controllers
                 pedido.IdCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
                 pedido.Bebidas = ((Usuario)Session["Usuario"])?.Carrinho.Bebidas ?? new List<Bebida>();
 
-                if (pedido.NovoCartao != null)
+                pedido.Status = new Status
                 {
-                    new CartaoDao().Cadastrar(pedido.NovoCartao);
-
-                    if (pedido.IdCartao1 == 0)
-                    {
-                        pedido.IdCartao1 = new CartaoDao().ObterUltimoIdInserido();
-                    }
-                    else if (pedido.IdCartao2 == 0)
-                    {
-                        pedido.IdCartao2 = new CartaoDao().ObterUltimoIdInserido();
-                    }
-                }
-
-                if (pedido.NovoEndereco != null && pedido.IdEnderecoEntrega == 0)
-                {
-                    new EnderecoDao().Cadastrar(pedido.NovoEndereco);
-                    pedido.IdEnderecoEntrega = new EnderecoDao().ObterUltimoIdInserido();
-                }
+                    Id = 1//Finalizado
+                };
 
                 new PedidoDao().Cadastrar(pedido);
             }

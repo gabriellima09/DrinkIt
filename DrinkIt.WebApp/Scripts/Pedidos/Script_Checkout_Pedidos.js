@@ -2,32 +2,6 @@
 
 $(document).ready(function () {
 
-    $('#btnAddCartao').click(function () {
-        $('#divCartaoAdicional').css('display', 'block');
-        $('#btnRemoverCartao').css('display', 'block');
-        $('#btnAddCartao').css('display', 'none');
-        $(".newCart").removeAttr('disabled');
-    });
-
-    $('#btnRemoverCartao').click(function () {
-        $('#divCartaoAdicional').css('display', 'none');
-        $('#btnAddCartao').css('display', 'block');
-        $('#btnRemoverCartao').css('display', 'none');
-        $(".newCart").attr('disabled', 'disabled');
-    });
-
-    $('#btnNovoEndereco').click(function () {
-        $('#divNovoEndereco').css('display', 'block');
-        $('#btnNovoEnderecoFechar').css('display', 'block');
-        $('.newEnd').removeAttr('disabled');
-    });
-
-    $('#btnNovoEnderecoFechar').click(function () {
-        $('#divNovoEndereco').css('display', 'none');
-        $(this).css('display', 'none');
-        $('.newEnd').attr('disabled', 'disabled');
-    });
-
     $('#btnValidarCupom').click(function () {
         $.ajax({
             dataType: "json",
@@ -76,6 +50,10 @@ $(document).ready(function () {
 
     $("#Pagar2Cartoes").click(function () {
         $("#divCartao2").toggle();
+
+        if ($("#Pagar2Cartoes").prop('checked')) {
+            SetarValorDoisCartoes();
+        }
     });
 
     $("#btnFinalizarPedido").unbind().click(function () {
@@ -121,33 +99,26 @@ $(document).ready(function () {
     });
 
     $(".pay").on('focusout', function () {
-        var thisVal = parseFloat($(this).val().toString().replace(',','.'));
-        var valor = parseFloat($("#ValorTotal").val().toString().replace(',', '.'));
+        var value = $(this).val();
 
-        console.log('thisVal', thisVal)
-        console.log('valor', valor)
-
-        var resto = parseFloat(valor - thisVal);
-
-        if ($("#Pagar2Cartoes").prop('checked') &&
-            ($("#IdCartao2 :selected").val() > 0 || !$("#valorNovoCartao").attr('disabled') == 'disabled')) {
-            if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
-                $("#valorCartao1").val(resto);
-            } else {
-                $("#valorNovoCartao").val(resto);
-            }
-        } else {
-            if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
-                $("#valorCartao1").val(resto);
-            } else {
-                $("#valorNovoCartao").val(resto);
-            }
-        }
+        RecalcularValorCartoes(value, $(this).attr('id'));
     });
 
+    function RecalcularValorCartoes(valorCartao, nomeInput) {
+
+        valorCartao = parseFloat(valorCartao.toString().replace(',', '.')).toFixed(2)
+
+        var valor = (parseFloat($("#ValorTotal").val().toString().replace(',', '.')) - valorCartao)
+
+        if (nomeInput == 'valorCartao1') {
+            $("#valorCartao2").val(valor.toFixed(2).toString().replace('.', ','));
+        } else if (nomeInput == 'valorCartao2'){
+            $("#valorCartao1").val(valor.toFixed(2).toString().replace('.', ','));
+        }
+    }
+
     function SetarValorCartoes() {
-        if ($("#Pagar2Cartoes").prop('checked') &&
-            ($("#IdCartao2 :selected").val() > 0 || !$("#valorNovoCartao").attr('disabled') == 'disabled')) {
+        if ($("#Pagar2Cartoes").prop('checked')) {
             SetarValorDoisCartoes();
         } else {
             SetarValorUmCartao();
@@ -157,25 +128,17 @@ $(document).ready(function () {
     function SetarValorUmCartao() {
         var valor = $("#ValorTotal").val();
 
-        if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
-            $("#valorCartao1").val(valor);
-        } else {
-            $("#valorNovoCartao").val(valor);
-        }
+        $("#valorCartao1").val(valor.toString().replace('.', ','));
+        
     }
 
     function SetarValorDoisCartoes() {
-        var valor = $("#ValorTotal").val();
+        var valor = parseFloat($("#ValorTotal").val().toString().replace(',', '.'));
 
-        if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
+        valor = (parseFloat(valor) / 2).toFixed(2);
 
-            $("#valorCartao1").val(parseFloat(valor) / 2);
-            $("#valorCartao2").val(parseFloat(valor) / 2);
-            
-        }else {
+        $("#valorCartao1").val(valor.toString().replace('.', ','));
+        $("#valorCartao2").val(valor.toString().replace('.', ','));
 
-            $("#valorCartao1").val(parseFloat(valor) / 2);
-            $("#valorNovoCartao").val(parseFloat(valor) / 2);
-        }
     }
 });

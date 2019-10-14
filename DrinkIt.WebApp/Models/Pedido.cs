@@ -12,14 +12,16 @@ namespace DrinkIt.WebApp.Models
         public Endereco EnderecoEntrega { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime DataUltimaAtualizacao { get; set; }
-        public string Status { get; set; }
+        public Status Status { get; set; }
         public decimal ValorTotal { get; set; }
         public decimal Desconto { get; set; }
         public decimal Frete { get; set; }
 
         public int IdEnderecoEntrega { get; set; }
         public int IdCartao1 { get; set; }
+        public decimal ValorCartao1 { get; set; }
         public int IdCartao2 { get; set; }
+        public decimal ValorCartao2 { get; set; }
         public int IdCupom { get; set; }
         public int IdCliente { get; set; }
 

@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Sabor)
             </td>
             <td>
-                @Html.TextBox("Quantidade", null, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;" })
+                @Html.TextBoxFor(model => item.Quantidade, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;", @data_id=item.Id })
             </td>
             <td align="center">
                 @using (Html.BeginForm("RemoverBebidaSessao", "Carrinho", FormMethod.Post))
@@ -63,7 +63,6 @@
 
                     <button type="submit" class="btn btn-danger">Remover</button>
                 }
-                @*@Html.ActionLink("Remover", "RemoverBebidaSessao", "Carrinho", new { idBebida = item.Id }, new { @class = "btn btn-danger" })*@
             </td>
         </tr>
     }
@@ -77,6 +76,13 @@
 
 @section Scripts{
     <script>
-        $(".Quantidade").val(1);
+        $(".Quantidade").change(function () {
+            $.ajax({
+                dataType: "json",
+                method: 'POST',
+                url: "/Pedidos/AtualizarQuantidadeBebida/",
+                data: { 'idBebida': $(this).attr('data-id'), 'quantidade' : $(this).val() },
+            }); 
+        });
     </script>
 }
