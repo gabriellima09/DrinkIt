@@ -46,7 +46,6 @@ namespace DrinkIt.WebApp.Controllers
         {
             List<SelectListItem> Items = new List<SelectListItem>();
             Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
-            Items.Add(new SelectListItem { Disabled = true, Selected = true, Text = "Selecione um tipo", Value = null });
             ViewBag.ListaTiposBebida = Items;
             return View();
         }
@@ -66,6 +65,10 @@ namespace DrinkIt.WebApp.Controllers
                     ArquivoImagem.SaveAs(path);
 
                     bebida.CaminhoImagem = fileId;
+                }
+                else
+                {
+                    bebida.CaminhoImagem = "drink.jpg";
                 }
                 
                 bebida.Ingredientes = new List<Ingrediente>();

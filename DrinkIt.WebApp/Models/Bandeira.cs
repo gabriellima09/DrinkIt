@@ -2,7 +2,7 @@
 {
     public enum Bandeira
     {
-        Mastercard = 1,
-        Visa
+        Mastercard = 0,
+        Visa = 1
     }
 }
