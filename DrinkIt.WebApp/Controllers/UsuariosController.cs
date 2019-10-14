@@ -1,6 +1,7 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -20,6 +21,24 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult Index()
         {
+            CupomDao cupomdao = new CupomDao();
+            List<SelectListItem> lista = new List<SelectListItem>();
+            List<Cupom> cupons = new List<Cupom>();
+            cupons = cupomdao.ConsultarTodos();
+            foreach(var cupom in cupons)
+            {
+                if(cupom.Status)
+                {
+                    SelectListItem item = new SelectListItem
+                    {
+                        Value = cupom.Id.ToString(),
+                        Text = cupom.Descricao
+                    };
+                    lista.Add(item);
+                }
+                
+            }
+            ViewBag.listaCupons = lista;
             return View();
         }
 
@@ -54,7 +73,7 @@ namespace DrinkIt.WebApp.Controllers
                     Senha = "admin"
                 };
 
-                return View("Index");
+                return RedirectToAction("Index");
             }
 
             if (usuarioDao.Login(usuario.Email, usuario.Senha))

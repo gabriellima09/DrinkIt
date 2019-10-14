@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewBag.Title = "Administração";
+
+    List<SelectListItem> listaCupons = (List<SelectListItem>)ViewBag.listaCupons;
 }
 
 <style>
@@ -235,28 +237,28 @@
                             Cliente
                         </dt>
                         <dd id="ddDescClienteAp">
-                            
+
                         </dd>
 
                         <dt>
                             Pedido
                         </dt>
                         <dd id="ddIdPedidoAp">
-                            
+
                         </dd>
 
                         <dt>
                             Motivo
                         </dt>
                         <dd id="ddMotivoAp">
-                            
+
                         </dd>
 
                         <dt>
                             Data Solicitação
                         </dt>
                         <dd id="ddDataAp">
-                            
+
                         </dd>
                     </dl>
                 </div>
@@ -269,10 +271,11 @@
                     </h5>
                     <form id="FormAprovar" method="post" action="/SolicitacoesTroca/Aprovar/">
                         <select class="form-control" id="selectCupomTroca" name="IdCupom">
-                            <option value="1">Cupom1</option>
-                            <option value="2">Cupom2</option>
-                            <option value="3">Cupom3</option>
-                            <option value="4">Cupom4</option>
+                            @foreach (var item in listaCupons)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+
                         </select>
                         <input type="hidden" id="hiddenIdSolicitacaoAp" name="IdSolicitacao" />
                     </form>
@@ -302,28 +305,28 @@
                             Cliente
                         </dt>
                         <dd id="ddDescClienteRep">
-                            
+
                         </dd>
 
                         <dt>
                             Pedido
                         </dt>
                         <dd id="ddIdPedidoRep">
-                            
+
                         </dd>
 
                         <dt>
                             Motivo
                         </dt>
                         <dd id="ddMotivoRep">
-                           
+
                         </dd>
 
                         <dt>
                             Data Solicitação
                         </dt>
                         <dd id="ddDataRep">
-                            
+
                         </dd>
                     </dl>
                 </div>
@@ -335,7 +338,7 @@
                         <label class="control-label">Informe o motivo da reprovação:</label>
                     </h5>
                     <form action="/SolicitacoesTroca/Reprovar/" method="post" id="FormReprovar">
-                        <input type="hidden" id="hiddenIdSolicitacaoRep" name="idSolicitacao"/>
+                        <input type="hidden" id="hiddenIdSolicitacaoRep" name="idSolicitacao" />
                         <textarea class="form-control" name="MotivoReprova" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
                     </form>
                 </div>
@@ -498,7 +501,7 @@
                     <form action="/Bebidas/TrocarStatus/" method="post" id="FormInativarBebida">
                         <input type="hidden" id="hiddenIdBebidaInativar" name="id" />
                         <textarea class="form-control" name="motivo" cols="20" rows="5" placeholder="Digite o motivo da inativação"></textarea>
-                        <input type="hidden" name="statusAtual" value="1"/>
+                        <input type="hidden" name="statusAtual" value="1" />
                     </form>
                 </div>
             </div>
