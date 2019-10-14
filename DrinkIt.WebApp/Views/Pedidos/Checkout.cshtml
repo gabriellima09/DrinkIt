@@ -114,7 +114,7 @@
 
                         <div>
                             <label class="control-label">Valor no cartão: </label>
-                            <input class="form-control money" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                            <input class="form-control money pay" id="valorCartao1" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
                         </div>
 
                         <hr />
@@ -129,7 +129,7 @@
 
                             <div>
                                 <label class="control-label">Valor no cartão 2: </label>
-                                <input class="form-control money" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                                <input class="form-control money pay" name="valorCartao2" value="@Model.Bebidas.Sum(x => x.Valor)" />
                             </div>
                         </div>
 
@@ -148,7 +148,7 @@
 
                         <div class="form-group">
                             <label class="control-label">Valor no novo cartão: </label>
-                            <input name="valorNovoCartao" class="form-control money" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                            <input id="valorNovoCartao" name="valorNovoCartao" class="form-control newCart money pay" disabled="disabled" value="@Model.Bebidas.Sum(x => x.Valor)" />
                         </div>
 
                         <div class="form-group">

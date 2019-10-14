@@ -47,6 +47,8 @@ $(document).ready(function () {
                     $("#Desconto").val(data.responseJSON.Cupom[0].Valor.toString().replace('.', ','));
 
                     SubtrairValorTotal(data.responseJSON.Cupom[0].Valor.toFixed(2));
+
+                    SetarValorCartoes();
                 } else {
                     $("#spanCupomValido").hide();
                     $("#spanCupomInvalido").show();
@@ -66,6 +68,8 @@ $(document).ready(function () {
                 $("#Frete").val(data.responseJSON.frete.toString().replace('.', ','));
                 $("#spanFrete").text(data.responseJSON.frete.toFixed(2).toString().replace('.', ','));
                 AdicionarValorTotal(data.responseJSON.frete.toFixed(2));
+
+                SetarValorCartoes();
             }
         }); 
     });
@@ -106,5 +110,72 @@ $(document).ready(function () {
 
         $("#ValorTotal").val(valor);
         $("#spanValorTotal").text("R$ " + valor);
+    }
+
+    $("#Pagar2Cartoes").click(function () {
+        if ($("#Pagar2Cartoes").prop('checked')) {
+            $("#Pagar2Cartoes").prop('checked', true);
+        } else {
+            $("#Pagar2Cartoes").prop('checked', false);
+        }
+    });
+
+    $(".pay").on('focusout', function () {
+        var thisVal = parseFloat($(this).val().toString().replace(',','.'));
+        var valor = parseFloat($("#ValorTotal").val().toString().replace(',', '.'));
+
+        console.log('thisVal', thisVal)
+        console.log('valor', valor)
+
+        var resto = parseFloat(valor - thisVal);
+
+        if ($("#Pagar2Cartoes").prop('checked') &&
+            ($("#IdCartao2 :selected").val() > 0 || !$("#valorNovoCartao").attr('disabled') == 'disabled')) {
+            if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
+                $("#valorCartao1").val(resto);
+            } else {
+                $("#valorNovoCartao").val(resto);
+            }
+        } else {
+            if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
+                $("#valorCartao1").val(resto);
+            } else {
+                $("#valorNovoCartao").val(resto);
+            }
+        }
+    });
+
+    function SetarValorCartoes() {
+        if ($("#Pagar2Cartoes").prop('checked') &&
+            ($("#IdCartao2 :selected").val() > 0 || !$("#valorNovoCartao").attr('disabled') == 'disabled')) {
+            SetarValorDoisCartoes();
+        } else {
+            SetarValorUmCartao();
+        }
+    }
+
+    function SetarValorUmCartao() {
+        var valor = $("#ValorTotal").val();
+
+        if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
+            $("#valorCartao1").val(valor);
+        } else {
+            $("#valorNovoCartao").val(valor);
+        }
+    }
+
+    function SetarValorDoisCartoes() {
+        var valor = $("#ValorTotal").val();
+
+        if ($("#valorNovoCartao").attr('disabled') == 'disabled') {
+
+            $("#valorCartao1").val(parseFloat(valor) / 2);
+            $("#valorCartao2").val(parseFloat(valor) / 2);
+            
+        }else {
+
+            $("#valorCartao1").val(parseFloat(valor) / 2);
+            $("#valorNovoCartao").val(parseFloat(valor) / 2);
+        }
     }
 });
