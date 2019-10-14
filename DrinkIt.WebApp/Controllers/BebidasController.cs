@@ -46,7 +46,6 @@ namespace DrinkIt.WebApp.Controllers
         {
             List<SelectListItem> Items = new List<SelectListItem>();
             Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
-            Items.Add(new SelectListItem { Disabled = true, Selected = true, Text = "Selecione um tipo", Value = null });
             ViewBag.ListaTiposBebida = Items;
             return View();
         }
@@ -67,6 +66,10 @@ namespace DrinkIt.WebApp.Controllers
 
                     bebida.CaminhoImagem = fileId;
                 }
+                else
+                {
+                    bebida.CaminhoImagem = "drink.jpg";
+                }
                 
                 bebida.Ingredientes = new List<Ingrediente>();
                 if (LstIngrediente != null && LstIngrediente.Count > 0)
@@ -81,10 +84,10 @@ namespace DrinkIt.WebApp.Controllers
                         bebida.Ingredientes.Add(i);
                     }
                 }
-                bebida.TipoBebida = new TipoBebida
-                {
-                    Descricao = "Teste"
-                };
+                //bebida.TipoBebida = new TipoBebida
+                //{
+                //    Descricao = "Teste"
+                //};
                 //if (!ModelState.IsValid)
                 //{
                 //    List<SelectListItem> Items = new List<SelectListItem>();

@@ -1,6 +1,7 @@
 ﻿using DrinkIt.WebApp.Models;
 using OpenQA.Selenium;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 
 namespace DrinkIt.WebApp.Selenium.FluxoCompleto
@@ -61,10 +62,13 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Email"), cliente.Email.ToString());
             _driver.SetText(By.Name("Login"), cliente.Login.ToString());
             _driver.SetText(By.Name("Senha"), cliente.Senha.ToString());
+            _driver.SetText(By.Name("confirmSenha"), cliente.Senha.ToString());
             _driver.SetText(By.Name("Nome"), cliente.Nome.ToString());
             _driver.SetText(By.Name("Cpf"), cliente.Cpf.ToString());
             _driver.SetText(By.Name("DataNascimento"), cliente.DataNascimento.ToString("dd-MM-yyyy"));
             _driver.SetText(By.Name("Genero"), cliente.Genero.ToString());
+            _driver.SetText(By.Name("LstDDD"), cliente.Telefones[0].DDD.ToString());
+            _driver.SetText(By.Name("LstTelefone"), cliente.Telefones[0].Numero.ToString());
             _driver.SetText(By.Name("Endereco.Descricao"), cliente.Endereco.Descricao.ToString());
             _driver.SetText(By.Name("Endereco.CEP"), cliente.Endereco.CEP.ToString());
             _driver.SetText(By.Name("Endereco.Logradouro"), cliente.Endereco.Logradouro.ToString());
@@ -74,9 +78,10 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Endereco.Cidade"), cliente.Endereco.Cidade.ToString());
             _driver.SetText(By.Name("Endereco.Estado"), cliente.Endereco.Estado.ToString());
             _driver.SetText(By.Name("Cartao.Numero"), cliente.Cartao.Numero.ToString());
-            _driver.SetText(By.Name("Cartao.NomeTitular"), cliente.Cartao.NomeTitular.ToString());
-            _driver.SetText(By.Name("Cartao.Bandeira"), cliente.Cartao.Bandeira.ToString());
+            _driver.SetText(By.Name("Cartao.NomeTitular"), cliente.Cartao.NomeTitular.ToString());           
             _driver.SetText(By.Name("Cartao.CodigoSeguranca"), cliente.Cartao.CodigoSeguranca.ToString());
+            _driver.SetText(By.Name("Cartao.MesValidade"), cliente.Cartao.MesValidade.ToString());
+            _driver.SetText(By.Name("Cartao.AnoValidade"), cliente.Cartao.AnoValidade.ToString());
 
             _driver.Submit(By.Id("btnCadastrar"));
         }
@@ -130,7 +135,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
 
         public void IrParaCheckout()
         {
-            _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
+            _driver.Submit(By.Id("btnFinalizarPedido"));
         }
 
         public void Checkout()
@@ -229,12 +234,25 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                     Bandeira = Bandeira.Mastercard,
                     CodigoSeguranca = 123,
                     NomeTitular = "Gabriel Lima Gomes",
-                    Numero = "123456789000"
+                    Numero = "123456789000",
+                    MesValidade = 02,
+                    AnoValidade = 2019
+                    
                 },
                 Genero = "Masculino",
                 Login = "teste",
                 Senha = "teste",
-                Nome = "Usuário Teste"
+                Nome = "Usuário Teste",
+                Telefones = new List<Telefone>
+                {
+                    new Telefone
+                    {
+                        DDD = 11,
+                        Numero = "40028922",
+                        IdTipo = 1
+                    }
+                }
+                
             };
         }
 
@@ -244,6 +262,10 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             {
                 Id = 1,
                 Nome = "Bebida Teste",
+                TipoBebida = new TipoBebida
+                {
+                    Id = 1
+                },
                 Descricao = "Descricao Teste",
                 Marca = "Marca Teste",
                 Valor = 9.99M,
