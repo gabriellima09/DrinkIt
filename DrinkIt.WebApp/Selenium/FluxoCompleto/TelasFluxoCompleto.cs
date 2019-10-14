@@ -223,7 +223,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             return new Cliente
             {
                 Id = 1,
-                Cpf = "323.144.349-00",
+                Cpf = "32314434900",
                 DataNascimento = DateTime.Now,
                 Email = "teste@teste.com",
                 Endereco = new Endereco

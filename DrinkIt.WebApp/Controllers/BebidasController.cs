@@ -85,9 +85,19 @@ namespace DrinkIt.WebApp.Controllers
                     }
                 }
 
-                Fachada.Cadastrar(bebida);
+                Resultado resultado = Fachada.Cadastrar(bebida);
 
-                return RedirectToAction("Index", "Clientes");
+                if (resultado.Sucesso)
+                {
+                    return RedirectToAction("Index", "Usuarios");
+                }
+                else
+                {
+                    ViewBag.Erro = resultado.MensagensErro;
+                    return View(bebida);
+                }
+
+                
             }
             catch (Exception ex)
             {
