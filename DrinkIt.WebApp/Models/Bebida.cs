@@ -51,5 +51,8 @@ namespace DrinkIt.WebApp.Models
         public bool Status { get; set; }
 
         public string CaminhoImagem { get; set; }
+
+        public decimal ValorVenda { get; set; }
+        public decimal MargemLucro { get; set; }
     }
 }

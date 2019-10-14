@@ -159,15 +159,18 @@ namespace DrinkIt.WebApp.Dao
         {
             Bebida bebida = new Bebida();
 
-            Sql.Append("SELECT * FROM BEBIDAS WHERE Id = " + id);
+            Sql.Append("SELECT B.*, P.MargemLucro FROM BEBIDAS B INNER JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = " + id);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
                 if (reader.Read())
                 {
                     bebida = ObterEntidadeReader(reader);
+                    bebida.MargemLucro = Convert.ToDecimal(reader["MargemLucro"]);
                 }
             }
+
+            bebida.ValorVenda = Math.Round(bebida.Valor + (bebida.MargemLucro/100), 2);
 
             Sql.Clear();
 
