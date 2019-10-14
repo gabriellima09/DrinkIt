@@ -120,6 +120,16 @@ namespace DrinkIt.WebApp.Controllers
             {
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 dao.Aprovar(IdSolicitacao, IdCupom);
+
+                int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
+
+                Pedido pedido = new PedidoDao().ConsultarPorId(pedidoId);
+
+                foreach (var item in pedido.Bebidas)
+                {
+                    new EstoqueDao().Entrada(item.Id, item.Quantidade);
+                }
+
                 return RedirectToAction("Index", "Usuarios");
             }
             catch (Exception ex)

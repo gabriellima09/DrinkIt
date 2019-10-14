@@ -114,6 +114,11 @@ namespace DrinkIt.WebApp.Controllers
                 };
 
                 new PedidoDao().Cadastrar(pedido);
+
+                foreach (var item in pedido.Bebidas)
+                {
+                    new EstoqueDao().Baixa(item.Id, item.Quantidade);
+                }
             }
             catch (Exception ex)
             {
