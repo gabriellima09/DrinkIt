@@ -4,10 +4,15 @@ namespace DrinkIt.WebApp.Strategy
 {
     public class EnderecoStrategy : IStrategy
     {
-        public bool Processar(EntidadeDominio entidade)
+        public string Processar(EntidadeDominio entidade)
         {
             Endereco endereco = (Endereco)entidade;
 
+            return Validar(endereco) ? string.Empty : "Endereço inválido!";
+        }
+
+        private bool Validar(Endereco endereco)
+        {
             return endereco != null
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Bairro)
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.CEP)

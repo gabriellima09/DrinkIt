@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Factory;
 using DrinkIt.WebApp.Models;
@@ -10,6 +11,7 @@ namespace DrinkIt.WebApp.Facade
     {
         private readonly IDao<T> _dao;
         private readonly IList<IStrategy> _strategies;
+        private Resultado Resultado;
 
         public Fachada(IDao<T> dao)
         {
@@ -17,18 +19,46 @@ namespace DrinkIt.WebApp.Facade
             _strategies = StrategyFactory<T>.GetStrategies();
         }
 
-        public void Alterar(T entidade)
+        public Resultado Alterar(T entidade)
         {
-            ProcessarStrategies(entidade);
+            Resultado = new Resultado();
 
-            _dao.Alterar(entidade);
+            List<string> list = ProcessarStrategies(entidade);
+
+            if (!list.Any())
+            {
+                _dao.Alterar(entidade);
+
+                Resultado.Sucesso = true;
+            }
+            else
+            {
+                Resultado.Sucesso = false;
+                Resultado.MensagensErro = list;
+            }
+
+            return Resultado;
         }
 
-        public void Cadastrar(T entidade)
+        public Resultado Cadastrar(T entidade)
         {
-            ProcessarStrategies(entidade);
+            Resultado = new Resultado();
 
-            _dao.Cadastrar(entidade);
+            List<string> list = ProcessarStrategies(entidade);
+
+            if (!list.Any())
+            {
+                _dao.Cadastrar(entidade);
+
+                Resultado.Sucesso = true;
+            }
+            else
+            {
+                Resultado.Sucesso = false;
+                Resultado.MensagensErro = list;
+            }
+
+            return Resultado;
         }
 
         public T ConsultarPorId(int id)
@@ -46,12 +76,21 @@ namespace DrinkIt.WebApp.Facade
             _dao.Excluir(id);
         }
 
-        public void ProcessarStrategies(EntidadeDominio entidade)
+        public List<string> ProcessarStrategies(EntidadeDominio entidade)
         {
+            List<string> list = new List<string>();
+
             foreach (IStrategy strategy in _strategies)
             {
-                strategy.Processar(entidade);
+                string retorno = strategy.Processar(entidade);
+
+                if (!string.IsNullOrWhiteSpace(retorno))
+                {
+                    list.Add(retorno);
+                }
             }
+
+            return list;
         }
     }
 }

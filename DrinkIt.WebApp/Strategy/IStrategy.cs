@@ -4,6 +4,6 @@ namespace DrinkIt.WebApp.Strategy
 {
     public interface IStrategy
     {
-        bool Processar(EntidadeDominio entidade);
+        string Processar(EntidadeDominio entidade);
     }
 }

@@ -5,7 +5,7 @@ namespace DrinkIt.WebApp.Models
     public class Endereco : EntidadeDominio
     {
         public int ClienteId { get; set; }
-        [Required]
+
         public string Descricao { get; set; }
         [Required]
         public string Logradouro { get; set; }

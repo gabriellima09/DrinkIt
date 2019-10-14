@@ -4,15 +4,20 @@ namespace DrinkIt.WebApp.Strategy
 {
     public class CpfStrategy : IStrategy
     {
-        public bool Processar(EntidadeDominio entidade)
+        public string Processar(EntidadeDominio entidade)
         {
             Cliente cliente = (Cliente)entidade;
 
-            return ValidarCpf(cliente.Cpf);
+            return ValidarCpf(cliente?.Cpf) ? string.Empty : "Cpf Inválido!";
         }
 
         private bool ValidarCpf(string cpf)
         {
+            if (string.IsNullOrWhiteSpace(cpf))
+            {
+                return false;
+            }
+
             if (cpf.Equals("00000000000") ||
                 cpf.Equals("11111111111") ||
                 cpf.Equals("22222222222") || cpf.Equals("33333333333") ||

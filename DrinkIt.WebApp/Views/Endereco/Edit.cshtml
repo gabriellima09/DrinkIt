@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Edit";
+
+    List<string> msgsErro = (List<string>)ViewBag.Erro ?? new List<string>();
 }
 
 <h2>Edit</h2>
@@ -14,6 +16,17 @@
     <div class="form-horizontal">
         <h4>Endereco</h4>
         <hr />
+
+        <div class="form-group">
+            @if (msgsErro?.Count > 0)
+            {
+                foreach (var item in msgsErro)
+                {
+                    <label style="color:red" class="control-label col-md-2">@item</label>
+                }
+            }
+        </div>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.ClienteId)

@@ -48,13 +48,21 @@ namespace DrinkIt.WebApp.Controllers
             {
                 cartao.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
-                Fachada.Cadastrar(cartao);
+                Resultado resultado = Fachada.Cadastrar(cartao);
 
-                return RedirectToAction("Index", "Clientes");
+                if (resultado.Sucesso)
+                {
+                    return RedirectToAction("Index", "Clientes");
+                }
+                else
+                {
+                    ViewBag.Erro = resultado.MensagensErro;
+                    return View(cartao);
+                }
             }
             catch
             {
-                return View();
+                return RedirectToAction("Erro", "Home");
             }
         }
 
@@ -72,13 +80,22 @@ namespace DrinkIt.WebApp.Controllers
             {
                 cartao.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
-                Fachada.Alterar(cartao);
+                Resultado resultado = Fachada.Alterar(cartao);
 
-                return RedirectToAction("Index", "Clientes");
+                if (resultado.Sucesso)
+                {
+                    return RedirectToAction("Index", "Clientes");
+                }
+                else
+                {
+                    ViewBag.Erro = resultado.MensagensErro;
+                    return View(cartao);
+                }
+
             }
             catch (Exception ex)
             {
-                return View();
+                return RedirectToAction("Erro", "Home");
             }
         }
 

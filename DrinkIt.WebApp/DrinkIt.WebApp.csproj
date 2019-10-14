@@ -200,6 +200,7 @@
     <Compile Include="Models\GrupoPrecificacao.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\Resultado.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Telefone.cs" />
@@ -221,7 +222,6 @@
     <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\CartaoStrategy.cs" />
-    <Compile Include="Strategy\PedidoStrategy.cs" />
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>

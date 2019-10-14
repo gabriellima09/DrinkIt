@@ -5,11 +5,11 @@ namespace DrinkIt.WebApp.Facade
 {
     public interface IFachada<T> where T : EntidadeDominio
     {
-        void Cadastrar(T entidade);
-        void Alterar(T entidade);
+        Resultado Cadastrar(T entidade);
+        Resultado Alterar(T entidade);
         void Excluir(int id);
         T ConsultarPorId(int id);
         List<T> ConsultarTodos();
-        void ProcessarStrategies(EntidadeDominio entidade);
+        List<string> ProcessarStrategies(EntidadeDominio entidade);
     }
 }

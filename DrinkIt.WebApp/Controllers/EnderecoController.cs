@@ -59,13 +59,21 @@ namespace DrinkIt.WebApp.Controllers
             {
                 endereco.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
-                Fachada.Cadastrar(endereco);
+                Resultado resultado = Fachada.Cadastrar(endereco);
 
-                return RedirectToAction("Index", "Clientes");
+                if (resultado.Sucesso)
+                {
+                    return RedirectToAction("Index", "Clientes");
+                }
+                else
+                {
+                    ViewBag.Erro = resultado.MensagensErro;
+                    return View(endereco);
+                }
             }
             catch
             {
-                return View();
+                return RedirectToAction("Erro", "Home");
             }
         }
 
@@ -83,13 +91,21 @@ namespace DrinkIt.WebApp.Controllers
             {
                 endereco.ClienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
-                Fachada.Alterar(endereco);
+                Resultado resultado = Fachada.Alterar(endereco);
 
-                return RedirectToAction("Index", "Clientes");
+                if (resultado.Sucesso)
+                {
+                    return RedirectToAction("Index", "Clientes");
+                }
+                else
+                {
+                    ViewBag.Erro = resultado.MensagensErro;
+                    return View(endereco);
+                }
             }
             catch
             {
-                return View();
+                return RedirectToAction("Erro", "Home");
             }
         }
 

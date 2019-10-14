@@ -4,10 +4,15 @@ namespace DrinkIt.WebApp.Strategy
 {
     public class BebidaStrategy : IStrategy
     {
-        public bool Processar(EntidadeDominio entidade)
+        public string Processar(EntidadeDominio entidade)
         {
             Bebida bebida = (Bebida)entidade;
-            
+
+            return Validar(bebida) ? string.Empty : "Bebida Inválida!";
+        }
+
+        public bool Validar(Bebida bebida)
+        {
             if (
                 string.IsNullOrEmpty(bebida.Nome) ||
                 string.IsNullOrEmpty(bebida.Descricao) ||
@@ -37,5 +42,6 @@ namespace DrinkIt.WebApp.Strategy
             //OK, bebida validada.
             return true;// ValidarBebida(bebida); > verificar se os dados estão todos corretos
         }
+
     }
 }

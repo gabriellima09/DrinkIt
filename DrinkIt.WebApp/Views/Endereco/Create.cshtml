@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Create";
+
+    List<string> msgsErro = (List<string>)ViewBag.Erro ?? new List<string>();
 }
 
 <h2>Cadastro de Endereços</h2>
@@ -12,6 +14,16 @@
     <div class="form-horizontal">
         <h4>Endereco</h4>
         <hr />
+
+        <div class="form-group">
+            @if (msgsErro?.Count > 0)
+            {
+                foreach (var item in msgsErro)
+                {
+                    <label style="color:red" class="control-label col-md-2">@item</label>
+                }
+            }
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
