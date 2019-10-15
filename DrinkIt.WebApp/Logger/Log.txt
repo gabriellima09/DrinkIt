@@ -8525,3 +8525,763 @@ Invalid column name 'ValorCartao2'.
 2019-10-14 13:30:49.5611|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 0|
 2019-10-14 13:30:49.5611|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
 2019-10-14 13:30:49.5611|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:49:54.1261|Error|Erro ao executar query: SELECT * FROM BEBIDAS|Tempo Limite de Conexão Expirado. O tempo limite decorrido durante a tentativa de consumo da confirmação de handshake pré-logon. Isso ocorre porque houve falha no handshake pré-logon ou o servidor não pôde responder a tempo.  A duração da tentativa de conexão com este servidor foi: [Pre-Login] initialization=25666; handshake=106; 
+2019-10-14 19:49:54.1480|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:52:57.5998|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:52:57.5998|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:53:24.4306|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:53:24.4306|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:53:24.4565|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:53:24.4565|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:53:24.4984|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:53:24.4984|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:53:25.9876|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:53:25.9876|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:53:26.4670|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:53:26.4670|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:53:26.8148|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:53:26.8368|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:53:27.1689|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:53:27.3837|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:53:28.0984|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:53:28.0984|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:53:28.5055|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:53:28.5055|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:54:33.8831|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:54:33.8831|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:54:33.8890|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:54:33.8890|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:54:33.8890|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:54:33.8890|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:54:33.8890|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:54:33.8890|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:54:33.9210|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:54:33.9210|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:54:33.9210|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:54:33.9210|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:54:33.9379|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:54:33.9379|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:54:33.9379|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:54:33.9379|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:54:33.9519|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:54:33.9519|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:54:41.3870|Debug|Executando query reader ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 19:54:41.3870|Info|Fim de execução de query ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 19:55:03.3448|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 19:55:04.6031|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 19:55:04.6031|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 19:55:04.6420|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 19:55:04.6420|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 19:55:04.7250|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 19:55:04.7250|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:55:04.7250|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:55:04.7330|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:04.7330|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:04.7498|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:55:04.7498|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:55:04.7498|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:55:04.7498|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:55:04.7498|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:55:04.7638|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:55:04.7638|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:55:04.7638|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:55:04.7638|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:55:04.7973|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:55:04.7973|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:55:04.7973|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:55:04.8103|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:55:04.8103|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:55:11.0678|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:11.0678|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:40.7916|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 19:55:40.9063|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 19:55:40.9063|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 19:55:40.9063|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 19:55:40.9063|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 19:55:40.9272|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 19:55:40.9272|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 19:55:40.9272|Debug|Executando query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 19:55:40.9382|Info|Fim de execução de query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 19:55:40.9382|Debug|Executando query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 19:55:40.9382|Info|Fim de execução de query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 19:55:45.7506|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 19:55:45.7506|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 19:55:45.7506|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 19:55:45.7506|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 19:55:45.7665|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:45.7665|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:45.7665|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:45.7665|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:48.9365|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:48.9365|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:55:48.9365|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:48.9365|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:52.0876|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:55:52.0876|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:55:52.0916|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:55:52.0916|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:55:52.2811|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:52.2811|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:55.9818|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:55:55.9828|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:00.1150|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:00.1150|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:00.1150|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:00.1150|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:00.1908|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:00.1908|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:13.4962|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 19:56:13.5002|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 19:56:13.5002|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:13.5002|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:15.0583|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 19:56:15', '2019-10-14 19:56:15', 1, 1, 1, 0, 0, 5.00, 0, 15, 1, 1.98);|
+2019-10-14 19:56:15.1328|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 19:56:15', '2019-10-14 19:56:15', 1, 1, 1, 0, 0, 5.00, 0, 15, 1, 1.98);|
+2019-10-14 19:56:15.1328|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 19:56:15.1328|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 19:56:15.1328|Debug|Executando query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 19:56:15.1386|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 19:56:15.1386|Debug|Executando query reader ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 19:56:15.1386|Info|Fim de execução de query ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 19:56:15.1386|Debug|Executando query reader ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 19:56:15.1386|Info|Fim de execução de query ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 19:56:15.1386|Debug|Executando query ... Query: UPDATE ESTOQUE SET QTDE = 218 WHERE IDBEBIDA = 1;|
+2019-10-14 19:56:15.1386|Info|Fim de execução de query ... Query: UPDATE ESTOQUE SET QTDE = 218 WHERE IDBEBIDA = 1;|
+2019-10-14 19:56:15.7160|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 19:56:15.7170|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 19:56:15.7170|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:15.7170|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:15.7170|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:15.7170|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:15.7170|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:15.7170|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:15.7170|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:15.7329|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:15.7329|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:15.7479|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:15.7964|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:15.7964|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:16.2999|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:16.2999|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:16.7143|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 19:56:16.7186|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 19:56:16.7186|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 19:56:16.7186|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 19:56:17.0453|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:17.0453|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:25.9552|Debug|Executando query reader ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 19:56:25');|
+2019-10-14 19:56:25.9552|Info|Fim de execução de query ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 19:56:25');|
+2019-10-14 19:56:25.9702|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 19:56:25.9702|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 19:56:25.9702|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:25.9702|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:25.9841|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:25.9841|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:25.9841|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:25.9841|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:25.9841|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:25.9841|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:26.0021|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:26.0021|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:26.0021|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:26.0021|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:26.0171|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:26.0171|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:26.0171|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:26.0171|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:26.0290|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:26.0290|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:26.0290|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:26.0290|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:26.0460|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:26.0460|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 19:56:26.0460|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:26.0460|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 19:56:26.0609|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 19:56:26.0609|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 19:56:26.0609|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 19:56:26.0609|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 19:56:26.0609|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:26.0609|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:30.7647|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:56:30.7647|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:56:36.5626|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:36.5626|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:36.5626|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:56:36.5626|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 19:56:36.5815|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:56:36.5815|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 19:56:36.6014|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:56:36.6014|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 19:56:36.6014|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:36.6084|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 19:56:36.6084|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:36.6084|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 19:56:36.6084|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:36.6084|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 19:56:36.6254|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:36.6254|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 19:56:36.6254|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:36.6254|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 19:56:36.6254|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:36.6254|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 19:56:36.6443|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:36.6443|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 19:56:36.6443|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:36.6543|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 19:56:36.6543|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:36.6543|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 19:56:36.6543|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:36.6543|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 19:56:36.6543|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:36.6703|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 19:56:36.6703|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:56:36.6703|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 19:56:36.6703|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:56:36.6703|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 19:56:36.6892|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:56:36.6892|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 19:56:36.6892|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 19:56:36.6892|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:01:57.8571|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:01:57.8621|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:01:57.8621|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:01:57.8621|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:01:57.8851|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:01:57.8851|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:01:57.8990|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:01:57.8990|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:01:57.9050|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:01:57.9050|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:01:57.9050|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:01:57.9050|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:01:57.9050|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:01:57.9050|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:01:57.9230|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:01:57.9230|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:01:57.9230|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:01:57.9230|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:01:57.9359|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:01:57.9359|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:01:57.9359|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:01:57.9359|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:01:57.9359|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:01:57.9359|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:01:57.9549|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:01:57.9549|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:01:57.9549|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:01:57.9549|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:01:57.9788|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:01:57.9788|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:01:57.9858|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:01:57.9858|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:01:57.9858|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:01:57.9858|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:01:58.0057|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:01:58.0057|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:01:58.0187|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:01:58.0187|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:02:08.2220|Debug|Executando query reader ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:02:08.2220|Info|Fim de execução de query ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:02:32.7305|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:02:32.7335|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:02:32.7335|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:02:32.7335|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:02:32.7335|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:02:32.7335|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:02:32.7515|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:02:32.7515|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:02:32.7515|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:02:32.7515|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:02:32.7684|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:02:32.7684|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:02:32.7794|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:02:32.7794|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:02:32.7794|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:02:32.7954|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:02:32.7954|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:02:32.7954|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:02:32.8133|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:02:32.8133|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:02:47.9163|Error|Erro ao executar query: SELECT * FROM PRECIFICACAO|Tempo limite expirado. O período de tempo limite foi atingido antes que fosse obtida uma conexão do pool. Isso pode ter ocorrido porque todas as conexões do pool estavam em uso e o tamanho máximo do pool foi atingido.
+2019-10-14 20:02:47.9163|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:03:19.8193|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:19.8423|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:19.9710|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:19.9710|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:20.0906|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:03:20.0906|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:03:23.7933|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:23.7933|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:39.3506|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:39.3506|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:39.3506|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:39.3506|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:03:39.3506|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:03:39.3585|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:03:39.3585|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:03:39.3585|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:03:39.4174|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:39.4174|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:03:39.4453|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:03:39.4453|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:03:39.4593|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:03:39.4593|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:03:39.4772|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:03:39.4772|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:03:39.4942|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:03:39.4942|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:03:47.1365|Debug|Executando query reader ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:03:47.1365|Info|Fim de execução de query ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:04:08.1285|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:04:08.1285|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 9.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:04:08.1285|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:04:08.1285|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:04:08.1395|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:04:08.1618|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:04:08.1718|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:04:08.1718|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:04:08.1718|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:08.1718|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:08.1887|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:04:08.1887|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:04:08.1887|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:04:08.1887|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:04:08.2047|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:04:08.2047|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:04:08.2047|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:04:08.2047|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:04:08.2047|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:04:08.2176|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:04:08.2176|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:04:08.2176|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:04:08.2176|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:04:08.2176|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:04:14.4978|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:14.4978|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:42.1573|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 20:04:42.1573|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 20:04:42.1573|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 20:04:42.1573|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 20:04:42.1573|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 20:04:42.1573|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 20:04:42.1573|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 20:04:42.1712|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 20:04:42.1712|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 20:04:42.1712|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 20:04:42.1712|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 20:04:42.1712|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 20:04:42.1712|Debug|Executando query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 20:04:42.1712|Info|Fim de execução de query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 20:04:42.1712|Debug|Executando query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 20:04:42.1712|Info|Fim de execução de query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 20:04:47.0463|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 20:04:47.0463|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 20:04:47.0463|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 20:04:47.0463|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 20:04:47.0652|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:47.0652|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:47.0652|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:47.0652|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:50.2496|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:50.2496|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:04:50.2496|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:50.2496|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:53.4153|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:04:53.4153|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:04:53.4153|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:04:53.4233|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:04:53.5978|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:53.5978|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:56.8531|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:04:56.8531|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:01.0109|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:01.0109|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:01.0159|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:01.0159|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:01.0817|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:01.0817|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:14.3289|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 20:05:14.3289|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 20:05:14.3289|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:14.3289|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:15.8923|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 20:05:15', '2019-10-14 20:05:15', 1, 1, 1, 0, 0, 5.00, 0, 15, 1, 0.63);|
+2019-10-14 20:05:15.9180|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 20:05:15', '2019-10-14 20:05:15', 1, 1, 1, 0, 0, 5.00, 0, 15, 1, 0.63);|
+2019-10-14 20:05:15.9180|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 20:05:15.9180|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 20:05:15.9230|Debug|Executando query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 20:05:15.9230|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 20:05:15.9230|Debug|Executando query reader ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 20:05:15.9230|Info|Fim de execução de query ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 20:05:15.9230|Debug|Executando query reader ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 20:05:15.9230|Info|Fim de execução de query ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 20:05:15.9360|Debug|Executando query ... Query: UPDATE ESTOQUE SET QTDE = 217 WHERE IDBEBIDA = 1;|
+2019-10-14 20:05:15.9360|Info|Fim de execução de query ... Query: UPDATE ESTOQUE SET QTDE = 217 WHERE IDBEBIDA = 1;|
+2019-10-14 20:05:15.9524|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:05:15.9524|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:05:15.9524|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:15.9524|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:15.9524|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:15.9524|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:15.9674|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:15.9674|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:15.9674|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:15.9674|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:15.9674|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:15.9674|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:15.9823|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:15.9823|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:15.9823|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:15.9823|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:15.9823|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:15.9823|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:15.9823|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:15.9823|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:16.0023|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:16.0023|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:16.0252|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:16.0252|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:16.0502|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:16.0502|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:16.0734|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:05:16.0734|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:05:16.0793|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:05:16.0793|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:05:16.0973|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:16.0973|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:25.0089|Debug|Executando query reader ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 20:05:25');|
+2019-10-14 20:05:25.0089|Info|Fim de execução de query ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 20:05:25');|
+2019-10-14 20:05:25.0179|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:05:25.0179|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:05:25.0179|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:25.0179|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:25.0309|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:25.0309|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:25.0309|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:25.0309|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:25.0458|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:25.0458|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:25.0458|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:25.0458|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:25.0458|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:25.0608|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:25.0608|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:25.0608|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:25.0608|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:25.0608|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:25.0787|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:25.0787|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:25.0787|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:25.0787|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:25.0937|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:25.0937|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:05:25.0937|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:25.0937|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:05:25.1077|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:05:25.1077|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:05:25.1077|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:05:25.1077|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:05:25.1077|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:25.1077|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:29.8026|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:05:29.8026|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:05:34.2152|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:34.2152|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:34.2212|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:05:34.2212|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:05:34.2331|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:05:34.2331|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:05:34.2541|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:05:34.2541|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:05:34.2541|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:34.2640|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:05:34.2640|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:34.2640|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:05:34.2640|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:34.2640|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:05:34.2820|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:34.2820|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:05:34.2820|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:34.2820|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:05:34.2820|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:34.2950|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:05:34.2950|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:34.2950|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:05:34.2950|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:34.2950|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:05:34.2950|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:34.3109|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:05:34.3109|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:34.3109|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:05:34.3109|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:34.3109|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:05:34.3289|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:05:34.3289|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:05:34.3289|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:05:34.3289|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:05:34.3428|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:05:34.3428|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:05:34.3428|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:05:34.3428|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:40:03.4505|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:03.4734|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:24.7401|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:24.7401|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:24.7620|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:24.7620|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:24.7869|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:40:24.7869|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:40:25.6943|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:40:25.6943|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:40:26.1172|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:26.1172|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:27.9931|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:40:27.9931|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:40:28.2863|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:40:28.2863|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:40:28.7199|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:40:28.7199|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:40:29.4209|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:40:29.4209|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:40:59.0941|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:59.0941|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:59.0941|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:59.0941|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:40:59.1080|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:40:59.1080|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:40:59.1080|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:40:59.1080|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:40:59.1080|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:59.1080|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:40:59.1273|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:40:59.1273|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:40:59.1273|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:40:59.1273|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:40:59.1402|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:40:59.1402|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:40:59.1402|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:40:59.1402|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:42:17.3059|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:17.3059|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:17.3148|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:42:17.3148|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:42:17.3148|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:42:17.3268|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:42:17.3268|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:42:17.3268|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:42:17.3517|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:17.3517|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:17.3627|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:42:17.3627|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:42:17.3627|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:42:17.3627|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:42:17.3777|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:42:17.3777|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:42:17.3777|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:42:17.3777|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:42:23.7427|Debug|Executando query reader ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:42:23.7427|Info|Fim de execução de query ... Query: SELECT * FROM TIPOBEBIDA;|
+2019-10-14 20:42:44.2103|Debug|Executando query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 27.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:42:44.2711|Info|Fim de execução de query ... Query: INSERT INTO BEBIDAS (Nome, Descricao, TipoBebida, Marca, Valor, Volume, Peso, Sabor,  Lote, DataFabricacao, DataValidade, Fabricante, Embalagem, CodigoBarras, Alcoolico, Teor, Gaseificada, ContemGluten, DicaConservacao, Status, CaminhoImagem)VALUES ('Bebida Teste', 'Descricao Teste', 1, 'Marca Teste', 27.99, '2 Litros', '500 gramas', 'Sabor teste', 'Lote Teste', '2019-10-14 00:00:00', '2019-10-14 00:00:00', 'Fabricante Teste', 'Lata', '0123456789', 0, 10, 0, 0, 'Dica Teste', 0, 'drink.jpg');|
+2019-10-14 20:42:44.2711|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:42:44.2711|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM BEBIDAS;|
+2019-10-14 20:42:44.2711|Debug|Executando query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:42:44.3244|Info|Fim de execução de query ... Query: INSERT INTO INGREDIENTES (BebidaId, Descricao )VALUES (1, 'Água mineral');|
+2019-10-14 20:42:44.3314|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:44.3314|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:44.3314|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:42:44.3314|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:42:44.3563|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:42:44.3573|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:42:44.3573|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:42:44.3573|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:42:44.3573|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:44.3573|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:42:44.3732|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:42:44.3732|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:42:44.3732|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:42:44.3732|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:42:44.3732|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:42:44.3732|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:42:44.3922|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:42:44.3922|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:42:50.7004|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:42:50.7044|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:43:20.1654|Debug|Executando query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 20:43:20.2745|Info|Fim de execução de query ... Query: INSERT INTO CLIENTES (Cpf, DataNascimento, Email, Genero, Nome, Login, Senha, Status ) VALUES ('32314434900', '2019-10-14 00:00:00', 'teste@teste.com', 'Masculino', 'Usuário Teste', 'teste', '698dc19d489c4e4db73e28a713eab07b',1);|
+2019-10-14 20:43:20.2745|Debug|Executando query reader ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 20:43:20.3082|Info|Fim de execução de query ... Query: SELECT MAX(id) as Id FROM Clientes|
+2019-10-14 20:43:20.3111|Debug|Executando query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 20:43:20.3111|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Cobranca = 0  WHERE ClienteId = 1|
+2019-10-14 20:43:20.3111|Debug|Executando query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 20:43:20.3111|Info|Fim de execução de query ... Query: UPDATE ENDERECOS SET Entrega = 0 WHERE ClienteId = 1|
+2019-10-14 20:43:20.3111|Debug|Executando query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 20:43:20.3270|Info|Fim de execução de query ... Query: INSERT INTO ENDERECOS (Bairro, CEP, Cidade, Cobranca, Entrega, Complemento, Descricao, Estado, Logradouro, ClienteId, Numero ) VALUES ('Centro', '01234-567', 'Mogi das Cruzes', 1, 1, '', 'Minha Casa', 'SP', 'Rua abc', '1', '123');|
+2019-10-14 20:43:20.3270|Debug|Executando query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 20:43:20.3270|Info|Fim de execução de query ... Query: UPDATE Cartoes SET Preferencial = 0  WHERE ClienteId = 1|
+2019-10-14 20:43:20.3270|Debug|Executando query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 20:43:20.3270|Info|Fim de execução de query ... Query: INSERT INTO Cartoes (Bandeira, ClienteId, CodigoSeguranca, NomeTitular, Numero ,MesValidade,AnoValidade,Preferencial) VALUES (0, 1, 123, 'Gabriel Lima Gomes', '123456789000', '2', '2019', 1);|
+2019-10-14 20:43:20.3270|Debug|Executando query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 20:43:20.3270|Info|Fim de execução de query ... Query: INSERT INTO TELEFONES (IdUsuario, DDD, Numero, IdTipoTelefone)VALUES (1, 11,'40028922',1);|
+2019-10-14 20:43:25.1421|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 20:43:25.1421|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-14 20:43:25.1421|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 20:43:25.1421|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-14 20:43:25.1421|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:43:25.1541|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:43:25.1541|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:25.1541|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:28.3169|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:43:28.3169|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:43:28.3169|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:28.3169|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:31.4654|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:43:31.4654|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:43:31.4674|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:43:31.4674|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:43:32.1572|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:32.1572|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:36.1012|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:36.1012|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:40.2305|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:43:40.2305|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:43:40.2325|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:43:40.2325|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:43:40.5017|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:40.5017|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:53.8340|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 20:43:53.8340|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Cupons WHERE Descricao = 'Desconto') AS 'Exists'|
+2019-10-14 20:43:53.8340|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:43:53.8340|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:43:55.4059|Debug|Executando query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 20:43:55', '2019-10-14 20:43:55', 1, 1, 1, 0, 19.58, 13.99, 19.58, 15, 1, 6.59);|
+2019-10-14 20:43:55.4738|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOS (ClienteId, DataCadastro, DataUltimaAtualizacao, IdCupom, IdEnderecoEntrega, IdCartao1, IdCartao2, ValorCartao1, ValorCartao2, ValorTotal, Desconto, IdStatus, Frete )VALUES (1, '2019-10-14 20:43:55', '2019-10-14 20:43:55', 1, 1, 1, 0, 19.58, 13.99, 19.58, 15, 1, 6.59);|
+2019-10-14 20:43:55.4738|Debug|Executando query reader ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 20:43:55.4738|Info|Fim de execução de query ... Query: SELECT MAX(ID) FROM PEDIDOS;|
+2019-10-14 20:43:55.4738|Debug|Executando query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 20:43:55.4891|Info|Fim de execução de query ... Query: INSERT INTO PEDIDOSITENS (BebidaId, Quantidade, PedidoId )VALUES (1, 1, 1);|
+2019-10-14 20:43:55.4891|Debug|Executando query reader ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 20:43:55.4891|Info|Fim de execução de query ... Query: SELECT * FROM ESTOQUE WHERE IdBebida = 1|
+2019-10-14 20:43:55.4891|Debug|Executando query reader ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 20:43:55.4891|Info|Fim de execução de query ... Query: SELECT Qtde FROM Estoque WHERE IdBebida =1;|
+2019-10-14 20:43:55.4891|Debug|Executando query ... Query: UPDATE ESTOQUE SET QTDE = 216 WHERE IDBEBIDA = 1;|
+2019-10-14 20:43:55.5644|Info|Fim de execução de query ... Query: UPDATE ESTOQUE SET QTDE = 216 WHERE IDBEBIDA = 1;|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:43:56.2828|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:43:56.2828|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:43:56.2948|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:43:56.2948|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:43:56.2948|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:43:56.2948|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:43:56.2948|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:43:56.2948|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:43:56.2948|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:43:56.3719|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:43:56.3719|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:43:57.1362|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:43:57.1362|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:43:57.9923|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:43:57.9923|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:43:57.9923|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:43:57.9923|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:43:58.3345|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:43:58.3345|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:07.9011|Debug|Executando query reader ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 20:44:07');|
+2019-10-14 20:44:07.9102|Info|Fim de execução de query ... Query: INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('O produto estava vencido!', 0, 1, 1, '2019-10-14 20:44:07');|
+2019-10-14 20:44:07.9102|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:44:07.9620|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS WHERE ClienteId = 1|
+2019-10-14 20:44:07.9620|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:44:07.9679|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:44:07.9679|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:07.9679|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:07.9919|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:44:07.9919|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:44:07.9979|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:44:07.9979|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:44:07.9979|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:44:07.9979|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:44:07.9979|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:44:08.0158|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:44:08.0158|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:44:08.0158|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:44:08.0308|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:44:08.0308|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:44:08.0308|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:44:08.0308|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:44:08.0487|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:44:08.0487|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:44:08.0637|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:44:08.0637|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-14 20:44:08.0637|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:44:08.0637|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-14 20:44:08.0796|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:44:08.0796|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id IN (SELECT IDCUPOM FROM CUPONSCLIENTE WHERE IDCLIENTE = 1)|
+2019-10-14 20:44:08.0796|Debug|Executando query reader ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:44:08.0916|Info|Fim de execução de query ... Query: SELECT * FROM TELEFONES WHERE IdUsuario = 1|
+2019-10-14 20:44:08.0916|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:08.0916|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:12.7968|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:44:12.7968|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:44:17.8542|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:44:17.8542|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:44:17.8642|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:44:17.8642|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-14 20:44:17.8812|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:44:17.8812|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES|
+2019-10-14 20:44:17.9081|Debug|Executando query reader ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:44:17.9081|Info|Fim de execução de query ... Query: SELECT * FROM PEDIDOS|
+2019-10-14 20:44:17.9081|Debug|Executando query reader ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:44:17.9230|Info|Fim de execução de query ... Query: SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = 1|
+2019-10-14 20:44:17.9230|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:17.9360|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-14 20:44:17.9520|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:44:17.9520|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS WHERE Id = 1|
+2019-10-14 20:44:17.9669|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:44:17.9669|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 1|
+2019-10-14 20:44:17.9669|Debug|Executando query reader ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:44:17.9669|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes WHERE Id = 0|
+2019-10-14 20:44:17.9849|Debug|Executando query reader ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:44:17.9849|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS WHERE Id = 1|
+2019-10-14 20:44:17.9849|Debug|Executando query reader ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:44:17.9978|Info|Fim de execução de query ... Query: SELECT BebidaId FROM PEDIDOSITENS WHERE PedidoId = 1|
+2019-10-14 20:44:17.9978|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:44:17.9978|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-14 20:44:17.9978|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:44:17.9978|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-14 20:44:18.0148|Debug|Executando query reader ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:44:18.0148|Info|Fim de execução de query ... Query: SELECT QUANTIDADE from PedidosItens pis INNER JOIN PEDIDOS P ON pis.PEDIDOID = P.ID inner join bebidas b on pis.BebidaId = b.id where pis.BebidaId = 1 and p.id = 1|
+2019-10-14 20:44:18.0148|Debug|Executando query reader ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:44:18.0148|Info|Fim de execução de query ... Query: SELECT * FROM CUPONS|
+2019-10-14 20:44:18.0308|Debug|Executando query reader ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:44:18.0308|Info|Fim de execução de query ... Query: SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0|
+2019-10-14 20:44:18.0308|Debug|Executando query reader ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:44:18.0308|Info|Fim de execução de query ... Query: SELECT BEB.Nome, EST.* FROM ESTOQUE EST JOIN BEBIDAS BEB ON EST.IDBEBIDA = BEB.ID;|
+2019-10-14 20:44:18.0477|Debug|Executando query reader ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:44:18.0477|Info|Fim de execução de query ... Query: SELECT * FROM PRECIFICACAO|
+2019-10-14 20:44:18.0477|Debug|Executando query reader ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|
+2019-10-14 20:44:18.0477|Info|Fim de execução de query ... Query: SELECT T.*, P.Descricao DescPrecificacao FROM TIPOBEBIDA T JOIN PRECIFICACAO P ON T.IdPrecificacao = P.Idgrupo;|

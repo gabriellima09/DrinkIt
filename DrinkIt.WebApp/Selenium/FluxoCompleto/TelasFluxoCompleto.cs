@@ -278,7 +278,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                 },
                 Descricao = "Descricao Teste",
                 Marca = "Marca Teste",
-                Valor = 9.99M,
+                Valor = 27.99M,
                 Volume = "2 Litros",
                 Peso = "500 gramas",
                 Sabor = "Sabor teste",
