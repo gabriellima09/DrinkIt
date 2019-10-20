@@ -259,6 +259,7 @@
     <Content Include="Artifacts\Documentação do projeto.pptx" />
     <Content Include="Artifacts\DAS.docx" />
     <Content Include="Artifacts\UC_FATEC.doc" />
+    <Content Include="Artifacts\UC_DRINKIT.doc" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
     <Content Include="Scripts\Home\Script_Dashboard_Bebidas.js" />
