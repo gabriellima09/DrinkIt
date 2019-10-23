@@ -177,12 +177,14 @@
     <Compile Include="Dao\IUsuario.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\PrecificacaoDao.cs" />
+    <Compile Include="Dao\ProcedimentoTrocaStatusDao.cs" />
     <Compile Include="Dao\SolicitacaoTrocaDao.cs" />
     <Compile Include="Dao\TelefoneDao.cs" />
     <Compile Include="Dao\TipoBebidaDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Facade\Fachada.cs" />
     <Compile Include="Facade\IFachada.cs" />
+    <Compile Include="Facade\ProcedimentoTrocaStatus.cs" />
     <Compile Include="Factory\StrategyFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

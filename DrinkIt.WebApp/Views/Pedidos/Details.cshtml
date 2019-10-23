@@ -27,22 +27,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataUltimaAtualizacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DataUltimaAtualizacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status.Desricao)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Cliente)
         </dt>
 
@@ -111,6 +95,35 @@
             @Model.Bebidas.Sum(x => x.Valor * x.Quantidade).ToString("C")
         </dd>
     </dl>
+
+    <hr />
+
+    <h4>Histórico de Status</h4>
+    <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status.First().DataAtualizacao)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Status.OrderByDescending(x => x.DataAtualizacao))
+        {
+            <tr>
+                <td>
+                    @string.Concat(item.Id,
+                                    " - ",
+                                    item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAtualizacao)
+                </td>
+            </tr>
+        }
+
+    </table>
 </div>
 <p>
     @Html.ActionLink("Voltar", "Index", "Clientes")

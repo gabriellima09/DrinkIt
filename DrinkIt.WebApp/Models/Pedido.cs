@@ -11,8 +11,7 @@ namespace DrinkIt.WebApp.Models
         public Cliente Cliente { get; set; }
         public Endereco EnderecoEntrega { get; set; }
         public DateTime DataCadastro { get; set; }
-        public DateTime DataUltimaAtualizacao { get; set; }
-        public Status Status { get; set; }
+        public List<Status> Status { get; set; }
         public decimal ValorTotal { get; set; }
         public decimal Desconto { get; set; }
         public decimal Frete { get; set; }

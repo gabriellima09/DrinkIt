@@ -20,7 +20,7 @@ else
                 @Html.DisplayNameFor(model => model.ValorTotal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataCadastro)
+                @Html.DisplayNameFor(model => model.Status.FirstOrDefault().DataAtualizacao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -38,10 +38,12 @@ else
                     @Html.DisplayFor(modelItem => item.ValorTotal)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                    @Html.DisplayFor(modelItem => item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().DataAtualizacao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status.Desricao)
+                    @string.Concat(item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Id,
+                                    " - ",
+                                    item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Descricao)
                 </td>
                 <td align="center">
                     <div class="btn-group">

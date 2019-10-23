@@ -23,7 +23,6 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("INSERT INTO PEDIDOS (");
             Sql.Append("ClienteId, ");
             Sql.Append("DataCadastro, ");
-            Sql.Append("DataUltimaAtualizacao, ");
             Sql.Append("IdCupom, ");
             Sql.Append("IdEnderecoEntrega, ");
             Sql.Append("IdCartao1, ");
@@ -32,7 +31,6 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append("ValorCartao2, ");
             Sql.Append("ValorTotal, ");
             Sql.Append("Desconto, ");
-            Sql.Append("IdStatus, ");
             Sql.Append("Frete ");
             Sql.Append(")");
             Sql.Append("VALUES (");
@@ -47,7 +45,6 @@ namespace DrinkIt.WebApp.Dao
             Sql.Append(entidade.ValorCartao2.ToString(new CultureInfo("en-US")) + ", ");
             Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")) + ", ");
             Sql.Append(entidade.Desconto.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append(entidade.Status.Id + ", ");
             Sql.Append(entidade.Frete.ToString(new CultureInfo("en-US")));
             Sql.Append(");");
 
@@ -110,7 +107,6 @@ namespace DrinkIt.WebApp.Dao
 
             return pedidos;
         }
-
 
         public List<Pedido> ConsultarTodos()
         {
@@ -185,8 +181,6 @@ namespace DrinkIt.WebApp.Dao
         {
             Pedido pedido = new Pedido
             {
-                Cupom = new Cupom(),
-
                 Id = Convert.ToInt32(reader["Id"]),
                 IdCliente = Convert.ToInt32(reader["ClienteId"]),
                 IdCartao1 = Convert.ToInt32(reader["IdCartao1"]),
@@ -196,7 +190,6 @@ namespace DrinkIt.WebApp.Dao
                 IdCupom = Convert.ToInt32(reader["IdCupom"]),
                 IdEnderecoEntrega = Convert.ToInt32(reader["IdEnderecoEntrega"]),
                 DataCadastro = Convert.ToDateTime(reader["DataCadastro"]),
-                DataUltimaAtualizacao = Convert.ToDateTime(reader["DataUltimaAtualizacao"]),
                 Status = GetStatus(Convert.ToInt32(reader["Id"])),
                 Frete = Convert.ToDecimal(reader["Frete"]),
                 Desconto = Convert.ToDecimal(reader["Desconto"]),
@@ -213,24 +206,29 @@ namespace DrinkIt.WebApp.Dao
             return pedido;
         }
 
-        public Status GetStatus(int pedidoId)
+        public List<Status> GetStatus(int pedidoId)
         {
-            Status status = new Status();
+            List<Status> listStatus = new List<Status>();
 
             Sql.Clear();
 
-            Sql.Append("SELECT PS.Id, PS.Descricao FROM PEDIDOS P INNER JOIN PEDIDOSSTATUS PS ON PS.ID = P.IDSTATUS WHERE P.Id = " + pedidoId);
+            Sql.Append("select * from PedidosHistorico p inner join Pedidosstatus ps on ps.Id = p.IdStatus where p.IdPedido = " + pedidoId);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
-                if (reader.Read())
+                while (reader.Read())
                 {
+                    Status status = new Status();
+
                     status.Id = Convert.ToInt32(reader["Id"]);
-                    status.Desricao = Convert.ToString(reader["Descricao"]);
+                    status.Descricao = Convert.ToString(reader["Descricao"]);
+                    status.DataAtualizacao = Convert.ToDateTime(reader["DataAtualizacao"]);
+
+                    listStatus.Add(status);
                 }
             }
 
-            return status;
+            return listStatus;
         }
 
         public int GetQuantidade(int bebidaId, int pedidoId)
