@@ -57,6 +57,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Usuarios
         public ActionResult Login()
         {
+            ViewBag.ErrorLogin = "";
             return View();
         }
 
@@ -90,6 +91,8 @@ namespace DrinkIt.WebApp.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+
+            ViewBag.ErrorLogin = "E-mail/senha inválidos. Verifique seus dados e tente novamente.";
 
             return View(usuario);
         }
