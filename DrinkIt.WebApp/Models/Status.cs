@@ -1,7 +1,10 @@
-﻿namespace DrinkIt.WebApp.Models
+﻿using System;
+
+namespace DrinkIt.WebApp.Models
 {
     public class Status : EntidadeDominio
     {
-        public string Desricao { get; set; }
+        public string Descricao { get; set; }
+        public DateTime DataAtualizacao { get; set; }
     }
 }

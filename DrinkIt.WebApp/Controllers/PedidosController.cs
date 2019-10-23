@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using Newtonsoft.Json;
 using System;
@@ -13,7 +14,7 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Pedidos
         public ActionResult PvPedido()
         {
-            int idCliente = ((Usuario)Session["Usuario"]).Id;
+            int idCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
             List<Pedido> pedidos = new List<Pedido>();
 
@@ -108,12 +109,9 @@ namespace DrinkIt.WebApp.Controllers
                 pedido.IdCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
                 pedido.Bebidas = ((Usuario)Session["Usuario"])?.Carrinho.Bebidas ?? new List<Bebida>();
 
-                pedido.Status = new Status
-                {
-                    Id = 1//Finalizado
-                };
-
                 new PedidoDao().Cadastrar(pedido);
+
+                new ProcedimentoTrocaStatus().Entregue(new PedidoDao().ObterUltimoIdInserido());
 
                 foreach (var item in pedido.Bebidas)
                 {
