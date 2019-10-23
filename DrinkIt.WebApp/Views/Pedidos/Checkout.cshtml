@@ -41,7 +41,7 @@
 
                         <div>
                             <label class="control-label">Valor no cartão: </label>
-                            <input class="form-control money pay" id="valorCartao1" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.Valor)" />
+                            <input class="form-control money pay" id="valorCartao1" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.ValorVenda)" />
                         </div>
 
                         <hr />
@@ -77,9 +77,9 @@
                                     {
                                         <dt>
                                             <input type="hidden" name="Bebidas[@i].Id" value="@item.Id" />
-                                            <input type="hidden" name="Bebidas[@i].Valor" value="@item.Valor" />
+                                            <input type="hidden" name="Bebidas[@i].Valor" value="@item.ValorVenda" />
 
-                                            <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.Valor.ToString("C"), " X", item.Quantidade)</label>
+                                            <label>@string.Concat(item.Nome, " ", item.Volume, " ", item.ValorVenda.ToString("C"), " X", item.Quantidade)</label>
                                         </dt>
 
                                         <dd>
@@ -95,7 +95,7 @@
                                         Valor da compra:
                                     </dt>
                                     <dd>
-                                        @Model.Bebidas.Sum(x => x.Valor * x.Quantidade)
+                                        @Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade)
                                     </dd>
                                 </dl>
 
@@ -123,7 +123,7 @@
                             <div class="panel-footer">
                                 <label class="control-label">Valor Total: </label>
                                 <label class="control-label" style="float:right">
-                                    <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.Valor * x.Quantidade).ToString("C")</span>
+                                    <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade).ToString("C")</span>
                                 </label>
                                 <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.Valor * x.Quantidade)" />
                             </div>
