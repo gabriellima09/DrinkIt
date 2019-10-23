@@ -14,3 +14,15 @@ insert into PedidosStatus (Descricao) values ('FINALIZADO');
 insert into TipoBebida (Descricao, IdPrecificacao) values ('Água', 1);
 insert into TipoBebida (Descricao, IdPrecificacao) values ('Suco', 1);
 insert into TipoBebida (Descricao, IdPrecificacao) values ('Cerveja', 2);
+
+insert into PedidosStatus (Descricao) values ('EM PROCESSAMENTO');
+insert into PedidosStatus (Descricao) values ('APROVADA');
+insert into PedidosStatus (Descricao) values ('REPROVADA');
+insert into PedidosStatus (Descricao) values ('EM TRANSITO');
+insert into PedidosStatus (Descricao) values ('EM TRANSPORTE');
+insert into PedidosStatus (Descricao) values ('ENTREGUE');
+insert into PedidosStatus (Descricao) values ('EM TROCA');
+insert into PedidosStatus (Descricao) values ('TROCA AUTORIZADA');
+insert into PedidosStatus (Descricao) values ('TROCA NÃO AUTORIZADA');
+insert into PedidosStatus (Descricao) values ('TROCADO');
+insert into PedidosStatus (Descricao) values ('CANCELADO');
