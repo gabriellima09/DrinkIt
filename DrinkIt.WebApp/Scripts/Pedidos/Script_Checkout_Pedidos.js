@@ -53,6 +53,10 @@ $(document).ready(function () {
 
         if ($("#Pagar2Cartoes").prop('checked')) {
             SetarValorDoisCartoes();
+            $('#valorCartao1').attr('readonly', false);
+        } else {
+            SetarValorUmCartao();
+            $('#valorCartao1').attr('readonly', true);
         }
     });
 
@@ -141,4 +145,5 @@ $(document).ready(function () {
         $("#valorCartao2").val(valor.toString().replace('.', ','));
 
     }
+
 });

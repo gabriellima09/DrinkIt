@@ -41,7 +41,7 @@
 
                         <div>
                             <label class="control-label">Valor no cartão: </label>
-                            <input class="form-control money pay" id="valorCartao1" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.ValorVenda)" />
+                            <input readonly class="form-control money pay" id="valorCartao1" name="valorCartao1" value="@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade)" />
                         </div>
 
                         <hr />
@@ -125,7 +125,7 @@
                                 <label class="control-label" style="float:right">
                                     <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade).ToString("C")</span>
                                 </label>
-                                <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.Valor * x.Quantidade)" />
+                                <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade)" />
                             </div>
                         </div>
                     </div>

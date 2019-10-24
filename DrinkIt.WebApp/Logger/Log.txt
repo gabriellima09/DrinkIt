@@ -10077,3 +10077,581 @@ Invalid column name 'ValorCartao2'.
 2019-10-22 23:33:29.3815|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
 2019-10-22 23:33:29.3966|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
 2019-10-22 23:33:29.3966|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:06:55.6686|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:06:55.8327|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:08:52.4553|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 21:08:52.5284|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 21:08:52.5284|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 21:08:52.5855|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 21:08:52.6899|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:08:52.6899|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:08:52.7390|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:08:52.7410|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:17.7922|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 21:09:17.8460|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 21:09:17.8530|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 21:09:17.8530|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 21:09:18.2196|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:18.2196|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:19.5717|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:19.5717|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:21.4952|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:09:21.4952|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 21:09:21.4952|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:21.4952|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:22.4019|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 21:09:22.4019|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 21:09:22.4019|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 21:09:22.4119|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 21:09:22.4119|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:22.4119|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:23.9231|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:23.9231|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:50.7504|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:50.8490|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:50.8490|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:50.8490|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:51.0621|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:51.0621|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:51.4530|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:51.4530|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:51.4530|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:51.4590|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:51.4745|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:51.4745|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:52.3121|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:52.3121|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:09:52.3121|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:52.3121|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:09:52.3181|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:09:52.3181|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:10:18.1076|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:10:18.1076|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:10:18.1076|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:10:18.1076|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:10:18.1155|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:10:18.1155|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:19:11.1395|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:19:11.1395|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:19:11.1395|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:19:11.1395|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:19:11.1584|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:19:11.1584|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:19:33.6818|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:19:33.6818|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:19:33.6818|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:19:33.6818|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:19:33.6958|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:19:33.6958|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:38:31.7328|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:38:31.7328|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:38:31.7328|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:38:31.7328|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:38:31.7498|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:38:31.7498|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:38:42.9776|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:38:42.9776|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:38:42.9826|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:38:42.9826|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:38:42.9826|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:38:42.9826|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:39:23.2485|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:39:23.2485|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 21:39:23.2485|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:39:23.2485|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 21:39:35.0225|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 21:39:35.0225|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:26:53.1657|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:26:53.1657|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:26:53.1717|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:26:53.1717|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:26:59.4080|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:26:59.4080|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:27:06.7508|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 22:27:06.7508|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 22:27:06.7508|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 22:27:06.7508|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 22:27:06.7678|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:27:06.7678|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:27:06.7678|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:06.7678|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:09.3564|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 22:27:09.3564|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 22:27:09.3564|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 22:27:09.3564|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 22:27:09.3764|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:09.3764|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:10.1931|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:10.1931|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:11.2793|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:27:11.2793|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:27:11.2793|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:11.2793|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:11.8968|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 22:27:11.8968|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 22:27:11.9059|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 22:27:11.9059|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 22:27:11.9059|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:11.9059|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:12.7830|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:12.7830|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:13.6765|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:13.6765|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:13.6765|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:13.6845|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:13.6845|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:13.6845|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:16.4644|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:16.4654|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:16.4654|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:16.4654|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:16.4654|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:16.4654|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:16.6251|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:16.6251|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:16.6251|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:16.6251|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:16.6251|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:16.6371|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:18.2674|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:18.2674|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:18.2674|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:18.2674|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:18.2803|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:18.2803|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:30.6836|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:30.6836|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:30.6836|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:30.6836|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:30.7006|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:30.7006|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:30.8363|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:30.8363|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:30.8403|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:30.8403|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:30.8403|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:30.8403|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.0421|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.0431|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.0431|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.0431|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.0431|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.0431|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.2352|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.2352|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.2352|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.2352|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.2472|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.2472|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.4897|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.4897|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:32.4897|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.4897|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:32.5006|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:32.5006|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:36.6231|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:36.6231|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:36.6231|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:36.6231|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:36.6390|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:36.6390|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:37.4084|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:37.4084|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:37.4084|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:37.4084|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:37.4213|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:37.4213|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:42.4204|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:42.4204|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:42.4204|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:42.4204|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:42.4204|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:42.4344|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:42.7538|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:42.7538|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:42.7538|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:42.7538|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:42.7657|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:42.7657|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:43.5941|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:43.5941|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:43.5941|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:43.5941|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:43.5941|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:43.5941|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:44.4253|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:44.4253|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:44.4253|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:44.4253|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:44.4368|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:44.4368|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:45.2178|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:45.2178|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:27:45.2178|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:45.2178|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:27:45.2178|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:27:45.2178|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:32.6435|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:32.6435|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:35.8229|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:35.8259|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:35.8259|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:35.8259|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:35.8259|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:35.8259|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:35.9565|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:35.9565|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:35.9565|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:35.9565|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:35.9565|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:35.9565|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:36.3866|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:36.3876|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:36.3876|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:36.3876|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:36.3876|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:36.3876|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:36.5466|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:36.5466|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:36.5466|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:36.5466|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:36.5466|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:36.5466|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:38.6885|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:38.6885|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:38.6885|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:38.6885|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:38.6885|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:38.6885|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:38.8530|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:38.8530|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:38.8530|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:38.8530|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:38.8569|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:38.8569|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.1153|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.1153|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.1153|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.1153|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.1153|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.1213|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.6825|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.6825|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.6825|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.6845|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.6845|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.6845|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7174|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7174|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7174|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7174|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7174|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7174|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7553|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7553|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7553|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7553|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7553|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7553|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7902|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7902|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.7902|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7902|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.7942|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.7942|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8231|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8231|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8231|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8251|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8251|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8251|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8563|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8563|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8563|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8563|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8563|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8563|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8933|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8933|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.8933|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8933|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.8933|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.8933|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.9282|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.9282|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:39.9282|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.9282|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:39.9282|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:39.9342|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.1106|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.1106|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.1106|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.1106|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.1106|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.1106|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.6765|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.6765|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.6765|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.6765|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.6765|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.6765|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7140|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7150|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7150|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7150|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7150|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7150|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7488|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7488|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7488|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7488|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7488|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7488|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7844|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7844|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.7844|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7844|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.7844|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.7844|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8165|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8165|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8165|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8165|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8165|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8165|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8563|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8563|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8563|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8563|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8563|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8563|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8883|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8883|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.8883|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8883|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.8883|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.8883|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9232|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9232|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9232|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9232|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9232|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9232|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9551|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9551|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9551|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9551|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9551|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9551|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9911|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9911|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:40.9911|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9911|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:40.9961|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:40.9961|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:47.0243|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:47.0243|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:47.0243|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:47.0283|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:47.0283|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:47.0283|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:50.4611|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:50.4611|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:50.4611|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:50.4611|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:50.4651|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:50.4651|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:50.6552|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:50.6552|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:50.6552|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:50.6552|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:50.6552|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:50.6552|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:52.1818|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:52.1818|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:52.1860|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:52.1860|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:52.1860|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:52.1860|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:52.3750|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:52.3750|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:52.3750|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.0112|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.0182|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:53.0182|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:53.1962|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:53.1962|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:53.2002|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.2002|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.2002|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:53.2002|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:53.3478|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:53.3478|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:29:53.3478|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.3478|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:29:53.3598|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:29:53.3598|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:30:08.7663|Error|Erro ao executar query: SELECT * FROM ENDERECOS|Tempo limite expirado. O período de tempo limite foi atingido antes que fosse obtida uma conexão do pool. Isso pode ter ocorrido porque todas as conexões do pool estavam em uso e o tamanho máximo do pool foi atingido.
+2019-10-23 22:31:10.3884|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:32:00.7911|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:32:00.8220|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:35:00.0808|Debug|Executando query reader ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 22:35:00.0808|Info|Fim de execução de query ... Query: SELECT (SELECT COUNT(*) FROM Clientes WHERE Email LIKE '%teste@teste.com%' AND Senha LIKE '%698dc19d489c4e4db73e28a713eab07b%') AS 'Exists'|
+2019-10-23 22:35:00.0808|Debug|Executando query reader ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 22:35:00.0808|Info|Fim de execução de query ... Query: SELECT TOP 1 * FROM Clientes WHERE EMAIL = 'teste@teste.com'|
+2019-10-23 22:35:00.1007|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:35:00.1007|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:35:00.1147|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:00.1147|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:02.2133|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 22:35:02.2153|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 1|
+2019-10-23 22:35:02.2153|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 22:35:02.2153|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 1|
+2019-10-23 22:35:02.4620|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:02.4620|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:04.2514|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:04.2514|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:06.0245|Debug|Executando query reader ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:35:06.0245|Info|Fim de execução de query ... Query: SELECT * FROM BEBIDAS|
+2019-10-23 22:35:06.0305|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:06.0305|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:06.8654|Debug|Executando query reader ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 22:35:06.8654|Info|Fim de execução de query ... Query: SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = 2|
+2019-10-23 22:35:06.8773|Debug|Executando query reader ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 22:35:06.8773|Info|Fim de execução de query ... Query: SELECT * FROM INGREDIENTES WHERE BebidaId = 2|
+2019-10-23 22:35:06.8893|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:06.8893|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:07.5934|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:07.5934|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:11.0773|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:35:11.0773|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:35:11.0773|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:35:11.0773|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:35:11.5275|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:11.5275|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:11.7528|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:35:11.7528|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:35:11.7528|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:35:11.7528|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:35:11.7627|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:35:11.7627|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:38:06.6885|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:38:06.6885|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:38:06.6994|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:38:06.6994|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:38:06.6994|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:38:06.6994|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:38:27.4307|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:38:27.4357|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:38:27.4357|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:38:27.4357|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:38:27.4507|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:38:27.4507|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.0686|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.0686|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.0805|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.0805|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.0985|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.0985|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.2067|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.2067|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.2067|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.2157|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.2157|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.2157|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.3484|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.3484|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.3484|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.3484|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.3593|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.3593|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.5143|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.5143|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.5143|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.5143|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.5143|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.5143|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.6725|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.6725|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:44:09.6725|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.6725|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:44:09.6843|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:44:09.6843|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:45:04.6611|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:45:04.6611|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:45:04.6710|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:45:04.6710|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:45:04.6710|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:45:04.6710|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:45:16.7480|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:45:16.7480|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 22:45:16.7480|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:45:16.7480|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 22:45:16.7620|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 22:45:16.7620|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:54.5661|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:54.5661|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:54.5761|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:54.5761|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:54.5761|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:54.5761|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:54.8857|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:54.8857|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:54.8917|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:54.8917|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:54.8917|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:54.8917|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:55.4599|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:55.4599|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:55.4649|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:55.4649|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:55.4649|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:55.4649|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:55.6321|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:55.6321|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:55.6321|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:55.6321|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:55.6321|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:55.6371|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:56.3434|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:56.3434|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:01:56.3434|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:56.3434|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:01:56.3434|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:01:56.3434|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:02:02.2775|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:02:02.2775|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:02:02.2775|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:02:02.2775|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:02:02.2775|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:02:02.2775|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:03:25.6213|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:03:25.6213|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:03:25.6213|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:03:25.6213|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:03:31.4663|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:03:31.4663|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:03:31.8573|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:03:31.8573|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:03:31.8573|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:03:31.8573|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:03:31.8573|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:03:31.8573|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:06:58.2064|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:06:58.2064|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:06:58.2064|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:06:58.2164|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:06:58.7645|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:06:58.7645|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:09:22.8835|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:09:22.8835|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:09:22.8905|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:09:22.8905|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:09:22.8905|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:09:22.9044|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:16:14.5071|Debug|Executando query reader ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:16:14.5071|Info|Fim de execução de query ... Query: SELECT * FROM ENDERECOS|
+2019-10-23 23:16:14.5160|Debug|Executando query reader ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:16:14.5160|Info|Fim de execução de query ... Query: SELECT * FROM Cartoes|
+2019-10-23 23:16:14.5300|Debug|Executando query reader ... Query: SELECT * FROM CLIENTES WHERE Id = 1|
+2019-10-23 23:16:14.5300|Info|Fim de execução de query ... Query: SELECT * FROM CLIENTES WHERE Id = 1|

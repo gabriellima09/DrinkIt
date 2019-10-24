@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Sabor)
             </td>
             <td>
-                @Html.TextBoxFor(model => item.Quantidade, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;", @data_id=item.Id })
+                @Html.TextBoxFor(model => item.Quantidade, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;", @data_id=item.Id, @min = 1 })
             </td>
             <td align="center">
                 @using (Html.BeginForm("RemoverBebidaSessao", "Carrinho", FormMethod.Post))

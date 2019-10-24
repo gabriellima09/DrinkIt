@@ -39,7 +39,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 new SelectListItem
                 {
-                    Text = "Selecione uma endereço ...",
+                    Text = "Selecione um endereço...",
                     Value = "0"
                 }
             };
@@ -47,7 +47,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 new SelectListItem
                 {
-                    Text = "Selecione uma cartão ...",
+                    Text = "Selecione um cartão...",
                     Value = "0"
                 }
             };
