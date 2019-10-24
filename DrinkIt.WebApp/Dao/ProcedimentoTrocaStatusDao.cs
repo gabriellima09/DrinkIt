@@ -16,9 +16,9 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(")");
                 Sql.Append(" VALUES (");
                 Sql.Append(idPedido + ", ");
-                Sql.Append(idStatus + ", ");
+                Sql.Append(idStatus + ", '");
                 Sql.Append(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                Sql.Append(");");
+                Sql.Append("');");
 
                 DbContext.ExecuteQuery(Sql.ToString());
             }
