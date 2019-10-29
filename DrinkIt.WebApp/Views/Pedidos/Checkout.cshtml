@@ -126,6 +126,7 @@
                                     <span id="spanValorTotal">@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade).ToString("C")</span>
                                 </label>
                                 <input type="hidden" id="ValorTotal" name="ValorTotal" value="@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade)" />
+                                <input type="hidden" id="ValorTotalInicial" name="ValorTotalInicial" value="@Model.Bebidas.Sum(x => x.ValorVenda * x.Quantidade)" />
                             </div>
                         </div>
                     </div>
@@ -136,6 +137,7 @@
                         <div style="display: inline-flex;">
                             <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
                             <button id="btnCalcularFrete" type="button" class="btn btn-default" style="float:right">Calcular</button>
+                            <input type="hidden" id="hiddenValorFrete" value="0" />
                         </div>
                         <label style="color:forestgreen" class="control-label">
                             <span id="ResultadoValorFrete"></span>
@@ -148,6 +150,7 @@
                         <label for="inputCupomDesconto">Cupom:</label>
                         <input type="text" class="form-control" id="inputCupom" placeholder="Insira um cupom válido">
                         @Html.HiddenFor(x => x.IdCupom)
+                        <input type="hidden" id="hiddenValorCupom" value="0" />
                         <br />
                         <button id="btnValidarCupom" class="btn btn-info" type="button">Validar Cupom</button>
                         <span id="spanCupomValido" style="color:forestgreen;display:none;"><strong>Cupom válido!</strong></span>

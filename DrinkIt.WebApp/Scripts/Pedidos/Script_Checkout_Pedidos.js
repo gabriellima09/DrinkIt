@@ -20,6 +20,8 @@ $(document).ready(function () {
 
                     $("#Desconto").val(data.responseJSON.Cupom[0].Valor.toString().replace('.', ','));
 
+                    $('#hiddenValorCupom').val(data.responseJSON.Cupom[0].Valor.toFixed(2));
+
                     SubtrairValorTotal(data.responseJSON.Cupom[0].Valor.toFixed(2));
 
                     SetarValorCartoes();
@@ -41,6 +43,7 @@ $(document).ready(function () {
                 $("#ResultadoValorFrete").text('Frete: R$ ' + data.responseJSON.frete.toFixed(2));
                 $("#Frete").val(data.responseJSON.frete.toString().replace('.', ','));
                 $("#spanFrete").text(data.responseJSON.frete.toFixed(2).toString().replace('.', ','));
+                $('#hiddenValorFrete').val(data.responseJSON.frete.toString().replace('.', ','));
                 AdicionarValorTotal(data.responseJSON.frete.toFixed(2));
 
                 SetarValorCartoes();
@@ -65,12 +68,18 @@ $(document).ready(function () {
     });
 
     function AdicionarValorTotal(add) {
-        var valor = $("#ValorTotal").val();
+        var valor = $("#ValorTotalInicial").val();
+        var desconto = $('#hiddenValorCupom').val();
 
         valor = valor.toString().replace(',', '.');
         add = add.toString().replace(',', '.');
+        desconto = desconto.toString().replace(',', '.');
 
         valor = (parseFloat(valor) + parseFloat(add));
+
+        valor = (parseFloat(valor) - parseFloat(desconto));
+
+        valor = parseFloat(valor) < 0 ? 0 : valor;
 
         valor = parseFloat(valor).toFixed(2).toString().replace('.', ',');
 
@@ -79,12 +88,16 @@ $(document).ready(function () {
     }
 
     function SubtrairValorTotal(sub) {
-        var valor = $("#ValorTotal").val();
+        var valor = $("#ValorTotalInicial").val();
+        var frete = $('#hiddenValorFrete').val();
 
         valor = valor.toString().replace(',', '.');
         sub = sub.toString().replace(',', '.');
+        frete = frete.toString().replace(',', '.');
 
         valor = (parseFloat(valor) - parseFloat(sub));
+
+        valor = (parseFloat(valor) + parseFloat(frete));
 
         valor = parseFloat(valor).toFixed(2).toString().replace('.', ',');
 
