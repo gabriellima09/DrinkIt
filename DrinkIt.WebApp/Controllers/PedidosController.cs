@@ -1,10 +1,12 @@
 ﻿using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
+using DrinkIt.WebApp.PurchaseApprove;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -111,12 +113,31 @@ namespace DrinkIt.WebApp.Controllers
 
                 new PedidoDao().Cadastrar(pedido);
 
-                new ProcedimentoTrocaStatus().Entregue(new PedidoDao().ObterUltimoIdInserido());
+                int pedidoId = new PedidoDao().ObterUltimoIdInserido();
+
+                new ProcedimentoTrocaStatus().EmProcessamento(pedidoId);
+
+                if (ValidadorCompra.ValidarCompra())
+                {
+                    new ProcedimentoTrocaStatus().Aprovada(pedidoId);
+                }
+                else
+                {
+                    new ProcedimentoTrocaStatus().Reprovada(pedidoId);
+                }
+
+                new ProcedimentoTrocaStatus().EmTransito(pedidoId);
 
                 foreach (var item in pedido.Bebidas)
                 {
                     new EstoqueDao().Baixa(item.Id, item.Quantidade);
                 }
+
+                new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
+
+                Thread.Sleep(1000);
+
+                new ProcedimentoTrocaStatus().Entregue(pedidoId);
             }
             catch (Exception ex)
             {

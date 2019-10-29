@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,8 @@ namespace DrinkIt.WebApp.Controllers
                 usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
                 dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
+
+                new ProcedimentoTrocaStatus().EmTroca(IdPedido);
 
                 return RedirectToAction("Index", "Clientes");
             }
@@ -106,6 +109,11 @@ namespace DrinkIt.WebApp.Controllers
             {
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 dao.Reprovar(IdSolicitacao, MotivoReprova);
+
+                int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
+
+                new ProcedimentoTrocaStatus().TrocaNaoAutorizada(pedidoId);
+
                 return RedirectToAction("Index", "Usuarios");
             }catch(Exception ex)
             {
@@ -123,12 +131,18 @@ namespace DrinkIt.WebApp.Controllers
 
                 int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
 
+                new ProcedimentoTrocaStatus().TrocaAutorizada(pedidoId);
+
                 Pedido pedido = new PedidoDao().ConsultarPorId(pedidoId);
 
                 foreach (var item in pedido.Bebidas)
                 {
                     new EstoqueDao().Entrada(item.Id, item.Quantidade);
                 }
+
+                new ProcedimentoTrocaStatus().Trocado(pedidoId);
+
+                //gerar cupom de troca
 
                 return RedirectToAction("Index", "Usuarios");
             }
