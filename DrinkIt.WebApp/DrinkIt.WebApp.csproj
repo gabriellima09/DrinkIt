@@ -209,6 +209,7 @@
     <Compile Include="Models\TipoBebida.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseApprove\ValidadorCompra.cs" />
     <Compile Include="Selenium\Browser.cs" />
     <Compile Include="Selenium\FluxoCompleto\TelasFluxoCompleto.cs" />
     <Compile Include="Selenium\FluxoCompleto\TesteFluxoCompleto.cs" />
