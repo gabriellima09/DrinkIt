@@ -185,5 +185,22 @@ namespace DrinkIt.WebApp.Dao
 
             return ID;
         }
+
+        public List<Endereco> ConsultarPorCliente(int IdCliente)
+        {
+            List<Endereco> lista = new List<Endereco>();
+
+            Sql.Append("SELECT * FROM ENDERECOS WHERE CLIENTEID = " + IdCliente);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    lista.Add(ObterEntidadeReader(reader));
+                }
+            }
+
+            return lista;
+        }
     }
 }

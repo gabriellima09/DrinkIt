@@ -32,8 +32,10 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult Checkout()
         {
-            var listaEnderecos = new EnderecoDao().ConsultarTodos();
-            var listaCartoes = new CartaoDao().ConsultarTodos();
+            Usuario usuario = ((Usuario)Session["Usuario"]);
+
+            var listaEnderecos = new EnderecoDao().ConsultarPorCliente(usuario.Id);
+            var listaCartoes = new CartaoDao().ConsultarPorCliente(usuario.Id);
 
             List<SelectListItem> ddlEnderecos = new List<SelectListItem>
             {
@@ -68,7 +70,7 @@ namespace DrinkIt.WebApp.Controllers
             ViewBag.Enderecos = ddlEnderecos;
             ViewBag.Cartoes = ddlCartoes;
 
-            Usuario usuario = (Usuario)Session["Usuario"];
+            //Usuario usuario = (Usuario)Session["Usuario"];
 
             Cliente cliente = new Cliente
             {

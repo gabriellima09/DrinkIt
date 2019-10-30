@@ -153,5 +153,22 @@ namespace DrinkIt.WebApp.Dao
 
             return ID;
         }
+
+        public List<CartaoCredito> ConsultarPorCliente(int IdCliente)
+        {
+            List<CartaoCredito> cartoes = new List<CartaoCredito>();
+
+            Sql.Append("SELECT * FROM Cartoes WHERE CLIENTEID = " + IdCliente);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    cartoes.Add(ObterEntidadeReader(reader));
+                }
+            }
+
+            return cartoes;
+        }
     }
 }
