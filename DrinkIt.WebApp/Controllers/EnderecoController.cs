@@ -36,7 +36,9 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvEnderecos()
         {
-            return PartialView(Fachada.ConsultarTodos());
+            Usuario usuario = ((Usuario)Session["Usuario"]);
+            
+            return PartialView(new EnderecoDao().ConsultarPorCliente(usuario.Id));
         }
 
         // GET: Endereco/Details/5

@@ -25,7 +25,8 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvCartoes()
         {
-            return PartialView(Fachada.ConsultarTodos());
+            Usuario usuario = ((Usuario)Session["Usuario"]);
+            return PartialView(new CartaoDao().ConsultarPorCliente(usuario.Id));
         }
 
         // GET: Cartao/Details/5

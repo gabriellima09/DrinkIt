@@ -8,71 +8,81 @@
 
 <hr />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Volume)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Sabor)
-        </th>
-        <th>Quantidade</th>
-        <th></th>
-    </tr>
+@if (Model.Bebidas.Count > 0)
+{
 
-    @foreach (var item in Model.Bebidas)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.ActionLink(item.Nome, "Details", "Bebidas", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorVenda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sabor)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => item.Quantidade, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;", @data_id=item.Id, @min = 1 })
-            </td>
-            <td align="center">
-                @using (Html.BeginForm("RemoverBebidaSessao", "Carrinho", FormMethod.Post))
-                {
-                    <input type="hidden" name="idBebida" value="@item.Id" />
-
-                    <button type="submit" class="btn btn-danger">Remover</button>
-                }
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bebidas.FirstOrDefault().Sabor)
+            </th>
+            <th>Quantidade</th>
+            <th></th>
         </tr>
-    }
-</table>
 
-<hr />
+        @foreach (var item in Model.Bebidas)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Nome, "Details", "Bebidas", new { id = item.Id }, new { } )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorVenda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sabor)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => item.Quantidade, new { @type = "number", @class = "form-control Quantidade", @style = "width: 80px;", @data_id = item.Id, @min = 1, @onkeydown = "return false" })
+                </td>
+                <td align="center">
+                    @using (Html.BeginForm("RemoverBebidaSessao", "Carrinho", FormMethod.Post))
+                    {
+                        <input type="hidden" name="idBebida" value="@item.Id" />
 
-<div class="form-group" align="right">
-    @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class = "btn btn-success", @id= "btnFinalizarPedido" })
-</div>
+                        <button type="submit" class="btn btn-danger">Remover</button>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+    <hr />
+
+    <div class="form-group" align="right">
+        @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class = "btn btn-success", @id = "btnFinalizarPedido" })
+    </div>
+
+}
+else
+{
+    <h4>Seu carrinho está vazio!</h4>
+}
+
 
 @section Scripts{
     <script>
@@ -81,8 +91,8 @@
                 dataType: "json",
                 method: 'POST',
                 url: "/Pedidos/AtualizarQuantidadeBebida/",
-                data: { 'idBebida': $(this).attr('data-id'), 'quantidade' : $(this).val() },
-            }); 
+                data: { 'idBebida': $(this).attr('data-id'), 'quantidade': $(this).val() },
+            });
         });
     </script>
 }
