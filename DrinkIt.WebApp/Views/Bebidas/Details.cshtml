@@ -2,9 +2,11 @@
 
 @{
     ViewBag.Title = "Detalhes";
+    Usuario usuario = (Usuario)Session["Usuario"];
 }
 
 @using Newtonsoft.Json;
+@using DrinkIt.WebApp.Models;
 
 <h2>Detalhes da Bebida</h2>
 
@@ -99,7 +101,15 @@
             {
                 <input type="hidden" name="bebida" value="@JsonConvert.SerializeObject(Model)" />
 
-                <button type="submit" class="btn btn-success" id="btnAddCarrinho"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>
+                if (usuario != null)
+                {
+                    <button type="submit" class="btn btn-success" id="btnAddCarrinho"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-danger" disabled>Faça Login para Continuar</button>
+                }
+
             }
         </div>
 

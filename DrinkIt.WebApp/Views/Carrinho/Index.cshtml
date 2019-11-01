@@ -73,8 +73,18 @@
 
     <hr />
 
+    
     <div class="form-group" align="right">
-        @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class = "btn btn-success", @id = "btnFinalizarPedido" })
+        @if (Model.Bebidas.Sum(x => x.ValorVenda) >= 10)
+        {
+            @Html.ActionLink("Finalizar Pedido", "Checkout", "Pedidos", null, new { @class = "btn btn-success", @id = "btnFinalizarPedido" })
+        }
+        else
+        {
+            <button type="button" class="btn btn-warning" disabled>Finalizar Pedido</button><br />
+            <label style="color:orange">O valor mínimo do pedido deve ser de R$10,00.</label>
+        }
+
     </div>
 
 }
