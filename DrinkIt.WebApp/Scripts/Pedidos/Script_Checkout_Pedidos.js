@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+    VerificarValorTotal();
+
     $('#btnValidarCupom').click(function () {
         $.ajax({
             dataType: "json",
@@ -85,6 +87,7 @@ $(document).ready(function () {
 
         $("#ValorTotal").val(valor);
         $("#spanValorTotal").text("R$ " + valor);
+        VerificarValorTotal();
     }
 
     function SubtrairValorTotal(sub) {
@@ -105,6 +108,7 @@ $(document).ready(function () {
 
         $("#ValorTotal").val(valor);
         $("#spanValorTotal").text("R$ " + valor);
+        VerificarValorTotal();
     }
 
     $("#Pagar2Cartoes").click(function () {
@@ -157,6 +161,17 @@ $(document).ready(function () {
         $("#valorCartao1").val(valor.toString().replace('.', ','));
         $("#valorCartao2").val(valor.toString().replace('.', ','));
 
+    }
+
+    function VerificarValorTotal() {
+
+        var total = $('#ValorTotal').toString().replace('.', ',');
+
+        if (parseFloat(total) >= 20) {
+            $('#divCartao2').css('display', 'block');
+        } else {
+            $('#divCartao2').css('display', 'none');
+        }
     }
 
 });

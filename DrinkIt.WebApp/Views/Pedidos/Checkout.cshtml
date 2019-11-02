@@ -46,8 +46,8 @@
 
                         <hr />
 
-                        <div class="form-group">
-                            <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões: </label>
+                        <div class="form-group" id="divCartao2">
+                            <label class="control-label" style="margin-right:15px;">Pagar com 2 Cartões (min. R$10/cartão): </label>
                             <input type="checkbox" id="Pagar2Cartoes" name="Pagar2Cartoes" />
                         </div>
 
@@ -185,4 +185,5 @@
 
 <script>
     $('.money').mask('#.##0,00', { reverse: true });
+    $('#Cep').mask('#####-###', { reverse: true });
 </script>
