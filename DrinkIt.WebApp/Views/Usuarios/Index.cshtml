@@ -40,13 +40,19 @@
 
             <hr />
 
-            <div class="col-lg-6">
-                <h5><strong>Pedidos no ano</strong></h5>
-                <hr />
-                <canvas id="PedidosAno" max-width="50" max-height="50"></canvas>
+
+
+
+            <div class="col-lg-6" id="divGraficoVendas">
+                <!--AQUI VAI A PARTIAL VIEW DOS GRÁFICOS-->
+                @Html.Action("PvGraficoVendas", "Dashboard")
+
+                @*<h5><strong>Pedidos no ano</strong></h5>
+                    <hr />
+                    <canvas id="PedidosAno" max-width="50" max-height="50"></canvas>*@
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" id="divOutroGrafico">
                 <h5><strong>Bebidas mais compradas</strong></h5>
                 <hr />
                 <canvas id="BebidasMaisCompradas" max-width="50" max-height="50"></canvas>
@@ -79,58 +85,9 @@
                 },
             });
         </script>
-
-        <script>
-            var ctx = document.getElementById('PedidosAno').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    datasets: [{
-                        label: 'Total',
-                        data: [10, 15, 53, 31, 12, 3, 41, 22, 46, 12, 31, 45],
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(34, 162, 235, 0.2)',
-                            'rgba(153, 162, 255, 0.2)',
-                            'rgba(44, 162, 135, 0.2)',
-                            'rgba(103, 92, 205, 0.2)',
-                            'rgba(4, 16, 215, 0.2)',
-                            'rgba(53, 10, 55, 0.2)',
-                            'rgba(250, 12, 23, 0.2)',
-                            'rgba(200, 102, 205, 0.2)',
-                            'rgba(90, 62, 185, 0.2)',
-                            'rgba(133, 112, 285, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(54, 162, 235, 0.1)',
-                            'rgba(153, 102, 255, 0.1)',
-                            'rgba(34, 162, 235, 0.1)',
-                            'rgba(153, 162, 255, 0.1)',
-                            'rgba(44, 162, 135, 0.1)',
-                            'rgba(103, 92, 205, 0.1)',
-                            'rgba(4, 16, 215, 0.1)',
-                            'rgba(53, 10, 55, 0.1)',
-                            'rgba(250, 12, 23, 0.1)',
-                            'rgba(200, 102, 205, 0.1)',
-                            'rgba(90, 62, 185, 0.1)',
-                            'rgba(133, 112, 285, 0.1)',
-                        ],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
+        <div id="divScriptGraficoVendas">
+            @Html.Action("PvScriptGraficoVendas", "Dashboard")
+        </div>
     </div>
 
     <!-- Bebidas -->

@@ -152,6 +152,7 @@
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Controllers\CuponsController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -339,6 +340,8 @@
     <Content Include="Views\Precificacao\PvGrupoPrecificacao.cshtml" />
     <Content Include="Views\Precificacao\Create.cshtml" />
     <Content Include="Views\Precificacao\Edit.cshtml" />
+    <Content Include="Views\Dashboard\PvGraficoVendas.cshtml" />
+    <Content Include="Views\Dashboard\PvScriptGraficoVendas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
