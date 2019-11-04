@@ -1,86 +1,104 @@
-﻿
-<script>
-    var ctx = document.getElementById('PedidosAno').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-            datasets: [{
-                label: 'Alcoólicos',
-                data: [10, 15, 53, 31, 12, 3, 41, 22, 46, 12, 31, 45],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(34, 162, 235, 0.2)',
-                    'rgba(153, 162, 255, 0.2)',
-                    'rgba(44, 162, 135, 0.2)',
-                    'rgba(103, 92, 205, 0.2)',
-                    'rgba(4, 16, 215, 0.2)',
-                    'rgba(53, 10, 55, 0.2)',
-                    'rgba(250, 12, 23, 0.2)',
-                    'rgba(200, 102, 205, 0.2)',
-                    'rgba(90, 62, 185, 0.2)',
-                    'rgba(133, 112, 285, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 0.1)',
-                    'rgba(153, 102, 255, 0.1)',
-                    'rgba(34, 162, 235, 0.1)',
-                    'rgba(153, 162, 255, 0.1)',
-                    'rgba(44, 162, 135, 0.1)',
-                    'rgba(103, 92, 205, 0.1)',
-                    'rgba(4, 16, 215, 0.1)',
-                    'rgba(53, 10, 55, 0.1)',
-                    'rgba(250, 12, 23, 0.1)',
-                    'rgba(200, 102, 205, 0.1)',
-                    'rgba(90, 62, 185, 0.1)',
-                    'rgba(133, 112, 285, 0.1)',
-                ],
-                borderWidth: 2
-            },
+﻿@model DrinkIt.WebApp.Models.Dashboard
 
-            {
-                label: 'Não Alcoólicos',
-                data: [10, 15, 20, 25, 30, 25, 20, 15, 10, 5, 30, 5],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(34, 162, 235, 0.2)',
-                    'rgba(153, 162, 255, 0.2)',
-                    'rgba(44, 162, 135, 0.2)',
-                    'rgba(103, 92, 205, 0.2)',
-                    'rgba(4, 16, 215, 0.2)',
-                    'rgba(53, 10, 55, 0.2)',
-                    'rgba(250, 12, 23, 0.2)',
-                    'rgba(200, 102, 205, 0.2)',
-                    'rgba(90, 62, 185, 0.2)',
-                    'rgba(133, 112, 285, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 0.1)',
-                    'rgba(153, 102, 255, 0.1)',
-                    'rgba(34, 162, 235, 0.1)',
-                    'rgba(153, 162, 255, 0.1)',
-                    'rgba(44, 162, 135, 0.1)',
-                    'rgba(103, 92, 205, 0.1)',
-                    'rgba(4, 16, 215, 0.1)',
-                    'rgba(53, 10, 55, 0.1)',
-                    'rgba(250, 12, 23, 0.1)',
-                    'rgba(200, 102, 205, 0.1)',
-                    'rgba(90, 62, 185, 0.1)',
-                    'rgba(133, 112, 285, 0.1)',
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<div>
+    <h5><strong>Pedidos no ano</strong></h5>
+    <hr />
+    <canvas id="pedidos" max-width="50" max-height="50"></canvas>
+
+    <script charset="utf-8">
+
+        var dataAlcoolico = [];
+        @foreach (string name in Model.DataAlcoolico)
+        {
+            @:dataAlcoolico.push("@name");
         }
-    });
-</script>
+
+        var dataNaoAlcoolico = [];
+        @foreach (string name in Model.DataNaoAlcoolico)
+        {
+            @:dataNaoAlcoolico .push("@name");
+        }
+
+        var alcoolicos = [];
+        @foreach (int item in Model.ValoresAlcoolicos)
+        {
+            @:alcoolicos.push("@item");
+        }
+
+
+        var nAlcoolicos = [];
+        @foreach (int item in Model.ValoresNaoAlcoolicos)
+        {
+            @:nAlcoolicos.push("@item");
+        }
+
+        console.log(dataAlcoolico)
+        console.log(alcoolicos)
+
+        console.log(dataNaoAlcoolico)
+        console.log(nAlcoolicos)
+
+        var ctx = document.getElementById('pedidos').getContext('2d');
+        var config = {
+            type: 'line',
+            data: {
+                labels: dataNaoAlcoolico,
+                datasets: [{
+                    label: 'Alcoólicos',
+                    backgroundColor: 'rgb(240, 128, 128)',
+                    borderColor: 'rgb(240,128,128)',
+                    fill: false,
+                    data: alcoolicos,
+                }, {
+                    label: 'Não Alcoólicos',
+                        backgroundColor: 'rgb(70,130,180)',
+                        borderColor: 'rgb(70,130,180)',
+                    fill: false,
+                        data: nAlcoolicos,
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Quantidade de bebidas vendidas por período'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        };
+
+        var myChart = new Chart(ctx, config);
+    </script>
+</div>

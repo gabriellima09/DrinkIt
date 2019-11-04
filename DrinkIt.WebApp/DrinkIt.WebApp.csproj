@@ -168,6 +168,7 @@
     <Compile Include="Dao\CartaoDao.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\CupomDao.cs" />
+    <Compile Include="Dao\DashboardDao.cs" />
     <Compile Include="Dao\DbContext.cs" />
     <Compile Include="Dao\EnderecoDao.cs" />
     <Compile Include="Dao\EstoqueDao.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="Models\CartaoCredito.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Cupom.cs" />
+    <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Estoque.cs" />
@@ -340,7 +342,6 @@
     <Content Include="Views\Precificacao\PvGrupoPrecificacao.cshtml" />
     <Content Include="Views\Precificacao\Create.cshtml" />
     <Content Include="Views\Precificacao\Edit.cshtml" />
-    <Content Include="Views\Dashboard\PvGraficoVendas.cshtml" />
     <Content Include="Views\Dashboard\PvScriptGraficoVendas.cshtml" />
   </ItemGroup>
   <ItemGroup>

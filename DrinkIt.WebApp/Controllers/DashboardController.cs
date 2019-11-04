@@ -1,99 +1,74 @@
-﻿using System;
+﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
 {
     public class DashboardController : Controller
     {
-        // GET: Dashboard
-        public ActionResult Index()
+        public ActionResult GetGraficoVendas(string inicio, string fim)
         {
-            return View();
+            Dashboard dash = new DashboardDao().GetDashboardVendas(inicio, fim);
+
+            return PartialView("PvScriptGraficoVendas", dash);
         }
 
-        // GET: Dashboard/Details/5
-        public ActionResult Details(int id)
+        public ActionResult PvScriptGraficoVendas(Dashboard dash)
         {
-            return View();
-        }
-
-        // GET: Dashboard/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Dashboard/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            if (dash == null)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                dash = new Dashboard
+                {
+                    DataAlcoolico = new List<string>
+                    {
+                        "01/2019",
+                        "02/2019",
+                        "03/2019",
+                        "04/2019",
+                        "05/2019",
+                        "06/2019",
+                        "07/2019",
+                        "08/2019",
+                        "09/2019",
+                        "10/2019",
+                        "11/2019",
+                        "12/2019"
+                    },
+                    ValoresAlcoolicos = new List<int>(),
+                    ValoresNaoAlcoolicos = new List<int>()
+                };
             }
-            catch
+
+            if (dash.DataAlcoolico == null)
             {
-                return View();
+                dash.DataAlcoolico = new List<string>
+                    {
+                        "01/2019",
+                        "02/2019",
+                        "03/2019",
+                        "04/2019",
+                        "05/2019",
+                        "06/2019",
+                        "07/2019",
+                        "08/2019",
+                        "09/2019",
+                        "10/2019",
+                        "11/2019",
+                        "12/2019"
+                    };
+                dash.DataNaoAlcoolico = dash.DataAlcoolico;
             }
-        }
-
-        // GET: Dashboard/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Dashboard/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            if (dash.ValoresAlcoolicos == null)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                dash.ValoresAlcoolicos = new List<int>();
             }
-            catch
+            if (dash.ValoresNaoAlcoolicos == null)
             {
-                return View();
+                dash.ValoresNaoAlcoolicos = new List<int>();
             }
-        }
 
-        // GET: Dashboard/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Dashboard/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        public ActionResult PvGraficoVendas()
-        {
-            return PartialView();
-        }
-
-        public ActionResult PvScriptGraficoVendas()
-        {
-            return PartialView();
+            return PartialView(dash);
         }
 
     }
