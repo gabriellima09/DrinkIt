@@ -41,7 +41,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(")");
                 Sql.Append("VALUES (");
                 Sql.Append(entidade.IdCliente + ", ");
-                Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd") + "', ");
                 //Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
                 Sql.Append(entidade.IdCupom + ", ");
                 Sql.Append(entidade.IdEnderecoEntrega + ", ");
