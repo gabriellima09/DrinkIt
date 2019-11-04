@@ -40,16 +40,50 @@
 
             <hr />
 
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">Início</label>
+                    <input id="Inicio" name="Inicio" class="form-control" type="date" />
+                </div>
 
+                <div class="col-lg-12">
+                    <label class="control-label">Fim</label>
+                    <input id="Fim" name="Fim" class="form-control" type="date" />
+                </div>
 
+                <button id="btnPesquisar" type="button" class="btn btn-primary form-group" style="margin-top:15px">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <span>Pesquisar</span>
+                </button>
+            </div>
 
-            <div class="col-lg-6" id="divGraficoVendas">
-                <!--AQUI VAI A PARTIAL VIEW DOS GRÁFICOS-->
-                @Html.Action("PvGraficoVendas", "Dashboard")
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
 
-                @*<h5><strong>Pedidos no ano</strong></h5>
-                    <hr />
-                    <canvas id="PedidosAno" max-width="50" max-height="50"></canvas>*@
+            <script>
+                $(document).ready(function () {
+                    $("#btnPesquisar").click(function () {
+                        $.ajax({
+                            dataType: "html",
+                            method: 'POST',
+                            url: "/Dashboard/GetGraficoVendas/",
+                            data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
+                            complete: function (data) {
+                                $("#divScriptGraficoVendas").html(data.responseText);
+                            }
+                        });
+                    });
+                });
+            </script>
+
+            <hr />
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+            <div class="col-lg-6">
+                <div id="divScriptGraficoVendas">
+                    @Html.Action("PvScriptGraficoVendas", "Dashboard")
+                </div>
             </div>
 
             <div class="col-lg-6" id="divOutroGrafico">
@@ -58,8 +92,6 @@
                 <canvas id="BebidasMaisCompradas" max-width="50" max-height="50"></canvas>
             </div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 
         <script>
             var ctx = document.getElementById('BebidasMaisCompradas');
@@ -85,9 +117,6 @@
                 },
             });
         </script>
-        <div id="divScriptGraficoVendas">
-            @Html.Action("PvScriptGraficoVendas", "Dashboard")
-        </div>
     </div>
 
     <!-- Bebidas -->

@@ -47,6 +47,7 @@ namespace DrinkIt.WebApp.Dao
                     finally
                     {
                         LoggerManager.Instance.Logger.Info($"Fim de execução de query ... Query: {query}");
+                        _SqlConnection.Close();
                         DisposeConnection();
                     }
                 }
@@ -75,6 +76,8 @@ namespace DrinkIt.WebApp.Dao
             finally
             {
                 LoggerManager.Instance.Logger.Info($"Fim de execução de query ... Query: {query}");
+                _SqlConnection.Close();
+                DisposeConnection();
             }
         }
 
