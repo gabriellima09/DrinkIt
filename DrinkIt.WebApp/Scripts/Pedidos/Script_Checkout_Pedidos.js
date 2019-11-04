@@ -22,7 +22,7 @@ $(document).ready(function () {
 
                     $("#Desconto").val(data.responseJSON.Cupom[0].Valor.toString().replace('.', ','));
 
-                    $('#hiddenValorCupom').val(data.responseJSON.Cupom[0].Valor.toFixed(2));
+                    $('#hiddenValorCupom').val(data.responseJSON.Cupom[0].Valor.toFixed(2).toString().replace('.', ','));
 
                     SubtrairValorTotal(data.responseJSON.Cupom[0].Valor.toFixed(2));
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
         valor = parseFloat(valor).toFixed(2).toString().replace('.', ',');
 
-        $("#ValorTotal").val(valor);
+        //$("#ValorTotal").val(valor);
         $("#spanValorTotal").text("R$ " + valor);
         VerificarValorTotal();
     }
@@ -104,9 +104,28 @@ $(document).ready(function () {
 
         valor = parseFloat(valor).toFixed(2).toString().replace('.', ',');
 
+        if (parseFloat(valor) < 0) {
+            var valorTroco;
+            valorTroco = $("#ValorTotalInicial").val();
+            alert("1: " + valorTroco);
+            valorTroco = valorTroco.toString().replace(',', '.');
+            alert("2: " + valorTroco);
+            valorTroco = (parseFloat(valorTroco) + parseFloat(frete));
+            alert("3: " + valorTroco);
+            valorTroco = (parseFloat(sub) - parseFloat(valorTroco));
+            alert("4: " + valorTroco);
+            valorTroco = parseFloat(valorTroco).toFixed(2).toString().replace('.', ',');
+            alert("5: " + valorTroco);
+            
+            $('#spanVlrTroco').html('R$' + valorTroco);
+            $('#warnTroco').css('display', 'block');
+        } else {
+            $('#warnTroco').css('display', 'none');
+        }
+
         valor = parseFloat(valor) < 0 ? 0 : valor;
 
-        $("#ValorTotal").val(valor);
+        //$("#ValorTotal").val(valor);
         $("#spanValorTotal").text("R$ " + valor);
         VerificarValorTotal();
     }
@@ -155,7 +174,7 @@ $(document).ready(function () {
 
     function SetarValorDoisCartoes() {
         var valor = parseFloat($("#ValorTotal").val().toString().replace(',', '.'));
-
+        
         valor = (parseFloat(valor) / 2).toFixed(2);
 
         $("#valorCartao1").val(valor.toString().replace('.', ','));
@@ -165,12 +184,12 @@ $(document).ready(function () {
 
     function VerificarValorTotal() {
 
-        var total = $('#ValorTotal').toString().replace('.', ',');
+        var total = $('#ValorTotal').val().toString().replace('.', ',');
 
         if (parseFloat(total) >= 20) {
-            $('#divCartao2').css('display', 'block');
+            $('#divCheckCartao2').css('display', 'block');
         } else {
-            $('#divCartao2').css('display', 'none');
+            $('#divCheckCartao2').css('display', 'none');
         }
     }
 

@@ -18,58 +18,114 @@ namespace DrinkIt.WebApp.Dao
 
         public void Cadastrar(Pedido entidade)
         {
-            Sql.Clear();
-
-            Sql.Append("INSERT INTO PEDIDOS (");
-            Sql.Append("ClienteId, ");
-            Sql.Append("DataCadastro, ");
-            Sql.Append("IdCupom, ");
-            Sql.Append("IdEnderecoEntrega, ");
-            Sql.Append("IdCartao1, ");
-            Sql.Append("IdCartao2, ");
-            Sql.Append("ValorCartao1, ");
-            Sql.Append("ValorCartao2, ");
-            Sql.Append("ValorTotal, ");
-            Sql.Append("Desconto, ");
-            Sql.Append("Frete ");
-            Sql.Append(")");
-            Sql.Append("VALUES (");
-            Sql.Append(entidade.IdCliente + ", ");
-            Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            //Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sql.Append(entidade.IdCupom + ", ");
-            Sql.Append(entidade.IdEnderecoEntrega + ", ");
-            Sql.Append(entidade.IdCartao1 + ", ");
-            Sql.Append(entidade.IdCartao2 + ", ");
-            Sql.Append(entidade.ValorCartao1.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append(entidade.ValorCartao2.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append(entidade.ValorTotal.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append(entidade.Desconto.ToString(new CultureInfo("en-US")) + ", ");
-            Sql.Append(entidade.Frete.ToString(new CultureInfo("en-US")));
-            Sql.Append(");");
-
-            DbContext.ExecuteQuery(Sql.ToString());
-
-            int lastInsertId = ObterUltimoIdInserido();
-
-            Sql.Clear();
-
-            foreach (var item in entidade.Bebidas)
+            try
             {
-                Sql.Append("INSERT INTO PEDIDOSITENS (");
-                Sql.Append("BebidaId, ");
-                Sql.Append("Quantidade, ");
-                Sql.Append("PedidoId ");
+                decimal valorTotal = (entidade.ValorTotal + entidade.Frete - entidade.Cupom.Valor);
+                if (valorTotal < 0)
+                    valorTotal = 0;
+
+                Sql.Clear();
+
+                Sql.Append("INSERT INTO PEDIDOS (");
+                Sql.Append("ClienteId, ");
+                Sql.Append("DataCadastro, ");
+                Sql.Append("IdCupom, ");
+                Sql.Append("IdEnderecoEntrega, ");
+                Sql.Append("IdCartao1, ");
+                Sql.Append("IdCartao2, ");
+                Sql.Append("ValorCartao1, ");
+                Sql.Append("ValorCartao2, ");
+                Sql.Append("ValorTotal, ");
+                Sql.Append("Desconto, ");
+                Sql.Append("Frete ");
                 Sql.Append(")");
                 Sql.Append("VALUES (");
-                Sql.Append(item.Id + ", ");
-                Sql.Append(item.Quantidade + ", ");
-                Sql.Append(lastInsertId);
+                Sql.Append(entidade.IdCliente + ", ");
+                Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                //Sql.Append("'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append(entidade.IdCupom + ", ");
+                Sql.Append(entidade.IdEnderecoEntrega + ", ");
+                Sql.Append(entidade.IdCartao1 + ", ");
+                Sql.Append(entidade.IdCartao2 + ", ");
+                Sql.Append(entidade.ValorCartao1.ToString(new CultureInfo("en-US")) + ", ");
+                Sql.Append(entidade.ValorCartao2.ToString(new CultureInfo("en-US")) + ", ");
+                Sql.Append(valorTotal.ToString(new CultureInfo("en-US")) + ", ");
+                Sql.Append(entidade.Desconto.ToString(new CultureInfo("en-US")) + ", ");
+                Sql.Append(entidade.Frete.ToString(new CultureInfo("en-US")));
                 Sql.Append(");");
 
                 DbContext.ExecuteQuery(Sql.ToString());
+
+                int lastInsertId = ObterUltimoIdInserido();
+
                 Sql.Clear();
+
+                foreach (var item in entidade.Bebidas)
+                {
+                    Sql.Append("INSERT INTO PEDIDOSITENS (");
+                    Sql.Append("BebidaId, ");
+                    Sql.Append("Quantidade, ");
+                    Sql.Append("PedidoId ");
+                    Sql.Append(")");
+                    Sql.Append("VALUES (");
+                    Sql.Append(item.Id + ", ");
+                    Sql.Append(item.Quantidade + ", ");
+                    Sql.Append(lastInsertId);
+                    Sql.Append(");");
+
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
+                }
+
+                if(entidade.Cupom.Valor > entidade.ValorTotal)
+                {
+                    decimal valorCupom = entidade.Cupom.Valor - entidade.ValorTotal;
+                    string descricaoCupom = "TROCO" + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+                    //Gerando novo cupom:
+                    Sql.Append("INSERT INTO CUPONS(DESCRICAO, IDTIPO, DTCRIACAO, DTEXPIRACAO, ATIVO, VALOR) ");
+                    Sql.Append("VALUES ('");
+                    Sql.Append(descricaoCupom);
+                    Sql.Append("', 3, '");
+                    Sql.Append(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '");
+                    Sql.Append(DateTime.Now.AddDays(30).ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                    Sql.Append("1, ");
+                    Sql.Append(valorCupom.ToString(new CultureInfo("en-US")));
+                    Sql.Append(");");
+
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
+
+
+                    //Pegando ID do cupom recém-criado:                
+                    int IdCupom = 0;
+                    Sql.Clear();
+                    Sql.Append("SELECT MAX(ID) FROM CUPONS;");
+                    using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                    {
+                        if (reader.Read())
+                        {
+                            IdCupom = reader.GetInt32(0);
+                        }
+                    }
+
+
+                    //Registrando o cupom no cliente do pedido:
+                    Sql.Clear();
+                    Sql.Append("INSERT INTO CUPONSCLIENTE VALUES (");
+                    Sql.Append(entidade.Cliente.Id +", ");
+                    Sql.Append(IdCupom + ");");
+                    DbContext.ExecuteQuery(Sql.ToString());
+                    Sql.Clear();
+
+                }
+
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public Pedido ConsultarPorId(int id)
