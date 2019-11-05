@@ -216,6 +216,8 @@
     <Compile Include="Selenium\Browser.cs" />
     <Compile Include="Selenium\FluxoCompleto\TelasFluxoCompleto.cs" />
     <Compile Include="Selenium\FluxoCompleto\TesteFluxoCompleto.cs" />
+    <Compile Include="Selenium\FluxoGraficos\TelasFluxoGrafico.cs" />
+    <Compile Include="Selenium\FluxoGraficos\TesteFluxoGrafico.cs" />
     <Compile Include="Selenium\TelaCadastroBebida\TelaCadastroBebida.cs" />
     <Compile Include="Selenium\TelaCadastroBebida\TesteCadastroBebida.cs" />
     <Compile Include="Selenium\TelaCadastroCliente\TelaCadastroCliente.cs" />
