@@ -16,7 +16,9 @@ namespace DrinkIt.WebApp.Dao
                 DataAlcoolico = new List<string>(),
                 DataNaoAlcoolico = new List<string>(),
                 ValoresAlcoolicos = new List<int>(),
-                ValoresNaoAlcoolicos = new List<int>()
+                ValoresNaoAlcoolicos = new List<int>(),
+                Top = new List<string>(),
+                Qtd = new List<int>()
             };
 
             Sql.Clear();
@@ -68,6 +70,42 @@ namespace DrinkIt.WebApp.Dao
                     dashboard.DataNaoAlcoolico.Add(Convert.ToString(reader["Data"]));
                 }
             }
+
+            Sql.Clear();
+
+            Sql.Append("select distinct top 3 ");
+            Sql.Append("tb.descricao, ");
+            Sql.Append("count(p.id) as qtd ");
+            Sql.Append("from pedidos p ");
+            Sql.Append("inner ");
+            Sql.Append("join pedidositens pt ");
+            Sql.Append("on pt.PedidoId = p.id ");
+            Sql.Append("inner ");
+            Sql.Append("join bebidas b ");
+            Sql.Append("on b.id = pt.BebidaId ");
+            Sql.Append("inner ");
+            Sql.Append("join TipoBebida tb ");
+            Sql.Append("on tb.id = b.TipoBebida ");
+            Sql.Append("group by tb.Descricao ");
+            Sql.Append("order by 2 desc ");
+
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    dashboard.Top.Add(Convert.ToString(reader["descricao"]));
+                    dashboard.Qtd.Add(Convert.ToInt32(reader["qtd"]));
+                }
+            }
+
+            dashboard.Qtd1 = dashboard.Qtd[0];
+            dashboard.Qtd2 = dashboard.Qtd[1];
+            dashboard.Qtd3 = dashboard.Qtd[2];
+
+            dashboard.Top1 = dashboard.Top[0];
+            dashboard.Top2 = dashboard.Top[1];
+            dashboard.Top3 = dashboard.Top[2];
 
             return dashboard;
         }

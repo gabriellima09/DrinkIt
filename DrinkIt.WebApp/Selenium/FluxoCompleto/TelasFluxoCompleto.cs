@@ -144,7 +144,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             //_driver.FindElement(By.Id("dropEndereco")).Click();
             IWebElement dropDownListBox = _driver.FindElement(By.Name("IdEnderecoEntrega"));
             SelectElement clickThis = new SelectElement(dropDownListBox);
-            clickThis.SelectByText("Minha Casa - Rua abc, 123");
+            clickThis.SelectByText("Casita - Rua dos Anjos, 109");
             _driver.Wait1();
 
             //_driver.FindElement(By.Id("btnNovoEndereco")).Click();
@@ -155,14 +155,14 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             //_driver.FindElement(By.Id("SelectCartao")).Click();
             dropDownListBox = _driver.FindElement(By.Name("IdCartao1"));
             clickThis = new SelectElement(dropDownListBox);
-            clickThis.SelectByText("Mastercard - final 9000");
+            clickThis.SelectByText("Visa - final 4444");
             _driver.Wait1();
             _driver.FindElement(By.Id("Pagar2Cartoes")).Click();
             _driver.Wait1();
             _driver.FindElement(By.Name("valorCartao2")).Click();
             _driver.Wait1();
-            _driver.FindElement(By.Id("Pagar2Cartoes")).Click();
-            _driver.Wait1();
+            //_driver.FindElement(By.Id("Pagar2Cartoes")).Click();
+            //_driver.Wait1();
             _driver.SetText(By.Name("Cep"), "08740400");
             _driver.Wait1();
             _driver.FindElement(By.Id("btnCalcularFrete")).Click();

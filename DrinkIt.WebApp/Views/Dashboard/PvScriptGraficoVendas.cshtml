@@ -38,12 +38,6 @@
             @:nAlcoolicos.push("@item");
         }
 
-        console.log(dataAlcoolico)
-        console.log(alcoolicos)
-
-        console.log(dataNaoAlcoolico)
-        console.log(nAlcoolicos)
-
         var ctx = document.getElementById('pedidos').getContext('2d');
         var config = {
             type: 'line',
@@ -100,5 +94,39 @@
         };
 
         var myChart = new Chart(ctx, config);
+    </script>
+
+
+</div>
+
+<div>
+    <h5><strong>Bebidas mais compradas</strong></h5>
+    <hr />
+    <canvas id="BebidasMaisCompradas" max-width="50" max-height="50"></canvas>
+
+    <script>
+        var ctx = document.getElementById('BebidasMaisCompradas');
+        var config = {
+            type: 'doughnut',
+            data: {
+                labels: ['@Model.Top1', '@Model.Top2', '@Model.Top3'],
+                datasets: [{
+                    label: 'Total',
+                    data: [@Model.Qtd1, @Model.Qtd2, @Model.Qtd3],
+                    backgroundColor: [
+                        'rgba(4, 16, 215, 0.2)',
+                        'rgba(250, 12, 23, 0.2)',
+                        'rgba(44, 162, 135, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(4, 16, 215, 0.2)',
+                        'rgba(250, 12, 23, 0.2)',
+                        'rgba(44, 162, 135, 0.2)',
+                    ],
+                    borderWidth: 2
+                }]
+            },
+        };
+            var myChart = new Chart(ctx, config);
     </script>
 </div>

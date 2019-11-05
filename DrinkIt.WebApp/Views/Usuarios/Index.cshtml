@@ -70,8 +70,19 @@
                             data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
                             complete: function (data) {
                                 $("#divScriptGraficoVendas").html(data.responseText);
+    
                             }
                         });
+
+                        //$.ajax({
+                        //    dataType: "html",
+                        //    method: 'POST',
+                        //    url: "/Dashboard/GetGraficoPizza/",
+                        //    data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
+                        //    complete: function (data) {
+                        //        $("#divScriptGraficoPizza").html(data.responseText);
+                        //    }
+                        //});
                     });
                 });
             </script>
@@ -80,43 +91,16 @@
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div id="divScriptGraficoVendas">
                     @Html.Action("PvScriptGraficoVendas", "Dashboard")
                 </div>
             </div>
 
-            <div class="col-lg-6" id="divOutroGrafico">
-                <h5><strong>Bebidas mais compradas</strong></h5>
-                <hr />
-                <canvas id="BebidasMaisCompradas" max-width="50" max-height="50"></canvas>
-            </div>
+            @*<div class="col-lg-6" id="divOutroGrafico">
+                @Html.Action("PvScriptGraficoPizza", "Dashboard")
+            </div>*@
         </div>
-
-        <script>
-            var ctx = document.getElementById('BebidasMaisCompradas');
-            var myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Água', 'Refrigerante', 'Suco'],
-                    datasets: [{
-                        label: 'Total',
-                        data: [22, 46, 12],
-                        backgroundColor: [
-                            'rgba(4, 16, 215, 0.2)',
-                            'rgba(250, 12, 23, 0.2)',
-                            'rgba(44, 162, 135, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(4, 16, 215, 0.2)',
-                            'rgba(250, 12, 23, 0.2)',
-                            'rgba(44, 162, 135, 0.2)',
-                        ],
-                        borderWidth: 2
-                    }]
-                },
-            });
-        </script>
     </div>
 
     <!-- Bebidas -->

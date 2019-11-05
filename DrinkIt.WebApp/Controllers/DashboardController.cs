@@ -71,5 +71,27 @@ namespace DrinkIt.WebApp.Controllers
             return PartialView(dash);
         }
 
+        public ActionResult PvScriptGraficoPizza(Dashboard dash)
+        {
+            if (dash == null)
+            {
+                dash = new Dashboard
+                {
+                    Top1 = string.Empty,
+                    Top2 = string.Empty,
+                    Top3 = string.Empty,
+                };
+            }
+
+            return PartialView("PvScriptGraficoPizza", dash);
+        }
+
+        public ActionResult GetGraficoPizza(string inicio, string fim)
+        {
+            Dashboard dash = new DashboardDao().GetDashboardVendas(inicio, fim);
+
+            return PartialView("PvScriptGraficoPizza", dash);
+        }
+
     }
 }

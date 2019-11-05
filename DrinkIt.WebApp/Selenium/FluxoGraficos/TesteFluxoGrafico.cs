@@ -13,6 +13,8 @@ namespace DrinkIt.WebApp.Selenium.FluxoGraficos
             tela.Esperar(7);
             tela.InserirDatas();
             tela.Esperar(40);    
+            tela.Esperar(40);    
+            tela.Esperar(40);    
             tela.Fechar();
         }
     }
