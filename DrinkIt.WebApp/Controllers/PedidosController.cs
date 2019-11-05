@@ -122,24 +122,24 @@ namespace DrinkIt.WebApp.Controllers
                 if (ValidadorCompra.ValidarCompra())
                 {
                     new ProcedimentoTrocaStatus().Aprovada(pedidoId);
+
+                    new ProcedimentoTrocaStatus().EmTransito(pedidoId);
+
+                    foreach (var item in pedido.Bebidas)
+                    {
+                        new EstoqueDao().Baixa(item.Id, item.Quantidade);
+                    }
+
+                    new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
+
+                    Thread.Sleep(1000);
+
+                    new ProcedimentoTrocaStatus().Entregue(pedidoId);
                 }
                 else
                 {
                     new ProcedimentoTrocaStatus().Reprovada(pedidoId);
                 }
-
-                new ProcedimentoTrocaStatus().EmTransito(pedidoId);
-
-                foreach (var item in pedido.Bebidas)
-                {
-                    new EstoqueDao().Baixa(item.Id, item.Quantidade);
-                }
-
-                new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
-
-                Thread.Sleep(1000);
-
-                new ProcedimentoTrocaStatus().Entregue(pedidoId);
             }
             catch (Exception ex)
             {
