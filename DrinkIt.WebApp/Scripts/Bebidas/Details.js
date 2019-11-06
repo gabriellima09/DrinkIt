@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function () {    
+
     $("#btnCalcularFrete").click(function () {
         $.ajax({
             dataType: "json",
@@ -6,6 +7,7 @@
             data: { 'bebidaFrete': $("#bebidaFrete").val() },
             complete: function (data) {
                 $("#ResultadoValorFrete").text('Frete: R$ ' + data.responseText.valueOf('frete').toString('2d') + ' aprox.');
+                alert('deu certo');
             }
         }); 
     });

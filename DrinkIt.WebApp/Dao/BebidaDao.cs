@@ -187,7 +187,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<Bebida> bebidas = new List<Bebida>();
 
-            Sql.Append("SELECT * FROM BEBIDAS");
+            Sql.Append("SELECT * FROM BEBIDAS WHERE STATUS = 1;");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -333,6 +333,7 @@ namespace DrinkIt.WebApp.Dao
             Sql.Clear();
 
             Sql.Append("INSERT INTO Estoque (IdBebida, Qtde) VALUES (" + idBebida + ", 0)");
+            DbContext.ExecuteQuery(Sql.ToString());
         }
 
         public void EntradaEstoque(int IdBebida, int Qtde)
@@ -420,7 +421,7 @@ namespace DrinkIt.WebApp.Dao
             {
                 List<Bebida> bebidas = new List<Bebida>();
 
-                Sql.Append("SELECT * FROM BEBIDAS WHERE 1=1 ");
+                Sql.Append("SELECT * FROM BEBIDAS WHERE STATUS = 1 ");
 
                 //GASEIFICADA
                 if (idGas == 1)//COM GÁS
