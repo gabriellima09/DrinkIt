@@ -253,6 +253,7 @@
     <Content Include="Images\dolly.jpg" />
     <Content Include="Images\drink.jpg" />
     <Content Include="Scripts\Bebidas\Details.js" />
+    <Content Include="Scripts\Bebidas\Script_Bebidas_Dashboard.js" />
     <Content Include="Scripts\Bebidas\Script_CreateBebidas.js" />
     <Content Include="Scripts\Bebidas\Script_EditBebidas.js" />
     <Content Include="Scripts\bootstrap.js" />

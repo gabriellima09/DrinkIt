@@ -106,7 +106,7 @@ namespace DrinkIt.WebApp.Controllers
             return RedirectToAction("Checkout");
         }
 
-        public ActionResult FinalizarPedido(Pedido pedido)
+        public ActionResult FinalizarPedido(Pedido pedido)//idcartao1 e idenderecoentrega
         {
             try
             {
@@ -145,6 +145,12 @@ namespace DrinkIt.WebApp.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
+
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
+
+            usuario.Carrinho.Bebidas.Clear();
+
+            Session["Usuario"] = usuario;
 
             return RedirectToAction("Index", "Clientes");
         }

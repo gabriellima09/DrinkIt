@@ -192,9 +192,10 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult PvDashBebidas(int idGas = 0, int idTeor = 0, int idValor = 0, int idTipo = 0, string textoBusca = "")
         {
+            
             if (idGas == 0 && idTeor == 0 && idValor == 0 && idTipo == 0 && textoBusca.Equals(""))
             {//RESULTADO INICIAL: COMPLETO
-                return PartialView(Fachada.ConsultarTodos());
+                return PartialView(new BebidaDao().ConsultarDashBebidas());
             }
             else
             {//TO-DO: BUSCA POR TEXTO/COMBOS

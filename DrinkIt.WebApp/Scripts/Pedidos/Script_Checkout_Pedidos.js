@@ -107,15 +107,15 @@ $(document).ready(function () {
         if (parseFloat(valor) < 0) {
             var valorTroco;
             valorTroco = $("#ValorTotalInicial").val();
-            alert("1: " + valorTroco);
+
             valorTroco = valorTroco.toString().replace(',', '.');
-            alert("2: " + valorTroco);
+
             valorTroco = (parseFloat(valorTroco) + parseFloat(frete));
-            alert("3: " + valorTroco);
+
             valorTroco = (parseFloat(sub) - parseFloat(valorTroco));
-            alert("4: " + valorTroco);
+
             valorTroco = parseFloat(valorTroco).toFixed(2).toString().replace('.', ',');
-            alert("5: " + valorTroco);
+
             
             $('#spanVlrTroco').html('R$' + valorTroco);
             $('#warnTroco').css('display', 'block');

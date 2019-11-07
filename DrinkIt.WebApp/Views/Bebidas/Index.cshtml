@@ -5,4 +5,11 @@
 
 <h2>Bebidas</h2>
 
-@Html.Action("PvDashBebidas", "Bebidas")
+<div id="divDashBebidas">
+    @Html.Action("PvDashBebidas", "Bebidas")
+</div>
+
+
+@section Scripts {
+    <script src="~/Scripts/Bebidas/Script_Bebidas_Dashboard.js"></script>
+}

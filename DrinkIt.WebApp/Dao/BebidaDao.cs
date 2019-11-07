@@ -187,7 +187,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<Bebida> bebidas = new List<Bebida>();
 
-            Sql.Append("SELECT * FROM BEBIDAS WHERE STATUS = 1;");
+            Sql.Append("SELECT * FROM BEBIDAS;");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -421,52 +421,52 @@ namespace DrinkIt.WebApp.Dao
             {
                 List<Bebida> bebidas = new List<Bebida>();
 
-                Sql.Append("SELECT * FROM BEBIDAS WHERE STATUS = 1 ");
+                Sql.Append("SELECT * FROM BEBIDAS B INNER JOIN ESTOQUE E ON B.ID = E.IDBEBIDA WHERE B.STATUS = 1 AND E.QTDE > 0 ");
 
                 //GASEIFICADA
                 if (idGas == 1)//COM GÁS
                 {
-                    Sql.Append("AND GASEIFICADA = 1 ");
+                    Sql.Append("AND B.GASEIFICADA = 1 ");
                 }
                 if (idGas == 2)//SEM GÁS
                 {
-                    Sql.Append("AND GASEIFICADA = 0 ");
+                    Sql.Append("AND B.GASEIFICADA = 0 ");
                 }
 
                 //TEOR
                 if (idTeor == 1)//MENOR QUE 10%
                 {
-                    Sql.Append("AND TEOR < 10 ");
+                    Sql.Append("AND B.TEOR < 10 ");
                 }
                 if (idTeor == 2)//MAIOR/IGUAL 10%
                 {
-                    Sql.Append("AND TEOR >= 10 ");
+                    Sql.Append("AND B.TEOR >= 10 ");
                 }
 
                 //VALOR
                 if (idValor == 1)//15 REAIS OU MENOS
                 {
-                    Sql.Append("AND VALOR <= 15 ");
+                    Sql.Append("AND B.VALOR <= 15 ");
                 }
                 if (idValor == 2)//ENTRE 15 E 50 REAIS
                 {
-                    Sql.Append("AND VALOR > 15 AND VALOR <= 50 ");
+                    Sql.Append("AND B.VALOR > 15 AND VALOR <= 50 ");
                 }
                 if (idValor == 3)//50 REAIS OU MAIS
                 {
-                    Sql.Append("AND VALOR > 50 ");
+                    Sql.Append("AND B.VALOR > 50 ");
                 }
 
                 //TIPO DE BEBIDA
                 if (idTipo != 0)
                 {
-                    Sql.Append("AND TIPOBEBIDA = " + idTipo + " ");
+                    Sql.Append("AND B.TIPOBEBIDA = " + idTipo + " ");
                 }
 
                 //TEXTO DE BUSCA
                 if (!textoBusca.Equals(""))//TEXTO NÃO VAZIO
                 {
-                    Sql.Append("AND NOME LIKE '%" + textoBusca + "%'");
+                    Sql.Append("AND B.NOME LIKE '%" + textoBusca + "%'");
                 }
 
                 Sql.Append(";");
@@ -508,6 +508,23 @@ namespace DrinkIt.WebApp.Dao
             }
 
             return Items;
+        }
+
+        public List<Bebida> ConsultarDashBebidas()
+        {
+            List<Bebida> bebidas = new List<Bebida>();
+
+            Sql.Append("SELECT * FROM BEBIDAS B INNER JOIN ESTOQUE E ON B.ID = E.IDBEBIDA WHERE B.STATUS = 1 AND E.QTDE > 0;");
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    bebidas.Add(ObterEntidadeReader(reader));
+                }
+            }
+
+            return bebidas;
         }
         
     }
