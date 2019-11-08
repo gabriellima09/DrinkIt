@@ -30,7 +30,8 @@
 
                         <hr />
 
-                        @Html.DropDownListFor(x => x.IdEnderecoEntrega, (List<SelectListItem>)ViewBag.Enderecos, new { @class = "form-control" })
+                        @Html.DropDownListFor(x => x.IdEnderecoEntrega, (List<SelectListItem>)ViewBag.Enderecos, new { @class = "form-control", @id = "dropEndereco" })
+                        <label style="color:red;display:none" id="msgEnderecoInvalido">Insira um endereço válido.</label>
                     </div>
                 </div>
 
@@ -40,7 +41,8 @@
                         <h4>Forma de Pagamento</h4>
                         <hr />
 
-                        @Html.DropDownListFor(x => x.IdCartao1, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+                        @Html.DropDownListFor(x => x.IdCartao1, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control", @id = "dropCartao1" })
+                        <label style="color:red;display:none" id="msgCartaoInvalido">Insira um cartão válido.</label>
 
                         <div>
                             <label class="control-label">Valor no cartão: </label>
@@ -55,7 +57,8 @@
                         </div>
 
                         <div id="divCartao2" style="display:none">
-                            @Html.DropDownListFor(x => x.IdCartao2, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control" })
+                            @Html.DropDownListFor(x => x.IdCartao2, (List<SelectListItem>)ViewBag.Cartoes, new { @class = "form-control", @id = "dropCartao2" })
+                            <label style="color:red;display:none" id="msgCartaoInvalido2">Insira um cartão válido.</label>
 
                             <div>
                                 <label class="control-label">Valor no cartão 2: </label>
@@ -148,6 +151,8 @@
                         <label style="color:forestgreen" class="control-label">
                             <span id="ResultadoValorFrete"></span>
                         </label>
+                        <label style="color:red;display:none" id="msgCepInvalido">Insira um CEP válido para calcular o frete.</label>
+                        <input type="hidden" id="hiddenValidarCep" value="0" />
                     </div>
 
                     <hr />

@@ -36,21 +36,35 @@ $(document).ready(function () {
     });
 
     $("#btnCalcularFrete").click(function () {
-        $.ajax({
-            dataType: "json",
-            method: 'POST',
-            url: "/Pedidos/CalcularFretePedido/",
-            data: { 'pedido': $("#pedido").val() },
-            complete: function (data) {
-                $("#ResultadoValorFrete").text('Frete: R$ ' + data.responseJSON.frete.toFixed(2));
-                $("#Frete").val(data.responseJSON.frete.toString().replace('.', ','));
-                $("#spanFrete").text(data.responseJSON.frete.toFixed(2).toString().replace('.', ','));
-                $('#hiddenValorFrete').val(data.responseJSON.frete.toString().replace('.', ','));
-                AdicionarValorTotal(data.responseJSON.frete.toFixed(2));
 
-                SetarValorCartoes();
-            }
-        }); 
+        var tamanhoCep = $('#Cep').val().length;
+
+        if (tamanhoCep == 9) {
+            $.ajax({
+                dataType: "json",
+                method: 'POST',
+                url: "/Pedidos/CalcularFretePedido/",
+                data: { 'pedido': $("#pedido").val() },
+                complete: function (data) {
+                    $("#ResultadoValorFrete").text('Frete: R$ ' + data.responseJSON.frete.toFixed(2));
+                    $("#Frete").val(data.responseJSON.frete.toString().replace('.', ','));
+                    $("#spanFrete").text(data.responseJSON.frete.toFixed(2).toString().replace('.', ','));
+                    $('#hiddenValorFrete').val(data.responseJSON.frete.toString().replace('.', ','));
+                    AdicionarValorTotal(data.responseJSON.frete.toFixed(2));
+                                        
+                    $('#hiddenValidarCep').val(1);
+                    $('#msgCepInvalido').hide();
+
+                    SetarValorCartoes();
+                }
+            });
+        } else {
+            $("#ResultadoValorFrete").text('');
+            $('#hiddenValidarCep').val(0);
+            $('#msgCepInvalido').show();
+        }
+
+        
     });
 
     $("#Pagar2Cartoes").click(function () {
@@ -66,7 +80,43 @@ $(document).ready(function () {
     });
 
     $("#btnFinalizarPedido").unbind().click(function () {
-        $("#FormPedido").submit(); 
+        var flgValidacao = 1;
+        var valEndereco = $('#dropEndereco').val();
+        var valCartao1 = $('#dropCartao1').val();
+        var valCartao2 = $('#dropCartao2').val();
+        var valCep = $('#hiddenValidarCep').val();
+
+        if (valEndereco == '0') {
+            $('#msgEnderecoInvalido').show();
+            flgValidacao = 0;
+        } else {
+            $('#msgEnderecoInvalido').hide();
+        }
+
+        if (valCartao1 == '0') {
+            $('#msgCartaoInvalido').show();
+            flgValidacao = 0;
+        } else {
+            $('#msgCartaoInvalido').hide();
+        }
+
+        if (valCep == 0) {
+            $('#msgCepInvalido').show();
+            flgValidacao = 0;
+        }
+
+        if (valCartao2 == '0' && $("#Pagar2Cartoes").prop('checked') == true) {
+            $('#msgCartaoInvalido2').show();
+            flgValidacao = 0;
+        } else {
+            $('#msgCartaoInvalido2').hide();
+        }
+
+
+        if (flgValidacao == 1) {
+            $("#FormPedido").submit();
+        }
+        
     });
 
     function AdicionarValorTotal(add) {
