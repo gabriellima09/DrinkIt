@@ -196,14 +196,26 @@ $(document).ready(function () {
 
     function RecalcularValorCartoes(valorCartao, nomeInput) {
 
-        valorCartao = parseFloat(valorCartao.toString().replace(',', '.')).toFixed(2)
+        valorCartao = parseFloat(valorCartao.toString().replace(',', '.')).toFixed(2);
 
-        var valor = (parseFloat($("#ValorTotal").val().toString().replace(',', '.')) - valorCartao)
+        //var valorTotalCompra = parseFloat($("#ValorTotal").val()).toFixed(2);
 
+        var valor = (parseFloat($("#ValorTotal").val().toString().replace(',', '.')) - parseFloat(valorCartao));
+        if (valorCartao < 10) {
+            valorCartao = 10;
+            valor = (parseFloat($("#ValorTotal").val().toString().replace(',', '.')) - parseFloat(valorCartao));
+        } else if (valor < 10) {
+            valor = 10;
+            valorCartao = (parseFloat($("#ValorTotal").val().toString().replace(',', '.')) - parseFloat(valor));
+        }
+        
         if (nomeInput == 'valorCartao1') {
-            $("#valorCartao2").val(valor.toFixed(2).toString().replace('.', ','));
-        } else if (nomeInput == 'valorCartao2'){
-            $("#valorCartao1").val(valor.toFixed(2).toString().replace('.', ','));
+            $('#valorCartao1').val(parseFloat(valorCartao).toFixed(2).toString().replace('.', ','));
+            $('#valorCartao2').val(valor.toFixed(2).toString().replace('.', ','));
+            
+        } else if (nomeInput == 'valorCartao2') {
+            $('#valorCartao2').val(parseFloat(valorCartao).toFixed(2).toString().replace('.', ','));
+            $('#valorCartao1').val(valor.toFixed(2).toString().replace('.', ','));
         }
     }
 
