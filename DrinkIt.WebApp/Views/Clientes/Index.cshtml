@@ -50,7 +50,7 @@
         <div class="panel panel-default">
             <h4>Meus Endereços</h4>
             <hr />
-            @Html.ActionLink("Cadastrar novo", "Create", "Endereco", null, new { @class = "btn btn-primary", @target = "_blank", @style = "margin-left:15px" })
+            @Html.ActionLink("Cadastrar novo", "Create", "Endereco", null, new { @class = "btn btn-primary", @style = "margin-left:15px" })
             <hr />
             @Html.Action("PvEnderecos", "Endereco")
         </div>
@@ -61,7 +61,7 @@
         <div class="panel panel-default">
             <h4>Meus Cartões</h4>
             <hr />
-            @Html.ActionLink("Cadastrar novo", "Create", "Cartao", null, new { @class = "btn btn-primary", @target = "_blank", @style = "margin-left:15px" })
+            @Html.ActionLink("Cadastrar novo", "Create", "Cartao", null, new { @class = "btn btn-primary", @style = "margin-left:15px" })
             <hr />
             @Html.Action("PvCartoes", "Cartao")
         </div>
@@ -80,6 +80,8 @@
     <div class="tab-pane" id="Telefones">
         <div class="panel panel-default">
             <h4>Meus Telefones</h4>
+            <hr />
+            @Html.ActionLink("Cadastrar novo", "Create", "Telefones", null, new { @class = "btn btn-primary", @style = "margin-left:15px" })
             <hr />
             @Html.Action("PvTelefone", "Telefones")
         </div>

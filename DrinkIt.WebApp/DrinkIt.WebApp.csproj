@@ -347,6 +347,7 @@
     <Content Include="Views\Precificacao\Edit.cshtml" />
     <Content Include="Views\Dashboard\PvScriptGraficoVendas.cshtml" />
     <Content Include="Views\Dashboard\PvScriptGraficoPizza.cshtml" />
+    <Content Include="Views\Telefones\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

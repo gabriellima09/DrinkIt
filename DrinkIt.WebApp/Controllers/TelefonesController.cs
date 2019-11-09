@@ -37,20 +37,30 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Telefones/Create
         public ActionResult Create()
         {
+            ViewBag.ErroTelefone = "";
             return View();
         }
 
         // POST: Telefones/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Telefone telefone)
         {
             try
             {
                 // TODO: Add insert logic here
+                if(telefone.DDD == 0 || telefone.Numero == null)
+                {
+                    ViewBag.ErroTelefone = "Dados inválidos. Insira o DDD e o número corretamente.";
+                    return View(telefone);
+                }
 
-                return RedirectToAction("Index");
+                telefone.Id = ((Usuario)Session["Usuario"])?.Id ?? 0;
+
+                Resultado resultado = Fachada.Cadastrar(telefone);
+
+                return RedirectToAction("Index", "Clientes");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
