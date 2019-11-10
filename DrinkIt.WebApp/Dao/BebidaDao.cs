@@ -466,7 +466,7 @@ namespace DrinkIt.WebApp.Dao
                 //TEXTO DE BUSCA
                 if (!textoBusca.Equals(""))//TEXTO NÃO VAZIO
                 {
-                    Sql.Append("AND B.NOME LIKE '%" + textoBusca + "%'");
+                    Sql.Append("AND UPPER(LTRIM(RTRIM(B.NOME))) LIKE '%" + textoBusca.ToUpper().Trim() + "%'");
                 }
 
                 Sql.Append(";");

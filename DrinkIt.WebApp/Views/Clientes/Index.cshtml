@@ -86,13 +86,13 @@
             @Html.Action("PvTelefone", "Telefones")
         </div>
     </div>
-    
+
     <!-- Editar Perfil -->
     <div class="tab-pane" id="Editar">
         <div class="panel panel-default">
             <h4>Editar Perfil</h4>
             <hr />
-            @Html.ActionLink("Editar meu Perfil", "Edit", new { id = idCliente }, new { @class = "btn btn-info", @style = "margin-left:2%;margin-bottom:2%"} )
+            @Html.ActionLink("Editar meu Perfil", "Edit", new { id = idCliente }, new { @class = "btn btn-info", @style = "margin-left:2%;margin-bottom:2%" })
         </div>
     </div>
 
@@ -106,27 +106,27 @@
                     <div class="form-group">
                         @Html.Label("Senha atual", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control" })
+                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control", @id = "inputSenhaAtual"})
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.Label("Nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("NovaSenha", null, new { @class = "form-control" })
+                            @Html.TextBox("NovaSenha", null, new { @class = "form-control", @id = "inputNovaSenha" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.Label("Confirmar nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control" })
+                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control", @id = "inputConfirmarSenha" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Salvar senha" class="btn btn-success" />
+                            <input type="button" value="Salvar senha" class="btn btn-success" id="btnSalvarSenha" />
                         </div>
                     </div>
                 }
@@ -134,3 +134,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/Clientes/Script_Index_Clientes.js"></script>
+}

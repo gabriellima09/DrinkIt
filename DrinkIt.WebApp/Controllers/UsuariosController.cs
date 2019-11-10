@@ -131,7 +131,7 @@ namespace DrinkIt.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult TrocarSenha(string senhaAtual, string novaSenha)
+        public ActionResult TrocarSenha(string senhaAtual, string novaSenha, string confirmSenha)
         {
             try
             {

@@ -26,11 +26,11 @@ namespace DrinkIt.WebApp.Dao
 
                 DbContext.ExecuteQuery(Sql.ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         public void Cadastrar(Cliente entidade)
@@ -100,11 +100,11 @@ namespace DrinkIt.WebApp.Dao
                     Sql.Clear();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
+
 
         }
 
@@ -175,7 +175,7 @@ namespace DrinkIt.WebApp.Dao
 
                 DbContext.ExecuteQuery(Sql.ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -203,6 +203,23 @@ namespace DrinkIt.WebApp.Dao
             };
 
             return cliente;
+        }
+
+        public List<Cliente> ConsultarComFiltro(string textoBusca)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            Sql.Append("SELECT * FROM CLIENTES WHERE UPPER(LTRIM(RTRIM(NOME))) LIKE '%" + textoBusca.ToUpper().Trim() + "%'");
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    clientes.Add(ObterEntidadeReader(reader));
+                }
+            }
+
+            return clientes;
         }
     }
 }

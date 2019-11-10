@@ -22,14 +22,14 @@
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#Dashboard">Dashboard</a></li>
-    <li><a id="navTabBebida" data-toggle="tab" href="#Bebidas">Bebidas</a></li>
+    <li><a data-toggle="tab" id="navTabBebida" href="#Bebidas">Bebidas</a></li>
     <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
-    <li><a id="navTabTroca" data-toggle="tab" href="#Trocas">Trocas</a></li>
-    <li><a id="navTabEstoque" data-toggle="tab" href="#Estoque">Estoque</a></li>
-    <li><a id="navTabEstoque" data-toggle="tab" href="#Precificacao">Precificação</a></li>
-    <li><a id="navTabEstoque" data-toggle="tab" href="#TipoBebida">Tipos de Bebida</a></li>
+    <li><a data-toggle="tab" id="navTabTroca" href="#Trocas">Trocas</a></li>
+    <li><a data-toggle="tab" id="navTabEstoque" href="#Estoque">Estoque</a></li>
+    <li><a data-toggle="tab" id="navTabEstoque" href="#Precificacao">Precificação</a></li>
+    <li><a data-toggle="tab" id="navTabEstoque" href="#TipoBebida">Tipos de Bebida</a></li>
 </ul>
 
 <div class="tab-content">
@@ -70,7 +70,7 @@
                             data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
                             complete: function (data) {
                                 $("#divScriptGraficoVendas").html(data.responseText);
-    
+
                             }
                         });
 
@@ -98,8 +98,8 @@
             </div>
 
             @*<div class="col-lg-6" id="divOutroGrafico">
-                @Html.Action("PvScriptGraficoPizza", "Dashboard")
-            </div>*@
+                    @Html.Action("PvScriptGraficoPizza", "Dashboard")
+                </div>*@
         </div>
     </div>
 
@@ -122,7 +122,11 @@
         <div class="panel panel-default">
             <h4>Clientes</h4>
             <hr />
-            @Html.Action("PvCliente", "Clientes")
+            <input style="margin-left:15px" type="text" class="form-control" id="inputBuscaCliente" placeholder="Buscar cliente (ENTER para pesquisar)" />
+            <br />
+            <div id="divPvClientes">
+                @Html.Action("PvCliente", "Clientes")
+            </div>            
         </div>
     </div>
 
@@ -482,3 +486,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/Clientes/Script_Index_Usuario.js"></script>
+}

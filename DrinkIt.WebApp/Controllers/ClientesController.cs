@@ -4,6 +4,7 @@ using DrinkIt.WebApp.Models;
 using DrinkIt.WebApp.Strategy;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -25,9 +26,16 @@ namespace DrinkIt.WebApp.Controllers
             return View();
         }
 
-        public ActionResult PvCliente()
+        public ActionResult PvCliente(string textoBusca = "")
         {
-            return PartialView(Fachada.ConsultarTodos());
+            if (textoBusca.Equals(""))
+            {
+                return PartialView(Fachada.ConsultarTodos());
+            }
+            else
+            {
+                return PartialView(new ClienteDao().ConsultarComFiltro(textoBusca));
+            }
         }
 
         // GET: Clientes/Details/5
@@ -49,7 +57,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 //Validando a confirmação de senha
-                if(cliente.Senha != confirmSenha)
+                if (cliente.Senha != confirmSenha)
                 {
                     ViewBag.MsgErroConfirmarSenha = "Senha não confirmada corretamente.";
                     return View();
@@ -59,10 +67,17 @@ namespace DrinkIt.WebApp.Controllers
                     ViewBag.MsgErroConfirmarSenha = "";
                 }
 
+                if (cliente.Senha.Length < 8 || !cliente.Senha.Any(c => char.IsUpper(c)) || !cliente.Senha.Any(c => char.IsLower(c))
+                    || !cliente.Senha.Any(c => char.IsSymbol(c)))//Senha Inválida?
+                {
+                    ViewBag.MsgErroConfirmarSenha = "A senha precisa ter ao menos 8 dígitos, caracteres maiúsculos e minúsculos e símbolos.";
+                    return View();
+                }
+
                 bool checkTelefones = true;
                 cliente.Telefones = new List<Telefone>();
 
-                for(int i = 0; i < LstDDD.Count; i++)
+                for (int i = 0; i < LstDDD.Count; i++)
                 {
                     if (LstDDD[i] == 0)
                         checkTelefones = false;
@@ -73,10 +88,10 @@ namespace DrinkIt.WebApp.Controllers
                     if (TiposTelefone[i] == 0)
                         checkTelefones = false;
                 }
-                
+
                 if (checkTelefones)
                 {
-                    for(int i = 0; i < LstDDD.Count; i++)
+                    for (int i = 0; i < LstDDD.Count; i++)
                     {
                         Telefone telefone = new Telefone
                         {
@@ -113,7 +128,7 @@ namespace DrinkIt.WebApp.Controllers
                     ViewBag.Erro = resultado.MensagensErro;
                     return View(cliente);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -137,7 +152,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
@@ -171,5 +186,6 @@ namespace DrinkIt.WebApp.Controllers
                 return View();
             }
         }
+        
     }
 }
