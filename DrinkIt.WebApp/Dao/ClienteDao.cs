@@ -221,5 +221,26 @@ namespace DrinkIt.WebApp.Dao
 
             return clientes;
         }
+        
+        public bool VerificarSenhaAtual(int idCliente, string senha)
+        {
+            bool existe = false;
+
+            Sql.Append("SELECT (SELECT COUNT(*) FROM Clientes ");
+            Sql.Append("WHERE ");
+            Sql.Append("ID = " + idCliente);
+            Sql.Append(" AND Senha LIKE '%" + Criptografia.RetornarMD5(senha) + "%') AS 'Exists'");
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    existe = Convert.ToInt32(reader["Exists"]) > 0;
+                }
+            }
+
+            return existe;
+        }
+
     }
 }

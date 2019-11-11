@@ -19,6 +19,7 @@
 @{
     string nome = ((Usuario)Session["Usuario"])?.Login ?? "Usuário Teste";
     int idCliente = ((Usuario)Session["Usuario"]).Id;
+    string senhaAtual = ViewBag.SenhaAtual;
 }
 
 <h2>Seja bem vindo, @nome</h2>
@@ -101,26 +102,29 @@
         <div class="panel panel-default">
             <br />
             <div class="form-horizontal">
-                @using (Html.BeginForm("TrocarSenha", "Usuarios", FormMethod.Post))
+                @using (Html.BeginForm("TrocarSenha", "Usuarios", FormMethod.Post, new { @id = "FormNovaSenha" }))
                 {
                     <div class="form-group">
                         @Html.Label("Senha atual", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control", @id = "inputSenhaAtual"})
+                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control", @id = "inputSenhaAtual", @type = "password"})
+                            <label style="color:red;display:none" id="labelSenhaAtualErrada">Senha atual incorreta.</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.Label("Nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("NovaSenha", null, new { @class = "form-control", @id = "inputNovaSenha" })
+                            @Html.TextBox("NovaSenha", null, new { @class = "form-control", @id = "inputNovaSenha", @type = "password" })
+                            <label style="color:red;display:none" id="labelNovaSenhaFraca">A senha deve ter ao menos 8 dígitos, uma letra maiúscula, uma letra minúscula e um símbolo.</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         @Html.Label("Confirmar nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control", @id = "inputConfirmarSenha" })
+                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control", @id = "inputConfirmarSenha", @type = "password" })  
+                            <label style="color:red;display:none" id="labelConfirmacaoErrada">A senha não foi confirmada corretamente.</label>
                         </div>
                     </div>
 

@@ -1,10 +1,12 @@
-﻿using DrinkIt.WebApp.Dao;
+﻿using DrinkIt.WebApp.Cryptography;
+using DrinkIt.WebApp.Dao;
 using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using DrinkIt.WebApp.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 
 namespace DrinkIt.WebApp.Controllers
@@ -22,7 +24,7 @@ namespace DrinkIt.WebApp.Controllers
 
         // GET: Clientes
         public ActionResult Index()
-        {
+        {            
             return View();
         }
 
@@ -68,7 +70,7 @@ namespace DrinkIt.WebApp.Controllers
                 }
 
                 if (cliente.Senha.Length < 8 || !cliente.Senha.Any(c => char.IsUpper(c)) || !cliente.Senha.Any(c => char.IsLower(c))
-                    || !cliente.Senha.Any(c => char.IsSymbol(c)))//Senha Inválida?
+                    || Regex.Replace(cliente.Senha, "[a-zA-Z0-9]", "").Length == 0)//Senha Inválida?
                 {
                     ViewBag.MsgErroConfirmarSenha = "A senha precisa ter ao menos 8 dígitos, caracteres maiúsculos e minúsculos e símbolos.";
                     return View();
@@ -186,6 +188,33 @@ namespace DrinkIt.WebApp.Controllers
                 return View();
             }
         }
-        
+
+        public ActionResult ValidarTrocaSenha(string senhaAtual, string novaSenha, string confirmSenha)
+        {
+            int clienteId = ((Usuario)Session["Usuario"])?.Id ?? 0;
+            bool novaSenhaCorreta = true;
+            bool confirmSenhaCorreta = true;
+
+            if (novaSenha.Length < 8 || !novaSenha.Any(c => char.IsUpper(c)) || !novaSenha.Any(c => char.IsLower(c))
+                    || Regex.Replace(novaSenha, "[a-zA-Z0-9]", "").Length == 0)//Senha Inválida?
+            {
+                novaSenhaCorreta = false;
+            }
+
+            if (!novaSenha.Equals(confirmSenha))
+            {
+                confirmSenhaCorreta = false;
+            }
+
+            var resultado = new
+            {
+                ResultadoSenhaAtual = new ClienteDao().VerificarSenhaAtual(clienteId, senhaAtual),
+                ResultadoNovaSenha = novaSenhaCorreta,
+                ResultadoConfirmSenha = confirmSenhaCorreta
+            };
+            return Json(resultado);
+        }
+
+
     }
 }
