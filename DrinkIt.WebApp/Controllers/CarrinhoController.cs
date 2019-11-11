@@ -23,7 +23,10 @@ namespace DrinkIt.WebApp.Controllers
 
             Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
-            usuario.Carrinho.Bebidas.Add(novaBebida);
+            if(!usuario.Carrinho.Bebidas.Exists(x => x.Id == novaBebida.Id))
+            {
+                usuario.Carrinho.Bebidas.Add(novaBebida);
+            }            
 
             Session["Usuario"] = usuario;
 

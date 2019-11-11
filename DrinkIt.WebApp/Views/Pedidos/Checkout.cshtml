@@ -19,7 +19,7 @@
     @using (Html.BeginForm("FinalizarPedido", "Pedidos", FormMethod.Post, new { @id = "FormPedido" }))
     {
         <input type="hidden" name="Cliente.Id" value="@usuario.Id" />
-        
+
         <div class="panel panel-default">
             <div class="container" style="padding-left:0;padding-right:30px">
 
@@ -182,19 +182,24 @@
     }
 </div>
 
+@*@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")*@
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+@section Scripts{
 
-<script src="~/Scripts/Pedidos/Script_Checkout_Pedidos.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+    <script src="~/Scripts/Pedidos/Script_Checkout_Pedidos.js"></script>
 
-<script>
-    $('.money').mask('#.##0,00', { reverse: true });
-    $('#Cep').mask('#####-###', { reverse: true });
-</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+
+    <script>
+        $('.money').mask('#.##0,00', { reverse: true });
+        $('#Cep').mask('#####-###', { reverse: true });
+    </script>
+
+}
+

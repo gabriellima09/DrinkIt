@@ -123,9 +123,10 @@
                     </div>
                     <div class="row col-md-6">
                         <input id="Cep" class="form-control" type="text" name="Cep" placeholder="00000-000" value="" maxlength="9" />
-                        <label style="color:forestgreen" class="control-label">
+                        <label style="color:forestgreen;display:none" id="lbValorFrete" class="control-label">
                             <span id="ResultadoValorFrete"></span>
                         </label>
+                        <label style="display:none;color:red" id="lbCepInvalido">Insira um CEP válido.</label>
                     </div>
                     <form id="FormBebidaDetails" action="/Pedidos/SimularFreteDetails/" method="post">
                         <input type="hidden" id="bebidaFrete" name="bebidaFrete" value="@JsonConvert.SerializeObject(Model)" />
@@ -144,15 +145,18 @@
     @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
 </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+@*@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")*@
 
-<script src="~/Scripts/Bebidas/Details.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
-<script>
-    $('#Cep').mask('#####-###', { reverse: true });
-</script>
+@section Scripts{
+    <script src="~/Scripts/Bebidas/Details.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+    <script>
+        $('#Cep').mask('#####-###', { reverse: true });
+    </script>
+}
+
