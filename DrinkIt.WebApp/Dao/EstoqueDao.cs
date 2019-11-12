@@ -123,6 +123,7 @@ namespace DrinkIt.WebApp.Dao
 
         public int ConsultarEstoquePorId(int IdBebida)
         {
+            Sql.Clear();
             int qtde = 0;
             Sql.Append("SELECT QTDE FROM ESTOQUE WHERE IDBEBIDA = " + IdBebida);
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))

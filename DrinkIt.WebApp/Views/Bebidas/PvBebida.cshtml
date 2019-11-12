@@ -110,7 +110,7 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Ativar", "TrocarStatus", "Bebidas", new { id = item.Id, statusAtual = 0 }, new { @class = "btn-primary" })</li>
+                        <li><a id="btnAtivar" class="btn btn-primary" href="#" onclick="$('#modalAtivarBebida').modal('show'); $('#hiddenIdBebidaAtivar').val(@item.Id); $('#ddCodigoBebidaAtivar').html('@item.Id'); $('#ddDescBebidaAtivar').html('@item.Nome');">Ativar</a></li>
                     }
 
 

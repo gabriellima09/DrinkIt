@@ -474,13 +474,65 @@
                     </h5>
                     <form action="/Bebidas/TrocarStatus/" method="post" id="FormInativarBebida">
                         <input type="hidden" id="hiddenIdBebidaInativar" name="id" />
-                        <textarea class="form-control" name="motivo" cols="20" rows="5" placeholder="Digite o motivo da inativação"></textarea>
+                        <textarea id="txMotivo" class="form-control" name="motivo" cols="20" rows="5" placeholder="Digite o motivo da inativação"></textarea>
+                        <label id="msgErroMotivo" style="color:red;display:none">Insira um motivo válido para inativação.</label>
                         <input type="hidden" name="statusAtual" value="1" />
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnInativar" type="button" class="btn btn-danger" onclick="$('#FormInativarBebida').submit();">Inativar</button>
+                <button id="btnInativar" type="button" class="btn btn-danger" onclick="InativarBebida();">Inativar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalAtivarBebida" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success" style="display: flex;">
+                <h3 class="modal-title">Deseja ativar esta bebida?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h4>Bebida</h4>
+                    <hr />
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Código
+                        </dt>
+                        <dd id="ddCodigoBebidaAtivar">
+
+                        </dd>
+
+                        <dt>
+                            Descrição
+                        </dt>
+                        <dd id="ddDescBebidaAtivar">
+
+                        </dd>
+
+                    </dl>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h5>
+                        <label class="control-label">Informe o motivo da ativação:</label>
+                    </h5>
+                    <form action="/Bebidas/TrocarStatus/" method="post" id="FormAtivarBebida">
+                        <input type="hidden" id="hiddenIdBebidaAtivar" name="id" />
+                        <textarea id="txMotivoAtivar" class="form-control" name="motivo" cols="20" rows="5" placeholder="Digite o motivo da ativação"></textarea>
+                        <label id="msgErroMotivoAtivar" style="color:red;display:none">Insira um motivo válido para ativação.</label>
+                        <input type="hidden" name="statusAtual" value="0" />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnAtivar" type="button" class="btn btn-success" onclick="AtivarBebida();">Ativar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>

@@ -171,7 +171,7 @@ namespace DrinkIt.WebApp.Controllers
         }
 
 
-        public ActionResult TrocarStatus(int id, int statusAtual, string motivo = null)
+        public ActionResult TrocarStatus(int id, int statusAtual, string motivo)
         {
             try
             {
@@ -179,7 +179,11 @@ namespace DrinkIt.WebApp.Controllers
                 Fachada.Excluir(id);
                 if (statusAtual == 1)//Inativando?
                 {
-                    bebidaDao.GravarMotivoInativacao(id, motivo);
+                    bebidaDao.GravarMotivoInativacao(id, motivo, "Manual", "Inativacao");
+                }
+                else //Ativando?
+                {
+                    bebidaDao.GravarMotivoInativacao(id, motivo, "Manual", "Ativacao");
                 }
                 return RedirectToAction("Index", "Usuarios");
             }

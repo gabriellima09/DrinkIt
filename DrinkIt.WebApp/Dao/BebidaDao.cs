@@ -174,7 +174,7 @@ namespace DrinkIt.WebApp.Dao
                 }
             }
 
-            bebida.ValorVenda = Math.Round(bebida.Valor + (bebida.MargemLucro/100), 2);
+            bebida.ValorVenda = Math.Round(bebida.Valor + (bebida.MargemLucro / 100), 2);
 
             Sql.Clear();
 
@@ -236,14 +236,14 @@ namespace DrinkIt.WebApp.Dao
         }
 
         //Sobrecarga, para registrar motivo
-        public void GravarMotivoInativacao(int id, string motivo)
+        public void GravarMotivoInativacao(int id, string motivo, string Categoria, string Acao)
         {
             if (!string.IsNullOrEmpty(motivo))
             {
                 Sql.Clear();
 
-                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, MOTIVOINATIVACAO) VALUES (" + id + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + motivo + "');");
-
+                Sql.Append("INSERT INTO INATIVACAOBEBIDAS (IDBEBIDA, DTINATIVACAO, CATEGORIA, ACAO, MOTIVO) VALUES (" + id + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + Categoria + "', '" + Acao + "', '" + motivo + "');");
+                
                 DbContext.ExecuteQuery(Sql.ToString());
             }
 
@@ -526,6 +526,6 @@ namespace DrinkIt.WebApp.Dao
 
             return bebidas;
         }
-        
+
     }
 }
