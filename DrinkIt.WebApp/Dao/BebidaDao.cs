@@ -527,5 +527,31 @@ namespace DrinkIt.WebApp.Dao
             return bebidas;
         }
 
+        public List<HistoricoBebida> ConsultarHistoricoBebidas()
+        {
+            List<HistoricoBebida> historico = new List<HistoricoBebida>();
+
+            Sql.Append("SELECT B.Descricao, I.* FROM InativacaoBebidas I INNER JOIN BEBIDAS B ON I.IdBebida = B.Id ORDER BY DtInativacao DESC;");
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                while (reader.Read())
+                {
+                    HistoricoBebida hist = new HistoricoBebida
+                    {
+                        DescBebida = Convert.ToString(reader["Descricao"]),
+                        IdBebida = Convert.ToInt32(reader["IdBebida"]),
+                        DtAcao = Convert.ToDateTime(reader["DtInativacao"]),
+                        Categoria = Convert.ToString(reader["Categoria"]),
+                        Acao = Convert.ToString(reader["Acao"]),
+                        Motivo = Convert.ToString(reader["Motivo"])
+                    };
+                    historico.Add(hist);
+                }
+            }
+
+            return historico;
+        }
+
     }
 }

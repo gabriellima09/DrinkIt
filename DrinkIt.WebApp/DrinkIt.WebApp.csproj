@@ -203,6 +203,7 @@
     <Compile Include="Models\EntidadeDominio.cs" />
     <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\GrupoPrecificacao.cs" />
+    <Compile Include="Models\HistoricoBebida.cs" />
     <Compile Include="Models\Ingrediente.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Resultado.cs" />
@@ -350,6 +351,7 @@
     <Content Include="Views\Dashboard\PvScriptGraficoVendas.cshtml" />
     <Content Include="Views\Dashboard\PvScriptGraficoPizza.cshtml" />
     <Content Include="Views\Telefones\Create.cshtml" />
+    <Content Include="Views\Bebidas\PvHistoricoBebidas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

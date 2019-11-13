@@ -28,8 +28,9 @@
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
     <li><a data-toggle="tab" id="navTabTroca" href="#Trocas">Trocas</a></li>
     <li><a data-toggle="tab" id="navTabEstoque" href="#Estoque">Estoque</a></li>
-    <li><a data-toggle="tab" id="navTabEstoque" href="#Precificacao">Precificação</a></li>
-    <li><a data-toggle="tab" id="navTabEstoque" href="#TipoBebida">Tipos de Bebida</a></li>
+    <li><a data-toggle="tab" id="navTabPrecificacao" href="#Precificacao">Precificação</a></li>
+    <li><a data-toggle="tab" id="navTabTipoBebida" href="#TipoBebida">Tipos de Bebida</a></li>
+    <li><a data-toggle="tab" id="navTabHistorico" href="#Historico">Histórico</a></li>
 </ul>
 
 <div class="tab-content">
@@ -126,7 +127,7 @@
             <br />
             <div id="divPvClientes">
                 @Html.Action("PvCliente", "Clientes")
-            </div>            
+            </div>
         </div>
     </div>
 
@@ -190,6 +191,17 @@
             <hr />
 
             @Html.Action("PvTipoBebida", "TipoBebida")
+
+        </div>
+    </div>
+
+    <!--Historico-->
+    <div class="tab-pane" id="Historico">
+        <div class="panel panel-default">
+            <h4>Histórico de Atividades</h4>
+            <hr />
+
+            @Html.Action("PvHistoricoBebidas", "Bebidas")
 
         </div>
     </div>

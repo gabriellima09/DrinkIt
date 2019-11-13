@@ -211,5 +211,12 @@ namespace DrinkIt.WebApp.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult PvHistoricoBebidas()
+        {
+            List<HistoricoBebida> historico = new List<HistoricoBebida>();
+            historico = new BebidaDao().ConsultarHistoricoBebidas();
+            return PartialView(historico);
+        }
     }
 }
