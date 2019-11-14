@@ -30,7 +30,8 @@
     <li><a data-toggle="tab" id="navTabEstoque" href="#Estoque">Estoque</a></li>
     <li><a data-toggle="tab" id="navTabPrecificacao" href="#Precificacao">Precificação</a></li>
     <li><a data-toggle="tab" id="navTabTipoBebida" href="#TipoBebida">Tipos de Bebida</a></li>
-    <li><a data-toggle="tab" id="navTabHistorico" href="#Historico">Histórico</a></li>
+    <li><a data-toggle="tab" id="navTabHistorico" href="#Historico">Histórico Status</a></li>
+    <li><a data-toggle="tab" id="navTabHistoricoEstoque" href="#HistoricoEstoque">Histórico Estoque</a></li>
 </ul>
 
 <div class="tab-content">
@@ -205,6 +206,17 @@
 
         </div>
     </div>
+
+    <!--Historico Estoque-->
+    <div class="tab-pane" id="HistoricoEstoque">
+        <div class="panel panel-default">
+            <h4>Histórico do Estoque - Entrada</h4>
+            <hr />
+
+            @Html.Action("PvHistoricoEstoque", "Estoque")
+
+        </div>
+    </div>
 </div>
 
 <div id="modalAprovarTrocaPedidos" class="modal" tabindex="-1" role="dialog">
@@ -376,17 +388,29 @@
                 <hr />
 
                 <div>
-                    <h5>
-                        <label class="control-label">Insira a quantidade adicionada:</label>
-                    </h5>
                     <form id="FormEntradaEstoque" method="post" action="/Estoque/Entrada/">
-                        <input class="form-control" type="number" maxlength="6" name="Qtde" placeholder="Quantidade" required />
+                        <label class="control-label">Quantidade:</label>
+                        <input class="form-control" id="QtdeEntrada" type="text" name="Qtde" placeholder="Quantidade" />
+                        <label class="control-label msgErroEntrada" style="color:red;display:none" id="msgErroQtde">Quantidade inválida.</label>
+                        <br />
+                        <label class="control-label">Fornecedor:</label>
+                        <input class="form-control" id="FornecedorEntrada" type="text" name="Fornecedor" placeholder="Fornecedor" />
+                        <label class="control-label msgErroEntrada" style="color:red;display:none" id="msgErroFornecedor">Fornecedor inválido.</label>
+                        <br />
+                        <label class="control-label">Valor de Custo:</label>
+                        <input class="form-control" id="VlrCustoEntrada" type="text" name="VlrCusto" placeholder="Valor" />
+                        <label class="control-label msgErroEntrada" style="color:red;display:none" id="msgErroValor">Valor inválido.</label>
+                        <br />
+                        <label class="control-label">Data de Entrada:</label>
+                        <input class="form-control" id="DataEntrada" type="date" name="DtEntrada" />
+                        <label class="control-label msgErroEntrada" style="color:red;display:none" id="msgErroData">Data inválida.</label>
+
                         <input type="hidden" id="hiddenIdBebida" name="IdBebida" />
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnSalvarEntrada" type="button" class="btn btn-success" onclick="$('#FormEntradaEstoque').submit();">Salvar Entrada</button>
+                <button id="btnSalvarEntrada" type="button" class="btn btn-success" onclick="EntradaEstoque();">Salvar Entrada</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -436,13 +460,14 @@
                         <label class="control-label">Insira a quantidade reduzida:</label>
                     </h5>
                     <form id="FormBaixaEstoque" method="post" action="/Estoque/Baixa/">
-                        <input class="form-control" type="number" maxlength="6" name="Qtde" placeholder="Quantidade" required />
+                        <input class="form-control" type="text" name="Qtde" placeholder="Quantidade" id="QtdeBaixaEstoque" />
+                        <label style="color:red;display:none" id="msgErroBaixaEstoque">Insira uma quantidade válida.</label>
                         <input type="hidden" id="hiddenIdBebidaBaixa" name="IdBebida" />
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnSalvarBaixa" type="button" class="btn btn-warning" onclick="$('#FormBaixaEstoque').submit();">Salvar Baixa</button>
+                <button id="btnSalvarBaixa" type="button" class="btn btn-warning" onclick="BaixaEstoque()">Salvar Baixa</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
@@ -552,5 +577,18 @@
 </div>
 
 @section Scripts {
+
     <script src="~/Scripts/Clientes/Script_Index_Usuario.js"></script>
+
+    @*<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+    <script>
+        $('#QtdeEntrada').mask('0000000000', { reverse: true });
+        $('#QtdeBaixaEstoque').mask('0000000000', { reverse: true });
+        $('#VlrCustoEntrada').mask('#.###,##', { reverse: true });
+    </script>
+
 }

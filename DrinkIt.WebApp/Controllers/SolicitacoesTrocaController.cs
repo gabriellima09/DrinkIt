@@ -137,7 +137,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 foreach (var item in pedido.Bebidas)
                 {
-                    new EstoqueDao().Entrada(item.Id, item.Quantidade);
+                    new EstoqueDao().Entrada(item.Id, item.Quantidade, "DEVOLUÇÃO", 0.00M, DateTime.Now);
                 }
 
                 new ProcedimentoTrocaStatus().Trocado(pedidoId);

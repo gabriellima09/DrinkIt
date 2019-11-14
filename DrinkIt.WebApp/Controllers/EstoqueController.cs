@@ -1,4 +1,5 @@
 ﻿using DrinkIt.WebApp.Dao;
+using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -102,12 +103,12 @@ namespace DrinkIt.WebApp.Controllers
 
         }
 
-        public ActionResult Entrada(int IdBebida, int Qtde)
+        public ActionResult Entrada(int IdBebida, int Qtde, string Fornecedor, decimal VlrCusto, DateTime DtEntrada)
         {            
             try
             {
                 EstoqueDao dao = new EstoqueDao();
-                dao.Entrada(IdBebida, Qtde);
+                dao.Entrada(IdBebida, Qtde, Fornecedor, VlrCusto, DtEntrada);
                 return RedirectToAction("Index", "Usuarios");
             }
             catch(Exception ex)
@@ -129,6 +130,15 @@ namespace DrinkIt.WebApp.Controllers
             {
                 return View("Erro");
             }
+        }
+
+        public ActionResult PvHistoricoEstoque()
+        {
+            List<Estoque> lista = new List<Estoque>();
+            EstoqueDao dao = new EstoqueDao();
+            lista = dao.ConsultarHistoricoEstoque();
+
+            return PartialView(lista);
         }
     }
 }

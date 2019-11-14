@@ -100,7 +100,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("ContemGluten, ");
                 Sql.Append("DicaConservacao, ");
                 Sql.Append("Status, ");
-                Sql.Append("CaminhoImagem");
+                Sql.Append("CaminhoImagem,");
+                Sql.Append("DtCadastro");
                 Sql.Append(")");
                 Sql.Append("VALUES ('");
                 Sql.Append(entidade.Nome + "', '");
@@ -123,7 +124,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append((entidade.ContemGluten == true ? 1 : 0) + ", '");
                 Sql.Append(entidade.DicaConservacao + "', ");
                 Sql.Append((entidade.Status == true ? 1 : 0) + ", '");
-                Sql.Append(entidade.CaminhoImagem + "'");
+                Sql.Append(entidade.CaminhoImagem + "', '");
+                Sql.Append(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'");
                 Sql.Append(");");
 
                 DbContext.ExecuteQuery(Sql.ToString());
@@ -531,7 +533,7 @@ namespace DrinkIt.WebApp.Dao
         {
             List<HistoricoBebida> historico = new List<HistoricoBebida>();
 
-            Sql.Append("SELECT B.Descricao, I.* FROM InativacaoBebidas I INNER JOIN BEBIDAS B ON I.IdBebida = B.Id ORDER BY DtInativacao DESC;");
+            Sql.Append("SELECT B.Nome, I.* FROM InativacaoBebidas I INNER JOIN BEBIDAS B ON I.IdBebida = B.Id ORDER BY DtInativacao DESC;");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -539,7 +541,7 @@ namespace DrinkIt.WebApp.Dao
                 {
                     HistoricoBebida hist = new HistoricoBebida
                     {
-                        DescBebida = Convert.ToString(reader["Descricao"]),
+                        DescBebida = Convert.ToString(reader["Nome"]),
                         IdBebida = Convert.ToInt32(reader["IdBebida"]),
                         DtAcao = Convert.ToDateTime(reader["DtInativacao"]),
                         Categoria = Convert.ToString(reader["Categoria"]),

@@ -1,42 +1,52 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Estoque>
 
-<table class="table">
-    <tr>
-        <th>
-           Código
-        </th>
-        <th>
-            Descrição
-        </th>
-        <th>
-            Quantidade
-        </th>
-        <th></th>
-    </tr>
+@if (Model.Count() == 0)
+{
+    <h4 style="padding-left:1%">Ainda não há bebidas cadastradas.</h4>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Quantidade
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdBebida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescBebida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Qtde)
-        </td>
-        <td align="center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesEstoque">
-                    Opções <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a id="btnEntrada" class="btn btn-success" href="#" onclick="$('#modalEntradaEstoque').modal('show'); $('#hiddenIdBebida').val(@item.IdBebida); $('#ddCodigoEnt').html(@item.IdBebida); $('#ddDescEnt').html('@item.DescBebida'); $('#ddQtdeEnt').html(@item.Qtde); ">Entrada</a></li>
-                    <li><a id="btnBaixa" class="btn btn-warning" href="#" onclick="$('#modalBaixaEstoque').modal('show'); $('#hiddenIdBebidaBaixa').val(@item.IdBebida); $('#ddCodigoBaixa').html(@item.IdBebida); $('#ddDescBaixa').html('@item.DescBebida'); $('#ddQtdeBaixa').html(@item.Qtde); ">Baixa</a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdBebida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescBebida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qtde)
+                </td>
+                <td align="center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesEstoque">
+                            Opções <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a id="btnEntrada" class="btn btn-success" href="#" onclick="AbrirModalEntradaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Entrada</a></li>
+                            <li><a id="btnBaixa" class="btn btn-warning" href="#" onclick="AbrirModalBaixaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Baixa</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
 }
 
-</table>
+

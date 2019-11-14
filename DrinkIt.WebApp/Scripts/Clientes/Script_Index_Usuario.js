@@ -43,3 +43,61 @@ function AtivarBebida() {
         $('#msgErroMotivoAtivar').show();
     }
 }
+
+function EntradaEstoque() {
+    /*QtdeEntrada, FornecedorEntrada, VlrCustoEntrada, DataEntrada*/
+    $('.msgErroEntrada').hide();
+    var OK = true;
+
+    if ($('#QtdeEntrada').val() == '') {
+        OK = false;
+        $('#msgErroQtde').show();
+    }
+
+    if ($('#FornecedorEntrada').val() == '') {
+        OK = false;
+        $('#msgErroFornecedor').show();
+    }
+
+    if ($('#VlrCustoEntrada').val() == '') {
+        OK = false;
+        $('#msgErroValor').show();
+    }
+
+    if ($('#DataEntrada').val() == '') {
+        OK = false;
+        $('#msgErroData').show();
+    }
+
+    if (OK) {
+        $('#FormEntradaEstoque').submit();
+    }
+
+
+}
+
+function BaixaEstoque() {
+    if ($('#QtdeBaixaEstoque').val() != '') {
+        $('#msgErroBaixaEstoque').hide();
+        $('#FormBaixaEstoque').submit();
+    } else {
+        $('#msgErroBaixaEstoque').show();
+    }
+}
+
+function AbrirModalEntradaEstoque(IdBebida, DescBebida, Qtde) {
+
+    $('#modalEntradaEstoque').modal('show');
+    $('#hiddenIdBebida').val(IdBebida);
+    $('#ddCodigoEnt').html(IdBebida);
+    $('#ddDescEnt').html(DescBebida);
+    $('#ddQtdeEnt').html(Qtde);
+}
+
+function AbrirModalBaixaEstoque(idBebida, DescBebida, Qtde) {
+    $('#modalBaixaEstoque').modal('show');
+    $('#hiddenIdBebidaBaixa').val(idBebida);
+    $('#ddCodigoBaixa').html(idBebida);
+    $('#ddDescBaixa').html(DescBebida);
+    $('#ddQtdeBaixa').html(Qtde); 
+}

@@ -352,6 +352,7 @@
     <Content Include="Views\Dashboard\PvScriptGraficoPizza.cshtml" />
     <Content Include="Views\Telefones\Create.cshtml" />
     <Content Include="Views\Bebidas\PvHistoricoBebidas.cshtml" />
+    <Content Include="Views\Estoque\PvHistoricoEstoque.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
