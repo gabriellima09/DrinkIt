@@ -17,7 +17,7 @@ namespace DrinkIt.WebApp.Dao
             try
             {
                 Sql.Append("UPDATE TELEFONES SET ");
-                Sql.Append("IdTipo = " + entidade.IdTipo + ", ");
+                Sql.Append("IdTipoTelefone = " + entidade.IdTipo + ", ");
                 Sql.Append("Numero = '" + entidade.Numero.Replace("-", "") + "', ");
                 Sql.Append("DDD = " + entidade.DDD);
                 Sql.Append(" WHERE Id = " + entidade.Id);
@@ -41,7 +41,7 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("IdTipoTelefone");
                 Sql.Append(")");
                 Sql.Append("VALUES (");
-                Sql.Append(entidade.Id + ", ");
+                Sql.Append(entidade.IdCliente + ", ");
                 Sql.Append(entidade.DDD + ",'");
                 Sql.Append(entidade.Numero.Replace("-", "") + "',");
                 Sql.Append(entidade.IdTipo);
@@ -68,6 +68,8 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Telefone tel = new Telefone()
                     {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        IdCliente = Convert.ToInt32(reader["IdUsuario"]),
                         IdTipo = Convert.ToInt32(reader["IdTipoTelefone"]),
                         DDD = Convert.ToInt32(reader["DDD"]),
                         Numero = Convert.ToString(reader["Numero"])
@@ -95,7 +97,35 @@ namespace DrinkIt.WebApp.Dao
 
         public Telefone ConsultarPorId(int id)
         {
-            throw new NotImplementedException();
+            Telefone telefone = new Telefone();
+            Sql.Append("SELECT * FROM TELEFONES WHERE ID = " + id);
+
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    telefone.Id = Convert.ToInt32(reader["Id"]);
+                    telefone.IdTipo = Convert.ToInt32(reader["IdTipoTelefone"]);
+                    telefone.DDD = Convert.ToInt32(reader["DDD"]);
+                    telefone.Numero = Convert.ToString(reader["Numero"]);
+
+                    switch (telefone.IdTipo)
+                    {
+                        case 1:
+                            telefone.DescricaoTipo = "Residencial";
+                            break;
+                        case 2:
+                            telefone.DescricaoTipo = "Celular";
+                            break;
+                        case 3:
+                            telefone.DescricaoTipo = "Comercial";
+                            break;
+                    }
+                }
+            }
+
+            return telefone;
+
         }
 
         public List<Telefone> ConsultarTodos()
@@ -105,7 +135,15 @@ namespace DrinkIt.WebApp.Dao
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Sql.Append("DELETE FROM TELEFONES WHERE ID = " + id);
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Telefone ObterEntidadeReader(IDataReader reader)

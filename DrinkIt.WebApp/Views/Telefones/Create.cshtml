@@ -7,7 +7,7 @@
 
 <h2>Novo Telefone</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Telefones", FormMethod.Post, new { @id = "FormCreateTelefone" }))
 {
     @Html.AntiForgeryToken()
 
@@ -30,6 +30,7 @@
             @Html.LabelFor(model => model.DDD, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="text" name="DDD" class="form-control" id="dddTelefone" />
+                <label class="control-label msgErro" style="color:red;display:none" id="msgErroDDD">Insira um DDD válido!</label>
                 @Html.ValidationMessageFor(model => model.DDD, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -38,6 +39,7 @@
             @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control", @id = "numeroTelefone" } })
+                <label class="control-label msgErro" style="color:red;display:none" id="msgErroNumero">Insira um número válido!</label>
                 @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,14 +52,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" class="btn btn-default" />
+                <input type="button" value="Salvar" class="btn btn-default" id="btnSalvarCreateTel"/>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index", "Clientes")
+    @Html.ActionLink("Voltar", "Index", "Clientes", null, new { @class = "btn btn-default" })
 </div>
 
 
@@ -70,7 +72,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
-
+    <script src="~/Scripts/Telefones/Script_Create_Telefone.js"></script>
     <script>
         $('#dddTelefone').mask('00', { reverse: true });
         $('#numeroTelefone').mask('00000-0000', { reverse: true });

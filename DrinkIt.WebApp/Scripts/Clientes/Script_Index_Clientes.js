@@ -2,6 +2,15 @@
 
 $(document).ready(function () {
 
+    $('.btnExcluirTelefone').click(function () {
+
+        var idTel = $(this).attr('data-id');
+        var dddTel = $(this).attr('data-ddd');
+        var numeroTel = $(this).attr('data-numero');
+        $('#labelTelefoneExcluir').html('(' + dddTel + ')' + numeroTel);
+        $('#hiddenIdTel').val(idTel);
+        $('#modalExcluirTelefone').modal('show');
+    });
     
     $('#btnSalvarSenha').click(function () {
         

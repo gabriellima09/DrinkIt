@@ -139,6 +139,33 @@
     </div>
 </div>
 
+
+<div id="modalExcluirTelefone" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger" style="display: flex;">
+                <h3 class="modal-title">Deseja realmente apagar este telefone?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label id="labelTelefoneExcluir"></label>
+                </div>
+
+                <div>
+                    
+                    <form id="FormExcluirTel" method="post" action="/Telefones/Delete/">
+                        <input type="hidden" id="hiddenIdTel" name="id"/>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnConfirmaDelete" type="button" class="btn btn-danger" onclick="$('#FormExcluirTel').submit();">Apagar</button>
+                <button type="button" id="cancelarDelete" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script src="~/Scripts/Clientes/Script_Index_Clientes.js"></script>
 }

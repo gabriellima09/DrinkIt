@@ -31,9 +31,16 @@ else
                 <td>
                     (@Html.DisplayFor(modelItem => item.DDD))@Html.DisplayFor(modelItem => item.Numero)
                 </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id=item.Id })
-                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                <td align="center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Opções <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })</li>
+                            <li><a class="btn btn-danger btnExcluirTelefone" data-id="@item.Id" data-numero="@item.Numero" data-ddd="@item.DDD" href="#" onclick="">Excluir</a></li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         }

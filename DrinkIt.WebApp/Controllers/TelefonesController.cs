@@ -54,7 +54,7 @@ namespace DrinkIt.WebApp.Controllers
                     return View(telefone);
                 }
 
-                telefone.Id = ((Usuario)Session["Usuario"])?.Id ?? 0;
+                telefone.IdCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
 
                 Resultado resultado = Fachada.Cadastrar(telefone);
 
@@ -69,40 +69,36 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Telefones/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Telefone telefone = new Telefone();
+            telefone = Fachada.ConsultarPorId(id);
+            return View(telefone);
         }
 
         // POST: Telefones/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Telefone telefone)
         {
             try
             {
-                // TODO: Add update logic here
+                Fachada.Alterar(telefone);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Clientes");
             }
             catch
             {
                 return View();
             }
         }
-
-        // GET: Telefones/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
+                
         // POST: Telefones/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                Fachada.Excluir(id);
+                return RedirectToAction("Index", "Clientes");
             }
             catch
             {

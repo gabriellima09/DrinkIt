@@ -24,7 +24,13 @@ namespace DrinkIt.WebApp.Controllers
 
         // GET: Clientes
         public ActionResult Index()
-        {            
+        {
+            Usuario usuario = (Usuario)Session["Usuario"];
+            if (usuario == null)
+            {
+                return RedirectToAction("Login", "Usuarios");
+            }
+
             return View();
         }
 

@@ -287,6 +287,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Pedidos\Script_Checkout_Pedidos.js" />
     <Content Include="Scripts\Pedidos\Script_PvPedidos.js" />
+    <Content Include="Scripts\Telefones\Script_Create_Telefone.js" />
+    <Content Include="Scripts\Telefones\Script_Edit_Telefone.js" />
     <Content Include="Scripts\Util.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -353,6 +355,7 @@
     <Content Include="Views\Telefones\Create.cshtml" />
     <Content Include="Views\Bebidas\PvHistoricoBebidas.cshtml" />
     <Content Include="Views\Estoque\PvHistoricoEstoque.cshtml" />
+    <Content Include="Views\Telefones\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
