@@ -30,6 +30,8 @@ namespace DrinkIt.WebApp.Controllers
                 ViewBag.RankingCliente = new ClienteDao().GetRankingCliente(idCliente);
             }
 
+            pedidos.Reverse();
+
             return PartialView(pedidos);
         }
 
@@ -210,9 +212,6 @@ namespace DrinkIt.WebApp.Controllers
                 }
 
                 new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
-
-                Thread.Sleep(1000);
-
                 new ProcedimentoTrocaStatus().Entregue(pedidoId);
                 new ProcedimentoTrocaStatus().Finalizado(pedidoId);
 
