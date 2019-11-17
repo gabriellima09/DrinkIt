@@ -73,8 +73,6 @@ namespace DrinkIt.WebApp.Controllers
             ViewBag.Enderecos = ddlEnderecos;
             ViewBag.Cartoes = ddlCartoes;
 
-            //Usuario usuario = (Usuario)Session["Usuario"];
-
             Cliente cliente = new Cliente
             {
                 Carrinho = usuario?.Carrinho ?? new Carrinho()
@@ -85,6 +83,12 @@ namespace DrinkIt.WebApp.Controllers
                 Cliente = cliente,
                 Bebidas = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas ?? new List<Bebida>()
             };
+
+            //verifica se os itens ainda existem no estoque
+            if (true)
+            {
+                //retorna para o carrinho informando que o estoque foi atualizado
+            }
 
             return View(pedido);
         }
@@ -120,7 +124,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 new ProcedimentoTrocaStatus().EmProcessamento(pedidoId);
 
-                if (ValidadorCompra.ValidarCompra())
+                if (new ValidadorCompra(pedido.Cartao1.Bandeira).ValidarCompra())
                 {
                     new ProcedimentoTrocaStatus().Aprovada(pedidoId);
 

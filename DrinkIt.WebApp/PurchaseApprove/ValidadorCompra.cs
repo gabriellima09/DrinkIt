@@ -12,7 +12,7 @@ namespace DrinkIt.WebApp.PurchaseApprove
             Bandeira = bandeira;
         }
 
-        public static bool ValidarCompra()
+        public bool ValidarCompra()
         {
             switch (Bandeira)
             {
