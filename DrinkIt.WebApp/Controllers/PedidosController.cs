@@ -27,6 +27,7 @@ namespace DrinkIt.WebApp.Controllers
             else
             {
                 pedidos = new PedidoDao().ConsultarPorCliente(idCliente);
+                ViewBag.RankingCliente = new ClienteDao().GetRankingCliente(idCliente);
             }
 
             return PartialView(pedidos);

@@ -41,6 +41,7 @@ namespace DrinkIt.WebApp.Dao
             try
             {
                 Sql.Clear();
+                decimal vlrCustoAtual = 0.0M;
                 int QtdeAtual = 0;
                 Sql.Append("SELECT Qtde FROM Estoque WHERE IdBebida =" + IdBebida + ";");//PEGA QTDE ATUAL
                 using (var reader = DbContext.ExecuteReader(Sql.ToString()))
@@ -59,12 +60,31 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Clear();//REGISTRA NO HISTÓRICO
                 Sql.Append("INSERT INTO HistoricoEstoque VALUES (" + IdBebida + ", " + Qtde + ", '" + Fornecedor + "', " + VlrCusto.ToString(new CultureInfo("en-US")) + ", '" + DtEntrada.ToString("yyyy-MM-dd HH:mm:ss") + "')");
                 DbContext.ExecuteQuery(Sql.ToString());
+
+                Sql.Clear();
+                Sql.Append("SELECT Valor FROM BEBIDAS WHERE ID = " + IdBebida);
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        vlrCustoAtual = reader.GetDecimal(0);
+                    }
+                }
+
+                if (VlrCusto > vlrCustoAtual)
+                {
+                    Sql.Clear();
+                    Sql.Append("UPDATE BEBIDAS SET VALOR = " + VlrCusto.ToString(new CultureInfo("en-US")) + " WHERE ID = " + IdBebida);
+                    DbContext.ExecuteQuery(Sql.ToString());
+                }
+
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
+
 
         }
 

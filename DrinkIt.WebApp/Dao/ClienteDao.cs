@@ -242,5 +242,31 @@ namespace DrinkIt.WebApp.Dao
             return existe;
         }
 
+        public int GetRankingCliente(int IdCliente)
+        {
+            try
+            {
+                int ranking = 0;
+                Sql.Clear();
+                Sql.Append("SELECT Ranking FROM (SELECT RANK() OVER(ORDER BY SUM(VALORTOTAL) DESC) AS Ranking, ");
+                Sql.Append("ClienteId, SUM(VALORTOTAL) SOMA FROM PEDIDOS GROUP BY ClienteId) Q ");
+                Sql.Append("WHERE Q.ClienteId = " + IdCliente);
+
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        ranking = Convert.ToInt32(reader["Ranking"]);
+                    }
+                }
+
+                return ranking;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

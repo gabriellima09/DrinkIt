@@ -21,6 +21,11 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult Index()
         {
+            Usuario usuario = (Usuario)Session["Usuario"];
+            if (usuario == null)
+            {
+                return RedirectToAction("Login", "Usuarios");
+            }
             CupomDao cupomdao = new CupomDao();
             List<SelectListItem> lista = new List<SelectListItem>();
             List<Cupom> cupons = new List<Cupom>();

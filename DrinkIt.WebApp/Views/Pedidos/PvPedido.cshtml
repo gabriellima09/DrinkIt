@@ -2,6 +2,8 @@
 
 @{
     Layout = null;
+    int rank = ViewBag.RankingCliente;
+    decimal totalcompras = Model.Sum(x => x.ValorTotal);
 }
 
 @if (Model.Count() == 0)
@@ -10,6 +12,11 @@
 }
 else
 {
+
+    <h4>Meu Ranking Atual: #@rank</h4>
+    <h4>Valor Total: R$@totalcompras</h4>
+
+    <br />
 
     <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
         <tr>
