@@ -1,0 +1,67 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.Pedido>
+
+@{ 
+    Layout = null;
+}
+
+@if (Model.Count() == 0)
+{
+    <h4 style="padding-left:1%">Nenhum pedido encontrado.</h4>
+}
+else
+{
+    <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status.FirstOrDefault().DataAtualizacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().DataAtualizacao)
+                </td>
+                <td>
+                    @string.Concat(item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Id,
+                                    " - ",
+                                    item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Descricao)
+                </td>
+                <td align="center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesPedidos">
+                            Opções <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                @using (Html.BeginForm("ColocarEmTransito", "Pedidos", FormMethod.Post))
+                                {
+                                    @Html.Hidden("pedidoId", item.Id)
+                                    <button class="btn btn-primary" type="submit">Colocar em Trânsito</button>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+}

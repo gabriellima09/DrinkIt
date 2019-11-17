@@ -33,6 +33,15 @@ namespace DrinkIt.WebApp.Controllers
             return PartialView(pedidos);
         }
 
+        public ActionResult PedidosAprovarSaida()
+        {
+            List<Pedido> pedidos = new PedidoDao().ConsultarTodos()
+                .Where(x => x.Status.OrderByDescending(y => y.Id).First().Id == 2)
+                .ToList();
+
+            return PartialView(pedidos);
+        }
+
         public ActionResult Checkout()
         {
             Usuario usuario = ((Usuario)Session["Usuario"]);
@@ -124,22 +133,11 @@ namespace DrinkIt.WebApp.Controllers
 
                 new ProcedimentoTrocaStatus().EmProcessamento(pedidoId);
 
-                if (new ValidadorCompra(pedido.Cartao1.Bandeira).ValidarCompra())
+                Bandeira bandeira = new CartaoDao().ConsultarPorId(pedido.IdCartao1).Bandeira;
+
+                if (new ValidadorCompra(bandeira).ValidarCompra())
                 {
                     new ProcedimentoTrocaStatus().Aprovada(pedidoId);
-
-                    new ProcedimentoTrocaStatus().EmTransito(pedidoId);
-
-                    foreach (var item in pedido.Bebidas)
-                    {
-                        new EstoqueDao().Baixa(item.Id, item.Quantidade);
-                    }
-
-                    new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
-
-                    Thread.Sleep(1000);
-
-                    new ProcedimentoTrocaStatus().Entregue(pedidoId);
                 }
                 else
                 {
@@ -195,6 +193,35 @@ namespace DrinkIt.WebApp.Controllers
             Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebidaFrete);
 
             return Json(SimularFrete(novaBebida), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ColocarEmTransito(int pedidoId)
+        {
+            Pedido pedido = new PedidoDao().ConsultarPorId(pedidoId);
+
+            if (pedido != null && pedido?.Bebidas != null && pedido.Bebidas.Any())
+            {
+                new ProcedimentoTrocaStatus().EmTransito(pedidoId);
+
+                foreach (var item in pedido.Bebidas)
+                {
+                    new EstoqueDao().Baixa(item.Id, item.Quantidade);
+                }
+
+                new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
+
+                Thread.Sleep(1000);
+
+                new ProcedimentoTrocaStatus().Entregue(pedidoId);
+                new ProcedimentoTrocaStatus().Finalizado(pedidoId);
+
+                return RedirectToAction("Index", "Usuarios");
+            }
+            else
+            {
+                return View("Error", "Home");
+            }
         }
     }
 }

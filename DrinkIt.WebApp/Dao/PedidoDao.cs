@@ -268,7 +268,7 @@ namespace DrinkIt.WebApp.Dao
 
             Sql.Clear();
 
-            Sql.Append("select * from PedidosHistorico p inner join Pedidosstatus ps on ps.Id = p.IdStatus where p.IdPedido = " + pedidoId);
+            Sql.Append("select * from PedidosHistorico p inner join Pedidosstatus ps on ps.Id = p.IdStatus where p.IdPedido = " + pedidoId + " order by p.id desc");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -276,7 +276,7 @@ namespace DrinkIt.WebApp.Dao
                 {
                     Status status = new Status();
 
-                    status.Id = Convert.ToInt32(reader["Id"]);
+                    status.Id = Convert.ToInt32(reader["IdStatus"]);
                     status.Descricao = Convert.ToString(reader["Descricao"]);
                     status.DataAtualizacao = Convert.ToDateTime(reader["DataAtualizacao"]);
 

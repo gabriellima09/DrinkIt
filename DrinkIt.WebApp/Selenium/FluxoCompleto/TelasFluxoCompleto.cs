@@ -251,7 +251,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                 },
                 Genero = "Masculino",
                 Login = "teste",
-                Senha = "teste",
+                Senha = "Bielzinh@2",
                 Nome = "Usuário Teste",
                 Telefones = new List<Telefone>
                 {

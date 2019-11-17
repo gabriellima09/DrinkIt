@@ -2,7 +2,7 @@
 
 @{
     Layout = null;
-    int rank = ViewBag.RankingCliente;
+    int rank = ViewBag.RankingCliente ?? 0;
     decimal totalcompras = Model.Sum(x => x.ValorTotal);
 }
 
@@ -67,7 +67,6 @@ else
         }
 
     </table>
-
 }
 
 <div id="modalTrocaPedidos" class="modal" tabindex="-1" role="dialog">

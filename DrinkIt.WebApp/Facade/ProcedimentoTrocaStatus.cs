@@ -71,5 +71,11 @@ namespace DrinkIt.WebApp.Facade
             IdStatus = 11;
             new ProcedimentoTrocaStatusDao().TrocarStatus(idPedido, IdStatus);
         }
+
+        public void Finalizado(int idPedido)
+        {
+            IdStatus = 12;
+            new ProcedimentoTrocaStatusDao().TrocarStatus(idPedido, IdStatus);
+        }
     }
 }

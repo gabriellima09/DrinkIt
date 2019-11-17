@@ -25,6 +25,7 @@
     <li><a data-toggle="tab" id="navTabBebida" href="#Bebidas">Bebidas</a></li>
     <li><a data-toggle="tab" href="#Clientes">Clientes</a></li>
     <li><a data-toggle="tab" href="#Pedidos">Pedidos</a></li>
+    <li><a data-toggle="tab" href="#PedidosAprovarSaida">Pedidos a Aprovar Saída</a></li>
     <li><a data-toggle="tab" href="#Cupons">Cupons</a></li>
     <li><a data-toggle="tab" id="navTabTroca" href="#Trocas">Trocas</a></li>
     <li><a data-toggle="tab" id="navTabEstoque" href="#Estoque">Estoque</a></li>
@@ -138,6 +139,15 @@
             <h4>Pedidos</h4>
             <hr />
             @Html.Action("PvPedido", "Pedidos")
+        </div>
+    </div>
+
+    <!-- Pedidos -->
+    <div class="tab-pane" id="PedidosAprovarSaida">
+        <div class="panel panel-default">
+            <h4>Pedidos a aprovar saída</h4>
+            <hr />
+            @Html.Action("PedidosAprovarSaida", "Pedidos")
         </div>
     </div>
 
