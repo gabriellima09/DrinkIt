@@ -204,6 +204,42 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
         }
 
+        public void CheckoutComCupom(string cupom)
+        {
+            //_driver.FindElement(By.Id("dropEndereco")).Click();
+            IWebElement dropDownListBox = _driver.FindElement(By.Name("IdEnderecoEntrega"));
+            SelectElement clickThis = new SelectElement(dropDownListBox);
+            clickThis.SelectByText("Minha Casa - Rua abc, 123");
+            _driver.Wait1();
+
+            //_driver.FindElement(By.Id("btnNovoEndereco")).Click();
+            //_driver.Wait1();
+            //_driver.FindElement(By.Id("btnNovoEnderecoFechar")).Click();
+            //_driver.Wait1();
+
+            //_driver.FindElement(By.Id("SelectCartao")).Click();
+            dropDownListBox = _driver.FindElement(By.Name("IdCartao1"));
+            clickThis = new SelectElement(dropDownListBox);
+            clickThis.SelectByText("Mastercard - final 1511");
+            _driver.Wait1();
+            //_driver.FindElement(By.Id("Pagar2Cartoes")).Click();
+            //_driver.Wait1();
+            //_driver.FindElement(By.Name("valorCartao2")).Click();
+            //_driver.Wait1();
+            //_driver.FindElement(By.Id("Pagar2Cartoes")).Click();
+            //_driver.Wait1();
+            _driver.SetText(By.Name("Cep"), "08740-400");
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnCalcularFrete")).Click();
+
+            _driver.SetText(By.Id("inputCupom"), cupom);
+            _driver.Wait1();
+            _driver.FindElement(By.Id("btnValidarCupom")).Click();
+            _driver.Wait1();
+
+            _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
+        }
+
         public void SolicitarTroca()
         {
             _driver.FindElement(By.Id("opcoesPedidos")).Click();
@@ -237,8 +273,17 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.Wait1();
             //_driver.FindElement(By.Id("selectCupomTroca")).Click();
             //_driver.Wait1();
-            _driver.FindElement(By.Id("cancelaAprova")).Click();
+            _driver.FindElement(By.Id("btnAprovarTroca")).Click();
             _driver.Wait1();
+        }
+
+        public string AbrirCupons()
+        {
+            string nomecupom;
+            _driver.FindElement(By.Id("tabCuponsCliente")).Click();
+            Esperar(5);
+            nomecupom = _driver.FindElement(By.ClassName("tdNomeCupom")).GetAttribute("data-desc");
+            return nomecupom;
         }
 
         public void Fechar()

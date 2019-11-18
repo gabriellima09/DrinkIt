@@ -39,7 +39,7 @@ else
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="tdNomeCupom" data-desc="@item.Descricao">
                     @Html.DisplayFor(modelItem => item.Descricao)
                 </td>
                 <td>

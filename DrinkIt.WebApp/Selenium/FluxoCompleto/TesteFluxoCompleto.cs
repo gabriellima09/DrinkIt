@@ -44,7 +44,26 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.LoginAdmin();
             tela.Esperar(5);
             tela.TratarSolicitacaoTroca();
-            tela.Esperar();
+            tela.Esperar(5);
+
+            tela.Logout();
+            tela.LoginCliente();
+            tela.Esperar(5);
+            tela.AbrirPerfilCliente();
+            tela.Esperar(5);
+            string cupom = tela.AbrirCupons();
+            tela.Esperar(5);
+            tela.TelaInicial();
+            
+            tela.Esperar(5);
+            tela.SelecionaBebida();
+            tela.Esperar(5);
+            tela.IrParaCheckout();
+            tela.CheckoutComCupom(cupom);
+            tela.Esperar(5);
+
+            tela.Esperar(5);
+
             tela.Fechar();
         }
     }
