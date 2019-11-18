@@ -273,6 +273,12 @@
     <Content Include="Artifacts\DAS.docx" />
     <Content Include="Artifacts\UC_FATEC.doc" />
     <Content Include="Artifacts\UC_DRINKIT.doc" />
+    <Content Include="Artifacts\Final-DAS.docx" />
+    <Content Include="Artifacts\Final-Documentação do projeto.pptx" />
+    <Content Include="Artifacts\Final-DRS_-_V2.docx" />
+    <Content Include="Artifacts\Final-DVP.docx" />
+    <Content Include="Artifacts\Final-Proposta Técnica Comercial - DrinkIt.docx" />
+    <Content Include="Artifacts\Final-UC_DRINKIT.doc" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Carrinho\Script_Carrinho.js" />
     <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
