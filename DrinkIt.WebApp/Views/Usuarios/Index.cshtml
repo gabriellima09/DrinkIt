@@ -1,8 +1,6 @@
 ﻿
 @{
     ViewBag.Title = "Administração";
-
-    List<SelectListItem> listaCupons = (List<SelectListItem>)ViewBag.listaCupons;
 }
 
 <style>
@@ -275,16 +273,9 @@
 
                 <div>
                     <h5>
-                        <label class="control-label">Selecione um cupom para a troca: <br /> (o valor do pedido será convertido no valor do cupom para o cliente)</label>
+                        <label class="control-label">O cupom de TROCA será gerado automaticamente <br /> (o valor do pedido será convertido no valor do cupom para o cliente)</label>
                     </h5>
                     <form id="FormAprovar" method="post" action="/SolicitacoesTroca/Aprovar/">
-                        <select class="form-control" id="selectCupomTroca" name="IdCupom">
-                            @foreach (var item in listaCupons)
-                            {
-                                <option value="@item.Value">@item.Text</option>
-                            }
-
-                        </select>
                         <input type="hidden" id="hiddenIdSolicitacaoAp" name="IdSolicitacao" />
                     </form>
                 </div>

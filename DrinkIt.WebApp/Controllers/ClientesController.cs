@@ -31,6 +31,8 @@ namespace DrinkIt.WebApp.Controllers
                 return RedirectToAction("Login", "Usuarios");
             }
 
+            ViewBag.Notificacoes = new NotificacaoDao().ConsultarPorCliente(usuario.Id);
+
             return View();
         }
 
@@ -221,6 +223,12 @@ namespace DrinkIt.WebApp.Controllers
             return Json(resultado);
         }
 
+        [HttpPost]
+        public ActionResult RemoverNotificacao(int idNotificacao)
+        {
+            new NotificacaoDao().Excluir(idNotificacao);
 
+            return new EmptyResult();
+        }
     }
 }

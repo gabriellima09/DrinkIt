@@ -20,9 +20,21 @@
     string nome = ((Usuario)Session["Usuario"])?.Login ?? "Usuário Teste";
     int idCliente = ((Usuario)Session["Usuario"]).Id;
     string senhaAtual = ViewBag.SenhaAtual;
+    List<Notificacao> notificacoes = ViewBag.Notificacoes ?? new List<Notificacao>();
 }
 
 <h2>Seja bem vindo, @nome</h2>
+
+@if (notificacoes != null && notificacoes.Any())
+{
+    foreach (var item in notificacoes)
+    {
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close deletarNotificacao" data-id="@item.Id" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @item.Descricao
+        </div>
+    }
+}
 
 <hr />
 
@@ -107,7 +119,7 @@
                     <div class="form-group">
                         @Html.Label("Senha atual", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control", @id = "inputSenhaAtual", @type = "password"})
+                            @Html.TextBox("SenhaAtual", null, new { @class = "form-control", @id = "inputSenhaAtual", @type = "password" })
                             <label style="color:red;display:none" id="labelSenhaAtualErrada">Senha atual incorreta.</label>
                         </div>
                     </div>
@@ -123,7 +135,7 @@
                     <div class="form-group">
                         @Html.Label("Confirmar nova senha", null, new { @class = "control-label col-lg-2 col-md-2" })
                         <div class="col-lg-10 col-md-10">
-                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control", @id = "inputConfirmarSenha", @type = "password" })  
+                            @Html.TextBox("ConfirmarNovaSenha", null, new { @class = "form-control", @id = "inputConfirmarSenha", @type = "password" })
                             <label style="color:red;display:none" id="labelConfirmacaoErrada">A senha não foi confirmada corretamente.</label>
                         </div>
                     </div>
@@ -152,9 +164,9 @@
                 </div>
 
                 <div>
-                    
+
                     <form id="FormExcluirTel" method="post" action="/Telefones/Delete/">
-                        <input type="hidden" id="hiddenIdTel" name="id"/>
+                        <input type="hidden" id="hiddenIdTel" name="id" />
                     </form>
                 </div>
             </div>

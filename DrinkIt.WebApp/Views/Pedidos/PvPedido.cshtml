@@ -59,7 +59,11 @@ else
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-info" })</li>
-                            <li><a id="solicitarTroca" class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');$('#hiddenPedidoid').val(@item.Id)">Solicitar Cupom de Troca</a></li>
+                            
+                            @if (item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Id == 12)
+                            {
+                                <li><a id="solicitarTroca" class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');$('#hiddenPedidoid').val(@item.Id)">Solicitar Cupom de Troca</a></li>
+                            }
                         </ul>
                     </div>
                 </td>

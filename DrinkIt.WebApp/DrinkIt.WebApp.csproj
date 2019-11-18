@@ -177,6 +177,7 @@
     <Compile Include="Dao\ITelefone.cs" />
     <Compile Include="Dao\ITipoBebida.cs" />
     <Compile Include="Dao\IUsuario.cs" />
+    <Compile Include="Dao\NotificacaoDao.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\PrecificacaoDao.cs" />
     <Compile Include="Dao\ProcedimentoTrocaStatusDao.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\GrupoPrecificacao.cs" />
     <Compile Include="Models\HistoricoBebida.cs" />
     <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\Notificacao.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Resultado.cs" />
     <Compile Include="Models\SolicitacaoTroca.cs" />

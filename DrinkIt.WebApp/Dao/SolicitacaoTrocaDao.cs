@@ -15,6 +15,8 @@ namespace DrinkIt.WebApp.Dao
         {
             List<SolicitacaoTroca> lista = new List<SolicitacaoTroca>();
 
+            Sql.Clear();
+
             Sql.Append("SELECT st.*, cli.Nome DescCliente FROM solicitacoestroca st join clientes cli on st.idcliente = cli.Id WHERE st.status = 0");
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))

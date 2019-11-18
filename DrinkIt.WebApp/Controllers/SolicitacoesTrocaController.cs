@@ -122,12 +122,11 @@ namespace DrinkIt.WebApp.Controllers
             
         }
 
-        public ActionResult Aprovar(int IdSolicitacao, int IdCupom)
+        public ActionResult Aprovar(int IdSolicitacao)
         {
             try
             {
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-                dao.Aprovar(IdSolicitacao, IdCupom);
 
                 int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
 
@@ -146,7 +145,7 @@ namespace DrinkIt.WebApp.Controllers
                 {
                     DataEmissao = DateTime.Now,
                     DataExpiracao = DateTime.Now.AddDays(7),
-                    Descricao = string.Concat("TROCO", pedido.Id, pedido.Cliente.Nome, DateTime.Now.ToString("yyyyMMddHHmmssfff")),
+                    Descricao = string.Concat("TROCA", pedido.Id, DateTime.Now.ToString("yyyyMMddHHmmssfff")),
                     IdTipo = 3,
                     Status = true,
                     Valor = pedido.ValorTotal
@@ -154,7 +153,19 @@ namespace DrinkIt.WebApp.Controllers
 
                 new CupomDao().Cadastrar(cupom);
 
-                //notificação
+                int idCupom = new CupomDao().ObterUltimoIdInserido();
+
+                dao.Aprovar(IdSolicitacao, idCupom);
+
+                new CupomDao().InsereCupomParaCliente(idCupom, pedido.Cliente.Id);
+
+                Notificacao notificacao = new Notificacao
+                {
+                    IdCliente = pedido.Cliente.Id,
+                    Descricao = $"O cupom de troca {cupom.Descricao} foi gerado da aprovação da sua solicitação de troca do pedido #{pedido.Id}. Entre no menu ''Meus Cupons'' para visualizar."
+                };
+
+                new NotificacaoDao().Cadastrar(notificacao);
 
                 return RedirectToAction("Index", "Usuarios");
             }

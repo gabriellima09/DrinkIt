@@ -222,5 +222,42 @@ namespace DrinkIt.WebApp.Dao
             return retorno;
         }
 
+        public int ObterUltimoIdInserido()
+        {
+            int ID = 0;
+            Sql.Clear();
+            Sql.Append("SELECT MAX(ID) FROM cupons;");
+            using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+            {
+                if (reader.Read())
+                {
+                    ID = reader.GetInt32(0);
+                }
+            }
+
+            return ID;
+        }
+
+        public void InsereCupomParaCliente(int idCupom, int idCliente)
+        {
+            try
+            {
+                Sql.Clear();
+
+                Sql.Append("INSERT INTO CUPONSCLIENTE (");
+                Sql.Append("IdCupom, IdCliente");
+                Sql.Append(")");
+                Sql.Append(" VALUES (");
+                Sql.Append(idCupom + ", ");
+                Sql.Append(idCliente);
+                Sql.Append(");");
+
+                DbContext.ExecuteQuery(Sql.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

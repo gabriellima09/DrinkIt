@@ -26,24 +26,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 return RedirectToAction("Login", "Usuarios");
             }
-            CupomDao cupomdao = new CupomDao();
-            List<SelectListItem> lista = new List<SelectListItem>();
-            List<Cupom> cupons = new List<Cupom>();
-            cupons = cupomdao.ConsultarTodos();
-            foreach(var cupom in cupons)
-            {
-                if(cupom.Status)
-                {
-                    SelectListItem item = new SelectListItem
-                    {
-                        Value = cupom.Id.ToString(),
-                        Text = cupom.Descricao
-                    };
-                    lista.Add(item);
-                }
-                
-            }
-            ViewBag.listaCupons = lista;
+
             return View();
         }
 
