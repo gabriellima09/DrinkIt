@@ -9,16 +9,31 @@ namespace DrinkIt.WebApp.Controllers
     public class CarrinhoController : Controller
     {
         // GET: Carrinho
-        public ActionResult Index()
+        public ActionResult Index(int i = 0)
         {
             Dictionary<int, int> EstoqueBebidas = new Dictionary<int, int>();
             EstoqueDao estoquedao = new EstoqueDao();
             Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
             foreach(var item in usuario.Carrinho.Bebidas)
             {
-                EstoqueBebidas[item.Id] = estoquedao.ConsultarEstoquePorId(item.Id);
+                int estoqueAtual = 0;
+                estoqueAtual = estoquedao.ConsultarEstoquePorId(item.Id);
+                EstoqueBebidas[item.Id] = estoqueAtual;
+                if(item.Quantidade > estoqueAtual)
+                {
+                    item.Quantidade = estoqueAtual;
+                }
             }
             ViewBag.Estoque = EstoqueBebidas;
+            if(i != 0)
+            {
+                ViewBag.MensagemHistorico = "Ops! O histórico foi atualizado agora mesmo! Por favor, revise seu pedido antes de prosseguir."
+;           }
+            else
+            {
+                ViewBag.MensagemHistorico = "";
+            }
+                    
             return View(usuario.Carrinho);
         }
 

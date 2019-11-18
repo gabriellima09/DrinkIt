@@ -233,6 +233,7 @@
     <Compile Include="Strategy\ClienteStrategy.cs" />
     <Compile Include="Strategy\EnderecoStrategy.cs" />
     <Compile Include="Strategy\CartaoStrategy.cs" />
+    <Compile Include="Strategy\SenhaStrategy.cs" />
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>

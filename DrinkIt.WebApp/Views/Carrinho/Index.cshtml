@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Meu carrinho";
     Dictionary<int, int> EstoqueBebidas = (Dictionary<int, int>)ViewBag.Estoque;
+    string msgEstoque = ViewBag.MensagemHistorico;
 }
 
 <h2>Meu carrinho</h2>
@@ -87,6 +88,7 @@
 
     <hr />
 
+    <label style="color:red">@msgEstoque</label>
 
     <div class="form-group" align="right">
 

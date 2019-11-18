@@ -46,7 +46,11 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult Checkout()
         {
-            Usuario usuario = ((Usuario)Session["Usuario"]);
+            Usuario usuario = (Usuario)Session["Usuario"];
+            if (usuario == null)
+            {
+                return RedirectToAction("Login", "Usuarios");
+            }
 
             var listaEnderecos = new EnderecoDao().ConsultarPorCliente(usuario.Id);
             var listaCartoes = new CartaoDao().ConsultarPorCliente(usuario.Id);
@@ -55,7 +59,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 new SelectListItem
                 {
-                    Text = "Selecione um endereço...",
+                    Text = "Selecione um endereço",
                     Value = "0"
                 }
             };
@@ -63,7 +67,7 @@ namespace DrinkIt.WebApp.Controllers
             {
                 new SelectListItem
                 {
-                    Text = "Selecione um cartão...",
+                    Text = "Selecione um cartão",
                     Value = "0"
                 }
             };
@@ -96,9 +100,12 @@ namespace DrinkIt.WebApp.Controllers
             };
 
             //verifica se os itens ainda existem no estoque
-            if (true)
+            bool BebidasOK = new EstoqueDao().VerificaItensDisponiveis(pedido.Bebidas);
+
+            if (!BebidasOK)
             {
                 //retorna para o carrinho informando que o estoque foi atualizado
+                return RedirectToAction("Index", "Carrinho", new { i = 1 });
             }
 
             return View(pedido);

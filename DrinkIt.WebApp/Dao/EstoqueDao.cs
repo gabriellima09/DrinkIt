@@ -208,5 +208,29 @@ namespace DrinkIt.WebApp.Dao
 
             return lista;
         }
+
+        public bool VerificaItensDisponiveis(List<Bebida> bebidas)
+        {
+            bool OK = true;
+            int QtdeAtual = 0;
+
+            foreach(var bebida in bebidas)
+            {
+                Sql.Clear();
+                Sql.Append("SELECT QTDE FROM ESTOQUE WHERE IdBebida = " + bebida.Id);
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        QtdeAtual = reader.GetInt32(0);
+                    }
+                }
+
+                if (QtdeAtual < bebida.Quantidade)
+                    OK = false;
+            }            
+
+            return OK;
+        }
     }
 }
