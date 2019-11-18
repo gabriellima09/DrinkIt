@@ -46,7 +46,7 @@ else
                 </td>
                 <td align="center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesPedidos">
+                        <button type="button" class="btn btn-default dropdown-toggle btnopcoesPedidos" data-toggle="dropdown" id="opcoesPedidos">
                             Opções <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -54,7 +54,7 @@ else
                                 @using (Html.BeginForm("ColocarEmTransito", "Pedidos", FormMethod.Post))
                                 {
                                     @Html.Hidden("pedidoId", item.Id)
-                                    <button class="btn btn-primary" type="submit">Colocar em Trânsito</button>
+                                    <button class="btn btn-primary btnColocarTransito" type="submit">Colocar em Trânsito</button>
                                 }
                             </li>
                         </ul>

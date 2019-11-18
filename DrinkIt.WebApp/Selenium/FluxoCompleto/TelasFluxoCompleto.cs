@@ -51,7 +51,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Teor"), bebida.Teor.ToString());
             _driver.SetText(By.Name("DicaConservacao"), bebida.DicaConservacao.ToString());
             _driver.FindElement(By.Id("checkboxStatusCreate")).Click();
-            _driver.SetText(By.Name("LstIngrediente"), "Água mineral");
+            _driver.SetText(By.Name("LstIngrediente"), "Sódio");
 
             _driver.Submit(By.Id("btnCadastrar"));
         }
@@ -77,7 +77,11 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Endereco.Complemento"), cliente.Endereco.Complemento.ToString());
             _driver.SetText(By.Name("Endereco.Bairro"), cliente.Endereco.Bairro.ToString());
             _driver.SetText(By.Name("Endereco.Cidade"), cliente.Endereco.Cidade.ToString());
-            _driver.SetText(By.Name("Endereco.Estado"), cliente.Endereco.Estado.ToString());
+            //_driver.SetText(By.Name("Endereco.Estado"), cliente.Endereco.Estado.ToString());
+            IWebElement dropDownListBox = _driver.FindElement(By.Name("Endereco.Estado"));
+            SelectElement clickThis = new SelectElement(dropDownListBox);
+            clickThis.SelectByText("São Paulo");
+            _driver.Wait1();
             _driver.SetText(By.Name("Cartao.Numero"), cliente.Cartao.Numero.ToString());
             _driver.SetText(By.Name("Cartao.NomeTitular"), cliente.Cartao.NomeTitular.ToString());           
             _driver.SetText(By.Name("Cartao.CodigoSeguranca"), cliente.Cartao.CodigoSeguranca.ToString());
@@ -102,6 +106,17 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("btnNovaBebida")).Click();
         }
 
+        public void AprovarPedido()
+        {
+            _driver.FindElement(By.Id("navTabAprovarSaida")).Click();
+            Esperar(5);
+            _driver.FindElement(By.ClassName("btnopcoesPedidos")).Click();
+            Esperar(5);
+            _driver.FindElement(By.ClassName("btnColocarTransito")).Click();
+            
+
+        }
+
         public void NavegarParaTelaCadastroCliente()
         {
             _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaCadastroCliente"]);
@@ -115,11 +130,25 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("btnLogout")).Click();
         }
 
+        public void AbrirPerfilCliente()
+        {
+            _driver.FindElement(By.Id("btnOpcoesMenu")).Click();
+            Esperar(5);
+            _driver.FindElement(By.Id("btnPerfilCliente")).Click();
+        }
+
         public void LoginCliente()
         {
-            _driver.SetText(By.Name("Email"), "teste@teste.com");
-            _driver.SetText(By.Name("Senha"), "teste");
+            _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaLogin"]);
+            _driver.SetText(By.Name("Email"), "teste4@teste.com");
+            _driver.SetText(By.Name("Senha"), "Bielzinh@2");
             _driver.Submit(By.Id("btnEntrar"));
+        }
+
+        public void IrParaLogin()
+        {
+            _driver.FindElement(By.Id("")).Click();
+            Esperar(5);
         }
 
         public void TelaInicial()
@@ -144,7 +173,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             //_driver.FindElement(By.Id("dropEndereco")).Click();
             IWebElement dropDownListBox = _driver.FindElement(By.Name("IdEnderecoEntrega"));
             SelectElement clickThis = new SelectElement(dropDownListBox);
-            clickThis.SelectByText("Casita - Rua dos Anjos, 109");
+            clickThis.SelectByText("Minha Casa - Rua abc, 123");
             _driver.Wait1();
 
             //_driver.FindElement(By.Id("btnNovoEndereco")).Click();
@@ -155,15 +184,15 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             //_driver.FindElement(By.Id("SelectCartao")).Click();
             dropDownListBox = _driver.FindElement(By.Name("IdCartao1"));
             clickThis = new SelectElement(dropDownListBox);
-            clickThis.SelectByText("Visa - final 4444");
-            _driver.Wait1();
-            _driver.FindElement(By.Id("Pagar2Cartoes")).Click();
-            _driver.Wait1();
-            _driver.FindElement(By.Name("valorCartao2")).Click();
+            clickThis.SelectByText("Mastercard - final 1511");
             _driver.Wait1();
             //_driver.FindElement(By.Id("Pagar2Cartoes")).Click();
             //_driver.Wait1();
-            _driver.SetText(By.Name("Cep"), "08740400");
+            //_driver.FindElement(By.Name("valorCartao2")).Click();
+            //_driver.Wait1();
+            //_driver.FindElement(By.Id("Pagar2Cartoes")).Click();
+            //_driver.Wait1();
+            _driver.SetText(By.Name("Cep"), "08740-400");
             _driver.Wait1();
             _driver.FindElement(By.Id("btnCalcularFrete")).Click();
 
@@ -206,8 +235,8 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.Wait1();
             _driver.FindElement(By.Id("btnAprovar")).Click();
             _driver.Wait1();
-            _driver.FindElement(By.Id("selectCupomTroca")).Click();
-            _driver.Wait1();
+            //_driver.FindElement(By.Id("selectCupomTroca")).Click();
+            //_driver.Wait1();
             _driver.FindElement(By.Id("cancelaAprova")).Click();
             _driver.Wait1();
         }
@@ -223,9 +252,9 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             return new Cliente
             {
                 Id = 1,
-                Cpf = "32314434900",
+                Cpf = "323.144.349-00",
                 DataNascimento = DateTime.Now,
-                Email = "teste@teste.com",
+                Email = "teste4@teste.com",
                 Endereco = new Endereco
                 {
                     Logradouro = "Rua abc",
@@ -244,7 +273,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
                     Bandeira = Bandeira.Mastercard,
                     CodigoSeguranca = 123,
                     NomeTitular = "Gabriel Lima Gomes",
-                    Numero = "123456789000",
+                    Numero = "1234-5678-9000-1511",
                     MesValidade = 02,
                     AnoValidade = 2019
                     

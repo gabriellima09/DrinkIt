@@ -26,7 +26,7 @@
         <ul class="dropdown-menu">
             @if (!((Usuario)Session["Usuario"]).Login.Equals("admin"))
             {
-            <li>@Html.ActionLink("Meu perfil", "Index", "Clientes")</li>
+            <li>@Html.ActionLink("Meu perfil", "Index", "Clientes", null, new { @id = "btnPerfilCliente" })</li>
             <li>@Html.ActionLink("Meu Carrinho", "Index", "Carrinho")</li>
             }
             else

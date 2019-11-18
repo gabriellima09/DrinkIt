@@ -27,6 +27,18 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.IrParaCheckout();
             tela.Checkout();
             tela.Esperar(5);
+
+            tela.Logout();
+            tela.LoginAdmin();
+            tela.Esperar(5);
+            tela.AprovarPedido();
+            tela.Esperar(5);
+            tela.Logout();
+            tela.LoginCliente();
+            tela.Esperar(5);
+            tela.AbrirPerfilCliente();
+            tela.Esperar(5);
+
             tela.SolicitarTroca();
             tela.Logout();
             tela.LoginAdmin();

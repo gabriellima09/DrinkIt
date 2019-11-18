@@ -2,7 +2,7 @@
 
 $('#clienteCpf').mask('000.000.000-00', { reverse: true });
 $('#clienteCep').mask('00000-000', { reverse: true });
-$('#clienteNumCartao').mask('0000-0000-0000-0000', { reverse: true });
+//$('#clienteNumCartao').mask('0000-0000-0000-0000', { reverse: true });
 $('#clienteCodSeg').mask('000', { reverse: true });
 $('#clienteMesVal').mask('00', { reverse: true });
 $('#clienteAnoVal').mask('0000', { reverse: true });
