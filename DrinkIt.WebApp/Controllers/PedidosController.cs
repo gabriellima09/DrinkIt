@@ -30,6 +30,17 @@ namespace DrinkIt.WebApp.Controllers
                 ViewBag.RankingCliente = new ClienteDao().GetRankingCliente(idCliente);
             }
 
+            pedidos.Reverse();
+
+            return PartialView(pedidos);
+        }
+
+        public ActionResult PedidosAprovarSaida()
+        {
+            List<Pedido> pedidos = new PedidoDao().ConsultarTodos()
+                .Where(x => x.Status.OrderByDescending(y => y.Id).First().Id == 2)
+                .ToList();
+
             return PartialView(pedidos);
         }
 
@@ -73,8 +84,6 @@ namespace DrinkIt.WebApp.Controllers
             ViewBag.Enderecos = ddlEnderecos;
             ViewBag.Cartoes = ddlCartoes;
 
-            //Usuario usuario = (Usuario)Session["Usuario"];
-
             Cliente cliente = new Cliente
             {
                 Carrinho = usuario?.Carrinho ?? new Carrinho()
@@ -85,6 +94,12 @@ namespace DrinkIt.WebApp.Controllers
                 Cliente = cliente,
                 Bebidas = ((Usuario)Session["Usuario"])?.Carrinho?.Bebidas ?? new List<Bebida>()
             };
+
+            //verifica se os itens ainda existem no estoque
+            if (true)
+            {
+                //retorna para o carrinho informando que o estoque foi atualizado
+            }
 
             return View(pedido);
         }
@@ -120,22 +135,11 @@ namespace DrinkIt.WebApp.Controllers
 
                 new ProcedimentoTrocaStatus().EmProcessamento(pedidoId);
 
-                if (ValidadorCompra.ValidarCompra())
+                Bandeira bandeira = new CartaoDao().ConsultarPorId(pedido.IdCartao1).Bandeira;
+
+                if (new ValidadorCompra(bandeira).ValidarCompra())
                 {
                     new ProcedimentoTrocaStatus().Aprovada(pedidoId);
-
-                    new ProcedimentoTrocaStatus().EmTransito(pedidoId);
-
-                    foreach (var item in pedido.Bebidas)
-                    {
-                        new EstoqueDao().Baixa(item.Id, item.Quantidade);
-                    }
-
-                    new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
-
-                    Thread.Sleep(1000);
-
-                    new ProcedimentoTrocaStatus().Entregue(pedidoId);
                 }
                 else
                 {
@@ -191,6 +195,32 @@ namespace DrinkIt.WebApp.Controllers
             Bebida novaBebida = JsonConvert.DeserializeObject<Bebida>(bebidaFrete);
 
             return Json(SimularFrete(novaBebida), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ColocarEmTransito(int pedidoId)
+        {
+            Pedido pedido = new PedidoDao().ConsultarPorId(pedidoId);
+
+            if (pedido != null && pedido?.Bebidas != null && pedido.Bebidas.Any())
+            {
+                new ProcedimentoTrocaStatus().EmTransito(pedidoId);
+
+                foreach (var item in pedido.Bebidas)
+                {
+                    new EstoqueDao().Baixa(item.Id, item.Quantidade);
+                }
+
+                new ProcedimentoTrocaStatus().EmTransporte(pedidoId);
+                new ProcedimentoTrocaStatus().Entregue(pedidoId);
+                new ProcedimentoTrocaStatus().Finalizado(pedidoId);
+
+                return RedirectToAction("Index", "Usuarios");
+            }
+            else
+            {
+                return View("Error", "Home");
+            }
         }
     }
 }

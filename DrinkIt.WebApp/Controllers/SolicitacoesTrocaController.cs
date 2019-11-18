@@ -149,7 +149,19 @@ namespace DrinkIt.WebApp.Controllers
 
                 new ProcedimentoTrocaStatus().Trocado(pedidoId);
 
-                //gerar cupom de troca
+                Cupom cupom = new Cupom()
+                {
+                    DataEmissao = DateTime.Now,
+                    DataExpiracao = DateTime.Now.AddDays(7),
+                    Descricao = string.Concat("TROCO", pedido.Id, pedido.Cliente.Nome, DateTime.Now.ToString("yyyyMMddHHmmssfff")),
+                    IdTipo = 3,
+                    Status = true,
+                    Valor = pedido.ValorTotal
+                };
+
+                new CupomDao().Cadastrar(cupom);
+
+                //notificação
 
                 return RedirectToAction("Index", "Usuarios");
             }
