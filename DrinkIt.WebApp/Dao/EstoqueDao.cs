@@ -43,7 +43,11 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Clear();
                 decimal vlrCustoAtual = 0.0M;
                 int QtdeAtual = 0;
-                Sql.Append("SELECT Qtde FROM Estoque WHERE IdBebida =" + IdBebida + ";");//PEGA QTDE ATUAL
+                bool reativar = false;
+                int statusAtual = 0;
+                int categoriaAtual = 0;
+
+                Sql.Append("SELECT Qtde FROM Estoque WHERE IdBebida = " + IdBebida + ";");//PEGA QTDE ATUAL
                 using (var reader = DbContext.ExecuteReader(Sql.ToString()))
                 {
                     if (reader.Read())
@@ -53,6 +57,22 @@ namespace DrinkIt.WebApp.Dao
                 }
 
                 Sql.Clear();
+                Sql.Append("SELECT Status, Categoria FROM Bebidas WHERE Id = " + IdBebida + ";");//PEGA QTDE ATUAL
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        statusAtual = Convert.ToInt32(reader["Status"]);
+                        categoriaAtual = Convert.ToInt32(reader["Categoria"]);
+                    }
+                }
+
+                Sql.Clear();
+                if(QtdeAtual == 0 && statusAtual == 0 && categoriaAtual == 2)//Reativar um item inativo fora de mercado?
+                {
+                    reativar = true;
+                }
+
                 QtdeAtual += Qtde;//SOMA
                 Sql.Append("UPDATE ESTOQUE SET QTDE = " + QtdeAtual + " WHERE IDBEBIDA = " + IdBebida + ";");//ATUALIZA
                 DbContext.ExecuteQuery(Sql.ToString());
@@ -76,6 +96,16 @@ namespace DrinkIt.WebApp.Dao
                     Sql.Clear();
                     Sql.Append("UPDATE BEBIDAS SET VALOR = " + VlrCusto.ToString(new CultureInfo("en-US")) + " WHERE ID = " + IdBebida);
                     DbContext.ExecuteQuery(Sql.ToString());
+                }
+
+                if (reativar)
+                {
+                    Sql.Clear();
+                    Sql.Append("UPDATE BEBIDAS SET STATUS = 1, CATEGORIA = 1 WHERE ID = " + IdBebida);
+                    DbContext.ExecuteQuery(Sql.ToString());
+
+                    Sql.Clear();
+                    new BebidaDao().GravarMotivoInativacao(IdBebida, "O estoque do item recebeu entrada.", "Automática", "Ativação");
                 }
 
 
@@ -129,8 +159,10 @@ namespace DrinkIt.WebApp.Dao
             if (QtdeAtual == 0)//CASO O ESTOQUE SEJA ESVAZIADO, INATIVA A BEBIDA
             {
                 Sql.Clear();
-                Sql.Append("UPDATE BEBIDAS SET STATUS = 0 WHERE ID = " + IdBebida + ";");//ATUALIZA
+                Sql.Append("UPDATE BEBIDAS SET STATUS = 0, CATEGORIA = 2 WHERE ID = " + IdBebida + ";");//ATUALIZA
                 DbContext.ExecuteQuery(Sql.ToString());
+
+                new BebidaDao().GravarMotivoInativacao(IdBebida, "O estoque do item zerou.", "Automática", "Inativacao");
             }
 
             return true;

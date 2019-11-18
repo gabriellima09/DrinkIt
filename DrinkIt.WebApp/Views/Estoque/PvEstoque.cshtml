@@ -39,7 +39,11 @@ else
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="btnEntrada" class="btn btn-success" href="#" onclick="AbrirModalEntradaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Entrada</a></li>
-                            <li><a id="btnBaixa" class="btn btn-warning" href="#" onclick="AbrirModalBaixaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Baixa</a></li>
+                            @if (item.Qtde > 0)
+                            {
+                                <li><a id="btnBaixa" class="btn btn-warning" href="#" onclick="AbrirModalBaixaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Baixa</a></li>
+                            }
+
                         </ul>
                     </div>
                 </td>

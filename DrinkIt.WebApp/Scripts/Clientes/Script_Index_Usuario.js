@@ -77,7 +77,7 @@ function EntradaEstoque() {
 }
 
 function BaixaEstoque() {
-    if ($('#QtdeBaixaEstoque').val() != '') {
+    if ($('#QtdeBaixaEstoque').val() != '' && $('#QtdeBaixaEstoque').val() <= $('#hiddenQtdeAtualEstoque').val()) {
         $('#msgErroBaixaEstoque').hide();
         $('#FormBaixaEstoque').submit();
     } else {
@@ -100,6 +100,7 @@ function AbrirModalBaixaEstoque(idBebida, DescBebida, Qtde) {
     $('#ddCodigoBaixa').html(idBebida);
     $('#ddDescBaixa').html(DescBebida);
     $('#ddQtdeBaixa').html(Qtde); 
+    $('#hiddenQtdeAtualEstoque').val(Qtde); 
 }
 
 function ReprovarSolicitacaoTroca() {

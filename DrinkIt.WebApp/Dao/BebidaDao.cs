@@ -101,7 +101,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append("DicaConservacao, ");
                 Sql.Append("Status, ");
                 Sql.Append("CaminhoImagem,");
-                Sql.Append("DtCadastro");
+                Sql.Append("DtCadastro,");
+                Sql.Append("Categoria");
                 Sql.Append(")");
                 Sql.Append("VALUES ('");
                 Sql.Append(entidade.Nome + "', '");
@@ -125,7 +126,8 @@ namespace DrinkIt.WebApp.Dao
                 Sql.Append(entidade.DicaConservacao + "', ");
                 Sql.Append((entidade.Status == true ? 1 : 0) + ", '");
                 Sql.Append(entidade.CaminhoImagem + "', '");
-                Sql.Append(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'");
+                Sql.Append(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+                Sql.Append("1");//categoria 1: em vendas!
                 Sql.Append(");");
 
                 DbContext.ExecuteQuery(Sql.ToString());
@@ -279,7 +281,8 @@ namespace DrinkIt.WebApp.Dao
                 ContemGluten = Convert.ToBoolean(reader["ContemGluten"]),
                 DicaConservacao = Convert.ToString(reader["DicaConservacao"]),
                 Status = Convert.ToBoolean(reader["Status"]),
-                CaminhoImagem = Convert.ToString(reader["CaminhoImagem"])
+                CaminhoImagem = Convert.ToString(reader["CaminhoImagem"]),
+                IdCategoria = Convert.ToInt32(reader["Categoria"])
             };
             return bebida;
         }

@@ -10,7 +10,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             TelasFluxoCompleto tela = new TelasFluxoCompleto(Browser.Chrome);
 
             tela.LoginAdmin();
-            tela.Esperar(5);
+            tela.Esperar(15);
             tela.NavegarParaTelaCadastroBebidas();
             tela.CadastroBebidas();
             tela.Esperar(5);

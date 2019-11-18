@@ -463,8 +463,9 @@
                     </h5>
                     <form id="FormBaixaEstoque" method="post" action="/Estoque/Baixa/">
                         <input class="form-control" type="text" name="Qtde" placeholder="Quantidade" id="QtdeBaixaEstoque" />
-                        <label style="color:red;display:none" id="msgErroBaixaEstoque">Insira uma quantidade válida.</label>
+                        <label style="color:red;display:none" id="msgErroBaixaEstoque">Insira uma quantidade válida (igual ou menor que a quantidade atual do estoque).</label>
                         <input type="hidden" id="hiddenIdBebidaBaixa" name="IdBebida" />
+                        <input type="hidden" id="hiddenQtdeAtualEstoque" />
                     </form>
                 </div>
             </div>

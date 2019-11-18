@@ -56,5 +56,6 @@ namespace DrinkIt.WebApp.Models
         public decimal MargemLucro { get; set; }
 
         public int Quantidade { get; set; }
+        public int IdCategoria { get; set; }
     }
 }

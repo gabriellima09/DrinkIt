@@ -33,7 +33,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Embalagem)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Alcoolico)
         </th>
         <th>
@@ -41,10 +41,13 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Gaseificada)
-        </th>
+        </th>*@
         @*<th>
             @Html.DisplayNameFor(model => model.ContemGluten)
         </th>*@
+        <th>
+            @Html.DisplayName("Categoria")
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
@@ -81,7 +84,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Embalagem)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Alcoolico)
         </td>
         <td>
@@ -89,10 +92,20 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Gaseificada)
-        </td>
+        </td>*@
         @*<td>
             @Html.DisplayFor(modelItem => item.ContemGluten)
         </td>*@
+        <td>
+            @if (item.IdCategoria == 1)
+            {
+                <label class="control-label">Em Vendas</label>
+            }
+            else
+            {
+                <label class="control-label" style="color:red">Fora de Mercado</label>
+            }
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
