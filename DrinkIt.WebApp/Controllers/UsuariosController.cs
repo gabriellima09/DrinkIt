@@ -29,10 +29,10 @@ namespace DrinkIt.WebApp.Controllers
             CupomDao cupomdao = new CupomDao();
             List<SelectListItem> lista = new List<SelectListItem>();
             List<Cupom> cupons = new List<Cupom>();
-            cupons = cupomdao.ConsultarTodos();
-            foreach(var cupom in cupons)
+            cupons = cupomdao.ConsultarTodos().FindAll(x => x.IdTipo == 2);
+            foreach (var cupom in cupons)
             {
-                if(cupom.Status)
+                if (cupom.Status)
                 {
                     SelectListItem item = new SelectListItem
                     {
@@ -41,7 +41,7 @@ namespace DrinkIt.WebApp.Controllers
                     };
                     lista.Add(item);
                 }
-                
+
             }
             ViewBag.listaCupons = lista;
             return View();

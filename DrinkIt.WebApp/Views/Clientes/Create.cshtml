@@ -75,7 +75,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(x => x.Cpf, new { htmlAttributes = new { @class = "form-control", @id = "clienteCpf" } })
                 @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -91,7 +91,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(x => x.Genero, new { htmlAttributes = new { @class = "form-control" } })
+                <select class="form-control" name="Genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.Genero, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -112,8 +116,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" maxlength="2" class="form-control" name="LstDDD" /></td>
-                        <td><input type="text" maxlength="9" class="form-control" name="LstTelefone" /></td>
+                        <td><input type="text" maxlength="2" class="form-control dddtel" name="LstDDD" /></td>
+                        <td><input type="text" maxlength="9" class="form-control numtel" name="LstTelefone" /></td>
                         <td>
                             <select class="form-control" name="TiposTelefone">
                                 <option value="1">Residencial</option>
@@ -149,7 +153,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.CEP, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.CEP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.CEP, new { htmlAttributes = new { @class = "form-control", @id = "clienteCep" } })
                 @Html.ValidationMessageFor(model => model.Endereco.CEP, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -165,7 +169,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Endereco.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Endereco.Numero, new { htmlAttributes = new { @class = "form-control", @id = "clienteNumero" } })
                 @Html.ValidationMessageFor(model => model.Endereco.Numero, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -195,9 +199,37 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Endereco.Estado, htmlAttributes: new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.Endereco.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Estado, new { htmlAttributes = new { @class = "form-control", @maxlength = "2" } })
+                <select class="form-control" name="Endereco.Estado">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.Endereco.Estado, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -215,7 +247,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cartao.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartao.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cartao.Numero, new { htmlAttributes = new { @class = "form-control", @id = "clienteNumCartao" } })
                 @Html.ValidationMessageFor(model => model.Cartao.Numero, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -239,7 +271,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cartao.CodigoSeguranca, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cartao.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "clienteCodSeg" } })
                 @Html.ValidationMessageFor(model => model.Cartao.CodigoSeguranca, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -247,7 +279,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cartao.MesValidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartao.MesValidade, new { htmlAttributes = new { @class = "form-control", @min = "1", @max = "12" } })
+                @Html.EditorFor(model => model.Cartao.MesValidade, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "clienteMesVal" } })
                 @Html.ValidationMessageFor(model => model.Cartao.MesValidade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -255,7 +287,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cartao.AnoValidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cartao.AnoValidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cartao.AnoValidade, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "clienteAnoVal" } })
                 @Html.ValidationMessageFor(model => model.Cartao.AnoValidade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -273,10 +305,18 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+
     <script src="~/Scripts/Clientes/Script_CreateClientes.js"></script>
+
+
 }
 

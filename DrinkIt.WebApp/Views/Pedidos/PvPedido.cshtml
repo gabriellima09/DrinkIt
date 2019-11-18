@@ -1,9 +1,19 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Pedido>
+@using DrinkIt.WebApp.Models;
 
 @{
+
     Layout = null;
-    int rank = ViewBag.RankingCliente;
-    decimal totalcompras = Model.Sum(x => x.ValorTotal);
+    Usuario usuario = (Usuario)Session["Usuario"];
+    int rank = 0;
+    decimal totalcompras = 0.0M;
+
+    if (usuario.Id != 0)
+    {
+        rank = ViewBag.RankingCliente;
+        totalcompras = Model.Sum(x => x.ValorTotal);
+    }
+
 }
 
 @if (Model.Count() == 0)
@@ -12,11 +22,14 @@
 }
 else
 {
+    if (usuario.Id != 0)
+    {
+        <h4>Meu Ranking Atual: #@rank</h4>
+        <h4>Valor Total: R$@totalcompras</h4>
 
-    <h4>Meu Ranking Atual: #@rank</h4>
-    <h4>Valor Total: R$@totalcompras</h4>
+        <br />
+    }
 
-    <br />
 
     <table class="table table-bordered table-condensed table-hover table-responsive table-striped">
         <tr>
@@ -24,10 +37,10 @@ else
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorTotal)
+                @Html.DisplayName("Valor Total")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status.FirstOrDefault().DataAtualizacao)
+                @Html.DisplayName("Data de Atualização")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -59,7 +72,11 @@ else
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-info" })</li>
-                            <li><a id="solicitarTroca" class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');$('#hiddenPedidoid').val(@item.Id)">Solicitar Cupom de Troca</a></li>
+                            @if (usuario.Id != 0)
+                            {
+                                <li><a id="solicitarTroca" class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');$('#hiddenPedidoid').val(@item.Id)">Solicitar Cupom de Troca</a></li>
+                            }
+
                         </ul>
                     </div>
                 </td>

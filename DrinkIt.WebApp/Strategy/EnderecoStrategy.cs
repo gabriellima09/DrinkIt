@@ -20,7 +20,8 @@ namespace DrinkIt.WebApp.Strategy
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Descricao)
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Estado)
                 && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Logradouro)
-                && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Numero);
+                && ValidadorAuxiliar.ValidarPropriedadeVazia(endereco.Numero)
+                && (endereco.Cobranca || endereco.Entrega);
         }
     }
 }

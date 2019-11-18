@@ -101,3 +101,15 @@ function AbrirModalBaixaEstoque(idBebida, DescBebida, Qtde) {
     $('#ddDescBaixa').html(DescBebida);
     $('#ddQtdeBaixa').html(Qtde); 
 }
+
+function ReprovarSolicitacaoTroca() {
+    var motivo = $('#motivoReprovaSolicitacao').val();
+
+    if (motivo == 0) {
+        $('#msgErroMotivoSolicitacao').show();
+    } else {
+        $('#msgErroMotivoSolicitacao').hide();
+        $('#FormReprovar').submit();
+    }
+    
+}
