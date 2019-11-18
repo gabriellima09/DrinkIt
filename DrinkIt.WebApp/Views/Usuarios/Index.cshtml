@@ -338,12 +338,13 @@
                     </h5>
                     <form action="/SolicitacoesTroca/Reprovar/" method="post" id="FormReprovar">
                         <input type="hidden" id="hiddenIdSolicitacaoRep" name="idSolicitacao" />
-                        <textarea class="form-control" name="MotivoReprova" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                        <textarea id="motivoReprovaSolicitacao" class="form-control" name="MotivoReprova" cols="20" rows="5" placeholder="Digite o motivo da reprovação"></textarea>
+                        <label style="color:red;display:none" id="msgErroMotivoSolicitacao">Insira um motivo válido!</label>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnReprovarTroca" type="button" class="btn btn-danger" onclick="$('#FormReprovar').submit();">Reprovar</button>
+                <button id="btnReprovarTroca" type="button" class="btn btn-danger" onclick="ReprovarSolicitacaoTroca()">Reprovar</button>
                 <button type="button" id="cancelaReprova" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>

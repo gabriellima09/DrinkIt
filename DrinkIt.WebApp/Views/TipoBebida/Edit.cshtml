@@ -6,7 +6,7 @@
     List<SelectListItem> listaGrupos = (List<SelectListItem>)ViewBag.listaGrupos;
 }
 
-<h2>Editar Tipo de Bebida</h2>
+<h2>Editar</h2>
 
 @using (Html.BeginForm())
 {
@@ -28,7 +28,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DescGrupoPrecificacao, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Grupo de Precificação", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.IdGrupoPrecificacao, listaGrupos, new { @class = "form-control", @name = "TipoBebida" })
             @Html.ValidationMessageFor(model => model.IdGrupoPrecificacao, "", new { @class = "text-danger" })

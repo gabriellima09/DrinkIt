@@ -22,13 +22,13 @@ else
                 @Html.DisplayNameFor(model => model.Login)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genero)
+                @Html.DisplayName("Gênero")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataNascimento)
+                @Html.DisplayName("Data de Nascimento")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cpf)
@@ -72,7 +72,7 @@ else
                             Opções <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                            @*<li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>*@
                             @*<li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-default" })</li>*@
                             <li>@Html.ActionLink("Trocar Status", "TrocarStatus", "Clientes", new { id = item.Id }, new { @class = "btn-danger" })</li>
                         </ul>

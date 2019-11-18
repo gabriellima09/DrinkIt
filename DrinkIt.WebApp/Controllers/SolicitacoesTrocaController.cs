@@ -107,10 +107,16 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
+                //Expressão Lambda desmontada para facilitar debug
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-                dao.Reprovar(IdSolicitacao, MotivoReprova);
+                int pedidoId = 0;
+                SolicitacaoTroca sol = new SolicitacaoTroca();
+                List<SolicitacaoTroca> listaSolicitacoes = new List<SolicitacaoTroca>();
+                listaSolicitacoes = dao.ConsultarTodos();
+                sol = listaSolicitacoes.Find(x => x.Id == IdSolicitacao);
+                pedidoId = sol.IdPedido;
 
-                int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
+                dao.Reprovar(IdSolicitacao, MotivoReprova);
 
                 new ProcedimentoTrocaStatus().TrocaNaoAutorizada(pedidoId);
 
@@ -127,7 +133,7 @@ namespace DrinkIt.WebApp.Controllers
             try
             {
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
-
+                
                 int pedidoId = dao.ConsultarTodos().Find(x => x.Id == IdSolicitacao).IdPedido;
 
                 new ProcedimentoTrocaStatus().TrocaAutorizada(pedidoId);

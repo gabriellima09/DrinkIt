@@ -1,12 +1,12 @@
 ﻿@model DrinkIt.WebApp.Models.Bebida
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Bebida";
 
     List<SelectListItem> listaTipos = (List<SelectListItem>)ViewBag.ListaTiposBebida;
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "FormEditBebida", enctype = "multipart/form-data" }))
 {
@@ -233,7 +233,7 @@
                     {
                         <tr>
                             <td><input type="text" class="form-control" name="LstIngrediente" value="@item.Descricao" /></td>
-                            <td style="text-align:center"><button type="button" class="btnDelete btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span> Remover</button></td>
+                            <td style="text-align:center"></td>
                         </tr>
                     }
 
@@ -255,15 +255,17 @@
     @Html.ActionLink("Voltar", "Index")
 </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-<script src="~/Scripts/Bebidas/Script_EditBebidas.js"></script>
+@*@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")*@
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+
+<script src="~/Scripts/Bebidas/Script_EditBebidas.js"></script>
 
 <script>
     $('.money').mask('#.##0,00', { reverse: true });
