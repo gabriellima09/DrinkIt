@@ -53,7 +53,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("checkboxStatusCreate")).Click();
             _driver.SetText(By.Name("LstIngrediente"), "Sódio");
 
-            _driver.Submit(By.Id("btnCadastrar"));
+            _driver.FindElement(By.Id("btnCadastrar")).Click();
         }
 
         public void CadastroClientes()
@@ -88,30 +88,31 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Cartao.MesValidade"), cliente.Cartao.MesValidade.ToString());
             _driver.SetText(By.Name("Cartao.AnoValidade"), cliente.Cartao.AnoValidade.ToString());
 
-            _driver.Submit(By.Id("btnCadastrar"));
+            _driver.FindElement(By.Id("btnCadastrar")).Click();
         }
 
         public void LoginAdmin()
         {
-            _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaLogin"]);
+            _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+            _driver.LoadPage(TimeSpan.FromSeconds(10), ConfigurationManager.AppSettings["UrlTelaLogin"]);
             _driver.SetText(By.Name("Email"), "admin");
             _driver.SetText(By.Name("Senha"), "12345");
-            _driver.Submit(By.Id("btnEntrar"));
+            _driver.FindElement(By.Id("btnEntrar")).Click();
         }
 
         public void NavegarParaTelaCadastroBebidas()
         {
             _driver.FindElement(By.Id("navTabBebida")).Click();
-            Esperar(5);
+            Esperar(3);
             _driver.FindElement(By.Id("btnNovaBebida")).Click();
         }
 
         public void AprovarPedido()
         {
             _driver.FindElement(By.Id("navTabAprovarSaida")).Click();
-            Esperar(5);
+            Esperar(3);
             _driver.FindElement(By.ClassName("btnopcoesPedidos")).Click();
-            Esperar(5);
+            Esperar(3);
             _driver.FindElement(By.ClassName("btnColocarTransito")).Click();
             
 
@@ -119,14 +120,14 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
 
         public void NavegarParaTelaCadastroCliente()
         {
-            _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaCadastroCliente"]);
+            _driver.LoadPage(TimeSpan.FromSeconds(10), ConfigurationManager.AppSettings["UrlTelaCadastroCliente"]);
         }
 
 
         public void Logout()
         {
             _driver.FindElement(By.Id("btnOpcoesMenu")).Click();
-            Esperar(5);
+            Esperar(3);
             _driver.FindElement(By.Id("btnLogout")).Click();
         }
 
@@ -142,7 +143,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.LoadPage(TimeSpan.FromSeconds(5), ConfigurationManager.AppSettings["UrlTelaLogin"]);
             _driver.SetText(By.Name("Email"), "teste4@teste.com");
             _driver.SetText(By.Name("Senha"), "Bielzinh@2");
-            _driver.Submit(By.Id("btnEntrar"));
+            _driver.FindElement(By.Id("btnEntrar")).Click();
         }
 
         public void IrParaLogin()
@@ -165,7 +166,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
 
         public void IrParaCheckout()
         {
-            _driver.Submit(By.Id("btnFinalizarPedido"));
+            _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
         }
 
         public void Checkout()

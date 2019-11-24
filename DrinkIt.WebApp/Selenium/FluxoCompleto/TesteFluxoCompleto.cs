@@ -10,59 +10,57 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             TelasFluxoCompleto tela = new TelasFluxoCompleto(Browser.Chrome);
 
             tela.LoginAdmin();
-            tela.Esperar(15);
+            tela.Esperar(3);
             tela.NavegarParaTelaCadastroBebidas();
             tela.CadastroBebidas();
-            tela.Esperar(5);
+            tela.Esperar(4);
             tela.Logout();
             tela.NavegarParaTelaCadastroCliente();
             tela.CadastroClientes();
             tela.Esperar();
             tela.LoginCliente();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.TelaInicial();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.SelecionaBebida();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.IrParaCheckout();
             tela.Checkout();
-            tela.Esperar(5);
+            tela.Esperar(3);
 
             tela.Logout();
             tela.LoginAdmin();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.AprovarPedido();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.Logout();
             tela.LoginCliente();
             tela.Esperar(5);
             tela.AbrirPerfilCliente();
-            tela.Esperar(5);
+            tela.Esperar(3);
 
             tela.SolicitarTroca();
             tela.Logout();
             tela.LoginAdmin();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.TratarSolicitacaoTroca();
-            tela.Esperar(5);
+            tela.Esperar(3);
 
             tela.Logout();
             tela.LoginCliente();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.AbrirPerfilCliente();
-            tela.Esperar(5);
+            tela.Esperar(3);
             string cupom = tela.AbrirCupons();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.TelaInicial();
             
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.SelecionaBebida();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.IrParaCheckout();
             tela.CheckoutComCupom(cupom);
-            tela.Esperar(5);
-
-            tela.Esperar(5);
+            tela.Esperar(6);
 
             tela.Fechar();
         }

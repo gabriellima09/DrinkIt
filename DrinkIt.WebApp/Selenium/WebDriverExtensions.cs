@@ -39,7 +39,7 @@ namespace DrinkIt.WebApp.Selenium
 
         public static void Wait(this IWebDriver webDriver, double seconds)
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(Convert.ToInt32(seconds) * 1000);
         }
 
         public static void Wait1(this IWebDriver webDriver)

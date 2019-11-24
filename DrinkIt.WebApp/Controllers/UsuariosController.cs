@@ -62,7 +62,7 @@ namespace DrinkIt.WebApp.Controllers
                     Senha = "admin"
                 };
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Usuarios");
             }
 
             if (usuarioDao.Login(usuario.Email, usuario.Senha))
