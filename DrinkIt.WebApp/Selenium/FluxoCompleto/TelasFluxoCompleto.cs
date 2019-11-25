@@ -31,6 +31,25 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.Wait1();
         }
 
+        public void PreencherEstoque()
+        {
+            Esperar(3);
+            _driver.FindElement(By.Id("navTabEstoque")).Click();
+            Esperar(3);
+            _driver.FindElement(By.ClassName("btnMenuItemEstoque")).Click();
+            Esperar(3);
+            _driver.FindElement(By.ClassName("btnEntradaItemEstoque")).Click();
+            Esperar(3);
+            _driver.SetText(By.Id("QtdeEntrada"), "200");
+            _driver.SetText(By.Id("FornecedorEntrada"), "Fornecedor Teste");
+            _driver.SetText(By.Id("VlrCustoEntrada"), "1,50");
+            _driver.SetText(By.Id("DataEntrada"), DateTime.Now.ToString("dd/MM/yyyy"));
+            Esperar(3);
+            _driver.FindElement(By.Id("btnSalvarEntrada")).Click();
+            Esperar(3);
+            _driver.FindElement(By.Id("navTabEstoque")).Click();
+        }
+
         public void CadastroBebidas()
         {
             Bebida bebida = GetBebida();
@@ -52,7 +71,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("DicaConservacao"), bebida.DicaConservacao.ToString());
             _driver.FindElement(By.Id("checkboxStatusCreate")).Click();
             _driver.SetText(By.Name("LstIngrediente"), "Sódio");
-
+            Esperar(2);
             _driver.FindElement(By.Id("btnCadastrar")).Click();
         }
 
@@ -134,7 +153,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
         public void AbrirPerfilCliente()
         {
             _driver.FindElement(By.Id("btnOpcoesMenu")).Click();
-            Esperar(5);
+            Esperar(3);
             _driver.FindElement(By.Id("btnPerfilCliente")).Click();
         }
 

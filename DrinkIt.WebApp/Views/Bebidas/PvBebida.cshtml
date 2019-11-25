@@ -1,137 +1,146 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
 
-@{ 
+@{
     Layout = null;
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Volume)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Peso)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Sabor)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Fabricante)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Embalagem)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Alcoolico)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Teor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gaseificada)
-        </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.ContemGluten)
-        </th>*@
-        <th>
-            @Html.DisplayName("Categoria")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th></th>
-    </tr>
+@if (Model.Count() == 0)
+{
+    <h4 style="padding-left:1%">Nenhuma bebida cadastrada.</h4>
+}
+else
+{
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            <a href="/Bebidas/Details/@item.Id">@item.Nome</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Volume)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Peso)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Sabor)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Fabricante)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Embalagem)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Alcoolico)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Teor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gaseificada)
-        </td>*@
-        @*<td>
-            @Html.DisplayFor(modelItem => item.ContemGluten)
-        </td>*@
-        <td>
-            @if (item.IdCategoria == 1)
-            {
-                <label class="control-label">Em Vendas</label>
-            }
-            else
-            {
-                <label class="control-label" style="color:red">Fora de Mercado</label>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td align="center">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Opções <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
-                    <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-default" })</li>
-                    @if (item.Status)
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volume)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Peso)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Sabor)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Fabricante)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Embalagem)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Alcoolico)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gaseificada)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ContemGluten)
+                </th>*@
+            <th>
+                @Html.DisplayName("Categoria")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Bebidas/Details/@item.Id">@item.Nome</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Peso)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sabor)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Fabricante)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Embalagem)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Alcoolico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gaseificada)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ContemGluten)
+                    </td>*@
+                <td>
+                    @if (item.IdCategoria == 1)
                     {
-                        <li><a id="btnInativar" class="btn btn-danger" href="#" onclick="$('#modalInativarBebida').modal('show'); $('#hiddenIdBebidaInativar').val(@item.Id); $('#ddCodigoBebida').html('@item.Id'); $('#ddDescBebida').html('@item.Nome');">Inativar</a></li>
+                        <label class="control-label">Em Vendas</label>
                     }
                     else
                     {
-                        <li><a id="btnAtivar" class="btn btn-primary" href="#" onclick="$('#modalAtivarBebida').modal('show'); $('#hiddenIdBebidaAtivar').val(@item.Id); $('#ddCodigoBebidaAtivar').html('@item.Id'); $('#ddDescBebidaAtivar').html('@item.Nome');">Ativar</a></li>
+                        <label class="control-label" style="color:red">Fora de Mercado</label>
                     }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td align="center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Opções <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn-warning" })</li>
+                            <li>@Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn-default" })</li>
+                            @if (item.Status)
+                            {
+                                <li><a id="btnInativar" class="btn btn-danger" href="#" onclick="$('#modalInativarBebida').modal('show'); $('#hiddenIdBebidaInativar').val(@item.Id); $('#ddCodigoBebida').html('@item.Id'); $('#ddDescBebida').html('@item.Nome');">Inativar</a></li>
+                            }
+                            else
+                            {
+                                <li><a id="btnAtivar" class="btn btn-primary" href="#" onclick="$('#modalAtivarBebida').modal('show'); $('#hiddenIdBebidaAtivar').val(@item.Id); $('#ddCodigoBebidaAtivar').html('@item.Id'); $('#ddDescBebidaAtivar').html('@item.Nome');">Ativar</a></li>
+                            }
 
 
-                    @*<li><button type="button" id="btnTrocarStatus" class="btn btn-danger">Trocar Status</button></li>*@
-                </ul>
-            </div>
-        </td>
-    </tr>
-    }
+                            @*<li><button type="button" id="btnTrocarStatus" class="btn btn-danger">Trocar Status</button></li>*@
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+
+}

@@ -34,14 +34,14 @@ else
                 </td>
                 <td align="center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="opcoesEstoque">
+                        <button type="button" class="btn btn-default dropdown-toggle btnMenuItemEstoque" data-toggle="dropdown" id="opcoesEstoque">
                             Opções <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a id="btnEntrada" class="btn btn-success" href="#" onclick="AbrirModalEntradaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Entrada</a></li>
+                            <li><a id="btnEntrada" class="btn btn-success btnEntradaItemEstoque" href="#" onclick="AbrirModalEntradaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Entrada</a></li>
                             @if (item.Qtde > 0)
                             {
-                                <li><a id="btnBaixa" class="btn btn-warning" href="#" onclick="AbrirModalBaixaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Baixa</a></li>
+                                <li><a id="btnBaixa" class="btn btn-warning btnSaidaItemEstoque" href="#" onclick="AbrirModalBaixaEstoque(@item.IdBebida, '@item.DescBebida', @item.Qtde)">Baixa</a></li>
                             }
 
                         </ul>

@@ -13,7 +13,8 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.Esperar(3);
             tela.NavegarParaTelaCadastroBebidas();
             tela.CadastroBebidas();
-            tela.Esperar(4);
+            tela.PreencherEstoque();
+            tela.Esperar(3);
             tela.Logout();
             tela.NavegarParaTelaCadastroCliente();
             tela.CadastroClientes();
@@ -35,7 +36,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.Esperar(3);
             tela.Logout();
             tela.LoginCliente();
-            tela.Esperar(5);
+            tela.Esperar(3);
             tela.AbrirPerfilCliente();
             tela.Esperar(3);
 
