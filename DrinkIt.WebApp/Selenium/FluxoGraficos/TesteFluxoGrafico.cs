@@ -10,11 +10,9 @@ namespace DrinkIt.WebApp.Selenium.FluxoGraficos
             TelasFluxoGrafico tela = new TelasFluxoGrafico(Browser.Chrome);
 
             tela.LoginAdmin();
-            tela.Esperar(7);
+            tela.Esperar(3);
             tela.InserirDatas();
-            tela.Esperar(40);    
-            tela.Esperar(40);    
-            tela.Esperar(40);    
+            tela.Esperar(30);  
             tela.Fechar();
         }
     }
