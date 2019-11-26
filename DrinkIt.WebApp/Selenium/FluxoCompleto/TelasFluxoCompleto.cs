@@ -67,11 +67,12 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.SetText(By.Name("Fabricante"), bebida.Fabricante.ToString());
             _driver.SetText(By.Name("Embalagem"), bebida.Embalagem.ToString());
             _driver.SetText(By.Name("CodigoBarras"), bebida.CodigoBarras.ToString());
-            _driver.SetText(By.Name("Teor"), bebida.Teor.ToString());
+            
+            //_driver.SetText(By.Name("Teor"), bebida.Teor.ToString());
             _driver.SetText(By.Name("DicaConservacao"), bebida.DicaConservacao.ToString());
             _driver.FindElement(By.Id("checkboxStatusCreate")).Click();
             _driver.SetText(By.Name("LstIngrediente"), "Sódio");
-            Esperar(2);
+            Esperar(3);
             _driver.FindElement(By.Id("btnCadastrar")).Click();
         }
 
