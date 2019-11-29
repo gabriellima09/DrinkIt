@@ -94,6 +94,9 @@ namespace DrinkIt.WebApp.Controllers
                 else
                 {
                     ViewBag.Erro = resultado.MensagensErro;
+                    List<SelectListItem> Items = new List<SelectListItem>();
+                    Items = (List<SelectListItem>)bebidaDao.GetTiposBebida();
+                    ViewBag.ListaTiposBebida = Items;
                     return View(bebida);
                 }
 

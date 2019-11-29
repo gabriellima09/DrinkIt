@@ -99,13 +99,17 @@ namespace DrinkIt.WebApp.Dao
                 }
             }
 
-            dashboard.Qtd1 = dashboard.Qtd[0];
-            dashboard.Qtd2 = dashboard.Qtd[1];
-            dashboard.Qtd3 = dashboard.Qtd[2];
+            if(dashboard.Qtd.Count >= 3)
+            {
+                dashboard.Qtd1 = dashboard.Qtd[0];
+                dashboard.Qtd2 = dashboard.Qtd[1];
+                dashboard.Qtd3 = dashboard.Qtd[2];
 
-            dashboard.Top1 = dashboard.Top[0];
-            dashboard.Top2 = dashboard.Top[1];
-            dashboard.Top3 = dashboard.Top[2];
+                dashboard.Top1 = dashboard.Top[0];
+                dashboard.Top2 = dashboard.Top[1];
+                dashboard.Top3 = dashboard.Top[2];
+            }
+            
 
             return dashboard;
         }

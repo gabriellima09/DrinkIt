@@ -66,7 +66,10 @@ namespace DrinkIt.WebApp.Controllers
         {
             try
             {
-                cliente.Cpf = cliente.Cpf.Replace(".", "").Replace("-", "");
+                if(cliente.Cpf != null)
+                {
+                    cliente.Cpf = cliente.Cpf.Replace(".", "").Replace("-", "");
+                }               
 
                 //Validando a confirmação de senha
                 if (cliente.Senha != confirmSenha)
