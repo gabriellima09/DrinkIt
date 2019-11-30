@@ -200,7 +200,7 @@ namespace DrinkIt.WebApp.Dao
                 int i = 0;
                 while (reader.Read())
                 {
-                    listIdBebidas.Add(reader.GetInt32(i));
+                    listIdBebidas.Add(Convert.ToInt32(reader["BebidaId"]));
                     i++;
                 }
             }
