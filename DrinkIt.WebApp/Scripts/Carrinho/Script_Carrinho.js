@@ -7,7 +7,7 @@ $(".Quantidade").change(function () {
         dataType: "json",
         method: 'POST',
         url: "/Pedidos/AtualizarQuantidadeBebida/",
-        data: { 'idBebida': $(this).attr('data-id'), 'quantidade': $(this).val() },
+        data: { 'idBebida': $(this).attr('data-id'), 'quantidade': $(this).val() }
     });
 
     VerificaValores();

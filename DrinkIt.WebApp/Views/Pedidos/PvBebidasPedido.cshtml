@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DrinkIt.WebApp.Models.Bebida>
+
+<dl class="dl-horizontal">
+        @if (Model.Count() != 0 && Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <dt>
+                    @item.Nome - @item.Volume
+                </dt>
+
+                <dd>
+                    <div style="display:inline">
+                        <input type="checkbox" class="checkboxTrocaItem" data-iditem="@item.Id"/>
+                        <input value="0" type="number" disabled name="QtdeBebidas" data-iditem="@item.Id" style="width: 80px;display:inline" class="form-control QtdeTroca" onkeydown="return false" min="1" max="@item.Quantidade" />
+                        <input type="hidden" disabled class="clHiddenIdBebida" data-iditem="@item.Id" value="@item.Id" name="IdBebidas" />
+                    </div>
+                </dd>
+            }
+        }
+
+    </dl>
+<label style="color:red;display:none" id="msgErrorBebidas">Selecione ao menos uma bebida para trocar!</label>
+
+<script>
+
+    $('.checkboxTrocaItem').change(function () {
+        var iditem = $(this).attr('data-iditem');
+        //[value='Hot Fuzz']
+        if ($(this).prop('checked') == true) {
+            $('.QtdeTroca[data-iditem="' + iditem + '"]').prop('disabled', false);
+            $('.QtdeTroca[data-iditem="' + iditem + '"]').val(1);
+            $('.clHiddenIdBebida[data-iditem="' + iditem + '"]').prop('disabled', false);
+        } else {
+            $('.QtdeTroca[data-iditem="' + iditem + '"]').prop('disabled', true);
+            $('.QtdeTroca[data-iditem="' + iditem + '"]').val(0);
+            $('.clHiddenIdBebida[data-iditem="' + iditem + '"]').prop('disabled', true);
+        }
+    });
+</script>

@@ -229,5 +229,12 @@ namespace DrinkIt.WebApp.Controllers
                 return View("Error", "Home");
             }
         }
+
+        public ActionResult PvBebidasPedido(string bebidas)
+        {
+            List<Bebida> listaBebidas = JsonConvert.DeserializeObject<List<Bebida>>(bebidas);
+
+            return PartialView(listaBebidas);
+        }
     }
 }

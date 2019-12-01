@@ -147,6 +147,65 @@ namespace DrinkIt.WebApp.Dao
             return pedido;
         }
 
+        public Pedido ConsultarPorIdSolicitacaoItens(int pedidoId)
+        {
+            try
+            {
+                Pedido pedido = new Pedido
+                {
+                    Id = pedidoId,
+                    Bebidas = new List<Bebida>(),
+                    Cliente = new Cliente(),
+                    ValorTotal = 0
+                };
+                int idSolicitacao = 0;
+
+                Sql.Append("select Id, IdCliente from SolicitacoesTroca WHERE IDPEDIDO = " + pedidoId);
+
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        idSolicitacao = Convert.ToInt32(reader["Id"]);
+                        pedido.Cliente.Id = Convert.ToInt32(reader["IdCliente"]);
+                    }
+                }
+
+                Sql.Clear();
+
+                Sql.Append("SELECT S.IdBebida, S.Qtde, B.Valor, P.MargemLucro FROM SOLICITACOESITENS S ");
+                Sql.Append("JOIN BEBIDAS B ON S.IDBEBIDA = B.Id ");
+                Sql.Append("JOIN TipoBebida T ON T.Id = B.TipoBebida ");
+                Sql.Append("JOIN Precificacao P ON T.IdPrecificacao = P.IdGrupo ");
+                Sql.Append("WHERE IDSOLICITACAO = " + idSolicitacao);
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    while (reader.Read())
+                    {
+                        Bebida b = new Bebida();
+                        b.Id = Convert.ToInt32(reader["IdBebida"]);
+                        b.Quantidade = Convert.ToInt32(reader["Qtde"]);
+                        b.Valor = Convert.ToDecimal(reader["Valor"]);
+                        b.MargemLucro = Convert.ToDecimal(reader["MargemLucro"]);
+                        pedido.Bebidas.Add(b);
+                    }
+                }
+
+                foreach(var item in pedido.Bebidas)
+                {
+                    item.ValorVenda = Math.Round(item.Valor + (item.MargemLucro / 100), 2);
+                    pedido.ValorTotal += item.ValorVenda * item.Quantidade;
+                }
+
+                return pedido;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
         public List<Pedido> ConsultarPorCliente(int idCliente)
         {
             List<Pedido> pedidos = new List<Pedido>();

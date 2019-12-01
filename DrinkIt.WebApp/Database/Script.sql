@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [drinkit]    Script Date: 18/11/2019 18:39:06 ******/
+/****** Object:  Database [drinkit]    Script Date: 01/12/2019 03:50:30 ******/
 CREATE DATABASE [drinkit]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -95,7 +95,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [drinkit]
 GO
-/****** Object:  Table [dbo].[Bebidas]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Bebidas]    Script Date: 01/12/2019 03:50:30 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -127,7 +127,7 @@ CREATE TABLE [dbo].[Bebidas](
 	[Categoria] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cartoes]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Cartoes]    Script Date: 01/12/2019 03:50:30 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -144,7 +144,7 @@ CREATE TABLE [dbo].[Cartoes](
 	[AnoValidade] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Categoria]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Categoria]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,7 +154,7 @@ CREATE TABLE [dbo].[Categoria](
 	[Descricao] [varchar](20) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Clientes]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,7 +172,7 @@ CREATE TABLE [dbo].[Clientes](
 	[Status] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cupons]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Cupons]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +187,7 @@ CREATE TABLE [dbo].[Cupons](
 	[Valor] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CuponsCliente]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[CuponsCliente]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -197,7 +197,7 @@ CREATE TABLE [dbo].[CuponsCliente](
 	[IdCupom] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Enderecos]    Script Date: 18/11/2019 18:39:07 ******/
+/****** Object:  Table [dbo].[Enderecos]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,7 +217,7 @@ CREATE TABLE [dbo].[Enderecos](
 	[Numero] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Estoque]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Estoque]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -227,7 +227,7 @@ CREATE TABLE [dbo].[Estoque](
 	[Qtde] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HistoricoEstoque]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[HistoricoEstoque]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -240,7 +240,7 @@ CREATE TABLE [dbo].[HistoricoEstoque](
 	[DtEntrada] [smalldatetime] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[InativacaoBebidas]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[InativacaoBebidas]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -253,7 +253,7 @@ CREATE TABLE [dbo].[InativacaoBebidas](
 	[Motivo] [varchar](150) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Ingredientes]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Ingredientes]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -264,7 +264,7 @@ CREATE TABLE [dbo].[Ingredientes](
 	[Descricao] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Notificacoes]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Notificacoes]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -275,7 +275,7 @@ CREATE TABLE [dbo].[Notificacoes](
 	[Descricao] [varchar](max) NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Pedidos]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Pedidos]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -295,7 +295,7 @@ CREATE TABLE [dbo].[Pedidos](
 	[Frete] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PedidosHistorico]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[PedidosHistorico]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -307,7 +307,7 @@ CREATE TABLE [dbo].[PedidosHistorico](
 	[DataAtualizacao] [smalldatetime] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PedidosItens]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[PedidosItens]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +319,7 @@ CREATE TABLE [dbo].[PedidosItens](
 	[Quantidade] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PedidosStatus]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[PedidosStatus]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -329,7 +329,7 @@ CREATE TABLE [dbo].[PedidosStatus](
 	[Descricao] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Precificacao]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Precificacao]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -340,7 +340,18 @@ CREATE TABLE [dbo].[Precificacao](
 	[MargemLucro] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SolicitacoesTroca]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[SolicitacoesItens]    Script Date: 01/12/2019 03:50:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SolicitacoesItens](
+	[IdSolicitacao] [int] NULL,
+	[IdBebida] [int] NULL,
+	[Qtde] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SolicitacoesTroca]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -360,7 +371,7 @@ CREATE TABLE [dbo].[SolicitacoesTroca](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Telefones]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[Telefones]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -373,7 +384,7 @@ CREATE TABLE [dbo].[Telefones](
 	[IdTipoTelefone] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoBebida]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[TipoBebida]    Script Date: 01/12/2019 03:50:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -384,7 +395,7 @@ CREATE TABLE [dbo].[TipoBebida](
 	[IdPrecificacao] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoCupom]    Script Date: 18/11/2019 18:39:08 ******/
+/****** Object:  Table [dbo].[TipoCupom]    Script Date: 01/12/2019 03:50:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

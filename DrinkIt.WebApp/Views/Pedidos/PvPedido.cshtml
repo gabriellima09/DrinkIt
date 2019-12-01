@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<DrinkIt.WebApp.Models.Pedido>
 @using DrinkIt.WebApp.Models;
+@using Newtonsoft.Json;
 
 @{
 
@@ -75,7 +76,7 @@ else
 
                             @if (usuario.Id != 0 && item.Status.OrderByDescending(x => x.DataAtualizacao).FirstOrDefault().Id == 12)
                             {
-                            <li><a id="solicitarTroca" class="btn btn-primary" href="#" onclick="$('#modalTrocaPedidos').modal('show');$('#hiddenPedidoid').val(@item.Id)">Solicitar Cupom de Troca</a></li>
+                                <li><a class="btn btn-primary btnSolicitarTroca" href="#" data-bebidas="@JsonConvert.SerializeObject(item.Bebidas)" data-dtpedido="@item.DataCadastro" data-idpedido="@item.Id">Solicitar Cupom de Troca</a></li>
                             }
                         </ul>
                     </div>
@@ -103,15 +104,15 @@ else
                                 @Html.DisplayNameFor(model => model.Id)
                             </dt>
 
-                            <dd>
+                            <dd id="ddIdPedido">
                                 @Html.DisplayFor(model => model.FirstOrDefault().Id)
                             </dd>
 
                             <dt>
-                                @Html.DisplayNameFor(model => model.DataCadastro)
+                                @Html.DisplayName("Data do Pedido")
                             </dt>
 
-                            <dd>
+                            <dd id="ddDataPedido">
                                 @Html.DisplayFor(model => model.FirstOrDefault().DataCadastro)
                             </dd>
 
@@ -120,7 +121,7 @@ else
                             </dt>
 
                             <dd>
-                                FINALIZADO
+                                Finalizado
                             </dd>
 
                             <dt>
@@ -134,23 +135,12 @@ else
 
                         <hr />
 
-                        <h4>Bebidas</h4>
-                        <dl class="dl-horizontal">
-                            @if (Model.Count() != 0 && Model != null)
-                            {
-                                foreach (var item in Model.FirstOrDefault().Bebidas)
-                                {
-                                    <dt>
-                                        @Html.DisplayName(item.Nome)
-                                    </dt>
+                        <h4>Bebidas a serem trocadas:</h4>
 
-                                    <dd>
-                                        @Html.DisplayFor(model => item.Nome)
-                                    </dd>
-                                }
-                            }
-
-                        </dl>
+                        <div id="lstBebidasPedidoPV">
+                           
+                        </div>
+                        
                     </div>
 
                     <hr />
@@ -158,12 +148,13 @@ else
                         <h5>
                             <label class="control-label">Informe o motivo da solicitação: <br /> (o motivo irá impactar na aprovação/reprovação da mesma)</label>
                         </h5>
-                        <textarea class="form-control" name="MotivoSolicitacao" cols="20" rows="5" placeholder="Digite o motivo da troca"></textarea>
-                        <input type="hidden" id="hiddenPedidoid" name="IdPedido" value="@Model." />
+                        <textarea class="form-control" id="txMotivoSolicitacao" name="MotivoSolicitacao" cols="20" rows="5" placeholder="Digite o motivo da troca"></textarea>
+                        <label id="msgErrorMotivo" style="color:red;display:none">Insira um motivo válido!</label>
+                        <input type="hidden" id="hiddenPedidoid" name="IdPedido" value="0" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btnSolicitarTroca" type="submit" class="btn btn-success">Solicitar Troca</button>
+                    <button id="btnSolicitarTroca" type="button" class="btn btn-success">Solicitar Troca</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                 </div>
             </form>

@@ -375,6 +375,7 @@
     <Content Include="Views\Estoque\PvHistoricoEstoque.cshtml" />
     <Content Include="Views\Telefones\Edit.cshtml" />
     <Content Include="Views\Pedidos\PedidosAprovarSaida.cshtml" />
+    <Content Include="Views\Pedidos\PvBebidasPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

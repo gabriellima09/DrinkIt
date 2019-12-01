@@ -1,6 +1,4 @@
-﻿
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     $('.btnExcluirTelefone').click(function () {
 
@@ -63,4 +61,59 @@ $(document).ready(function () {
             }
         }); 
     });
+
+    $('.btnSolicitarTroca').click(function () {
+        var idpedido = $(this).attr('data-idpedido');
+        var datapedido = $(this).attr('data-dtpedido');
+        var bebidas = $(this).attr('data-bebidas');
+
+        $('#ddIdPedido').html(idpedido);
+        $('#ddDataPedido').html(datapedido);
+        $('#hiddenPedidoid').val(idpedido);
+
+        $.ajax({
+            dataType: "html",
+            type: "POST",
+            url: "/Pedidos/PvBebidasPedido",
+            data: { bebidas: bebidas },
+            success: function (data) {
+                $("#lstBebidasPedidoPV").html(data);
+            }
+        });
+
+        $('#msgErrorMotivo').hide();
+        $('#modalTrocaPedidos').modal('show');
+        
+    });
+
+    $('#btnSolicitarTroca').click(function () {
+        var motivo = $('#txMotivoSolicitacao').val();
+        var OK = false;
+
+        $('.QtdeTroca').each(function () {
+            if ($(this).val() != 0) {
+                OK = true;
+            }
+        });
+
+        if (motivo != '') {
+            $('#msgErrorMotivo').hide();
+
+            if (OK) {
+                $('#msgErrorBebidas').hide();
+                $('#FormSolicitacao').submit();
+            } else {
+                $('#msgErrorBebidas').show();
+            }            
+        } else {
+            if (!OK) {
+                $('#msgErrorBebidas').show();
+            } else {
+                $('#msgErrorBebidas').hide();
+            }
+            $('#msgErrorMotivo').show();
+        }
+    });
+
+
 });

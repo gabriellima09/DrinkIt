@@ -31,16 +31,25 @@ namespace DrinkIt.WebApp.Controllers
 
         // POST: SolicitacoesTroca/Create
         [HttpPost]
-        public ActionResult Create(string MotivoSolicitacao, int IdPedido)
+        public ActionResult Create(string MotivoSolicitacao, int IdPedido, List<int> QtdeBebidas, List<int> IdBebidas)
         {
             try
             {
+                List<Bebida> Bebidas = new List<Bebida>();
+                for(int i = 0; i < QtdeBebidas.Count; i++)
+                {
+                    Bebida b = new Bebida();
+                    b.Id = IdBebidas[i];
+                    b.Quantidade = QtdeBebidas[i];
+                    Bebidas.Add(b);
+                }
+
                 SolicitacaoTrocaDao dao = new SolicitacaoTrocaDao();
                 // TODO: Add insert logic here
                 Usuario usuario = new Usuario();
                 usuario = (Usuario)Session["Usuario"] ?? new Usuario();
 
-                dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao);
+                dao.Cadastrar(usuario.Id, IdPedido, MotivoSolicitacao, Bebidas);
 
                 new ProcedimentoTrocaStatus().EmTroca(IdPedido);
 
@@ -138,7 +147,7 @@ namespace DrinkIt.WebApp.Controllers
 
                 new ProcedimentoTrocaStatus().TrocaAutorizada(pedidoId);
 
-                Pedido pedido = new PedidoDao().ConsultarPorId(pedidoId);
+                Pedido pedido = new PedidoDao().ConsultarPorIdSolicitacaoItens(pedidoId);
 
                 foreach (var item in pedido.Bebidas)
                 {
@@ -152,7 +161,7 @@ namespace DrinkIt.WebApp.Controllers
                     DataEmissao = DateTime.Now,
                     DataExpiracao = DateTime.Now.AddDays(7),
                     Descricao = string.Concat("TROCA", pedido.Id, DateTime.Now.ToString("yyyyMMddHHmmssfff")),
-                    IdTipo = 3,
+                    IdTipo = 2,
                     Status = true,
                     Valor = pedido.ValorTotal
                 };

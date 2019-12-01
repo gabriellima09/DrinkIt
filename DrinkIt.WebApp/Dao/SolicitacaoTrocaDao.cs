@@ -41,10 +41,39 @@ namespace DrinkIt.WebApp.Dao
             return lista;
         }
 
-        public void Cadastrar(int idCliente, int idPedido, string motivo)
+        public void Cadastrar(int idCliente, int idPedido, string motivo, List<Bebida> Bebidas)
         {
-            Sql.Append("INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('" + motivo + "', 0, " + idCliente + ", " + idPedido + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "');");
-            DbContext.ExecuteReader(Sql.ToString());
+            try
+            {
+                Sql.Append("INSERT INTO SOLICITACOESTROCA (DESCRICAO, STATUS, IDCLIENTE, IDPEDIDO, DATA) VALUES ('" + motivo + "', 0, " + idCliente + ", " + idPedido + ", '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "');");
+                DbContext.ExecuteReader(Sql.ToString());
+
+                Sql.Clear();
+
+                int LastInsertID = 0;
+
+                Sql.Append("SELECT MAX(ID) ID FROM SOLICITACOESTROCA");
+                using (var reader = DbContext.ExecuteReader(Sql.ToString()))
+                {
+                    if (reader.Read())
+                    {
+                        LastInsertID = Convert.ToInt32(reader["ID"]);
+                    }
+                }
+
+                foreach (var item in Bebidas)
+                {
+                    Sql.Clear();
+                    Sql.Append("INSERT INTO SOLICITACOESITENS VALUES (" + LastInsertID + ", " + item.Id + ", " + item.Quantidade + ");");
+                    DbContext.ExecuteReader(Sql.ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void Reprovar(int IdSolicitacao, string Motivo)
