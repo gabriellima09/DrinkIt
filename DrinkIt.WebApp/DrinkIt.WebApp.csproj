@@ -237,7 +237,6 @@
     <Compile Include="Strategy\ValidadorAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Artifacts\DAS2.docx" />
     <Content Include="Artifacts\Diagrams\Images\Controller.jpg" />
     <Content Include="Artifacts\Diagrams\Images\drinkit-architecture.jpg" />
     <Content Include="Artifacts\Diagrams\Images\fluxo-atividade-usuarios.jpg" />
@@ -267,14 +266,8 @@
     <Content Include="Artifacts\Diagrams\drinkit-architecture.drawio" />
     <Content Include="Artifacts\Diagrams\fluxo-atividade-usuarios.asta" />
     <Content Include="Artifacts\DRS_LES_2_2019.docx" />
-    <Content Include="Artifacts\Proposta Técnica Comercial - DrinkIt.docx" />
-    <Content Include="Artifacts\DVP.docx" />
     <Content Include="Logger\Nlog.config" />
-    <Content Include="Artifacts\DRS_-_V2.docx" />
-    <Content Include="Artifacts\Documentação do projeto.pptx" />
-    <Content Include="Artifacts\DAS.docx" />
     <Content Include="Artifacts\UC_FATEC.doc" />
-    <Content Include="Artifacts\UC_DRINKIT.doc" />
     <Content Include="Artifacts\Final-DAS.docx" />
     <Content Include="Artifacts\Final-Documentação do projeto.pptx" />
     <Content Include="Artifacts\Final-DRS_-_V2.docx" />
@@ -287,6 +280,7 @@
     <Content Include="Artifacts\LES-TG\lembrete-LES-TG-12-21-2018.DOCX" />
     <Content Include="Artifacts\LES-TG\Modelo-Template-TG-ADS.DOC" />
     <Content Include="Artifacts\LES-TG\Termo de Autorização TG-FATEC ADS-05-12-2015.doc" />
+    <Content Include="Artifacts\Apresentação TG - Drink-IT - Gabriel Lima - Gustavo da Rosa.pptx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Carrinho\Script_Carrinho.js" />
     <Content Include="Scripts\Clientes\Script_CreateClientes.js" />
