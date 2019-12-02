@@ -1,9 +1,24 @@
 ﻿@model DrinkIt.WebApp.Models.Carrinho
 
+@using DrinkIt.WebApp.Models;
+
 @{
     ViewBag.Title = "Meu carrinho";
     Dictionary<int, int> EstoqueBebidas = (Dictionary<int, int>)ViewBag.Estoque;
     string msgEstoque = ViewBag.MensagemHistorico;
+    List<Notificacao> notificacoes = ViewBag.Notificacoes ?? new List<Notificacao>();
+}
+
+@if (notificacoes != null && notificacoes.Any())
+{
+    foreach (var item in notificacoes)
+    {
+        <br />
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close deletarNotificacao" data-id="@item.Id" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @item.Descricao
+        </div>
+    }
 }
 
 <h2>Meu carrinho</h2>

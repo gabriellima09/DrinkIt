@@ -3,7 +3,9 @@ using DrinkIt.WebApp.Facade;
 using DrinkIt.WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,7 +13,7 @@ namespace DrinkIt.WebApp.Controllers
 {
     public class BebidasController : Controller
     {
-
+        private readonly int TIMEOUT = Convert.ToInt32(ConfigurationManager.AppSettings["TimeoutItensCarrinho"]);
         private readonly IDao<Bebida> Dao;
         private readonly IFachada<Bebida> Fachada;
         private readonly IBebida bebidaDao;
@@ -38,7 +40,20 @@ namespace DrinkIt.WebApp.Controllers
         // GET: Bebidas/Details/5
         public ActionResult Details(int id)
         {
-            return View(Fachada.ConsultarPorId(id));
+            Bebida bebida = Fachada.ConsultarPorId(id);
+
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
+
+            if (usuario.Carrinho != null
+                && usuario.Carrinho.Bebidas != null
+                && usuario.Carrinho.Bebidas.Any())
+            {
+                bebida.Quantidade -= usuario.Carrinho.Bebidas
+                                        .Where(x => x.Id == bebida.Id)
+                                        .Sum(x => x.Quantidade);
+            }
+
+            return View(bebida);
         }
 
         // GET: Bebidas/Create
