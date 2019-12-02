@@ -261,6 +261,13 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
         }
 
+        public void InserirDatas()
+        {
+            _driver.SetText(By.Name("Inicio"), "10/09/2019");
+            _driver.SetText(By.Name("Fim"), "31/12/2019");
+            _driver.FindElement(By.Id("btnPesquisar")).Click();
+        }
+
         public void SolicitarTroca()
         {
             _driver.FindElement(By.Id("opcoesPedidos")).Click();

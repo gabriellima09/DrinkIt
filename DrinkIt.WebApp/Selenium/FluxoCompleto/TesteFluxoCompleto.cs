@@ -28,7 +28,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.Esperar(3);
             tela.IrParaCheckout();
             tela.Checkout();
-            tela.Esperar(3);
+            tela.Esperar(5);
 
             tela.Logout();
             tela.LoginAdmin();
@@ -62,6 +62,12 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             tela.Esperar(3);
             tela.IrParaCheckout();
             tela.CheckoutComCupom(cupom);
+            tela.Esperar(3);
+            tela.Logout();
+
+            tela.LoginAdmin();
+            tela.Esperar(3);
+            tela.InserirDatas();
             tela.Esperar(6);
 
             tela.Fechar();
