@@ -167,7 +167,7 @@ namespace DrinkIt.WebApp.Dao
 
             Sql.Clear();
 
-            Sql.Append("SELECT B.*, P.MargemLucro FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo WHERE B.Id = " + id);
+            Sql.Append("SELECT B.*, P.MargemLucro, E.Qtde FROM BEBIDAS B LEFT JOIN TIPOBEBIDA T ON B.Tipobebida = T.Id LEFT JOIN PRECIFICACAO P ON T.IdPrecificacao = P.IdGrupo LEFT JOIN Estoque E ON B.Id = E.IdBebida WHERE B.Id = " + id);
 
             using (var reader = DbContext.ExecuteReader(Sql.ToString()))
             {
@@ -175,6 +175,7 @@ namespace DrinkIt.WebApp.Dao
                 {
                     bebida = ObterEntidadeReader(reader);
                     bebida.MargemLucro = Convert.ToDecimal(reader["MargemLucro"]);
+                    bebida.Quantidade = Convert.ToInt32(reader["Qtde"]);
                 }
             }
 

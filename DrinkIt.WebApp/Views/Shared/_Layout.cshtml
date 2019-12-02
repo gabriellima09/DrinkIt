@@ -49,5 +49,25 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/all")
     @RenderSection("scripts", required: false)
+
+    <script>
+        setInterval(() => GerenciarPedidos(), 5000);
+
+        function GerenciarPedidos() {
+            
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("VerificaTempoBloqueio", "Carrinho")',
+                data: $("#FormPedido").serialize(),
+                dataType: 'html',
+                beforeSend: function () {
+                },
+                success: function (response) {
+                    
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>

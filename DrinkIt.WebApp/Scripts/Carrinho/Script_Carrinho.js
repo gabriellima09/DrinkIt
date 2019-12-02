@@ -14,6 +14,19 @@ $(".Quantidade").change(function () {
 
 });
 
+$('.deletarNotificacao').click(function () {
+    var id = $(this).attr('data-id');
+
+    $.ajax({
+        dataType: "json",
+        method: 'POST',
+        url: "/Clientes/RemoverNotificacao/",
+        data: { 'idNotificacao': id },
+        complete: function (data) {
+
+        }
+    });
+});
 
 function VerificaValores() {
 

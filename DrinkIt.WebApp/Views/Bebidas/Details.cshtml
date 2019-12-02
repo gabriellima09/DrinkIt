@@ -103,7 +103,14 @@
 
                 if (usuario != null)
                 {
-                    <button type="submit" class="btn btn-success" id="btnAddCarrinho"><span class="glyphicon glyphicon-shopping-cart"></span>  Adicionar ao Carrinho</button>
+                    if (Model.Quantidade > 0)
+                    {
+                        <button type="submit" class="btn btn-success" id="btnAddCarrinho"><span class="glyphicon glyphicon-shopping-cart"></span>Adicionar ao Carrinho</button>
+                    }
+                    else
+                    {
+                        <span class="alert-danger">ESGOTADO</span>
+                    }
                 }
                 else
                 {
@@ -144,9 +151,6 @@
 <div>
     @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
 </div>
-
-@*@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")*@
 
 @section Scripts{
     <script src="~/Scripts/Bebidas/Details.js"></script>
