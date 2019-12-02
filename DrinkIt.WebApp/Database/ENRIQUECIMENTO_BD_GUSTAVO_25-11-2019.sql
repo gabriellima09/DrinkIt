@@ -1,5 +1,30 @@
-USE [drinkit]
-GO
+USE [drinkit];
+
+
+TRUNCATE TABLE Bebidas;
+TRUNCATE TABLE Cartoes;
+TRUNCATE TABLE Categoria;
+TRUNCATE TABLE Clientes;
+TRUNCATE TABLE Cupons;
+TRUNCATE TABLE CuponsCliente;
+TRUNCATE TABLE Enderecos;
+TRUNCATE TABLE Estoque;
+TRUNCATE TABLE HistoricoEstoque;
+TRUNCATE TABLE InativacaoBebidas;
+TRUNCATE TABLE Ingredientes;
+TRUNCATE TABLE Notificacoes;
+TRUNCATE TABLE Pedidos;
+TRUNCATE TABLE PedidosHistorico;
+TRUNCATE TABLE PedidosItens;
+TRUNCATE TABLE PedidosStatus;
+TRUNCATE TABLE Precificacao;
+TRUNCATE TABLE SolicitacoesTroca;
+TRUNCATE TABLE SolicitacoesItens;
+TRUNCATE TABLE Telefones;
+TRUNCATE TABLE TipoBebida;
+TRUNCATE TABLE TipoCupom;
+
+
 SET IDENTITY_INSERT [dbo].[Bebidas] ON 
 
 INSERT [dbo].[Bebidas] ([Id], [Nome], [Descricao], [TipoBebida], [Marca], [Valor], [Volume], [Peso], [Sabor], [Lote], [DataFabricacao], [DataValidade], [Fabricante], [Embalagem], [CodigoBarras], [Alcoolico], [Teor], [Gaseificada], [ContemGluten], [DicaConservacao], [Status], [CaminhoImagem], [DtCadastro], [Categoria]) VALUES (1, N'Bebida Teste', N'Descricao Teste', 1, N'Marca Teste', CAST(27.99 AS Decimal(18, 2)), N'2 Litros', N'500 gramas', N'Sabor teste', N'Lote Teste', CAST(N'2019-10-14T00:00:00' AS SmallDateTime), CAST(N'2019-10-14T00:00:00' AS SmallDateTime), N'Fabricante Teste', N'Lata', N'0123456789', 0, CAST(10 AS Decimal(18, 0)), 0, 0, N'Dica Teste', 1, N'20191104153731075.jpg', CAST(N'2019-11-10T00:00:00' AS SmallDateTime), 1)
@@ -27,10 +52,10 @@ INSERT [dbo].[Categoria] ([Id], [Descricao]) VALUES (2, N'Fora de Mercado')
 SET IDENTITY_INSERT [dbo].[Categoria] OFF
 SET IDENTITY_INSERT [dbo].[Clientes] ON 
 
-INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (1, N'Usuário Teste', N'Masculino', N'32314434900', NULL, CAST(N'2019-10-14T00:00:00' AS SmallDateTime), N'teste@teste.com', N'teste', N'7580a8e9a8d691d98f48b57062cd820f', 1)
-INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (2, N'Renato Santos', N'Lagartixa', N'45097235800', NULL, CAST(N'1996-10-30T00:00:00' AS SmallDateTime), N'renatosng5@gmail.com', N'InsecticidePls', N'a1ba23812155b8ae956ea8d479b25608', 1)
-INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (2003, N'Teste 2', N'Helicóptero de Ataque', N'32314434900', NULL, CAST(N'2019-11-17T00:00:00' AS SmallDateTime), N'teste2@teste.com', N'TESTE2', N'7580a8e9a8d691d98f48b57062cd820f', 1)
-INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (3003, N'Teste 3', N'Masculino', N'32314434900', NULL, CAST(N'1998-07-10T00:00:00' AS SmallDateTime), N'teste3@teste.com', N'teste3', N'7580a8e9a8d691d98f48b57062cd820f', 1)
+INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (1, N'Usuário Teste', N'Masculino', N'32314434900', NULL, CAST(N'2019-10-14T00:00:00' AS SmallDateTime), N'teste@teste.com', N'teste', N'202cb962ac59075b964b07152d234b70', 1)
+INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (2, N'Renato Santos', N'Lagartixa', N'45097235800', NULL, CAST(N'1996-10-30T00:00:00' AS SmallDateTime), N'renatosng5@gmail.com', N'InsecticidePls', N'202cb962ac59075b964b07152d234b70', 1)
+INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (2003, N'Teste 2', N'Helicóptero de Ataque', N'32314434900', NULL, CAST(N'2019-11-17T00:00:00' AS SmallDateTime), N'teste2@teste.com', N'TESTE2', N'202cb962ac59075b964b07152d234b70', 1)
+INSERT [dbo].[Clientes] ([Id], [Nome], [Genero], [Cpf], [Telefone], [DataNascimento], [Email], [Login], [Senha], [Status]) VALUES (3003, N'Teste 3', N'Masculino', N'32314434900', NULL, CAST(N'1998-07-10T00:00:00' AS SmallDateTime), N'teste3@teste.com', N'teste3', N'202cb962ac59075b964b07152d234b70', 1) 
 SET IDENTITY_INSERT [dbo].[Clientes] OFF
 SET IDENTITY_INSERT [dbo].[Cupons] ON 
 
@@ -281,7 +306,7 @@ INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5188, 3019, 2, CAST(N'2019-11-18T16:37:00' AS SmallDateTime))
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5189, 3019, 4, CAST(N'2019-11-18T16:38:00' AS SmallDateTime))
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5194, 3020, 2, CAST(N'2019-11-18T17:16:00' AS SmallDateTime))
-GO
+
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5196, 3021, 2, CAST(N'2019-11-18T17:24:00' AS SmallDateTime))
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5201, 3022, 1, CAST(N'2019-11-18T17:28:00' AS SmallDateTime))
 INSERT [dbo].[PedidosHistorico] ([Id], [IdPedido], [IdStatus], [DataAtualizacao]) VALUES (5208, 3023, 2, CAST(N'2019-11-18T17:51:00' AS SmallDateTime))

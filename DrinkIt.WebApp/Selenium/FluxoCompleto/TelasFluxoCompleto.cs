@@ -223,6 +223,7 @@ namespace DrinkIt.WebApp.Selenium.FluxoCompleto
             _driver.Wait1();
 
             _driver.FindElement(By.Id("btnFinalizarPedido")).Click();
+            _driver.Wait1();
         }
 
         public void CheckoutComCupom(string cupom)

@@ -131,10 +131,12 @@ namespace DrinkIt.WebApp.Controllers
 
         public ActionResult FinalizarPedido(Pedido pedido)//idcartao1 e idenderecoentrega
         {
+            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
             try
             {
-                pedido.IdCliente = ((Usuario)Session["Usuario"])?.Id ?? 0;
-                pedido.Bebidas = ((Usuario)Session["Usuario"])?.Carrinho.Bebidas ?? new List<Bebida>();
+                
+                pedido.IdCliente = usuario?.Id ?? 0;
+                pedido.Bebidas = usuario?.Carrinho.Bebidas ?? new List<Bebida>();
 
                 new PedidoDao().Cadastrar(pedido);
 
@@ -158,7 +160,7 @@ namespace DrinkIt.WebApp.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            Usuario usuario = (Usuario)Session["Usuario"] ?? new Usuario();
+            
 
             usuario.Carrinho.Bebidas.Clear();
 
