@@ -19,7 +19,8 @@ namespace DrinkIt.WebApp.Factory
                 {
                     new ClienteStrategy(),
                     new CpfStrategy(), 
-                    new SenhaStrategy()
+                    new SenhaStrategy(),
+                    new IdadeClienteStrategy()
                 };
             }
 

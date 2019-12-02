@@ -51,12 +51,16 @@
                     <label class="control-label">Fim</label>
                     <input id="Fim" name="Fim" class="form-control" type="date" />
                 </div>
-
+                <div>
+                    <label style="color:red;display:none;padding-left:1%" id="msgErrorDatasAnalise">Insira datas início/fim válidas!</label>
+                </div>
                 <button id="btnPesquisar" type="button" class="btn btn-primary form-group" style="margin-top:15px">
                     <span class="glyphicon glyphicon-search"></span>
                     <span>Pesquisar</span>
                 </button>
+
             </div>
+            
 
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
@@ -64,17 +68,25 @@
             <script>
                 $(document).ready(function () {
                     $("#btnPesquisar").click(function () {
-                        $.ajax({
-                            dataType: "html",
-                            method: 'POST',
-                            url: "/Dashboard/GetGraficoVendas/",
-                            data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
-                            complete: function (data) {
-                                $("#divScriptGraficoVendas").html(data.responseText);
+                        var startDt = document.getElementById("Inicio").value;
+                        var endDt = document.getElementById("Fim").value;
 
-                            }
-                        });
+                        if ((new Date(startDt).getTime() < new Date(endDt).getTime())) {
+                            $('#msgErrorDatasAnalise').hide();
 
+                            $.ajax({
+                                dataType: "html",
+                                method: 'POST',
+                                url: "/Dashboard/GetGraficoVendas/",
+                                data: { 'inicio': $("#Inicio").val(), 'fim': $("#Fim").val() },
+                                complete: function (data) {
+                                    $("#divScriptGraficoVendas").html(data.responseText);
+
+                                }
+                            });
+                        } else {
+                            $('#msgErrorDatasAnalise').show();
+                        }
                         //$.ajax({
                         //    dataType: "html",
                         //    method: 'POST',
@@ -99,8 +111,8 @@
             </div>
 
             @*<div class="col-lg-6" id="divOutroGrafico">
-                    @Html.Action("PvScriptGraficoPizza", "Dashboard")
-                </div>*@
+            @Html.Action("PvScriptGraficoPizza", "Dashboard")
+        </div>*@
         </div>
     </div>
 
