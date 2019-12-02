@@ -8,6 +8,8 @@ namespace DrinkIt.WebApp.Controllers
 {
     public class CarrinhoController : Controller
     {
+        //verificar sessão com itens reservados
+
         // GET: Carrinho
         public ActionResult Index(int i = 0)
         {
